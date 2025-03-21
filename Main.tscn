@@ -1,7 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://drtjxkow13kwr"]
+[gd_scene load_steps=3 format=3 uid="uid://drtjxkow13kwr"]
 
 [ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="1_6lhni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dafn7"]
+size = Vector2(234, 104)
 
 [node name="Main" type="Node2D"]
 
 [node name="Oliver" parent="." instance=ExtResource("1_6lhni")]
+position = Vector2(558, 238)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(447, 377)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(107, 42)
+shape = SubResource("RectangleShape2D_dafn7")
