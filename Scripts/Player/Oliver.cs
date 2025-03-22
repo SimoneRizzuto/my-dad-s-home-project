@@ -5,41 +5,33 @@ using MyFathersHomeProject.Scripts.Shared.Constants;
 public partial class Oliver : CharacterBody2D
 {
     private int Gravity => ProjectSettings.GetSetting("physics/2d/default_gravity").ToString().ToInt();
+    private int JumpVelocity => -200;
     private bool MoveLeft => Input.IsActionPressed(InputMapAction.MoveLeft);
     private bool MoveRight => Input.IsActionPressed(InputMapAction.MoveRight);
+    private bool Jump => Input.IsActionPressed(InputMapAction.Jump);
     
     public override void _PhysicsProcess(double delta)
     {
         if (!IsOnFloor())
         {
-            Velocity += new Vector2(Velocity.X, Gravity * (float)delta);
-            Console.WriteLine(Velocity);
+            Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * (float)delta);
+        }
+        else if (IsOnFloor() && Jump)
+        {
+            Velocity = new Vector2(Velocity.X, JumpVelocity);
         }
         else
         {
             OnMove(delta);
         }
         
-        
-        
         MoveAndSlide();
     }
 
-    public void OnMove(double delta)
+    private void OnMove(double delta)
     {
-        var movementVector = Vector2.Zero;
-        
-        if (MoveLeft)
-        {
-            movementVector = Vector2.Left;
-        }
-        else if (MoveRight)
-        {
-            movementVector = Vector2.Right;
-        }
-
-        var calculatedVelocity = movementVector * Movement.MoveSpeed;
-        Velocity = calculatedVelocity * (float)delta;
-        
+        var direction = Input.GetAxis(InputMapAction.MoveLeft, InputMapAction.MoveRight);
+        var movementVector = new Vector2(direction * Movement.MoveSpeed, Velocity.Y);
+        Velocity = movementVector * (float)delta;
     }
 }
