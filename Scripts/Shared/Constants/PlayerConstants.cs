@@ -8,5 +8,5 @@ public static class InputMapAction
 
 public static class Movement
 {
-    public const int MoveSpeed = 10000;
+    public const int MoveSpeed = 2500;
 }

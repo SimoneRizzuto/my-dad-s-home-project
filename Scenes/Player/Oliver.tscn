@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bggt6ckifdcow"]
+[gd_scene load_steps=11 format=3 uid="uid://bggt6ckifdcow"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Oliver.cs" id="1_vpp82"]
 [ext_resource type="Texture2D" uid="uid://b4543kpwabahc" path="res://Assets/Textures/oliver jump animation-Sheet-Sheet.png" id="2_g4gcs"]
 [ext_resource type="Texture2D" uid="uid://4uxhvocfmqch" path="res://Assets/Textures/oliver idle animation-Sheet.png" id="2_jxa6b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3paqx"]
-size = Vector2(50, 79)
+size = Vector2(13, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lfmu8"]
 atlas = ExtResource("2_jxa6b")
@@ -15,21 +15,17 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("2_jxa6b")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u7hut"]
-atlas = ExtResource("2_g4gcs")
-region = Rect2(0, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_bgp8e"]
 atlas = ExtResource("2_g4gcs")
 region = Rect2(32, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7hut"]
+atlas = ExtResource("2_g4gcs")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ga3jg"]
 atlas = ExtResource("2_g4gcs")
 region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ol70u"]
-atlas = ExtResource("2_g4gcs")
-region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aqi8e"]
 animations = [{
@@ -51,23 +47,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u7hut")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_bgp8e")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ga3jg")
+"texture": SubResource("AtlasTexture_u7hut")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ol70u")
+"texture": SubResource("AtlasTexture_ga3jg")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump left",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [],
-"loop": true,
+"loop": false,
 "name": &"jump right",
 "speed": 5.0
 }, {
@@ -86,11 +79,10 @@ animations = [{
 script = ExtResource("1_vpp82")
 
 [node name="MainShape" type="CollisionShape2D" parent="."]
-position = Vector2(0, -39.5)
+position = Vector2(0.5, -9)
 shape = SubResource("RectangleShape2D_3paqx")
 
 [node name="MainSprites" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_aqi8e")
-animation = &"idle left"
-frame_progress = 0.0202172
+animation = &"jump left"
