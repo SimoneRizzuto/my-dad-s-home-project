@@ -49,12 +49,12 @@ public partial class Oliver : CharacterBody2D
         else if (movementVector.X > 0) lastDirection = Direction.Left;
         
         Velocity = movementVector * (float)delta;
+        var lastDirectionString = Enum.GetName(lastDirection)?.ToLower();
         
         if (movementVector.X != 0)
         {
             //MainSprites.Play($"walk left"); // this should be walk, placeholder code for now
-            
-            //MainSprites.Play($"idle left");
+            MainSprites.Play($"walk {lastDirectionString}");
         }
         else
         {

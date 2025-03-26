@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bggt6ckifdcow"]
+[gd_scene load_steps=16 format=3 uid="uid://bggt6ckifdcow"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Oliver.cs" id="1_vpp82"]
 [ext_resource type="Texture2D" uid="uid://b4543kpwabahc" path="res://Assets/Textures/oliver jump animation-Sheet-Sheet.png" id="2_g4gcs"]
 [ext_resource type="Texture2D" uid="uid://4uxhvocfmqch" path="res://Assets/Textures/oliver idle animation-Sheet.png" id="2_jxa6b"]
+[ext_resource type="Texture2D" uid="uid://kouy7pub0174" path="res://Assets/Textures/oliver walk left animation-Sheet.png" id="4_acgb8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3paqx"]
 size = Vector2(13, 18)
@@ -26,6 +27,22 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ga3jg"]
 atlas = ExtResource("2_g4gcs")
 region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxqh4"]
+atlas = ExtResource("4_acgb8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tot7t"]
+atlas = ExtResource("4_acgb8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2amlb"]
+atlas = ExtResource("4_acgb8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjshm"]
+atlas = ExtResource("4_acgb8")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aqi8e"]
 animations = [{
@@ -64,7 +81,19 @@ animations = [{
 "name": &"jump right",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxqh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tot7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2amlb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjshm")
+}],
 "loop": true,
 "name": &"walk left",
 "speed": 5.0
@@ -85,4 +114,4 @@ shape = SubResource("RectangleShape2D_3paqx")
 [node name="MainSprites" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_aqi8e")
-animation = &"jump left"
+animation = &"walk left"
