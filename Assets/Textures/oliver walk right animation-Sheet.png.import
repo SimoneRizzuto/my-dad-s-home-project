@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7n230pnwoiaj"
-path="res://.godot/imported/oliver walk left animation-Sheet.png-a2b478e79de5712379b8d794ab70dcce.ctex"
+uid="uid://cqp8jgdm0dmyf"
+path="res://.godot/imported/oliver walk right animation-Sheet.png-98d6ab4e2365c1527b3d261b96b2e93b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/oliver walk left animation-Sheet.png"
-dest_files=["res://.godot/imported/oliver walk left animation-Sheet.png-a2b478e79de5712379b8d794ab70dcce.ctex"]
+source_file="res://Assets/Textures/oliver walk right animation-Sheet.png"
+dest_files=["res://.godot/imported/oliver walk right animation-Sheet.png-98d6ab4e2365c1527b3d261b96b2e93b.ctex"]
 
 [params]
 

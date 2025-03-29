@@ -1,66 +1,102 @@
-[gd_scene load_steps=16 format=3 uid="uid://bggt6ckifdcow"]
+[gd_scene load_steps=24 format=3 uid="uid://bggt6ckifdcow"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Oliver.cs" id="1_vpp82"]
-[ext_resource type="Texture2D" uid="uid://b4543kpwabahc" path="res://Assets/Textures/oliver jump animation-Sheet-Sheet.png" id="2_g4gcs"]
-[ext_resource type="Texture2D" uid="uid://4uxhvocfmqch" path="res://Assets/Textures/oliver idle animation-Sheet.png" id="2_jxa6b"]
-[ext_resource type="Texture2D" uid="uid://kouy7pub0174" path="res://Assets/Textures/oliver walk left animation-Sheet.png" id="4_acgb8"]
+[ext_resource type="Texture2D" uid="uid://dps0vqk0017i6" path="res://Assets/Textures/oliver idle left animation-Sheet.png" id="2_jxa6b"]
+[ext_resource type="Texture2D" uid="uid://dccyo17gqxuw2" path="res://Assets/Textures/oliver idle right animation-Sheet.png" id="3_exx5k"]
+[ext_resource type="Texture2D" uid="uid://cqp8jgdm0dmyf" path="res://Assets/Textures/oliver walk right animation-Sheet.png" id="5_xw50k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3paqx"]
 size = Vector2(13, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lfmu8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5tkr"]
 atlas = ExtResource("2_jxa6b")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_daeyq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_whn7h"]
 atlas = ExtResource("2_jxa6b")
 region = Rect2(32, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_s03gw"]
+atlas = ExtResource("3_exx5k")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf4ul"]
+atlas = ExtResource("3_exx5k")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_76aqx"]
+load_path = "res://.godot/imported/oliver jump left animation-Sheet.png-40eb6b74f69726cb96e134a478ef60b0.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_bgp8e"]
-atlas = ExtResource("2_g4gcs")
+atlas = SubResource("CompressedTexture2D_76aqx")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u7hut"]
-atlas = ExtResource("2_g4gcs")
+atlas = SubResource("CompressedTexture2D_76aqx")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ga3jg"]
-atlas = ExtResource("2_g4gcs")
+atlas = SubResource("CompressedTexture2D_76aqx")
 region = Rect2(64, 0, 32, 32)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iiqrp"]
+load_path = "res://.godot/imported/oliver walk left animation-Sheet.png-a2b478e79de5712379b8d794ab70dcce.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_vxqh4"]
-atlas = ExtResource("4_acgb8")
+atlas = SubResource("CompressedTexture2D_iiqrp")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tot7t"]
-atlas = ExtResource("4_acgb8")
+atlas = SubResource("CompressedTexture2D_iiqrp")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2amlb"]
-atlas = ExtResource("4_acgb8")
+atlas = SubResource("CompressedTexture2D_iiqrp")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rjshm"]
-atlas = ExtResource("4_acgb8")
+atlas = SubResource("CompressedTexture2D_iiqrp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcxv2"]
+atlas = ExtResource("5_xw50k")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j85a"]
+atlas = ExtResource("5_xw50k")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5ujf"]
+atlas = ExtResource("5_xw50k")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kohtk"]
+atlas = ExtResource("5_xw50k")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aqi8e"]
 animations = [{
 "frames": [{
 "duration": 16.0,
-"texture": SubResource("AtlasTexture_lfmu8")
+"texture": SubResource("AtlasTexture_s5tkr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_daeyq")
+"texture": SubResource("AtlasTexture_whn7h")
 }],
 "loop": true,
 "name": &"idle left",
 "speed": 8.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 16.0,
+"texture": SubResource("AtlasTexture_s03gw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf4ul")
+}],
 "loop": true,
 "name": &"idle right",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -79,7 +115,7 @@ animations = [{
 "frames": [],
 "loop": false,
 "name": &"jump right",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -98,7 +134,19 @@ animations = [{
 "name": &"walk left",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcxv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j85a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5ujf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kohtk")
+}],
 "loop": true,
 "name": &"walk right",
 "speed": 5.0
@@ -114,4 +162,4 @@ shape = SubResource("RectangleShape2D_3paqx")
 [node name="MainSprites" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_aqi8e")
-animation = &"walk left"
+animation = &"idle left"

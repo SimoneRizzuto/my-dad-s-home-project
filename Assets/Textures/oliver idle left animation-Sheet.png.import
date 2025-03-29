@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4543kpwabahc"
-path="res://.godot/imported/oliver jump animation-Sheet-Sheet.png-82d3fdaba87b49ebe11b6d3ec8984e62.ctex"
+uid="uid://dps0vqk0017i6"
+path="res://.godot/imported/oliver idle left animation-Sheet.png-1aadcea8ab208ddf0dfa28151ed381b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/oliver jump animation-Sheet-Sheet.png"
-dest_files=["res://.godot/imported/oliver jump animation-Sheet-Sheet.png-82d3fdaba87b49ebe11b6d3ec8984e62.ctex"]
+source_file="res://Assets/Textures/oliver idle left animation-Sheet.png"
+dest_files=["res://.godot/imported/oliver idle left animation-Sheet.png-1aadcea8ab208ddf0dfa28151ed381b3.ctex"]
 
 [params]
 

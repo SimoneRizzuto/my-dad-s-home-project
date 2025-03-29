@@ -12,6 +12,7 @@ public partial class Oliver : CharacterBody2D
     private bool Jump => Input.IsActionPressed(InputMapAction.Jump);
     private bool IsJumping => IsOnFloor() && Jump;
     private AnimatedSprite2D MainSprites => GetNode<AnimatedSprite2D>("MainSprites");
+    private string LastDirectionString => Enum.GetName(lastDirection)?.ToLower();
     
     private Direction lastDirection = Direction.Left;
 
@@ -46,27 +47,26 @@ public partial class Oliver : CharacterBody2D
         var movementVector = new Vector2(direction * Movement.MoveSpeed, Velocity.Y);
         
         if (movementVector.X < 0) lastDirection = Direction.Left;
-        else if (movementVector.X > 0) lastDirection = Direction.Left;
+        else if (movementVector.X > 0) lastDirection = Direction.Right;
         
         Velocity = movementVector * (float)delta;
-        var lastDirectionString = Enum.GetName(lastDirection)?.ToLower();
         
         if (movementVector.X != 0)
         {
-            //MainSprites.Play($"walk left"); // this should be walk, placeholder code for now
-            MainSprites.Play($"walk {lastDirectionString}");
+            MainSprites.Play($"walk {LastDirectionString}");
         }
         else
         {
-            //MainSprites.Play($"idle left");
+            MainSprites.Play($"idle {LastDirectionString}");
         }
+        
+        Console.WriteLine(LastDirectionString);
     }
     
     private void OnJump()
     {
-        var lastDirectionString = Enum.GetName(lastDirection)?.ToLower();
         MainSprites.SetFrameAndProgress(0, 0);
-        MainSprites.Play($"jump {lastDirectionString}");
+        MainSprites.Play($"jump {LastDirectionString}");
     }
     
     // signals
@@ -74,7 +74,7 @@ public partial class Oliver : CharacterBody2D
     {
         if (MainSprites.Animation.ToString().Contains("jump"))
         {
-            MainSprites.Play($"idle left");
+            MainSprites.Play($"idle {LastDirectionString}");
             Console.WriteLine("finished jumping");
         }
     }
