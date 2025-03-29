@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dccyo17gqxuw2"
-path="res://.godot/imported/oliver idle right animation-Sheet.png-0976a8577543d17cfa0aff27402e8055.ctex"
+uid="uid://dnd3ds03qm187"
+path="res://.godot/imported/oliver jump left animation-Sheet.png-bf6a2e9154b06033395078159f50b189.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/oliver idle right animation-Sheet.png"
-dest_files=["res://.godot/imported/oliver idle right animation-Sheet.png-0976a8577543d17cfa0aff27402e8055.ctex"]
+source_file="res://Assets/Textures/Oliver/oliver jump left animation-Sheet.png"
+dest_files=["res://.godot/imported/oliver jump left animation-Sheet.png-bf6a2e9154b06033395078159f50b189.ctex"]
 
 [params]
 

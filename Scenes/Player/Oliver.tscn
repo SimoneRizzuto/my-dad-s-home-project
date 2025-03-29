@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://bggt6ckifdcow"]
+[gd_scene load_steps=26 format=3 uid="uid://bggt6ckifdcow"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Oliver.cs" id="1_vpp82"]
-[ext_resource type="Texture2D" uid="uid://dps0vqk0017i6" path="res://Assets/Textures/oliver idle left animation-Sheet.png" id="2_jxa6b"]
-[ext_resource type="Texture2D" uid="uid://dccyo17gqxuw2" path="res://Assets/Textures/oliver idle right animation-Sheet.png" id="3_exx5k"]
-[ext_resource type="Texture2D" uid="uid://cqp8jgdm0dmyf" path="res://Assets/Textures/oliver walk right animation-Sheet.png" id="5_xw50k"]
+[ext_resource type="Texture2D" uid="uid://dps0vqk0017i6" path="res://Assets/Textures/Oliver/oliver idle left animation-Sheet.png" id="2_jxa6b"]
+[ext_resource type="Texture2D" uid="uid://dccyo17gqxuw2" path="res://Assets/Textures/Oliver/oliver idle right animation-Sheet.png" id="3_exx5k"]
+[ext_resource type="Texture2D" uid="uid://dhr3a3hilhbmw" path="res://Assets/Textures/Oliver/oliver jump right animation-Sheet.png" id="4_d2ue8"]
+[ext_resource type="Texture2D" uid="uid://cqp8jgdm0dmyf" path="res://Assets/Textures/Oliver/oliver walk right animation-Sheet.png" id="5_xw50k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3paqx"]
 size = Vector2(13, 18)
@@ -27,16 +28,20 @@ region = Rect2(32, 0, 32, 32)
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_76aqx"]
 load_path = "res://.godot/imported/oliver jump left animation-Sheet.png-40eb6b74f69726cb96e134a478ef60b0.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bgp8e"]
-atlas = SubResource("CompressedTexture2D_76aqx")
-region = Rect2(32, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_u7hut"]
 atlas = SubResource("CompressedTexture2D_76aqx")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ga3jg"]
 atlas = SubResource("CompressedTexture2D_76aqx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggk1f"]
+atlas = ExtResource("4_d2ue8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe6b6"]
+atlas = ExtResource("4_d2ue8")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iiqrp"]
@@ -99,23 +104,26 @@ animations = [{
 "speed": 8.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bgp8e")
-}, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_u7hut")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_ga3jg")
 }],
 "loop": false,
 "name": &"jump left",
-"speed": 8.0
+"speed": 10.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ggk1f")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_qe6b6")
+}],
 "loop": false,
 "name": &"jump right",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -162,4 +170,4 @@ shape = SubResource("RectangleShape2D_3paqx")
 [node name="MainSprites" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_aqi8e")
-animation = &"idle left"
+animation = &"jump left"
