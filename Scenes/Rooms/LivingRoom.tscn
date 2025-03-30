@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh7otdjt77r8m"]
+
+[ext_resource type="Texture2D" uid="uid://i10d657iytts" path="res://Assets/Textures/Environments/living-room-foreground-wall.png" id="1_a5bcu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_std5u"]
+size = Vector2(547, 4)
+
+[node name="LivingRoom" type="Node2D"]
+
+[node name="Living-room-foreground-wall" type="Sprite2D" parent="."]
+texture = ExtResource("1_a5bcu")
+centered = false
+
+[node name="GroundStaticBody2D" type="StaticBody2D" parent="Living-room-foreground-wall"]
+position = Vector2(0, 75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Living-room-foreground-wall/GroundStaticBody2D"]
+position = Vector2(273.5, 2)
+shape = SubResource("RectangleShape2D_std5u")
