@@ -7,13 +7,19 @@ size = Vector2(547, 4)
 
 [node name="LivingRoom" type="Node2D"]
 
-[node name="Living-room-foreground-wall" type="Sprite2D" parent="."]
+[node name="BackgroundWall" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(13.6751, 1.97494)
+color = Color(0.827451, 0.592157, 0.254902, 1)
+
+[node name="ForegroundWall" type="Sprite2D" parent="."]
 texture = ExtResource("1_a5bcu")
 centered = false
 
-[node name="GroundStaticBody2D" type="StaticBody2D" parent="Living-room-foreground-wall"]
+[node name="GroundStaticBody2D" type="StaticBody2D" parent="ForegroundWall"]
 position = Vector2(0, 75)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Living-room-foreground-wall/GroundStaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForegroundWall/GroundStaticBody2D"]
 position = Vector2(273.5, 2)
 shape = SubResource("RectangleShape2D_std5u")
