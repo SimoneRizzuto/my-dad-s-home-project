@@ -168,3 +168,7 @@ shape = SubResource("RectangleShape2D_3paqx")
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_aqi8e")
 animation = &"idle left"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
