@@ -64,8 +64,6 @@ public partial class Oliver : CharacterBody2D
         {
             MainSprites.Play($"idle {LastDirectionString}");
         }
-        
-        //Console.WriteLine(LastDirectionString);
     }
     
     private void OnJump()
@@ -80,7 +78,6 @@ public partial class Oliver : CharacterBody2D
         if (MainSprites.Animation.ToString().Contains("jump"))
         {
             MainSprites.Play($"idle {LastDirectionString}");
-            //Console.WriteLine("finished jumping");
         }
     }
 }
