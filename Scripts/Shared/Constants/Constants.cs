@@ -7,3 +7,8 @@ public enum Direction
     Down = 3,
     None = 4,
 }
+
+public static class NodeGroup
+{
+    public const string Oliver = "oliver";
+}
