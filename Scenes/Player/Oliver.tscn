@@ -156,7 +156,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Oliver" type="CharacterBody2D"]
+[node name="Oliver" type="CharacterBody2D" groups=["oliver"]]
 z_index = 100
 script = ExtResource("1_vpp82")
 

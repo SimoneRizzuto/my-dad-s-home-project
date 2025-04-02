@@ -38,6 +38,11 @@ public partial class Oliver : CharacterBody2D
         }
         
         MoveAndSlide();
+        
+        var positionX = (float)Math.Round(Position.X * 4, MidpointRounding.ToEven) / 4; // rounds to nearest decimal quarter
+        var positionY = Position.Y;
+        
+        Position = new(positionX, positionY);
     }
     
     private void OnMove(double delta)
@@ -59,8 +64,6 @@ public partial class Oliver : CharacterBody2D
         {
             MainSprites.Play($"idle {LastDirectionString}");
         }
-        
-        Console.WriteLine(LastDirectionString);
     }
     
     private void OnJump()
@@ -75,7 +78,6 @@ public partial class Oliver : CharacterBody2D
         if (MainSprites.Animation.ToString().Contains("jump"))
         {
             MainSprites.Play($"idle {LastDirectionString}");
-            Console.WriteLine("finished jumping");
         }
     }
 }

@@ -11,13 +11,15 @@ size = Vector2(547, 4)
 
 [node name="BackgroundWall" type="ColorRect" parent="."]
 z_index = 10
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 240.0
+offset_top = 7.0
+offset_right = 262.0
+offset_bottom = 42.0
 scale = Vector2(13.6751, 1.97494)
 color = Color(0.827451, 0.592157, 0.254902, 1)
 
 [node name="OrangeDoor" type="Sprite2D" parent="BackgroundWall"]
-position = Vector2(34.4422, 16.203)
+position = Vector2(16.8921, 12.6586)
 scale = Vector2(0.0731256, 0.506344)
 texture = ExtResource("1_60vnj")
 centered = false
