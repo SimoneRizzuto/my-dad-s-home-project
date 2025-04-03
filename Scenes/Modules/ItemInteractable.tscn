@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi55cbp3h4sta"]
+
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/ItemInteractable.cs" id="1_n2fv1"]
+
+[node name="ItemInteractable" type="Node"]
+script = ExtResource("1_n2fv1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
