@@ -20,11 +20,6 @@ public partial class ItemInteractable : Node2D, IInteractable
     {
         var tree = GetTree();
         oliver = GetNodeHelper.GetOliver(tree);
-
-        if (TriggerMode == TriggerMode.Collision)
-        {
-            
-        }
     }
 
     public void Interact()
