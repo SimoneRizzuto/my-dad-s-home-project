@@ -19,28 +19,37 @@ public partial class PlayerCamera : Camera2D
     
     public override void _Process(double delta)
     {
-        if (Input.IsActionPressed(InputMapAction.Debug1))
+        if (Input.IsActionJustPressed(InputMapAction.Debug1))
         {
-            Mount(new(1, 1));
+            switch (_isMounted)
+            {
+                case false: Mount(new(200, GlobalPosition.Y));
+                    break;
+                case true: Unmount();
+                    break;
+            }
         }
         
-        if (_isMounted)
+        if (!_isMounted)
         {
             SetPositionOnOliver();
         }
         
         PositionSmoothingEnabled = true;
-        PositionSmoothingSpeed = 8;
     }
     
     private void SetPositionOnOliver()
     {
         GlobalPosition = new(OliverXPosition, GlobalPosition.Y);
+        
+        PositionSmoothingSpeed = 8;
     }
     
     private void Mount(Vector2 position)
     {
         GlobalPosition = position;
+        
+        PositionSmoothingSpeed = 7;
         _isMounted = true;
     }
     
