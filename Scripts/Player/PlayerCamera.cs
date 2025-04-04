@@ -6,10 +6,12 @@ using MyFathersHomeProject.Scripts.Shared.Constants;
 namespace MyFathersHomeProject.Scripts.Player;
 public partial class PlayerCamera : Camera2D
 {
+    private const int Height = 55;
+
     private Oliver Oliver => GetNodeHelper.GetOliver(GetTree());
     private float OliverXPosition => (float)Math.Round(Oliver.Position.X);
 
-    private bool _isMounted;
+    private bool isMounted;
     
     public override void _Ready()
     {
@@ -21,7 +23,7 @@ public partial class PlayerCamera : Camera2D
     {
         if (Input.IsActionJustPressed(InputMapAction.Debug1))
         {
-            switch (_isMounted)
+            switch (isMounted)
             {
                 case false: Mount(new(200, GlobalPosition.Y));
                     break;
@@ -30,7 +32,7 @@ public partial class PlayerCamera : Camera2D
             }
         }
         
-        if (!_isMounted)
+        if (!isMounted)
         {
             SetPositionOnOliver();
         }
@@ -40,7 +42,7 @@ public partial class PlayerCamera : Camera2D
     
     private void SetPositionOnOliver()
     {
-        GlobalPosition = new(OliverXPosition, GlobalPosition.Y);
+        GlobalPosition = new(OliverXPosition, Height);
         
         PositionSmoothingSpeed = 8;
     }
@@ -50,11 +52,11 @@ public partial class PlayerCamera : Camera2D
         GlobalPosition = position;
         
         PositionSmoothingSpeed = 7;
-        _isMounted = true;
+        isMounted = true;
     }
     
     private void Unmount()
     {
-        _isMounted = false;
+        isMounted = false;
     }
 }
