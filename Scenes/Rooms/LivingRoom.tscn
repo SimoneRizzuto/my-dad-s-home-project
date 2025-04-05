@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bh7otdjt77r8m"]
+[gd_scene load_steps=8 format=3 uid="uid://bh7otdjt77r8m"]
 
 [ext_resource type="Texture2D" uid="uid://c04vcdhv4omev" path="res://Assets/Textures/StaticObjects/orange-door.png" id="1_60vnj"]
 [ext_resource type="Texture2D" uid="uid://i10d657iytts" path="res://Assets/Textures/Environments/living-room-foreground-wall.png" id="1_a5bcu"]
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="1_njjkm"]
 [ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="2_7l723"]
 [ext_resource type="Texture2D" uid="uid://cy45xr6a4gny5" path="res://Assets/Textures/StaticObjects/cofano-painting.png" id="3_loxe5"]
+[ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="6_ly1f4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_std5u"]
 size = Vector2(547, 4)
@@ -58,10 +59,19 @@ position = Vector2(387, 7)
 texture = ExtResource("3_loxe5")
 centered = false
 
-[node name="GroundStaticBody2D" type="StaticBody2D" parent="ForegroundWall"]
+[node name="Wall+Floor" type="Node2D" parent="ForegroundWall"]
+
+[node name="Wall-Right" parent="ForegroundWall/Wall+Floor" instance=ExtResource("6_ly1f4")]
+position = Vector2(545, 75)
+scale = Vector2(1.002, 0.9)
+
+[node name="Wall-Left" parent="ForegroundWall/Wall+Floor" instance=ExtResource("6_ly1f4")]
+position = Vector2(2, 75)
+
+[node name="Floor" type="StaticBody2D" parent="ForegroundWall/Wall+Floor"]
 position = Vector2(0, 75)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ForegroundWall/GroundStaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForegroundWall/Wall+Floor/Floor"]
 position = Vector2(273.5, 2)
 shape = SubResource("RectangleShape2D_std5u")
 
