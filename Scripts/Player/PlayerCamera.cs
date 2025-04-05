@@ -27,7 +27,7 @@ public partial class PlayerCamera : Camera2D
             {
                 case false: Mount(new(200, GlobalPosition.Y));
                     break;
-                case true: Unmount();
+                case true: Dismount();
                     break;
             }
         }
@@ -55,7 +55,7 @@ public partial class PlayerCamera : Camera2D
         isMounted = true;
     }
     
-    private void Unmount()
+    private void Dismount()
     {
         isMounted = false;
     }
