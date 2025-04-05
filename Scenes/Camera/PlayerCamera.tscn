@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Camera/PlayerCamera.cs" id="1_sijow"]
 
-[node name="PlayerCamera" type="Camera2D"]
+[node name="PlayerCamera" type="Camera2D" groups=["player camera"]]
 position = Vector2(0, 55)
 limit_left = -80
 limit_top = -120
