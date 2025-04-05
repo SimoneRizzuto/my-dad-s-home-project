@@ -14,23 +14,22 @@ size = Vector2(547, 4)
 
 [node name="Tripods" type="Node2D" parent="."]
 
-[node name="TripodDismounter" parent="Tripods" instance=ExtResource("2_7l723")]
+[node name="Couch" type="Node2D" parent="Tripods"]
+
+[node name="CouchMount" type="Marker2D" parent="Tripods/Couch"]
+z_index = 4096
+position = Vector2(344, 75)
+
+[node name="Dismounter" parent="Tripods/Couch" instance=ExtResource("2_7l723")]
 position = Vector2(249, 65)
 
-[node name="CouchMounter-1" parent="Tripods" instance=ExtResource("1_njjkm")]
+[node name="Mounter1" parent="Tripods/Couch" node_paths=PackedStringArray("MountPosition") instance=ExtResource("1_njjkm")]
 position = Vector2(432, 66)
+MountPosition = NodePath("../CouchMount")
 
-[node name="MountPosition" parent="Tripods/CouchMounter-1" index="0"]
-position = Vector2(-88, 9)
-
-[node name="CouchMounter-2" parent="Tripods" instance=ExtResource("1_njjkm")]
-position = Vector2(288, 66)
-
-[node name="MountPosition" parent="Tripods/CouchMounter-2" index="0"]
-position = Vector2(56, 9)
-
-[node name="Trigger" parent="Tripods/CouchMounter-2" index="1"]
-position = Vector2(20, -32)
+[node name="Mounter2" parent="Tripods/Couch" node_paths=PackedStringArray("MountPosition") instance=ExtResource("1_njjkm")]
+position = Vector2(314, 66)
+MountPosition = NodePath("../CouchMount")
 
 [node name="BackgroundWall" type="ColorRect" parent="."]
 z_index = 10
@@ -73,6 +72,3 @@ position = Vector2(0, 75)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ForegroundWall/Wall+Floor/Floor"]
 position = Vector2(273.5, 2)
 shape = SubResource("RectangleShape2D_std5u")
-
-[editable path="Tripods/CouchMounter-1"]
-[editable path="Tripods/CouchMounter-2"]
