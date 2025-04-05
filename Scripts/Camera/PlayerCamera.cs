@@ -47,7 +47,7 @@ public partial class PlayerCamera : Camera2D
         PositionSmoothingSpeed = 8;
     }
     
-    private void Mount(Vector2 position)
+    public void Mount(Vector2 position)
     {
         GlobalPosition = position;
         
@@ -55,7 +55,7 @@ public partial class PlayerCamera : Camera2D
         isMounted = true;
     }
     
-    private void Dismount()
+    public void Dismount()
     {
         isMounted = false;
     }
