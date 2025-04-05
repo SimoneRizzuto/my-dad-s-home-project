@@ -16,7 +16,7 @@ public partial class TripodMounter : Area2D
     {
         if (body is Oliver)
         {
-            PlayerCamera.Mount(MountPosition.Position);
+            PlayerCamera.Mount(new(MountPosition.GlobalPosition.X, PlayerCamera.Height));
         }
     }
 }
