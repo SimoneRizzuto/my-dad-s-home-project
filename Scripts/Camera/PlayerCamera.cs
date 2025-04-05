@@ -3,7 +3,7 @@ using System;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
-namespace MyFathersHomeProject.Scripts.Player;
+namespace MyFathersHomeProject.Scripts.Camera;
 public partial class PlayerCamera : Camera2D
 {
     private const int Height = 55;
