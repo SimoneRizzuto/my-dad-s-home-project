@@ -21,17 +21,6 @@ public partial class PlayerCamera : Camera2D
     
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed(InputMapAction.Debug1))
-        {
-            switch (isMounted)
-            {
-                case false: Mount(new(200, GlobalPosition.Y));
-                    break;
-                case true: Dismount();
-                    break;
-            }
-        }
-        
         if (!isMounted)
         {
             SetPositionOnOliver();
