@@ -9,9 +9,6 @@ size = Vector2(20, 82)
 z_index = 4096
 script = ExtResource("1_61qhr")
 
-[node name="MountPosition" type="Marker2D" parent="."]
-z_index = 4096
-
 [node name="Trigger" type="CollisionShape2D" parent="."]
 position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_5btow")

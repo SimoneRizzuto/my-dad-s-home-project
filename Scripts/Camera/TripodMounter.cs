@@ -4,8 +4,8 @@ using MyFathersHomeProject.Scripts.Shared.Helpers;
 namespace MyFathersHomeProject.Scripts.Camera;
 public partial class TripodMounter : Area2D
 {
+    [Export] public Marker2D MountPosition;
     private PlayerCamera PlayerCamera => GetNodeHelper.GetPlayerCamera(GetTree());
-    private Marker2D MountPosition => GetNode<Marker2D>("MountPosition");
     
     public override void _Ready()
     {
