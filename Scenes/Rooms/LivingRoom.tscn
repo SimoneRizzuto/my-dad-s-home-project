@@ -1,11 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh7otdjt77r8m"]
+[gd_scene load_steps=11 format=3 uid="uid://bh7otdjt77r8m"]
 
 [ext_resource type="Texture2D" uid="uid://c04vcdhv4omev" path="res://Assets/Textures/StaticObjects/orange-door.png" id="1_60vnj"]
 [ext_resource type="Texture2D" uid="uid://i10d657iytts" path="res://Assets/Textures/Environments/living-room-foreground-wall.png" id="1_a5bcu"]
-[ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="1_njjkm"]
-[ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="2_7l723"]
-[ext_resource type="Texture2D" uid="uid://cy45xr6a4gny5" path="res://Assets/Textures/StaticObjects/cofano-painting.png" id="3_loxe5"]
+[ext_resource type="PackedScene" path="res://Scenes/Camera/TripodMount.tscn" id="1_njjkm"]
+[ext_resource type="PackedScene" path="res://Scenes/Camera/TripodDismounter.tscn" id="2_7l723"]
+[ext_resource type="Texture2D" uid="uid://bosivm32etxdc" path="res://Assets/Textures/StaticObjects/cofano-portrait.png" id="5_20dyk"]
+[ext_resource type="Texture2D" uid="uid://dlquv7ogqic57" path="res://Assets/Textures/StaticObjects/mother-snow-portrait.png" id="6_d66rx"]
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="6_ly1f4"]
+[ext_resource type="Texture2D" uid="uid://ccjfebmsmglj7" path="res://Assets/Textures/StaticObjects/beach-portrait.png" id="7_qsquy"]
+[ext_resource type="Texture2D" uid="uid://bq11mfcafcpeq" path="res://Assets/Textures/StaticObjects/oliver-sport-portrait.png" id="8_0debt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_std5u"]
 size = Vector2(547, 4)
@@ -51,11 +54,25 @@ z_index = 1000
 texture = ExtResource("1_a5bcu")
 centered = false
 
-[node name="Paintings" type="Node2D" parent="ForegroundWall"]
+[node name="Portraits" type="Node2D" parent="ForegroundWall"]
 
-[node name="CofanoPainting" type="Sprite2D" parent="ForegroundWall/Paintings"]
-position = Vector2(387, 7)
-texture = ExtResource("3_loxe5")
+[node name="Cofano-portrait" type="Sprite2D" parent="ForegroundWall/Portraits"]
+position = Vector2(404, 14)
+texture = ExtResource("5_20dyk")
+
+[node name="Mother-snow-portrait" type="Sprite2D" parent="ForegroundWall/Portraits"]
+position = Vector2(359, 32)
+texture = ExtResource("6_d66rx")
+centered = false
+
+[node name="Beach-portrait" type="Sprite2D" parent="ForegroundWall/Portraits"]
+position = Vector2(314, 32)
+texture = ExtResource("7_qsquy")
+centered = false
+
+[node name="Oliver-sport-portrait" type="Sprite2D" parent="ForegroundWall/Portraits"]
+position = Vector2(346, 32)
+texture = ExtResource("8_0debt")
 centered = false
 
 [node name="Wall+Floor" type="Node2D" parent="ForegroundWall"]
