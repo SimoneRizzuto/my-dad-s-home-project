@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bh7otdjt77r8m"]
+[gd_scene load_steps=25 format=3 uid="uid://bh7otdjt77r8m"]
 
 [ext_resource type="Texture2D" uid="uid://c04vcdhv4omev" path="res://Assets/Textures/StaticObjects/orange-door.png" id="1_60vnj"]
 [ext_resource type="Texture2D" uid="uid://i10d657iytts" path="res://Assets/Textures/Environments/living-room-foreground-wall.png" id="1_a5bcu"]
@@ -9,6 +9,20 @@
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="6_ly1f4"]
 [ext_resource type="Texture2D" uid="uid://ccjfebmsmglj7" path="res://Assets/Textures/StaticObjects/beach-portrait.png" id="7_qsquy"]
 [ext_resource type="Texture2D" uid="uid://bq11mfcafcpeq" path="res://Assets/Textures/StaticObjects/oliver-sport-portrait.png" id="8_0debt"]
+[ext_resource type="Texture2D" uid="uid://bosgju300i31u" path="res://Assets/Textures/StaticObjects/hanging-light.png" id="9_wgxyc"]
+[ext_resource type="Texture2D" uid="uid://csn23kdwlcxvl" path="res://Assets/Textures/StaticObjects/couch-footrest.png" id="10_gjx2g"]
+[ext_resource type="Texture2D" uid="uid://cr5ylc13urebe" path="res://Assets/Textures/StaticObjects/couch.png" id="10_hdrsp"]
+[ext_resource type="Texture2D" uid="uid://cptodeh5cre5o" path="res://Assets/Textures/StaticObjects/fridge.png" id="12_5yton"]
+[ext_resource type="Texture2D" uid="uid://dr2vykhnh8hfl" path="res://Assets/Textures/StaticObjects/tv.png" id="12_6qxn2"]
+[ext_resource type="Texture2D" uid="uid://clmu60lrf5142" path="res://Assets/Textures/StaticObjects/stove.png" id="13_knjys"]
+[ext_resource type="Texture2D" uid="uid://c1p1a0p2udlyd" path="res://Assets/Textures/StaticObjects/kitchen-wall-tiles.png" id="13_rpf6e"]
+[ext_resource type="Texture2D" uid="uid://cqbi0hxg3pfcg" path="res://Assets/Textures/StaticObjects/cabinet-high.png" id="13_v07l2"]
+[ext_resource type="Texture2D" uid="uid://euqpwcvt5hus" path="res://Assets/Textures/StaticObjects/kitchen-sink.png" id="16_0cc4e"]
+[ext_resource type="Texture2D" uid="uid://b7dgjt5ygh5rx" path="res://Assets/Textures/StaticObjects/kitchen-bin.png" id="17_uocss"]
+[ext_resource type="Texture2D" uid="uid://bct7whlcf7min" path="res://Assets/Textures/StaticObjects/dining-table.png" id="18_ovga7"]
+[ext_resource type="Texture2D" uid="uid://dyfk5h50vukxo" path="res://Assets/Textures/StaticObjects/plate-holder.png" id="19_hmg70"]
+[ext_resource type="Texture2D" uid="uid://fugm0uhvliv7" path="res://Assets/Textures/StaticObjects/cabinet-dining-room.png" id="20_cmb5b"]
+[ext_resource type="Texture2D" uid="uid://0igud66o8lc0" path="res://Assets/Textures/StaticObjects/spin-chair.png" id="21_ic2s8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_std5u"]
 size = Vector2(547, 4)
@@ -54,25 +68,104 @@ z_index = 1000
 texture = ExtResource("1_a5bcu")
 centered = false
 
-[node name="Portraits" type="Node2D" parent="ForegroundWall"]
+[node name="LivingRoom" type="Node2D" parent="ForegroundWall"]
 
-[node name="Cofano-portrait" type="Sprite2D" parent="ForegroundWall/Portraits"]
+[node name="Portraits" type="Node2D" parent="ForegroundWall/LivingRoom"]
+
+[node name="Cofano-portrait" type="Sprite2D" parent="ForegroundWall/LivingRoom/Portraits"]
 position = Vector2(404, 14)
 texture = ExtResource("5_20dyk")
 
-[node name="Mother-snow-portrait" type="Sprite2D" parent="ForegroundWall/Portraits"]
+[node name="Mother-snow-portrait" type="Sprite2D" parent="ForegroundWall/LivingRoom/Portraits"]
 position = Vector2(359, 32)
 texture = ExtResource("6_d66rx")
 centered = false
 
-[node name="Beach-portrait" type="Sprite2D" parent="ForegroundWall/Portraits"]
+[node name="Beach-portrait" type="Sprite2D" parent="ForegroundWall/LivingRoom/Portraits"]
 position = Vector2(314, 32)
 texture = ExtResource("7_qsquy")
 centered = false
 
-[node name="Oliver-sport-portrait" type="Sprite2D" parent="ForegroundWall/Portraits"]
+[node name="Oliver-sport-portrait" type="Sprite2D" parent="ForegroundWall/LivingRoom/Portraits"]
 position = Vector2(346, 32)
 texture = ExtResource("8_0debt")
+centered = false
+
+[node name="Hanging-light" type="Sprite2D" parent="ForegroundWall/LivingRoom"]
+position = Vector2(373, 1)
+texture = ExtResource("9_wgxyc")
+centered = false
+
+[node name="Couch" type="Sprite2D" parent="ForegroundWall/LivingRoom"]
+position = Vector2(311, 53)
+texture = ExtResource("10_hdrsp")
+centered = false
+
+[node name="Couch-footrest" type="Sprite2D" parent="ForegroundWall/LivingRoom"]
+position = Vector2(382, 71)
+texture = ExtResource("10_gjx2g")
+centered = false
+
+[node name="Tv" type="Sprite2D" parent="ForegroundWall/LivingRoom"]
+position = Vector2(420, 48)
+texture = ExtResource("12_6qxn2")
+centered = false
+
+[node name="Kitchen" type="Node2D" parent="ForegroundWall"]
+
+[node name="Fridge" type="Sprite2D" parent="ForegroundWall/Kitchen"]
+position = Vector2(225, 40)
+texture = ExtResource("12_5yton")
+centered = false
+
+[node name="Cabinet-high" type="Sprite2D" parent="ForegroundWall/Kitchen"]
+position = Vector2(202, 27)
+texture = ExtResource("13_v07l2")
+centered = false
+
+[node name="Kitchen-wall-tiles" type="Sprite2D" parent="ForegroundWall/Kitchen"]
+position = Vector2(202, 41)
+texture = ExtResource("13_rpf6e")
+centered = false
+
+[node name="Stove" type="Sprite2D" parent="ForegroundWall/Kitchen"]
+position = Vector2(202, 57)
+texture = ExtResource("13_knjys")
+centered = false
+
+[node name="Kitchen-sink" type="Sprite2D" parent="ForegroundWall/Kitchen"]
+position = Vector2(158, 54)
+texture = ExtResource("16_0cc4e")
+centered = false
+
+[node name="Kitchen-bin" type="Sprite2D" parent="ForegroundWall/Kitchen"]
+position = Vector2(194, 62)
+texture = ExtResource("17_uocss")
+centered = false
+
+[node name="Dining-table" type="Sprite2D" parent="ForegroundWall/Kitchen"]
+position = Vector2(56, 54)
+texture = ExtResource("18_ovga7")
+centered = false
+
+[node name="Hanging-light" type="Sprite2D" parent="ForegroundWall/Kitchen"]
+position = Vector2(76, 1)
+texture = ExtResource("9_wgxyc")
+centered = false
+
+[node name="Plate-holder" type="Sprite2D" parent="ForegroundWall/Kitchen"]
+position = Vector2(16, 37)
+texture = ExtResource("19_hmg70")
+centered = false
+
+[node name="Cabinet-dining-room" type="Sprite2D" parent="ForegroundWall/Kitchen"]
+position = Vector2(15, 60)
+texture = ExtResource("20_cmb5b")
+centered = false
+
+[node name="Spin-chair" type="Sprite2D" parent="ForegroundWall/Kitchen"]
+position = Vector2(6, 63)
+texture = ExtResource("21_ic2s8")
 centered = false
 
 [node name="Wall+Floor" type="Node2D" parent="ForegroundWall"]
