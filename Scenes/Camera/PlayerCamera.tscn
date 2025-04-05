@@ -4,7 +4,4 @@
 
 [node name="PlayerCamera" type="Camera2D" groups=["player camera"]]
 position = Vector2(0, 55)
-limit_left = -80
-limit_top = -120
-limit_right = 1000
 script = ExtResource("1_sijow")
