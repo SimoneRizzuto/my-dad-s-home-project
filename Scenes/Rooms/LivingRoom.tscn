@@ -63,7 +63,6 @@ centered = false
 
 [node name="Wall-Right" parent="ForegroundWall/Wall+Floor" instance=ExtResource("6_ly1f4")]
 position = Vector2(545, 75)
-scale = Vector2(1.002, 0.9)
 
 [node name="Wall-Left" parent="ForegroundWall/Wall+Floor" instance=ExtResource("6_ly1f4")]
 position = Vector2(2, 75)
