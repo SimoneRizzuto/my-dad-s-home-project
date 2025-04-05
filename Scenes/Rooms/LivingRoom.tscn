@@ -29,7 +29,7 @@ position = Vector2(288, 66)
 position = Vector2(56, 9)
 
 [node name="Trigger" parent="Tripods/CouchMounter-2" index="1"]
-position = Vector2(26, -32)
+position = Vector2(20, -32)
 
 [node name="BackgroundWall" type="ColorRect" parent="."]
 z_index = 10
