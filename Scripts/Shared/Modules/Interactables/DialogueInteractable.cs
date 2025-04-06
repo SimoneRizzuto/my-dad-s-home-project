@@ -1,4 +1,4 @@
-using DialogueManagerRuntime;
+using System;
 using Godot;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 
@@ -18,19 +18,6 @@ public partial class DialogueInteractable : ItemInteractable
 
     public void Interact()
     {
-        if (oliver.GetStateMachine().IsInteracting) return;
-        
-        DialogueManager.ShowDialogueBalloon(DialogueScript, DialogueStartString);
-        DialogueManager.DialogueEnded += SetupGameplayAfterDialogueEnded;
-
-        oliver.ToggleInteracting(true);
-    }
-
-    private void SetupGameplayAfterDialogueEnded(Resource dialogueResource)
-    {
-        oliver.SetPlayerState(PlayerState.Idle);
-        oliver.ToggleInteracting(false);
-        
-        DialogueManager.DialogueEnded -= SetupGameplayAfterDialogueEnded;
+        throw new NotImplementedException();
     }
 }

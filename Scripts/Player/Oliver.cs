@@ -14,6 +14,8 @@ public partial class Oliver : CharacterBody2D
     private AnimatedSprite2D MainSprites => GetNode<AnimatedSprite2D>("MainSprites");
     private string LastDirectionString => Enum.GetName(lastDirection)?.ToLower();
     
+    private bool IsInteracting = false;
+    
     private Direction lastDirection = Direction.Left;
 
     public override void _Ready()
