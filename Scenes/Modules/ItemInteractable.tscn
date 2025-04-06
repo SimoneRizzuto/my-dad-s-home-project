@@ -8,3 +8,6 @@ script = ExtResource("1_n2fv1")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[connection signal="body_entered" from="Area2D" to="." method="OnArea2dBodyEntered"]
+[connection signal="body_exited" from="Area2D" to="." method="OnArea2dBodyExited"]

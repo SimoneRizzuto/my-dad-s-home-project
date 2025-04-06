@@ -1,6 +1,6 @@
-using System;
 using Godot;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
+using MyFathersHomeProject.Scripts.Shared.Signals;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
 public partial class DialogueInteractable : ItemInteractable
@@ -18,6 +18,6 @@ public partial class DialogueInteractable : ItemInteractable
 
     public void Interact()
     {
-        throw new NotImplementedException();
+        EmitSignal(nameof(CustomSignals.Triggered));
     }
 }
