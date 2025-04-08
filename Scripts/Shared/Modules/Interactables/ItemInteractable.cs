@@ -14,7 +14,7 @@ public enum TriggerMode
 }
 public partial class ItemInteractable : Node2D, IInteractable
 {
-    
+    [Signal] public delegate void TriggeredEventHandler();
     [Export] public TriggerMode TriggerMode;
 
     private Oliver oliver = new();
@@ -67,9 +67,7 @@ public partial class ItemInteractable : Node2D, IInteractable
 
     public void Interact()
     {
-        
-        EmitSignal(nameof(CustomSignals.Triggered));
-        
+        EmitSignal(nameof(Triggered));
     }
 
 }
