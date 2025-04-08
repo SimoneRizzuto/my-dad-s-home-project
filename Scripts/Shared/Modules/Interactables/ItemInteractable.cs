@@ -1,3 +1,4 @@
+using System;
 using Godot;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
@@ -45,7 +46,7 @@ public partial class ItemInteractable : Area2D, IInteractable
         }
     }
     
-    public void Interact()
+    public virtual void Interact()
     {
         EmitSignal(nameof(Triggered));
     }
