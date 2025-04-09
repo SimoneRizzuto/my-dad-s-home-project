@@ -9,7 +9,6 @@ public partial class PlayerCamera : Camera2D
     public const int Height = 55;
 
     private Oliver Oliver => GetNodeHelper.GetOliver(GetTree());
-    private float OliverXPosition => (float)Math.Round(Oliver.Position.X);
 
     private bool isMounted;
     
@@ -31,9 +30,14 @@ public partial class PlayerCamera : Camera2D
     
     private void SetPositionOnOliver()
     {
-        GlobalPosition = new(OliverXPosition, Height);
+        GlobalPosition = new(Oliver.Position.X, Height);
         
         PositionSmoothingSpeed = 8;
+        
+        if (Oliver.Velocity == Vector2.Zero)
+        {
+            PositionSmoothingSpeed = 10;
+        }
     }
     
     public void Mount(Vector2 position)
