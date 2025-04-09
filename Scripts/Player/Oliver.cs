@@ -37,12 +37,12 @@ public partial class Oliver : CharacterBody2D
             OnMove(delta);
         }
         
-        MoveAndSlide();
-        
         var positionX = (float)Math.Round(Position.X * 4, MidpointRounding.ToEven) / 4; // rounds to nearest decimal quarter
         var positionY = Position.Y;
         
         Position = new(positionX, positionY);
+        
+        MoveAndSlide(); // moved this, try at home
     }
     
     private void OnMove(double delta)
