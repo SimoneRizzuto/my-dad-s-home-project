@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://bh7otdjt77r8m"]
+[gd_scene load_steps=26 format=3 uid="uid://bh7otdjt77r8m"]
 
 [ext_resource type="Texture2D" uid="uid://c04vcdhv4omev" path="res://Assets/Textures/StaticObjects/orange-door.png" id="1_60vnj"]
 [ext_resource type="Texture2D" uid="uid://i10d657iytts" path="res://Assets/Textures/Environments/living-room-foreground-wall.png" id="1_a5bcu"]
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="1_njjkm"]
 [ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="2_7l723"]
+[ext_resource type="PackedScene" uid="uid://1q3qlo8wd64c" path="res://Scenes/Tools/ZIndexModifier/ZIndexModifier.tscn" id="3_c7aby"]
 [ext_resource type="Texture2D" uid="uid://bosivm32etxdc" path="res://Assets/Textures/StaticObjects/cofano-portrait.png" id="5_20dyk"]
 [ext_resource type="Texture2D" uid="uid://dlquv7ogqic57" path="res://Assets/Textures/StaticObjects/mother-snow-portrait.png" id="6_d66rx"]
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="6_ly1f4"]
@@ -47,6 +48,20 @@ MountPosition = NodePath("../CouchMount")
 [node name="Mounter2" parent="Tripods/Couch" node_paths=PackedStringArray("MountPosition") instance=ExtResource("1_njjkm")]
 position = Vector2(314, 66)
 MountPosition = NodePath("../CouchMount")
+
+[node name="ZIndexModifiers" type="Node2D" parent="."]
+
+[node name="MoveToBackground1" parent="ZIndexModifiers" instance=ExtResource("3_c7aby")]
+position = Vector2(388, 75)
+ZIndex = 15
+
+[node name="MoveToBackground2" parent="ZIndexModifiers" instance=ExtResource("3_c7aby")]
+position = Vector2(293, 75)
+ZIndex = 15
+
+[node name="MoveToForeground" parent="ZIndexModifiers" instance=ExtResource("3_c7aby")]
+position = Vector2(264, 75)
+ZIndex = 2000
 
 [node name="BackgroundWall" type="ColorRect" parent="."]
 z_index = 10
@@ -183,3 +198,4 @@ position = Vector2(0, 75)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ForegroundWall/Wall+Floor/Floor"]
 position = Vector2(273.5, 2)
 shape = SubResource("RectangleShape2D_std5u")
+debug_color = Color(0, 0.0235294, 0.701961, 0.419608)
