@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://c04vcdhv4omev" path="res://Assets/Textures/StaticObjects/orange-door.png" id="1_60vnj"]
 [ext_resource type="Texture2D" uid="uid://i10d657iytts" path="res://Assets/Textures/Environments/living-room-foreground-wall.png" id="1_a5bcu"]
-[ext_resource type="PackedScene" path="res://Scenes/Camera/TripodMount.tscn" id="1_njjkm"]
-[ext_resource type="PackedScene" path="res://Scenes/Camera/TripodDismounter.tscn" id="2_7l723"]
+[ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="1_njjkm"]
+[ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="2_7l723"]
 [ext_resource type="Texture2D" uid="uid://bosivm32etxdc" path="res://Assets/Textures/StaticObjects/cofano-portrait.png" id="5_20dyk"]
 [ext_resource type="Texture2D" uid="uid://dlquv7ogqic57" path="res://Assets/Textures/StaticObjects/mother-snow-portrait.png" id="6_d66rx"]
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="6_ly1f4"]
@@ -73,8 +73,9 @@ centered = false
 [node name="Portraits" type="Node2D" parent="ForegroundWall/LivingRoom"]
 
 [node name="Cofano-portrait" type="Sprite2D" parent="ForegroundWall/LivingRoom/Portraits"]
-position = Vector2(404, 14)
+position = Vector2(386, 7)
 texture = ExtResource("5_20dyk")
+centered = false
 
 [node name="Mother-snow-portrait" type="Sprite2D" parent="ForegroundWall/LivingRoom/Portraits"]
 position = Vector2(359, 32)
