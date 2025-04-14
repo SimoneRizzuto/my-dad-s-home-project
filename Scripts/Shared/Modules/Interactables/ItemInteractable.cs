@@ -5,7 +5,7 @@ using MyFathersHomeProject.Scripts.Shared.Constants;
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
 public partial class ItemInteractable : Area2D, IInteractable
 {
-    [Signal] public delegate void TriggeredEventHandler();
+    [Signal] public delegate void TriggeredItemEventHandler();
     [Export] public TriggerMode TriggerMode;
     
     private bool areaTriggered = false;
@@ -30,25 +30,44 @@ public partial class ItemInteractable : Area2D, IInteractable
         }
     }
     
-    private void OnArea2dBodyEntered(Node2D body)
+    private void OnBodyEntered(Node2D body)
     {
-        if (body.IsInGroup(NodeGroup.Oliver))
+        switch (TriggerMode)
         {
-            areaTriggered = true;
+            case TriggerMode.Collision:
+                if (body.IsInGroup(NodeGroup.Oliver))
+                {
+                    areaTriggered = true;
+                }
+
+                return;
+            case TriggerMode.Input:
+                areaTriggered = true;
+                return;
         }
+        
     }
     
-    private void OnArea2dBodyExited(Node2D body)
+    private void OnBodyExited(Node2D body)
     {
-        if (body.IsInGroup(NodeGroup.Oliver))
+        switch (TriggerMode)
         {
-            areaTriggered = false;
+            case TriggerMode.Collision:
+                if (body.IsInGroup(NodeGroup.Oliver))
+                {
+                    areaTriggered = false;
+                }
+                return;
+            case TriggerMode.Input:
+                areaTriggered = false;
+                return;
         }
+        
     }
     
     public virtual void Interact()
     {
-        EmitSignal(nameof(Triggered));
+        EmitSignal(nameof(TriggeredItem));
     }
 }
 
