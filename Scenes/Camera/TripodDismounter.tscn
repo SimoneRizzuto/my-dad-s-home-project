@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d181rcj6afj4s"]
+
+[ext_resource type="Script" path="res://Scripts/Camera/TripodDismounter.cs" id="1_87r4n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tgju"]
+size = Vector2(20, 84)
+
+[node name="TripodDismounter" type="Area2D"]
+z_index = 4096
+script = ExtResource("1_87r4n")
+
+[node name="Trigger" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_7tgju")

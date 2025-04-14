@@ -11,4 +11,5 @@ public enum Direction
 public static class NodeGroup
 {
     public const string Oliver = "oliver";
+    public const string PlayerCamera = "player camera";
 }
