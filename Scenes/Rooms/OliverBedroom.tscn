@@ -1,0 +1,136 @@
+[gd_scene load_steps=16 format=3 uid="uid://cyoekyq6ui657"]
+
+[ext_resource type="Texture2D" uid="uid://bi14ih4bw0ew2" path="res://Assets/Textures/Environments/oliver-room-background-wall.png" id="1_bcs8k"]
+[ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="2_piyi6"]
+[ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="2_y5hah"]
+[ext_resource type="Texture2D" uid="uid://dr8ie6j8g2608" path="res://Assets/Textures/StaticObjects/hero-poster.png" id="4_d7bue"]
+[ext_resource type="Texture2D" uid="uid://dkaw555svegmx" path="res://Assets/Textures/StaticObjects/bedside-drawer-oliver.png" id="4_jfg7y"]
+[ext_resource type="Texture2D" uid="uid://2xdvjq3ukvr8" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_point_light.webp" id="4_lmc7h"]
+[ext_resource type="Texture2D" uid="uid://by0g7kqmolbmo" path="res://Assets/Textures/StaticObjects/computer-setup-oliver.png" id="4_mgifm"]
+[ext_resource type="Texture2D" uid="uid://cu4vgtlot0af6" path="res://Assets/Textures/StaticObjects/spider-boy-poster.png" id="5_6wfvo"]
+[ext_resource type="Texture2D" uid="uid://ds7aj5pn0ud40" path="res://Assets/Textures/StaticObjects/window-1.png" id="5_45bm8"]
+[ext_resource type="Texture2D" uid="uid://dwjbm3hnhd314" path="res://Assets/Textures/StaticObjects/oliver-bed.png" id="5_gjsmd"]
+[ext_resource type="Texture2D" uid="uid://dxdlfso230vqe" path="res://Assets/Textures/StaticObjects/lamp-2.png" id="6_k5h05"]
+[ext_resource type="Texture2D" uid="uid://dvxi1fkoqhfuc" path="res://Assets/Textures/StaticObjects/bedside-drawer-2-oliver.png" id="7_vxv3r"]
+[ext_resource type="Texture2D" uid="uid://b8smyff3h32v7" path="res://Assets/Textures/StaticObjects/oliver-room-door-2.png" id="13_jdh1p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ekbwx"]
+size = Vector2(45, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awltp"]
+size = Vector2(279, 4)
+
+[node name="OliverBedroom" type="Node2D"]
+position = Vector2(-1, -21)
+
+[node name="LightSwitch" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(143, 2)
+scale = Vector2(0.618855, 0.472091)
+energy = 2.37
+blend_mode = 2
+texture = ExtResource("4_lmc7h")
+texture_scale = 1.78
+
+[node name="TripodMounter" parent="." node_paths=PackedStringArray("MountPosition") instance=ExtResource("2_piyi6")]
+position = Vector2(238, 71)
+MountPosition = NodePath("MountPoint")
+
+[node name="MountPoint" type="Marker2D" parent="TripodMounter"]
+position = Vector2(-97, 4)
+
+[node name="BackgroundWall" type="Sprite2D" parent="."]
+position = Vector2(1, 21)
+texture = ExtResource("1_bcs8k")
+centered = false
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Door" type="Sprite2D" parent="Objects"]
+position = Vector2(223, 32)
+texture = ExtResource("13_jdh1p")
+centered = false
+
+[node name="HeroPoster" type="Sprite2D" parent="Objects"]
+position = Vector2(125, 55)
+texture = ExtResource("4_d7bue")
+centered = false
+
+[node name="SpiderBoyPoster" type="Sprite2D" parent="Objects"]
+position = Vector2(113, 46)
+texture = ExtResource("5_6wfvo")
+
+[node name="ComputerSetup" type="Sprite2D" parent="Objects"]
+position = Vector2(137, 48)
+texture = ExtResource("4_mgifm")
+centered = false
+
+[node name="PointLight2D" type="PointLight2D" parent="Objects/ComputerSetup"]
+position = Vector2(12, 6)
+scale = Vector2(0.595703, 0.480469)
+energy = 0.63
+texture = ExtResource("4_lmc7h")
+
+[node name="BedsideTable" type="Sprite2D" parent="Objects"]
+position = Vector2(5, 53)
+texture = ExtResource("4_jfg7y")
+centered = false
+
+[node name="LampLight" type="PointLight2D" parent="Objects/BedsideTable"]
+position = Vector2(8, 5)
+scale = Vector2(0.503906, 0.478516)
+color = Color(0.968627, 0.776471, 0.490196, 1)
+energy = 1.12
+texture = ExtResource("4_lmc7h")
+
+[node name="Window" type="Sprite2D" parent="Objects"]
+position = Vector2(21, 36)
+texture = ExtResource("5_45bm8")
+centered = false
+
+[node name="Lamp" type="Sprite2D" parent="Objects"]
+position = Vector2(68, 42)
+texture = ExtResource("6_k5h05")
+centered = false
+
+[node name="PointLight2D" type="PointLight2D" parent="Objects/Lamp"]
+position = Vector2(3, 8)
+scale = Vector2(0.240234, 0.410156)
+color = Color(0, 0.843137, 1, 1)
+energy = 1.5
+texture = ExtResource("4_lmc7h")
+
+[node name="BedsideDrawer" type="Sprite2D" parent="Objects"]
+position = Vector2(61, 52)
+texture = ExtResource("7_vxv3r")
+centered = false
+
+[node name="Bed" type="Sprite2D" parent="Objects"]
+position = Vector2(21, 62)
+texture = ExtResource("5_gjsmd")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/Bed"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Bed/StaticBody2D"]
+position = Vector2(22.5, 9)
+shape = SubResource("RectangleShape2D_ekbwx")
+
+[node name="Wall+Floor" type="Node2D" parent="."]
+
+[node name="Wall-Right" parent="Wall+Floor" instance=ExtResource("2_y5hah")]
+position = Vector2(280, 79)
+
+[node name="Wall-Left" parent="Wall+Floor" instance=ExtResource("2_y5hah")]
+position = Vector2(2, 79)
+
+[node name="Floor" type="StaticBody2D" parent="Wall+Floor"]
+position = Vector2(0, 75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall+Floor/Floor"]
+position = Vector2(140.5, 2)
+shape = SubResource("RectangleShape2D_awltp")
+debug_color = Color(0, 0.0235294, 0.701961, 0.419608)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.54902, 0.498039, 0.45098, 1)

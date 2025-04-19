@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b7n230pnwoiaj" path="res://Assets/Textures/Oliver/oliver walk left animation-Sheet.png" id="6_geu7j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3paqx"]
-size = Vector2(13, 18)
+size = Vector2(8, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s5tkr"]
 atlas = ExtResource("2_jxa6b")
@@ -161,7 +161,7 @@ z_index = 100
 script = ExtResource("1_vpp82")
 
 [node name="MainShape" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -9)
+position = Vector2(1, -9)
 shape = SubResource("RectangleShape2D_3paqx")
 
 [node name="MainSprites" type="AnimatedSprite2D" parent="."]
