@@ -17,6 +17,6 @@ public partial class DialogueInteractable : ItemInteractable
 
     public void Interact()
     {
-        EmitSignal(nameof(CustomSignals.Triggered));
+        // trigger dialogue sequence
     }
 }
