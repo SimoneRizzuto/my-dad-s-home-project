@@ -36,18 +36,20 @@ public partial class Oliver : CharacterBody2D
         }
         else
         {
-            OnMove(delta);
+            OnMove();
         }
         
         MoveAndSlide();
         
-        var positionX = (float)Math.Round(Position.X * 4, MidpointRounding.ToEven) / 4; // rounds to nearest decimal quarter
-        var positionY = Position.Y;
-        
-        Position = new(positionX, positionY);
+        if (Velocity == Vector2.Zero)
+        {
+            var positionX = (float)Math.Round(Position.X, MidpointRounding.ToEven);
+            var positionY = (float)Math.Round(Position.Y, MidpointRounding.ToEven);
+            Position = new(positionX, positionY);
+        }
     }
     
-    private void OnMove(double delta)
+    private void OnMove()
     {
         var direction = Input.GetAxis(InputMapAction.MoveLeft, InputMapAction.MoveRight);
         
@@ -55,8 +57,8 @@ public partial class Oliver : CharacterBody2D
         
         if (movementVector.X < 0) lastDirection = Direction.Left;
         else if (movementVector.X > 0) lastDirection = Direction.Right;
-        
-        Velocity = movementVector * (float)delta;
+
+        Velocity = movementVector;
         
         if (movementVector.X != 0)
         {

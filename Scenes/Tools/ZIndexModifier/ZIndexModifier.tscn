@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://1q3qlo8wd64c"]
+
+[ext_resource type="Script" path="res://Scripts/Tools/ZIndexModifier/ZIndexModifier.cs" id="1_q4y14"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ialk6"]
+size = Vector2(10, 22)
+
+[node name="ZIndexModifier" type="Area2D"]
+script = ExtResource("1_q4y14")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 4096
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_ialk6")
+debug_color = Color(0, 0.427451, 0.701961, 0.419608)

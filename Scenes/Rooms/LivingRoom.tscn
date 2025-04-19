@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://bh7otdjt77r8m"]
+[gd_scene load_steps=28 format=3 uid="uid://bh7otdjt77r8m"]
 
 [ext_resource type="Texture2D" uid="uid://c04vcdhv4omev" path="res://Assets/Textures/StaticObjects/orange-door.png" id="1_60vnj"]
 [ext_resource type="Texture2D" uid="uid://i10d657iytts" path="res://Assets/Textures/Environments/living-room-foreground-wall.png" id="1_a5bcu"]
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="1_njjkm"]
 [ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="2_7l723"]
+[ext_resource type="PackedScene" uid="uid://1q3qlo8wd64c" path="res://Scenes/Tools/ZIndexModifier/ZIndexModifier.tscn" id="3_c7aby"]
 [ext_resource type="Texture2D" uid="uid://bosivm32etxdc" path="res://Assets/Textures/StaticObjects/cofano-portrait.png" id="5_20dyk"]
 [ext_resource type="Texture2D" uid="uid://dlquv7ogqic57" path="res://Assets/Textures/StaticObjects/mother-snow-portrait.png" id="6_d66rx"]
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="6_ly1f4"]
@@ -17,17 +18,23 @@
 [ext_resource type="Texture2D" uid="uid://clmu60lrf5142" path="res://Assets/Textures/StaticObjects/stove.png" id="13_knjys"]
 [ext_resource type="Texture2D" uid="uid://c1p1a0p2udlyd" path="res://Assets/Textures/StaticObjects/kitchen-wall-tiles.png" id="13_rpf6e"]
 [ext_resource type="Texture2D" uid="uid://cqbi0hxg3pfcg" path="res://Assets/Textures/StaticObjects/cabinet-high.png" id="13_v07l2"]
+[ext_resource type="Texture2D" uid="uid://bsuh7xp6sxfde" path="res://Assets/Textures/StaticObjects/oliver-room-door-1.png" id="15_c3lpc"]
 [ext_resource type="Texture2D" uid="uid://euqpwcvt5hus" path="res://Assets/Textures/StaticObjects/kitchen-sink.png" id="16_0cc4e"]
 [ext_resource type="Texture2D" uid="uid://b7dgjt5ygh5rx" path="res://Assets/Textures/StaticObjects/kitchen-bin.png" id="17_uocss"]
 [ext_resource type="Texture2D" uid="uid://bct7whlcf7min" path="res://Assets/Textures/StaticObjects/dining-table.png" id="18_ovga7"]
 [ext_resource type="Texture2D" uid="uid://dyfk5h50vukxo" path="res://Assets/Textures/StaticObjects/plate-holder.png" id="19_hmg70"]
 [ext_resource type="Texture2D" uid="uid://fugm0uhvliv7" path="res://Assets/Textures/StaticObjects/cabinet-dining-room.png" id="20_cmb5b"]
+[ext_resource type="Texture2D" uid="uid://2xdvjq3ukvr8" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_point_light.webp" id="21_hb6dq"]
 [ext_resource type="Texture2D" uid="uid://0igud66o8lc0" path="res://Assets/Textures/StaticObjects/spin-chair.png" id="21_ic2s8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_std5u"]
 size = Vector2(547, 4)
 
 [node name="LivingRoom" type="Node2D"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.286275, 0.239216, 0.196078, 1)
 
 [node name="Tripods" type="Node2D" parent="."]
 
@@ -47,6 +54,19 @@ MountPosition = NodePath("../CouchMount")
 [node name="Mounter2" parent="Tripods/Couch" node_paths=PackedStringArray("MountPosition") instance=ExtResource("1_njjkm")]
 position = Vector2(314, 66)
 MountPosition = NodePath("../CouchMount")
+
+[node name="ZIndexModifiers" type="Node2D" parent="."]
+
+[node name="MoveToBackground1" parent="ZIndexModifiers" instance=ExtResource("3_c7aby")]
+position = Vector2(388, 75)
+ZIndex = 15
+
+[node name="MoveToBackground2" parent="ZIndexModifiers" instance=ExtResource("3_c7aby")]
+position = Vector2(293, 75)
+ZIndex = 15
+
+[node name="MoveToForeground" parent="ZIndexModifiers" instance=ExtResource("3_c7aby")]
+position = Vector2(264, 75)
 
 [node name="BackgroundWall" type="ColorRect" parent="."]
 z_index = 10
@@ -73,8 +93,9 @@ centered = false
 [node name="Portraits" type="Node2D" parent="ForegroundWall/LivingRoom"]
 
 [node name="Cofano-portrait" type="Sprite2D" parent="ForegroundWall/LivingRoom/Portraits"]
-position = Vector2(404, 14)
+position = Vector2(386, 7)
 texture = ExtResource("5_20dyk")
+centered = false
 
 [node name="Mother-snow-portrait" type="Sprite2D" parent="ForegroundWall/LivingRoom/Portraits"]
 position = Vector2(359, 32)
@@ -96,6 +117,11 @@ position = Vector2(373, 1)
 texture = ExtResource("9_wgxyc")
 centered = false
 
+[node name="PointLight2D" type="PointLight2D" parent="ForegroundWall/LivingRoom/Hanging-light"]
+position = Vector2(4, 36)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_hb6dq")
+
 [node name="Couch" type="Sprite2D" parent="ForegroundWall/LivingRoom"]
 position = Vector2(311, 53)
 texture = ExtResource("10_hdrsp")
@@ -112,6 +138,11 @@ texture = ExtResource("12_6qxn2")
 centered = false
 
 [node name="Kitchen" type="Node2D" parent="ForegroundWall"]
+
+[node name="OliverRoomDoor" type="Sprite2D" parent="ForegroundWall/Kitchen"]
+position = Vector2(114, 32)
+texture = ExtResource("15_c3lpc")
+centered = false
 
 [node name="Fridge" type="Sprite2D" parent="ForegroundWall/Kitchen"]
 position = Vector2(225, 40)
@@ -153,6 +184,12 @@ position = Vector2(76, 1)
 texture = ExtResource("9_wgxyc")
 centered = false
 
+[node name="PointLight2D" type="PointLight2D" parent="ForegroundWall/Kitchen/Hanging-light"]
+z_index = 64
+position = Vector2(4, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("21_hb6dq")
+
 [node name="Plate-holder" type="Sprite2D" parent="ForegroundWall/Kitchen"]
 position = Vector2(16, 37)
 texture = ExtResource("19_hmg70")
@@ -171,10 +208,10 @@ centered = false
 [node name="Wall+Floor" type="Node2D" parent="ForegroundWall"]
 
 [node name="Wall-Right" parent="ForegroundWall/Wall+Floor" instance=ExtResource("6_ly1f4")]
-position = Vector2(545, 75)
+position = Vector2(546, 75)
 
 [node name="Wall-Left" parent="ForegroundWall/Wall+Floor" instance=ExtResource("6_ly1f4")]
-position = Vector2(2, 75)
+position = Vector2(1, 75)
 
 [node name="Floor" type="StaticBody2D" parent="ForegroundWall/Wall+Floor"]
 position = Vector2(0, 75)
@@ -182,3 +219,4 @@ position = Vector2(0, 75)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ForegroundWall/Wall+Floor/Floor"]
 position = Vector2(273.5, 2)
 shape = SubResource("RectangleShape2D_std5u")
+debug_color = Color(0, 0.0235294, 0.701961, 0.419608)
