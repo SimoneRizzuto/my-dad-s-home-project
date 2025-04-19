@@ -6,7 +6,6 @@ namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
 public partial class DialogueInteractable : ItemInteractable
 {
     [Export] public Resource DialogueScript;
-    [Export] public string DialogueStartString;
     
     private Oliver oliver = new();
     
