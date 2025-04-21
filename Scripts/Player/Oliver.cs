@@ -3,6 +3,7 @@ using System;
 using GodotPlugins.Game;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
+[Icon("res://Assets/Textures/UI/oliver-head.png")]
 public partial class Oliver : CharacterBody2D
 {
     private int Gravity => ProjectSettings.GetSetting("physics/2d/default_gravity").ToString().ToInt();
