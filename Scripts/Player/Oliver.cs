@@ -1,6 +1,6 @@
 using Godot;
 using System;
-using GodotPlugins.Game;
+using DialogueManagerRuntime;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
 [Icon("res://Assets/Textures/UI/oliver-head.png")]
@@ -24,6 +24,25 @@ public partial class Oliver : CharacterBody2D
         MainSprites.AnimationFinished += OnAnimationFinished;
     }
     
+    public override void _Process(double delta)
+    {
+        if (Input.IsActionJustPressed(InputMapAction.Debug1))
+        {
+            DialogueManager.ShowDialogueBalloon(GD.Load($"res://Assets/Dialogue/test-dialogue.dialogue"), "debug");
+            //DialogueManager.DialogueEnded += SetupGameplayAfterDialogueEnded;
+            
+            /*var balloon = GetNodeHelper.GetDialogueBalloonCanvasLayer(GetTree());
+            var value = GetGlobalTransformWithCanvas();
+
+            balloon.Transform = value;
+            balloon.Scale = new Vector2(0.2f, 0.2f);
+
+            var manipulatedTransform = new Transform2D(balloon.Scale.X, value.X.Y, value.Y.X, balloon.Scale.Y,value.Origin.X, value.Origin.Y - 40);
+            
+            balloon.Transform = manipulatedTransform;*/
+        }
+    }
+
     public override void _PhysicsProcess(double delta)
     {
         if (!IsOnFloor())
