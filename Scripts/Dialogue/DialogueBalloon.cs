@@ -1,6 +1,6 @@
 using Godot;
 using Godot.Collections;
-using MyFathersHomeProject.Scripts.Shared.Helpers;
+using MyFathersHomeProject.Scripts.Shared.Constants;
 
 namespace DialogueManagerRuntime
 {
@@ -156,19 +156,7 @@ namespace DialogueManagerRuntime
       //characterLabel.Visible = !string.IsNullOrEmpty(dialogueLine.Character);
       //characterLabel.Text = Tr(dialogueLine.Character, "dialogue");
       
-      // ---------------------------------------
-      
-      var oliver = GetNodeHelper.GetOliver(GetTree());
-      var value = oliver.GetGlobalTransformWithCanvas();
-      
-      Transform = value;
-      Scale = new Vector2(0.2f, 0.2f);
-      
-      var manipulatedTransform = new Transform2D(Scale.X, value.X.Y, value.Y.X, Scale.Y,value.Origin.X, value.Origin.Y - 40);
-      
-      Transform = manipulatedTransform;
-      
-      // ---------------------------------------
+      PlaceBubbleAboveActor();
       
       // Set up the dialogue
       dialogueLabel.Hide();
@@ -212,6 +200,35 @@ namespace DialogueManagerRuntime
       }
     }
 
+    private void PlaceBubbleAboveActor()
+    {
+      var actorModules = GetTree().GetNodesInGroup(NodeGroup.ActorModule);
+      Node2D actorSpeaking = null;
+      
+      foreach (var actorModule in actorModules)
+      {
+        var actor = actorModule.GetParentOrNull<Node2D>();
+        if (actor == null) continue;
+        
+        if (actor.Name == dialogueLine.Character)
+        {
+          actorSpeaking = actor;
+          break;
+        }
+      }
+
+      if (actorSpeaking != null)
+      {
+        var value = actorSpeaking.GetGlobalTransformWithCanvas();
+        var previousScale = Scale;
+      
+        Transform = value;
+        Scale = previousScale;
+      
+        var manipulatedTransform = new Transform2D(Scale.X, value.X.Y, value.Y.X, Scale.Y,value.Origin.X, value.Origin.Y - 40);
+        Transform = manipulatedTransform;
+      }
+    }
 
     #endregion
 
