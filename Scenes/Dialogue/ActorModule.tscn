@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cemnuys6w3rjr"]
+
+[ext_resource type="Script" path="res://Scripts/Dialogue/ActorModule.cs" id="1_jy5k3"]
+
+[node name="ActorModule" type="Node2D" groups=["actor module"]]
+script = ExtResource("1_jy5k3")
