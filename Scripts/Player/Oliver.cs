@@ -30,16 +30,6 @@ public partial class Oliver : CharacterBody2D
         {
             DialogueManager.ShowDialogueBalloon(GD.Load($"res://Assets/Dialogue/test-dialogue.dialogue"), "debug");
             //DialogueManager.DialogueEnded += SetupGameplayAfterDialogueEnded;
-            
-            /*var balloon = GetNodeHelper.GetDialogueBalloonCanvasLayer(GetTree());
-            var value = GetGlobalTransformWithCanvas();
-
-            balloon.Transform = value;
-            balloon.Scale = new Vector2(0.2f, 0.2f);
-
-            var manipulatedTransform = new Transform2D(balloon.Scale.X, value.X.Y, value.Y.X, balloon.Scale.Y,value.Origin.X, value.Origin.Y - 40);
-            
-            balloon.Transform = manipulatedTransform;*/
         }
     }
 
