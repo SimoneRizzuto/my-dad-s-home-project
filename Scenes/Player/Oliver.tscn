@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bggt6ckifdcow"]
+[gd_scene load_steps=27 format=3 uid="uid://bggt6ckifdcow"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Oliver.cs" id="1_vpp82"]
 [ext_resource type="Texture2D" uid="uid://dps0vqk0017i6" path="res://Assets/Textures/Oliver/oliver idle left animation-Sheet.png" id="2_jxa6b"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dhr3a3hilhbmw" path="res://Assets/Textures/Oliver/oliver jump right animation-Sheet.png" id="4_d2ue8"]
 [ext_resource type="Texture2D" uid="uid://cqp8jgdm0dmyf" path="res://Assets/Textures/Oliver/oliver walk right animation-Sheet.png" id="5_xw50k"]
 [ext_resource type="Texture2D" uid="uid://b7n230pnwoiaj" path="res://Assets/Textures/Oliver/oliver walk left animation-Sheet.png" id="6_geu7j"]
+[ext_resource type="PackedScene" uid="uid://cemnuys6w3rjr" path="res://Scenes/Dialogue/ActorModule.tscn" id="8_knplv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3paqx"]
 size = Vector2(8, 18)
@@ -168,3 +169,5 @@ shape = SubResource("RectangleShape2D_3paqx")
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_aqi8e")
 animation = &"idle left"
+
+[node name="ActorModule" parent="." instance=ExtResource("8_knplv")]
