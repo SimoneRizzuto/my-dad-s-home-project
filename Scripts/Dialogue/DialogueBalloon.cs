@@ -1,3 +1,4 @@
+using System;
 using Godot;
 using Godot.Collections;
 using MyFathersHomeProject.Scripts.Shared.Constants;
@@ -221,25 +222,46 @@ namespace DialogueManagerRuntime
       
       if (actorSpeaking != null)
       {
-        var value = actorSpeaking.GetGlobalTransformWithCanvas();
+        var actorTransform = GetActorTransformForCanvas(actorSpeaking);
+        
         var previousScale = Scale;
         
-        Transform = value;
+        Transform = actorTransform;
         Scale = previousScale;
         
-        var actorSpriteOffset = GetActorHeightOffset(actorSpeaking);
+        var xx = Scale.X;
+        var xy = actorTransform.X.Y;
+        var yx = actorTransform.Y.X;
+        var yy = Scale.Y;
+        var ox = actorTransform.Origin.X;
+        var oy = actorTransform.Origin.Y;
         
-        var manipulatedTransform = new Transform2D(Scale.X, value.X.Y, value.Y.X, Scale.Y,value.Origin.X, value.Origin.Y - actorSpriteOffset);
-        Transform = manipulatedTransform;
+        Transform = new Transform2D(xx, xy, yx, yy, ox, oy);
       }
     }
     
-    private int GetActorHeightOffset(Node2D actorSpeaking)
+    private Transform2D GetActorTransformForCanvas(Node2D actor)
+    {
+      var actorHeight = GetActorHeight(actor);
+      var actorCurrentPosition = actor.Position;
+      
+      // place actor above itself by its own height
+      actor.Position = new Vector2(actor.Position.X, actor.Position.Y - Math.Abs(actorHeight));
+      
+      // grab the actor transform 
+      var actorTransform = actor.GetGlobalTransformWithCanvas();
+      
+      // place it back where it was
+      actor.Position = actorCurrentPosition;
+      
+      return actorTransform;
+    }
+    
+    private int GetActorHeight(Node2D actorSpeaking)
     {
       var actorModule = actorSpeaking.GetNode<ActorModule>("ActorModule");
-      var currentAnimation = actorModule.MainSprite.Animation;
-      var animationTexture = actorModule.MainSprite.SpriteFrames.GetFrameTexture(currentAnimation, 0);
-      return animationTexture.GetHeight();
+      var rect = actorModule.MainShape.Shape.GetRect();
+      return (int)rect.Size.Y;
     }
     
     #endregion
