@@ -165,7 +165,7 @@ script = ExtResource("1_vpp82")
 position = Vector2(1, -9)
 shape = SubResource("RectangleShape2D_3paqx")
 
-[node name="MainSprites" type="AnimatedSprite2D" parent="."]
+[node name="MainSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_aqi8e")
 animation = &"idle left"

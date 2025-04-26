@@ -199,7 +199,9 @@ namespace DialogueManagerRuntime
         balloon.GrabFocus();
       }
     }
-
+    #endregion
+    
+    #region Custom Logic
     private void PlaceBubbleAboveActor()
     {
       var actorModules = GetTree().GetNodesInGroup(NodeGroup.ActorModule);
@@ -216,23 +218,32 @@ namespace DialogueManagerRuntime
           break;
         }
       }
-
+      
       if (actorSpeaking != null)
       {
         var value = actorSpeaking.GetGlobalTransformWithCanvas();
         var previousScale = Scale;
-      
+        
         Transform = value;
         Scale = previousScale;
-      
-        var manipulatedTransform = new Transform2D(Scale.X, value.X.Y, value.Y.X, Scale.Y,value.Origin.X, value.Origin.Y - 40);
+        
+        var actorSpriteOffset = GetActorHeightOffset(actorSpeaking);
+        
+        var manipulatedTransform = new Transform2D(Scale.X, value.X.Y, value.Y.X, Scale.Y,value.Origin.X, value.Origin.Y - actorSpriteOffset);
         Transform = manipulatedTransform;
       }
     }
-
+    
+    private int GetActorHeightOffset(Node2D actorSpeaking)
+    {
+      var actorModule = actorSpeaking.GetNode<ActorModule>("ActorModule");
+      var currentAnimation = actorModule.MainSprite.Animation;
+      var animationTexture = actorModule.MainSprite.SpriteFrames.GetFrameTexture(currentAnimation, 0);
+      return animationTexture.GetHeight();
+    }
+    
     #endregion
-
-
+    
     #region signals
 
 
