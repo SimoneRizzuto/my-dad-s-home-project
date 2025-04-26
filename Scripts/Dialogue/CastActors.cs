@@ -26,7 +26,7 @@ public partial class CastActors : Node2D
         
         foreach (var actor in actorBaseNodes)
         {
-            if (actor.Actor.Name == "Oliver")
+            if (actor.CharacterBody.Name == "Oliver")
             {
                 oliver = actor;
             }

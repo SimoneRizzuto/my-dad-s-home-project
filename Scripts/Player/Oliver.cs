@@ -1,10 +1,11 @@
 using Godot;
 using System;
 using DialogueManagerRuntime;
+using MyFathersHomeProject.Scripts.Dialogue;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
 [Icon("res://Assets/Textures/UI/oliver-head.png")]
-public partial class Oliver : CharacterBody2D
+public partial class Oliver : CharacterBody2D, ICharacter
 {
     private int Gravity => ProjectSettings.GetSetting("physics/2d/default_gravity").ToString().ToInt();
     private int JumpVelocity => -125;
@@ -13,12 +14,12 @@ public partial class Oliver : CharacterBody2D
     private bool Jump => Input.IsActionPressed(InputMapAction.Jump);
     private bool IsJumping => IsOnFloor() && Jump;
     private AnimatedSprite2D MainSprite => GetNode<AnimatedSprite2D>($"{nameof(MainSprite)}");
-    private string LastDirectionString => Enum.GetName(lastDirection)?.ToLower();
+    private string LastDirectionString => Enum.GetName(LastDirection)?.ToLower();
     
     private bool IsInteracting = false;
     
-    private Direction lastDirection = Direction.Left;
-
+    public Direction LastDirection { get; set; } = Direction.Left;
+    
     public override void _Ready()
     {
         MainSprite.AnimationFinished += OnAnimationFinished;
@@ -65,8 +66,8 @@ public partial class Oliver : CharacterBody2D
         
         var movementVector = new Vector2(direction * Movement.MoveSpeed, Velocity.Y);
         
-        if (movementVector.X < 0) lastDirection = Direction.Left;
-        else if (movementVector.X > 0) lastDirection = Direction.Right;
+        if (movementVector.X < 0) LastDirection = Direction.Left;
+        else if (movementVector.X > 0) LastDirection = Direction.Right;
 
         Velocity = movementVector;
         

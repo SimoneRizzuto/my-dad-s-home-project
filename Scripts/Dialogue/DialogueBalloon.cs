@@ -203,6 +203,10 @@ namespace DialogueManagerRuntime
     #endregion
     
     #region Custom Logic
+
+    private const int HeightOffset = 5;
+    private const int ActorDirectionOffset = 25;
+    
     private void PlaceBubbleAboveActor()
     {
       var actorModules = GetTree().GetNodesInGroup(NodeGroup.ActorModule);
@@ -228,18 +232,35 @@ namespace DialogueManagerRuntime
         
         Transform = actorTransform;
         Scale = previousScale;
-
-        var heightOffset = 5;
+        
+        var actorDirectionOffset = GetActorDirectionOffset(actorSpeaking);
         
         var xx = Scale.X;
         var xy = actorTransform.X.Y;
         var yx = actorTransform.Y.X;
         var yy = Scale.Y;
-        var ox = actorTransform.Origin.X;
-        var oy = actorTransform.Origin.Y - heightOffset;
+        var ox = actorTransform.Origin.X - actorDirectionOffset;
+        var oy = actorTransform.Origin.Y - HeightOffset;
         
         Transform = new Transform2D(xx, xy, yx, yy, ox, oy);
       }
+    }
+    
+    private static int GetActorDirectionOffset(Node2D actorSpeaking)
+    {
+      var actorModule = actorSpeaking.GetNode<ActorModule>("ActorModule");
+      var actorDirectionOffset = 0;
+      switch (actorModule.Character.LastDirection)
+      {
+        case Direction.Left:
+          actorDirectionOffset = ActorDirectionOffset;
+          break;
+        case Direction.Right:
+          actorDirectionOffset = -ActorDirectionOffset;
+          break;
+      }
+      
+      return actorDirectionOffset;
     }
     
     private Transform2D GetActorTransformForCanvas(Node2D actor)
