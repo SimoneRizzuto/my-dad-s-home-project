@@ -228,13 +228,15 @@ namespace DialogueManagerRuntime
         
         Transform = actorTransform;
         Scale = previousScale;
+
+        var heightOffset = 5;
         
         var xx = Scale.X;
         var xy = actorTransform.X.Y;
         var yx = actorTransform.Y.X;
         var yy = Scale.Y;
         var ox = actorTransform.Origin.X;
-        var oy = actorTransform.Origin.Y;
+        var oy = actorTransform.Origin.Y - heightOffset;
         
         Transform = new Transform2D(xx, xy, yx, yy, ox, oy);
       }
