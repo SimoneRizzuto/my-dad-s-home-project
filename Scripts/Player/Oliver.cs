@@ -1,7 +1,9 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 using DialogueManagerRuntime;
 using MyFathersHomeProject.Scripts.Dialogue;
+using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
 [Icon("res://Assets/Textures/UI/oliver-head.png")]
@@ -19,6 +21,8 @@ public partial class Oliver : CharacterBody2D, ICharacter
     private bool IsInteracting = false;
     
     public Direction LastDirection { get; set; } = Direction.Left;
+
+    private PlayerState playerState = PlayerState.Gameplay;
     
     public override void _Ready()
     {
@@ -30,10 +34,11 @@ public partial class Oliver : CharacterBody2D, ICharacter
         if (Input.IsActionJustPressed(InputMapAction.Debug1))
         {
             DialogueManager.ShowDialogueBalloon(GD.Load($"res://Assets/Dialogue/test-dialogue.dialogue"), "debug");
+            playerState = PlayerState.Cutscene;
             //DialogueManager.DialogueEnded += SetupGameplayAfterDialogueEnded;
         }
     }
-
+    
     public override void _PhysicsProcess(double delta)
     {
         if (!IsOnFloor())
