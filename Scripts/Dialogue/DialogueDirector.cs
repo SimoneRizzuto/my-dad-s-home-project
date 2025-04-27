@@ -33,7 +33,7 @@ public partial class DialogueDirector : Node2D, IDisposable
     
     private bool LoadActorsIntoCurrentScene()
     {
-        var scriptPath = $"res://Scripts/Dialogue/{nameof(CastActors)}.cs";
+        var scriptPath = $"res://Scripts/Dialogue/{nameof(CastCrew)}.cs";
         try
         {
             var scriptLoaded = ResourceLoader.Load(scriptPath);

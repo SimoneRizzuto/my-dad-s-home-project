@@ -3,23 +3,20 @@ using System.Linq;
 using MyFathersHomeProject.Scripts.Dialogue;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
-public partial class CastActors : Node2D
+public partial class CastCrew : Node2D
 {
     // Cast
-    //public CutsceneDirector director;
+    public DialogueDirector Director => DialogueDirector.Instance;
     
     // Actors
-    public ActorModule oliver;
+    public ActorModule Oliver;
     
     public override void _Ready()
     {
         var tree = GetTree();
-
-        //var cutsceneDirectorNodes = tree.GetNodesInGroup(NodeGroup.CutsceneDirector);
-        //director = cutsceneDirectorNodes.Cast<CutsceneDirector>().FirstOrDefault();
-
+        
         //audioDirector = AudioDirector.Instance;
-
+        
         //camera = GetNodeHelper.GetMainCamera2D(tree);
         
         var actorNodes = tree.GetNodesInGroup(NodeGroup.ActorModule);
@@ -29,7 +26,7 @@ public partial class CastActors : Node2D
         {
             if (actor.CharacterBody.Name == "Oliver")
             {
-                oliver = actor;
+                Oliver = actor;
             }
         }
     }
