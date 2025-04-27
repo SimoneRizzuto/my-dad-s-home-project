@@ -17,8 +17,6 @@ public partial class Oliver : CharacterBody2D, IPlayer, ICharacter
     private AnimatedSprite2D MainSprite => GetNode<AnimatedSprite2D>($"{nameof(MainSprite)}");
     private string LastDirectionString => Enum.GetName(LastDirection)?.ToLower();
     
-    private bool IsInteracting = false;
-    
     public Direction LastDirection { get; set; } = Direction.Left;
     public PlayerState PlayerState { get; set; } = PlayerState.Gameplay;
     
