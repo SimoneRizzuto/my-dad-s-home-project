@@ -1,5 +1,6 @@
 using Godot;
 using System.Linq;
+using MyFathersHomeProject.Scripts.Dialogue;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
 public partial class CastActors : Node2D

@@ -1,6 +1,7 @@
 using System;
 using Godot;
 using Godot.Collections;
+using MyFathersHomeProject.Scripts.Dialogue;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
 namespace DialogueManagerRuntime
