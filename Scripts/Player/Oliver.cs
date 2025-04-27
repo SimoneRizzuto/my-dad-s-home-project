@@ -22,16 +22,6 @@ public partial class Oliver : CharacterBody2D, ICharacter
         MainSprite.AnimationFinished += OnAnimationFinished;
     }
     
-    public override void _Process(double delta)
-    {
-        if (Input.IsActionJustPressed(InputMapAction.Debug1))
-        {
-            DialogueManager.ShowDialogueBalloon(GD.Load($"res://Assets/Dialogue/test-dialogue.dialogue"), "debug");
-            CharacterState = CharacterState.Cutscene;
-            //DialogueManager.DialogueEnded += SetupGameplayAfterDialogueEnded;
-        }
-    }
-    
     public override void _PhysicsProcess(double delta)
     {
         switch (CharacterState)
