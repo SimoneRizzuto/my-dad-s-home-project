@@ -5,6 +5,7 @@ using DialogueManagerRuntime;
 using MyFathersHomeProject.Scripts.Dialogue;
 using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Shared.Constants;
+using MyFathersHomeProject.Scripts.Shared.Helpers;
 
 public partial class DialogueDirector : Node2D, IDisposable
 {
@@ -23,6 +24,9 @@ public partial class DialogueDirector : Node2D, IDisposable
     {
         if (Input.IsActionJustPressed(InputMapAction.Debug1))
         {
+            var oliver = GetNodeHelper.GetOliver(GetTree());
+            if (oliver.CharacterState == CharacterState.Cutscene) return;
+            
             TriggerCutscene(GD.Load("res://Assets/Dialogue/test-dialogue.dialogue"), "debug");
         }
     }
