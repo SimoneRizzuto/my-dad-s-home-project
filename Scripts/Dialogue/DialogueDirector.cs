@@ -9,7 +9,7 @@ using MyFathersHomeProject.Scripts.Shared.Constants;
 public partial class DialogueDirector : Node2D, IDisposable
 {
     [Signal] public delegate void BeginCutsceneEventHandler(string dialogue = "", string title = "");
-
+    
     private bool inCutscene;
     
     public override void _Ready()
