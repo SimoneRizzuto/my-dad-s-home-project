@@ -1,13 +1,12 @@
 using Godot;
 using System;
-using System.Threading.Tasks;
 using DialogueManagerRuntime;
-using MyFathersHomeProject.Scripts.Dialogue;
 using MyFathersHomeProject.Scripts.Player;
+using MyFathersHomeProject.Scripts.Dialogue;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
 [Icon("res://Assets/Textures/UI/oliver-head.png")]
-public partial class Oliver : CharacterBody2D, ICharacter
+public partial class Oliver : CharacterBody2D, IPlayer, ICharacter
 {
     private int Gravity => ProjectSettings.GetSetting("physics/2d/default_gravity").ToString().ToInt();
     private int JumpVelocity => -125;
@@ -21,8 +20,7 @@ public partial class Oliver : CharacterBody2D, ICharacter
     private bool IsInteracting = false;
     
     public Direction LastDirection { get; set; } = Direction.Left;
-
-    private PlayerState playerState = PlayerState.Gameplay;
+    public PlayerState PlayerState { get; set; } = PlayerState.Gameplay;
     
     public override void _Ready()
     {
@@ -34,25 +32,21 @@ public partial class Oliver : CharacterBody2D, ICharacter
         if (Input.IsActionJustPressed(InputMapAction.Debug1))
         {
             DialogueManager.ShowDialogueBalloon(GD.Load($"res://Assets/Dialogue/test-dialogue.dialogue"), "debug");
-            playerState = PlayerState.Cutscene;
+            PlayerState = PlayerState.Cutscene;
             //DialogueManager.DialogueEnded += SetupGameplayAfterDialogueEnded;
         }
     }
     
     public override void _PhysicsProcess(double delta)
     {
-        if (!IsOnFloor())
+        switch (PlayerState)
         {
-            Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * (float)delta);
-        }
-        else if (IsJumping)
-        {
-            Velocity = new Vector2(Velocity.X, JumpVelocity);
-            OnJump();
-        }
-        else
-        {
-            OnMove();
+            case PlayerState.Gameplay:
+                ProcessGameplay(delta);
+                break;
+            case PlayerState.Cutscene:
+            case PlayerState.Disabled:
+                break;
         }
         
         MoveAndSlide();
@@ -65,15 +59,44 @@ public partial class Oliver : CharacterBody2D, ICharacter
         }
     }
     
-    private void OnMove()
+    private void ProcessGameplay(double delta)
+    {
+        if (!IsOnFloor())
+        {
+            Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * (float)delta);
+        }
+        else if (IsJumping)
+        {
+            Velocity = new Vector2(Velocity.X, JumpVelocity);
+            ProcessJump();
+        }
+        else
+        {
+            ProcessMoving();
+        }
+    }
+    
+    private void ProcessMoving()
     {
         var direction = Input.GetAxis(InputMapAction.MoveLeft, InputMapAction.MoveRight);
-        
+        Move(direction);
+    }
+    
+    private void ProcessJump()
+    {
+        MainSprite.SetFrameAndProgress(0, 0);
+        MainSprite.Play($"jump {LastDirectionString}");
+    }
+    
+    #region interface implementations
+    
+    public void Move(float direction)
+    {
         var movementVector = new Vector2(direction * Movement.MoveSpeed, Velocity.Y);
         
         if (movementVector.X < 0) LastDirection = Direction.Left;
         else if (movementVector.X > 0) LastDirection = Direction.Right;
-
+        
         Velocity = movementVector;
         
         if (movementVector.X != 0)
@@ -86,13 +109,9 @@ public partial class Oliver : CharacterBody2D, ICharacter
         }
     }
     
-    private void OnJump()
-    {
-        MainSprite.SetFrameAndProgress(0, 0);
-        MainSprite.Play($"jump {LastDirectionString}");
-    }
+    #endregion
     
-    // signals
+    #region signals
     private void OnAnimationFinished()
     {
         if (MainSprite.Animation.ToString().Contains("jump"))
@@ -100,4 +119,5 @@ public partial class Oliver : CharacterBody2D, ICharacter
             MainSprite.Play($"idle {LastDirectionString}");
         }
     }
+    #endregion
 }
