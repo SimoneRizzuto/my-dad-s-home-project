@@ -56,17 +56,16 @@ public partial class Oliver : CharacterBody2D, ICharacter
     
     private void ProcessGameplay(double delta)
     {
-        if (!IsOnFloor())
-        {
-            Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * (float)delta);
-        }
-        else if (TriggeredJump)
+        Move();
+        
+        if (IsOnFloor() && TriggeredJump)
         {
             Jump();
         }
-        else
+        
+        if (!IsOnFloor())
         {
-            Move();
+            Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * (float)delta);
         }
     }
     
@@ -87,13 +86,16 @@ public partial class Oliver : CharacterBody2D, ICharacter
         
         Velocity = movementVector;
         
-        if (movementVector.X != 0)
+        if (IsOnFloor())
         {
-            MainSprite.Play($"walk {LastDirectionString}");
-        }
-        else
-        {
-            MainSprite.Play($"idle {LastDirectionString}");
+            if (movementVector.X != 0)
+            {
+                MainSprite.Play($"walk {LastDirectionString}");
+            }
+            else
+            {
+                MainSprite.Play($"idle {LastDirectionString}");
+            }
         }
     }
     
