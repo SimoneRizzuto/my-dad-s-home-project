@@ -1,42 +1,37 @@
 using Godot;
 using System;
-using GodotPlugins.Game;
+using DialogueManagerRuntime;
+using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
-public partial class Oliver : CharacterBody2D
+[Icon("res://Assets/Textures/UI/oliver-head.png")]
+public partial class Oliver : CharacterBody2D, ICharacter
 {
     private int Gravity => ProjectSettings.GetSetting("physics/2d/default_gravity").ToString().ToInt();
     private int JumpVelocity => -125;
-    private bool MoveLeft => Input.IsActionPressed(InputMapAction.MoveLeft);
-    private bool MoveRight => Input.IsActionPressed(InputMapAction.MoveRight);
-    private bool Jump => Input.IsActionPressed(InputMapAction.Jump);
-    private bool IsJumping => IsOnFloor() && Jump;
-    private AnimatedSprite2D MainSprites => GetNode<AnimatedSprite2D>("MainSprites");
-    private string LastDirectionString => Enum.GetName(lastDirection)?.ToLower();
+    private bool JumpInput => Input.IsActionPressed(InputMapAction.Jump);
+    private bool TriggeredJump => IsOnFloor() && JumpInput;
+    private AnimatedSprite2D MainSprite => GetNode<AnimatedSprite2D>($"{nameof(MainSprite)}");
+    private string LastDirectionString => Enum.GetName(LastDirection)?.ToLower();
     
-    private bool IsInteracting = false;
+    public Direction LastDirection { get; set; } = Direction.Left;
+    public CharacterState CharacterState { get; set; } = CharacterState.Gameplay;
     
-    private Direction lastDirection = Direction.Left;
-
     public override void _Ready()
     {
-        MainSprites.AnimationFinished += OnAnimationFinished;
+        MainSprite.AnimationFinished += OnAnimationFinished;
     }
     
     public override void _PhysicsProcess(double delta)
     {
-        if (!IsOnFloor())
+        switch (CharacterState)
         {
-            Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * (float)delta);
-        }
-        else if (IsJumping)
-        {
-            Velocity = new Vector2(Velocity.X, JumpVelocity);
-            OnJump();
-        }
-        else
-        {
-            OnMove();
+            case CharacterState.Gameplay:
+                ProcessGameplay(delta);
+                break;
+            case CharacterState.Cutscene:
+            case CharacterState.Disabled:
+                break;
         }
         
         MoveAndSlide();
@@ -49,39 +44,70 @@ public partial class Oliver : CharacterBody2D
         }
     }
     
-    private void OnMove()
+    private void ProcessGameplay(double delta)
+    {
+        Move();
+        
+        if (IsOnFloor() && TriggeredJump)
+        {
+            Jump();
+        }
+        
+        if (!IsOnFloor())
+        {
+            Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * (float)delta);
+        }
+    }
+    
+    private void Move()
     {
         var direction = Input.GetAxis(InputMapAction.MoveLeft, InputMapAction.MoveRight);
-        
+        Move(direction);
+    }
+    
+    #region interface implementations
+    
+    public void Move(float direction)
+    {
         var movementVector = new Vector2(direction * Movement.MoveSpeed, Velocity.Y);
         
-        if (movementVector.X < 0) lastDirection = Direction.Left;
-        else if (movementVector.X > 0) lastDirection = Direction.Right;
-
+        if (movementVector.X < 0) LastDirection = Direction.Left;
+        else if (movementVector.X > 0) LastDirection = Direction.Right;
+        
         Velocity = movementVector;
         
-        if (movementVector.X != 0)
+        if (IsOnFloor())
         {
-            MainSprites.Play($"walk {LastDirectionString}");
-        }
-        else
-        {
-            MainSprites.Play($"idle {LastDirectionString}");
+            if (movementVector.X != 0)
+            {
+                MainSprite.Play($"walk {LastDirectionString}");
+            }
+            else
+            {
+                MainSprite.Play($"idle {LastDirectionString}");
+            }
         }
     }
     
-    private void OnJump()
+    public void Jump()
     {
-        MainSprites.SetFrameAndProgress(0, 0);
-        MainSprites.Play($"jump {LastDirectionString}");
+        if (!IsOnFloor()) return;
+        
+        Velocity = new Vector2(Velocity.X, JumpVelocity);
+        
+        MainSprite.SetFrameAndProgress(0, 0);
+        MainSprite.Play($"jump {LastDirectionString}");
     }
     
-    // signals
+    #endregion
+    
+    #region signals
     private void OnAnimationFinished()
     {
-        if (MainSprites.Animation.ToString().Contains("jump"))
+        if (MainSprite.Animation.ToString().Contains("jump"))
         {
-            MainSprites.Play($"idle {LastDirectionString}");
+            MainSprite.Play($"idle {LastDirectionString}");
         }
     }
+    #endregion
 }

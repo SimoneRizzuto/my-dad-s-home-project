@@ -1,4 +1,3 @@
-using System;
 using Godot;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
@@ -8,25 +7,26 @@ public partial class ItemInteractable : Area2D, IInteractable
     [Signal] public delegate void TriggeredItemEventHandler();
     [Export] public TriggerMode TriggerMode;
     
-    private bool areaTriggered = false;
+    private bool InputInteract => Input.IsActionPressed(InputMapAction.Interact);
+    
+    private bool areaTriggered;
     
     public override void _PhysicsProcess(double delta)
     {
+        var triggerInteract = false;
         switch (TriggerMode)
         {
             case TriggerMode.Collision:
-                if ((areaTriggered == true) && (Input.IsActionPressed(InputMapAction.Interact)))
-                {
-                    Interact();
-                }
-
-                return;
+                triggerInteract = areaTriggered;
+                break;
             case TriggerMode.Input:
-                if (areaTriggered == true)
-                {
-                    Interact();
-                }
-                return;
+                triggerInteract = areaTriggered && InputInteract;
+                break;
+        }
+        
+        if (triggerInteract)
+        {
+            Interact();
         }
     }
     
@@ -35,17 +35,12 @@ public partial class ItemInteractable : Area2D, IInteractable
         switch (TriggerMode)
         {
             case TriggerMode.Collision:
-                if (body.IsInGroup(NodeGroup.Oliver))
-                {
-                    areaTriggered = true;
-                }
-
-                return;
+                areaTriggered = body.IsInGroup(NodeGroup.Oliver);
+                break;
             case TriggerMode.Input:
                 areaTriggered = true;
-                return;
+                break;
         }
-        
     }
     
     private void OnBodyExited(Node2D body)
@@ -53,16 +48,12 @@ public partial class ItemInteractable : Area2D, IInteractable
         switch (TriggerMode)
         {
             case TriggerMode.Collision:
-                if (body.IsInGroup(NodeGroup.Oliver))
-                {
-                    areaTriggered = false;
-                }
-                return;
+                if (body.IsInGroup(NodeGroup.Oliver)) areaTriggered = false;
+                break;
             case TriggerMode.Input:
                 areaTriggered = false;
-                return;
+                break;
         }
-        
     }
     
     public virtual void Interact()

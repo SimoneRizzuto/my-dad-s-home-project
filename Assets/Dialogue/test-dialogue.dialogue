@@ -1,0 +1,10 @@
+~ debug
+#Oliver: Hello.
+do Oliver.MoveLeft(25)
+do Oliver.MoveRight(25)
+do Oliver.MoveToXPosition(100)
+do Oliver.MoveToXPosition(200)
+Oliver: Hello. Tomorrow, I am going outside to do this thing. Why do you care about this thing right now.
+Oliver: Is me you are talking to?
+Oliver: Yeah?
+=> END

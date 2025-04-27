@@ -29,4 +29,16 @@ public static class GetNodeHelper
         
         return playerCamera;
     }
+    
+    public static CanvasLayer GetDialogueBalloonCanvasLayer(SceneTree tree)
+    {
+        var dialogueBalloonNodes = tree.GetNodesInGroup(NodeGroup.DialogueBalloon);
+        var dialogueBalloon = dialogueBalloonNodes.Cast<CanvasLayer>().FirstOrDefault();
+        if (dialogueBalloon == null)
+        {
+            GD.PrintErr($"{nameof(dialogueBalloon)} was null.");
+        }
+        
+        return dialogueBalloon;
+    }
 }
