@@ -8,8 +8,6 @@ public partial class DialogueInteractable : ItemInteractable
     
     public override void Interact()
     {
-        var path = DialogueResource.ResourcePath;
-        
-        EmitSignal(nameof(DialogueDirector.BeginCutscene), path, Title);
+        DialogueDirector.Instance.TriggerCutscene(DialogueResource, Title);
     }
 }

@@ -8,22 +8,22 @@ using MyFathersHomeProject.Scripts.Shared.Constants;
 
 public partial class DialogueDirector : Node2D, IDisposable
 {
-    [Signal] public delegate void BeginCutsceneEventHandler(string dialogue = "", string title = "");
+    public static DialogueDirector Instance { get; private set; }
     
     private bool inCutscene;
     
     public override void _Ready()
     {
-        LoadActorsIntoCurrentScene();
+        Instance = this;
         
-        BeginCutscene += TriggerCutscene;
+        LoadActorsIntoCurrentScene();
     }
     
     public override void _Process(double delta)
     {
         if (Input.IsActionJustPressed(InputMapAction.Debug1))
         {
-            TriggerCutscene("test-dialogue", "debug");
+            TriggerCutscene(GD.Load("res://Assets/Dialogue/test-dialogue.dialogue"), "debug");
         }
     }
     
@@ -53,9 +53,18 @@ public partial class DialogueDirector : Node2D, IDisposable
         return true;
     }
     
-    private void ShowDialogueBalloon(string dialogue, string title)
+    public void TriggerCutscene(Resource dialogueResource, string title)
     {
-        DialogueManager.ShowDialogueBalloon(GD.Load($"res://Assets/Dialogue/{dialogue}.dialogue"), title);
+        if (inCutscene) return;
+        inCutscene = true;
+        
+        SetActorsCharacterState(CharacterState.Cutscene);
+        ShowDialogueBalloon(dialogueResource, title);
+    }
+    
+    private void ShowDialogueBalloon(Resource dialogueResource, string title)
+    {
+        DialogueManager.ShowDialogueBalloon(dialogueResource, title);
         DialogueManager.DialogueEnded += FinishCutscene;
     }
     
@@ -72,15 +81,6 @@ public partial class DialogueDirector : Node2D, IDisposable
     
     #region signals
     
-    private void TriggerCutscene(string dialogue, string title)
-    {
-        if (inCutscene) return;
-        inCutscene = true;
-        
-        SetActorsCharacterState(CharacterState.Cutscene);
-        ShowDialogueBalloon(dialogue, title);
-    }
-    
     private void FinishCutscene(Resource dialogueResource)
     {
         inCutscene = false;
@@ -91,7 +91,6 @@ public partial class DialogueDirector : Node2D, IDisposable
     
     public void Dispose()
     {
-        BeginCutscene -= TriggerCutscene;
         DialogueManager.DialogueEnded -= FinishCutscene;
     }
     
