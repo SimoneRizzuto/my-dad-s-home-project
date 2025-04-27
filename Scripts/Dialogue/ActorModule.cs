@@ -10,6 +10,11 @@ public partial class ActorModule : Node2D
     public CollisionShape2D MainShape => GetParent().GetNode<CollisionShape2D>($"{nameof(MainShape)}");
     public ICharacter Character => (ICharacter)CharacterBody;
     
+    public void SetCharacterState(CharacterState state)
+    {
+        Character.CharacterState = state;
+    }
+    
     #region cutscene directions
     
     private int unitsToMove;
