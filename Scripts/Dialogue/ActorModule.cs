@@ -1,5 +1,6 @@
 using Godot;
 using System.Threading.Tasks;
+using MyFathersHomeProject.Scripts.Character;
 
 namespace MyFathersHomeProject.Scripts.Dialogue;
 public partial class ActorModule : Node2D
@@ -59,6 +60,8 @@ public partial class ActorModule : Node2D
     
     public override void _PhysicsProcess(double delta)
     {
+        if (Character.CharacterState != CharacterState.Cutscene) return;
+        
         switch (dialogueDirectionToPlay)
         {
             case DialogueDirection.Nothing:

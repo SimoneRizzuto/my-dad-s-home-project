@@ -1,24 +1,21 @@
 using Godot;
 using System;
 using DialogueManagerRuntime;
-using MyFathersHomeProject.Scripts.Player;
-using MyFathersHomeProject.Scripts.Dialogue;
+using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
 [Icon("res://Assets/Textures/UI/oliver-head.png")]
-public partial class Oliver : CharacterBody2D, IPlayer, ICharacter
+public partial class Oliver : CharacterBody2D, ICharacter
 {
     private int Gravity => ProjectSettings.GetSetting("physics/2d/default_gravity").ToString().ToInt();
     private int JumpVelocity => -125;
-    private bool MoveLeft => Input.IsActionPressed(InputMapAction.MoveLeft);
-    private bool MoveRight => Input.IsActionPressed(InputMapAction.MoveRight);
-    private bool Jump => Input.IsActionPressed(InputMapAction.Jump);
-    private bool IsJumping => IsOnFloor() && Jump;
+    private bool JumpInput => Input.IsActionPressed(InputMapAction.Jump);
+    private bool TriggeredJump => IsOnFloor() && JumpInput;
     private AnimatedSprite2D MainSprite => GetNode<AnimatedSprite2D>($"{nameof(MainSprite)}");
     private string LastDirectionString => Enum.GetName(LastDirection)?.ToLower();
     
     public Direction LastDirection { get; set; } = Direction.Left;
-    public PlayerState PlayerState { get; set; } = PlayerState.Gameplay;
+    public CharacterState CharacterState { get; set; } = CharacterState.Gameplay;
     
     public override void _Ready()
     {
@@ -30,20 +27,20 @@ public partial class Oliver : CharacterBody2D, IPlayer, ICharacter
         if (Input.IsActionJustPressed(InputMapAction.Debug1))
         {
             DialogueManager.ShowDialogueBalloon(GD.Load($"res://Assets/Dialogue/test-dialogue.dialogue"), "debug");
-            PlayerState = PlayerState.Cutscene;
+            CharacterState = CharacterState.Cutscene;
             //DialogueManager.DialogueEnded += SetupGameplayAfterDialogueEnded;
         }
     }
     
     public override void _PhysicsProcess(double delta)
     {
-        switch (PlayerState)
+        switch (CharacterState)
         {
-            case PlayerState.Gameplay:
+            case CharacterState.Gameplay:
                 ProcessGameplay(delta);
                 break;
-            case PlayerState.Cutscene:
-            case PlayerState.Disabled:
+            case CharacterState.Cutscene:
+            case CharacterState.Disabled:
                 break;
         }
         
@@ -63,27 +60,20 @@ public partial class Oliver : CharacterBody2D, IPlayer, ICharacter
         {
             Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * (float)delta);
         }
-        else if (IsJumping)
+        else if (TriggeredJump)
         {
-            Velocity = new Vector2(Velocity.X, JumpVelocity);
-            ProcessJump();
+            Jump();
         }
         else
         {
-            ProcessMoving();
+            Move();
         }
     }
     
-    private void ProcessMoving()
+    private void Move()
     {
         var direction = Input.GetAxis(InputMapAction.MoveLeft, InputMapAction.MoveRight);
         Move(direction);
-    }
-    
-    private void ProcessJump()
-    {
-        MainSprite.SetFrameAndProgress(0, 0);
-        MainSprite.Play($"jump {LastDirectionString}");
     }
     
     #region interface implementations
@@ -105,6 +95,16 @@ public partial class Oliver : CharacterBody2D, IPlayer, ICharacter
         {
             MainSprite.Play($"idle {LastDirectionString}");
         }
+    }
+    
+    public void Jump()
+    {
+        if (!IsOnFloor()) return;
+        
+        Velocity = new Vector2(Velocity.X, JumpVelocity);
+        
+        MainSprite.SetFrameAndProgress(0, 0);
+        MainSprite.Play($"jump {LastDirectionString}");
     }
     
     #endregion
