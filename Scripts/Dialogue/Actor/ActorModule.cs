@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Dialogue.Base;
 
-namespace MyFathersHomeProject.Scripts.Dialogue;
+namespace MyFathersHomeProject.Scripts.Dialogue.Actor;
 public partial class ActorModule : Node2D, IAsyncDialogueVariables
 {
     public CharacterBody2D CharacterBody => GetParentOrNull<CharacterBody2D>();
