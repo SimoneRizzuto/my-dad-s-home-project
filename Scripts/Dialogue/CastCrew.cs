@@ -1,6 +1,7 @@
 using Godot;
 using System.Linq;
-using MyFathersHomeProject.Scripts.Dialogue;
+using MyFathersHomeProject.Scripts.Dialogue.Actor;
+using MyFathersHomeProject.Scripts.Dialogue.Audio;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
 public partial class CastCrew : Node2D
