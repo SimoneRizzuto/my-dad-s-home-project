@@ -1,9 +1,10 @@
 using Godot;
 using System.Threading.Tasks;
 using MyFathersHomeProject.Scripts.Character;
+using MyFathersHomeProject.Scripts.Dialogue.Base;
 
 namespace MyFathersHomeProject.Scripts.Dialogue;
-public partial class ActorModule : Node2D
+public partial class ActorModule : Node2D, IAsyncDialogueVariables
 {
     public CharacterBody2D CharacterBody => GetParentOrNull<CharacterBody2D>();
     public AnimatedSprite2D MainSprite => GetParent().GetNode<AnimatedSprite2D>($"{nameof(MainSprite)}");
@@ -49,15 +50,15 @@ public partial class ActorModule : Node2D
     #region process logic
     
     // async task variables
-    private Task ActionCompleted => actionGiven.Task;
-    private TaskCompletionSource actionGiven = new();
+    public Task ActionCompleted => ActionGiven.Task;
+    public TaskCompletionSource ActionGiven { get; set; } = new();
     
     // state
     private DialogueDirection dialogueDirectionToPlay;
     
     private async Task SetupActionTask(DialogueDirection dialogueDirection)
     {
-        actionGiven = new TaskCompletionSource();
+        ActionGiven = new TaskCompletionSource();
         dialogueDirectionToPlay = dialogueDirection;
         
         await ActionCompleted;
@@ -97,7 +98,7 @@ public partial class ActorModule : Node2D
         if (currentPosition == targetPosition)
         {
             dialogueDirectionToPlay = DialogueDirection.Nothing;
-            actionGiven.TrySetResult();
+            ActionGiven.TrySetResult();
         }
     }
     
@@ -115,7 +116,7 @@ public partial class ActorModule : Node2D
         else
         {
             dialogueDirectionToPlay = DialogueDirection.Nothing;
-            actionGiven.TrySetResult();
+            ActionGiven.TrySetResult();
         }
     }
     
