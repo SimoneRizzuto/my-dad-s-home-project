@@ -8,7 +8,7 @@ public partial class CastCrew : Node2D
 {
     // Cast
     public DialogueDirector Director => DialogueDirector.Instance;
-    
+    public IAudioDirector Audio => AudioDirector.Instance;
     // Actors
     public ActorModule Oliver;
     
