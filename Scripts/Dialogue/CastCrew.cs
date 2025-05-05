@@ -16,8 +16,6 @@ public partial class CastCrew : Node2D
     {
         var tree = GetTree();
         
-        //audioDirector = AudioDirector.Instance;
-        
         //camera = GetNodeHelper.GetMainCamera2D(tree);
         
         var actorNodes = tree.GetNodesInGroup(NodeGroup.ActorModule);

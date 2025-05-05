@@ -16,26 +16,86 @@ public partial class AudioDirector : Node2D, IAsyncDialogueVariables, IAudioDire
     }
     public void PlaySound(string name)
     {
-        throw new System.NotImplementedException();
+        var newAudioStreamerNode = new AudioStreamPlayer2D();
+        newAudioStreamerNode.Stream = (AudioStream)ResourceLoader.Load($"res://Assets/Audio/Sound/{name}.ogg");
+        newAudioStreamerNode.Bus = "Audio";
+        newAudioStreamerNode.Name = name;
+        AddChild(newAudioStreamerNode);
+        newAudioStreamerNode.AddToGroup("Audio");
+        newAudioStreamerNode.Play();
+        
     }
 
-    public Task PlaySoundAsync(string name)
+    public async Task PlaySoundAsync(string name)
     {
-        throw new System.NotImplementedException();
+        var audioNodes = GetTree().GetNodesInGroup("Audio");
+        var arraySize = audioNodes.Count;
+        if (arraySize == 0)
+        {
+            ActionGiven = new TaskCompletionSource();
+            var newAudioStreamerNode = new AudioStreamPlayer2D();
+            newAudioStreamerNode.Stream = (AudioStream)ResourceLoader.Load($"res://Assets/Audio/{name}.ogg");
+            newAudioStreamerNode.Bus = "Audio";
+            newAudioStreamerNode.Name = name;
+            AddChild(newAudioStreamerNode);
+            newAudioStreamerNode.AddToGroup("Audio");
+            newAudioStreamerNode.Play();
+            await ToSignal(newAudioStreamerNode, "finished");
+            await ActionCompleted;
+            return;
+
+        }
+
+        foreach (var audioNode in audioNodes)
+        {
+            if (audioNode.Name != name) continue;
+            ActionGiven = new TaskCompletionSource();
+            var existingAudioStreamerNode = (AudioStreamPlayer2D)audioNode;
+            existingAudioStreamerNode.Play();
+            await ToSignal(existingAudioStreamerNode, "finished");
+            await ActionCompleted;
+            return;
+        }
     }
 
     public void PlayMusic(string name)
     {
-        throw new System.NotImplementedException();
+        var newAudioStreamerNode = new AudioStreamPlayer2D();
+        newAudioStreamerNode.Stream = (AudioStream)ResourceLoader.Load($"res://Assets/Audio/Music/{name}.ogg");
+        newAudioStreamerNode.Bus = "Audio";
+        newAudioStreamerNode.Name = name;
+        AddChild(newAudioStreamerNode);
+        newAudioStreamerNode.AddToGroup("Audio");
+        newAudioStreamerNode.Play();
+        
     }
 
     public void StopMusic(string name)
     {
-        throw new System.NotImplementedException();
+        var audioNodes = GetTree().GetNodesInGroup("Audio");
+        foreach (var audioNode in audioNodes)
+        {
+            if (audioNode.Name != name) continue;
+            RemoveChild(audioNode);
+            audioNode.QueueFree();
+            return;
+
+        }
     }
 
     public void StopAllAudio()
     {
-        throw new System.NotImplementedException();
+        // Remove all nodes from scene in the Audio node group
+        var audioNodes = GetTree().GetNodesInGroup("Audio");
+        foreach (var audioNode in audioNodes)
+        {
+            var streamingPlayer = (AudioStreamPlayer2D)audioNode;
+            streamingPlayer.VolumeDb = 0;
+            streamingPlayer.Stop();
+            streamingPlayer.EmitSignal("finished");
+            RemoveChild(audioNode);
+            audioNode.QueueFree();
+
+        }
     }
 }
