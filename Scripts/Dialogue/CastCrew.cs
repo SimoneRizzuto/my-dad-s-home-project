@@ -8,15 +8,13 @@ public partial class CastCrew : Node2D
 {
     // Cast
     public DialogueDirector Director => DialogueDirector.Instance;
-    
+    public IAudioDirector Audio => AudioDirector.Instance;
     // Actors
     public ActorModule Oliver;
     
     public override void _Ready()
     {
         var tree = GetTree();
-        
-        //audioDirector = AudioDirector.Instance;
         
         //camera = GetNodeHelper.GetMainCamera2D(tree);
         
