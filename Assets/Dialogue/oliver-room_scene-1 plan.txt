@@ -1,0 +1,65 @@
+How old is Oliver? Either:
+- 16
+- 14
+- 19, but visually, is 14. Later, it is revealed he is 19
+
+Pragmatic Goals
+- the player is on the internet
+	- the scene is a vista of a tree, and a city in the distance. the player will walk over to the tree to trigger a cutscene with a friend
+	- they are placed there without explanation
+	- they do not know, but they may suspect
+	- must feel screen-saver esk
+- a cutscene plays of Oliver & a friend spend time together over the internet
+	- this is a almost daily occurance
+	- show Sachi's name
+	- Sachi & Oliver are close friends, vaguely known to be friends for a few years now
+	- show Sachi's a drawer
+	- hint at Sachi's home situation
+		- when Sachi receives dinner, mention her mum giving her one of my favourite foods
+		- "mum's making me Sushi, im so excited. ill send you pics when i get it"
+		- this will hint at this conversation being over the internet
+	- Oliver will vaguely hint at himself not feeling so great
+		- it will be hinted at it being related to his living situation / relationship with his dad a home
+		- Oliver will deflect for now
+	- knocking on the door occurs, cutting this scene to another
+- the cutscene continues, in Oliver's bedroom, where Oliver is on his computer
+	- show some of Oliver's interests in the room
+	- show messy room, implying adolescent "laziness"
+	- the knocking is coming from the door, the dad passes him his dinner
+	- his dad & Oliver's relationship is shown to be strict, distant, and passive aggressive
+	- strong Italian roots
+	- this heavily hints and confirms the living situation at home is bad, and partially why
+		- the player does not know why their relationship is like this, but the absense of the mum + texts at the start will heavily hint at a breakup
+	- dad leaves by slamming the door behind him
+		- Oliver's heart is beating
+		- Oliver puts on headset to rejoin call, no one is on
+		- Oliver calms down
+	- final bit of scene, tying up any lose ends of conversations, before Oliver asks if he can come over after dinner
+		- Oliver quickly eats dinner
+		- the player must walk past dad while he's on TV
+
+Aesthetic Goals
+- online scene
+	- beautiful
+	- serene
+	- peaceful
+	- wind blowing
+	- screen-saver
+	- nature sounds
+- bed room
+	- dark colours
+	- messy room
+	- living with parents
+	- gamer room (not too much)
+- Sachi
+	- excited to hang
+	- friendly
+	- close
+	- concerned, notices uncharacteristic tone of Oliver's speech
+	- long history
+- dad
+	- distant - they don't speak with closeness
+	- strict - be better than you are
+	- passive aggressive
+		- "your welcome for the dinner"
+	- player should feel the akward relationship between parent and child
