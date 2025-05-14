@@ -1,6 +1,44 @@
 ~ opening_scene
 
 # sit on tree
+# friend is already there, sitting by the tree
+
+Friend: Hey!
+Oliver: Sup. Just got home.
+Friend: Nice.
+Friend: How's your night going?
+Oliver: It's going. You?
+Friend: Just drawing.
+Friend: I decided to try drawing merps again, if you remember them.
+Oliver: Oh yeah! I do remember.
+Friend: You want to see?
+Oliver: Soon soon.
+Friend: Ok.
+
+Director.Wait(4)
+
+Friend: Mum's making sushi for dinner again tonight. I'm so excited!
+Friend: I'll send a pic when I get it.
+Oliver: ... Nice.
+Friend: ...
+Friend: What are you having for dinner?
+Oliver: Um...
+Oliver: I didn't really want to ask my dad.
+Oliver: I'm sure I'll like it though.
+Friend: Oh... right.
+
+Director.Wait(4)
+
+Friend: How's that situation going anyway?
+Oliver: Look, I don't really wanna talk about it.
+Friend: Yeah, I get it.
+
+
+
+
+
+
+Oliver: 
 
 
 # 
