@@ -6,7 +6,7 @@ using MyFathersHomeProject.Scripts.Shared.Constants;
 namespace MyFathersHomeProject.Scripts.Camera;
 public partial class PlayerCamera : Camera2D
 {
-    public const int Height = 55;
+    public const int Height = 45;
 
     private Oliver Oliver => GetNodeHelper.GetOliver(GetTree());
 

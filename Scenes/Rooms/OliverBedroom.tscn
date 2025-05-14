@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cyoekyq6ui657"]
+[gd_scene load_steps=18 format=3 uid="uid://cyoekyq6ui657"]
 
 [ext_resource type="Texture2D" uid="uid://bi14ih4bw0ew2" path="res://Assets/Textures/Environments/oliver-room-background-wall.png" id="1_bcs8k"]
-[ext_resource type="PackedScene" path="res://Scenes/Camera/TripodMount.tscn" id="2_piyi6"]
+[ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="2_piyi6"]
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="2_y5hah"]
 [ext_resource type="Texture2D" uid="uid://dr8ie6j8g2608" path="res://Assets/Textures/StaticObjects/hero-poster.png" id="4_d7bue"]
 [ext_resource type="Texture2D" uid="uid://dkaw555svegmx" path="res://Assets/Textures/StaticObjects/bedside-drawer-oliver.png" id="4_jfg7y"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://dxdlfso230vqe" path="res://Assets/Textures/StaticObjects/lamp-2.png" id="6_k5h05"]
 [ext_resource type="Texture2D" uid="uid://dvxi1fkoqhfuc" path="res://Assets/Textures/StaticObjects/bedside-drawer-2-oliver.png" id="7_vxv3r"]
 [ext_resource type="Texture2D" uid="uid://b8smyff3h32v7" path="res://Assets/Textures/StaticObjects/oliver-room-door-2.png" id="13_jdh1p"]
+[ext_resource type="PackedScene" uid="uid://cehckxjxfklbj" path="res://Scenes/Modules/DialogueInteractable.tscn" id="14_caslg"]
+[ext_resource type="Resource" uid="uid://cdralaghyawnb" path="res://Assets/Dialogue/test-dialogue.dialogue" id="15_8g3y8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ekbwx"]
 size = Vector2(45, 8)
@@ -134,3 +136,8 @@ debug_color = Color(0, 0.0235294, 0.701961, 0.419608)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.54902, 0.498039, 0.45098, 1)
+
+[node name="DialogueInteractable" parent="." instance=ExtResource("14_caslg")]
+position = Vector2(261, 70)
+DialogueResource = ExtResource("15_8g3y8")
+Title = "debug"

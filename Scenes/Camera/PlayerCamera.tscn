@@ -4,4 +4,5 @@
 
 [node name="PlayerCamera" type="Camera2D" groups=["player camera"]]
 position = Vector2(0, 55)
+zoom = Vector2(1.25, 1.25)
 script = ExtResource("1_sijow")
