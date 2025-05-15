@@ -6,18 +6,18 @@ How old is Oliver? Either:
 Pragmatic Goals
 - the player is on the internet
 	- the scene is a vista of a tree, and a city in the distance. the player will walk over to the tree to trigger a cutscene with a friend
-	- they are placed there without explanation
-	- they do not know, but they may suspect
-	- must feel screen-saver esk
+	- x they are placed there without explanation
+	- x they do not know, but they may suspect
+	- x must feel screen-saver esk
 - a cutscene plays of Oliver & a friend spend time together over the internet
 	- this is a almost daily occurance
 	- show Sachi's name
-	- Sachi & Oliver are close friends, vaguely known to be friends for a few years now
-	- show Sachi's a drawer
-	- hint at Sachi's home situation
-		- when Sachi receives dinner, mention her mum giving her one of my favourite foods
-		- "mum's making me Sushi, im so excited. ill send you pics when i get it"
-		- this will hint at this conversation being over the internet
+	- x Sachi & Oliver are close friends, vaguely known to be friends for a few years now
+	- x show Sachi's a drawer
+	- x hint at Sachi's home situation
+		- x when Sachi receives dinner, mention her mum giving her one of my favourite foods
+		- x "mum's making me Sushi, im so excited. ill send you pics when i get it"
+		- x this will hint at this conversation being over the internet
 	- Oliver will vaguely hint at himself not feeling so great
 		- it will be hinted at it being related to his living situation / relationship with his dad a home
 		- Oliver will deflect for now
