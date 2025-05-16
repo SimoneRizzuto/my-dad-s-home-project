@@ -14,55 +14,38 @@ Oliver: Oh yeah! I do remember.
 Friend: You want to see?
 Oliver: Soon soon.
 Oliver: Just taking a sec to relax.
-Friend: Ok.
 
 Director.Wait(4)
 
-Friend: Mum's making sushi for dinner again tonight!
+Friend: I'm so excited for dinner tonight.
+Friend: Mum's making sushi again!
 Friend: I'll send you pics when I have it.
 Oliver: ... Mhh.
 Friend: ...
 Friend: What are you having for dinner?
 Oliver: Um...
 Oliver: I didn't really ask...
-Oliver: It's hard to ask my dad anything, really.
 
 Director.Wait(4)
 
-Friend: Is... everything ok?
-Oliver: Yeah.
-Oliver: Just one of those nights.
-Friend: Right. I understand.
+Oliver: Sorry, it's not a good night for me.
+Friend: Yeah, I could feel that.
+Oliver: That obvious?
+Friend: Just a little.
+
+Director.Wait(3)
+
 Friend: How long until you move out?
 Oliver: A few weeks left, I think.
 Friend: Oh wow.
 Oliver: Yup.
-
-Director.Wait(4)
-
-Oliver: Man, I wanna do something!
-Oliver: ... I just don't know what, though.
-Friend: Did you want to go to park together?
-Friend: Or maybe come over to my place for the night.
-Friend: We can play video games and not think about anything.
-Oliver: ... Is that ok with you?
-Friend: Of course.
-Friend: I know it's tough for you right now.
-Friend: I want to make sure you're ok.
-Oliver: I'll... um...
-Oliver: I really wanna come over.
-Oliver: I'll let you know soon.
-Oliver: Maybe after dinner.
-Friend: Sure.
-Oliver: Cool.
-
-Director.Wait(8)
-
-Oliver: Have I ever told you your awesome?
-Friend: Pff, stop.
-Oliver: Heheheh.
-Oliver: I can't wait until it's all over.
-Oliver: Once I'm moved out, it'll feel so nice to-
+Friend: How's your dad taking it?
+Oliver: Better than three months ago.
+Oliver: But... I don't know.
+Oliver: It's hard to talk to him about anything.
+Oliver: There was one time we fully went into it and then...
+Oliver: That was it.
+Friend: What about your-
 
 #Knocking on the door is heard.
 #A cut to a bedroom, with Oliver sitting on a computer with his headphones on.
@@ -133,11 +116,26 @@ Friend: Hello? You're the person having pasta with tuna.
 Oliver: It’s great, what do you mean?
 Oliver: You just don’t see the vision.
 Friend: Pff.
+Friend: But yeah, I don't know.
+Friend: Everything at home sounds rough.
+Oliver: Yeah.
+Oliver: To be honest, I'm keen to get out of here.
+Oliver: Even tonight.
+Oliver: I wanna do something!
+Oliver: ... I just don't know what, though.
+Friend: Did you want to go to park together?
+Friend: Or maybe come over to my place for the night.
+Friend: We can play video games and not think about anything.
+Oliver: ... Is that ok with you?
+Friend: Of course.
+Friend: I want to make sure you're ok.
+Oliver: ...
 
-Director.Wait(1)
+Director.Wait(8)
 
-Oliver: About coming over...
-Friend: Yeah?
+Oliver: Have I ever told you your awesome?
+Friend: Pff, stop.
+Oliver: Heheheh.
 
 Oliver gulps his food down.
 
@@ -148,8 +146,8 @@ Friend: ... Did you just gulp your food down in one go?
 Oliver: Maybe...
 Friend: Jeez.
 Friend: You shouldn't do that.
-Oliver: Well, that's not how the world works.
-Friend: Ok. Either way, I'll be here waiting for you.
+Oliver: Well, I just did.
+Friend: Ok. Let me know when you outside.
 Oliver: Yup, see ya soon.
 Friend: Goodbye!
 
