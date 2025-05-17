@@ -18,26 +18,31 @@ size = Vector2(656.5, 4)
 
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="Sky" type="Sprite2D" parent="Objects"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Objects"]
+
+[node name="SkyLayer" type="ParallaxLayer" parent="Objects/ParallaxBackground"]
+motion_scale = Vector2(0.025, 1)
+motion_mirroring = Vector2(341, 0)
+
+[node name="Sky" type="Sprite2D" parent="Objects/ParallaxBackground/SkyLayer"]
 texture_repeat = 2
 position = Vector2(0, -53)
 texture = ExtResource("1_qxfir")
 centered = false
 region_rect = Rect2(0, 0, 341, 174)
 
-[node name="Sky" type="Sprite2D" parent="Objects/Sky"]
-texture_repeat = 2
-position = Vector2(340, 0)
-texture = ExtResource("1_qxfir")
-centered = false
-region_rect = Rect2(0, 0, 341, 174)
+[node name="CloudsLayer" type="ParallaxLayer" parent="Objects/ParallaxBackground"]
+motion_scale = Vector2(0.1, 1)
 
-[node name="Clouds" type="Sprite2D" parent="Objects"]
+[node name="Clouds" type="Sprite2D" parent="Objects/ParallaxBackground/CloudsLayer"]
 position = Vector2(17, 22)
 texture = ExtResource("2_hi6xt")
 centered = false
 
-[node name="City" type="Sprite2D" parent="Objects"]
+[node name="CityLayer" type="ParallaxLayer" parent="Objects/ParallaxBackground"]
+motion_scale = Vector2(0.15, 1)
+
+[node name="City" type="Sprite2D" parent="Objects/ParallaxBackground/CityLayer"]
 position = Vector2(0, 36)
 texture = ExtResource("1_qeykr")
 centered = false
