@@ -25,32 +25,32 @@ Friend: ...
 Friend: What are you having for dinner?
 Oliver: Um...
 Oliver: I didn't really ask...
+Oliver: ...
+Friend: ... Right.
 
 Director.Wait(4)
 
 Oliver: Sorry, it's not a good night for me.
-Friend: Yeah, I could feel that.
+Friend: Yeah... I could feel that.
 Oliver: That obvious?
 Friend: Just a little.
-
-Director.Wait(3)
-
-Friend: How long until you move out?
+Friend: I get it, considering.
+Friend: ... How long do you have left in that house?
 Oliver: A few weeks left, I think.
 Friend: Oh wow.
 Oliver: Yup.
-Friend: How's your dad taking it?
+Friend: How's your dad taking everything that's happened?
 Oliver: Better than three months ago.
 Oliver: But... I don't know.
 Oliver: It's hard to talk to him about anything.
-Oliver: There was one time we fully went into it and then...
+Oliver: We went into it one time and then...
 Oliver: That was it.
-Friend: What about your-
 
 #Knocking on the door is heard.
 #A cut to a bedroom, with Oliver sitting on a computer with his headphones on.
 #Oliver’s heart is heart beating.
 
+Oliver: Give me a sec...
 Oliver: Coming!
 
 Oliver.MoveToXPosition(100)
@@ -60,8 +60,7 @@ Oliver.MoveToXPosition(100)
 
 Dad: Why didn’t you answer after the first time?
 Oliver: I guess I didn’t hear it.
-Dad: ...
-... Who are you talking to?
+Dad: ... Who are you talking to?
 Oliver: Just a friend.
 Dad: Which one?
 Oliver: You don’t know them.
@@ -72,8 +71,8 @@ Director.Wait(2)
 The dad walks into the room. He places the plate on the table, and walk around the room, looking at the mess.
 
 Dad: *sigh*
-This mess...
-I shouldn’t even have to say anything.
+Dad: This mess...
+Dad: I shouldn’t even have to say anything.
 Oliver: ...
 
 The dad turns to Oliver.
@@ -84,8 +83,6 @@ Oliver: I’ll clean it later...
 He walks toward the door.
 
 Dad: Arrangia!
-
-He leaves, and slams the door.
 
 He leaves, and slams the door.
 Oliver’s heart is still heard beating again.
@@ -99,8 +96,8 @@ Oliver: Hello?
 
 Director.Wait(2)
 
-Oliver: *phew*
-Oliver: Calm down.
+Oliver: *sigh*
+Oliver: Ok. Calm down.
 
 His heart is still beating.
 He takes some deeper breaths, and the beating fades.
@@ -116,8 +113,10 @@ Friend: Hello? You're the person having pasta with tuna.
 Oliver: It’s great, what do you mean?
 Oliver: You just don’t see the vision.
 Friend: Pff.
-Friend: But yeah, I don't know.
-Friend: Everything at home sounds rough.
+
+Director.Wait(3)
+
+Friend: Everything at home sounds rough, though.
 Oliver: Yeah.
 Oliver: To be honest, I'm keen to get out of here.
 Oliver: Even tonight.
@@ -131,7 +130,7 @@ Friend: Of course.
 Friend: I want to make sure you're ok.
 Oliver: ...
 
-Director.Wait(8)
+Director.Wait(5)
 
 Oliver: Have I ever told you your awesome?
 Friend: Pff, stop.
