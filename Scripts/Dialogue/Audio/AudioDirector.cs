@@ -1,9 +1,8 @@
-using System.Threading.Tasks;
 using Godot;
+using System.Threading.Tasks;
 using MyFathersHomeProject.Scripts.Dialogue.Base;
 
 namespace MyFathersHomeProject.Scripts.Dialogue.Audio;
-
 public partial class AudioDirector : Node2D, IAsyncDialogueVariables, IAudioDirector
 {
     public static AudioDirector Instance { get; private set; }

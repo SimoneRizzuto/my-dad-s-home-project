@@ -20,7 +20,8 @@ config/icon="res://icon.svg"
 PlayerCamera="*res://Scenes/Camera/PlayerCamera.tscn"
 ShortcutManager="*res://Scenes/Menus/ShortcutManager.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-DialogueDirector="*res://Scripts/Dialogue/DialogueDirector.cs"
+Director="*res://Scripts/Dialogue/DialogueDirector.cs"
+Audio="*res://Scripts/Dialogue/Audio/AudioDirector.cs"
 
 [dialogue_manager]
 

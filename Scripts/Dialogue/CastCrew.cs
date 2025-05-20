@@ -1,16 +1,11 @@
 using Godot;
 using System.Linq;
 using MyFathersHomeProject.Scripts.Dialogue.Actor;
-using MyFathersHomeProject.Scripts.Dialogue.Audio;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
 namespace MyFathersHomeProject.Scripts.Dialogue;
 public partial class CastCrew : Node2D
 {
-    // Cast
-    public DialogueDirector Director => DialogueDirector.Instance;
-    public IAudioDirector Audio => AudioDirector.Instance;
-    
     // Actors
     public ActorModule Oliver;
     
