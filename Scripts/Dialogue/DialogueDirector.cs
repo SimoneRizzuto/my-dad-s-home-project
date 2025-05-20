@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Linq;
 using DialogueManagerRuntime;
+using MyFathersHomeProject.Scripts.Dialogue;
 using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
