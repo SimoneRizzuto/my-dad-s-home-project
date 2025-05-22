@@ -1,0 +1,94 @@
+~ dad_is_alone
+#oliver is sleeping in his room
+
+#gentle knock
+
+# the player doesn't know it's the dad until he opens the door
+Dad: Oliver...
+
+do Director.Wait(3)
+
+Dad: A-Are you... awake?
+Dad: I'm...
+
+do Director.Wait(4)
+
+Dad: ... I'm really scared.
+Dad: I don't want to sleep alone.
+Dad: Can you please come out?
+
+do Director.Wait(2)
+
+#Oliver gets up from the bed
+#He rubs his eyes
+
+Oliver: Give me a sec.
+=> END
+
+~ oliver_opens_the_door
+# door opens
+
+# dad is crying
+
+do Director.Wait(2)
+
+Oliver: Oh...
+
+do Director.Wait(1)
+
+Dad: ... C-Can you stay with me a bit?
+Dad: It's really quiet out there.
+Oliver: Yeah.
+Oliver: I'll come out.
+Oliver: ... Though I'm really tired.
+Dad: That's ok.
+Dad: Sleep if you have to.
+Dad: I just don't want to be alone...
+Oliver: Ok.
+
+# the player will walk with dad to the couch
+=> END
+
+~ oliver_and_dad_sit_on_the_couch
+
+#the TV is playing faint, mumbling sounds
+
+Dad: ... I don't even have words.
+Dad: How could she do that to us?
+Dad: *sigh*
+
+#open phone to text
+
+Oliver: hey man
+Oliver: idk anyone else thats gone through this, so im sorry for asking you outta nowhere
+Oliver: my mum and dad split up, and a lot is happening
+Oliver: idk what to do or say
+Oliver: do you have any advice?
+Oliver: it's really hard to find any words right now for my dad
+Oliver: sorry for texting so late
+
+#close phone
+
+Dad: She... destroyed my family.
+Dad: Our family.
+Dad: Why did she stay quiet?
+Dad: We could've made it work.
+Oliver: ... She wasn't happy.
+Dad: She could've said something.
+Dad: You don't just... end things like this.
+Oliver: I...
+
+do Director.Wait(3)
+
+Dad: I never thought I'd go through this again.
+Oliver: It sucks...
+Dad: ...
+Dad: I wonder where she is now.
+Oliver: ...
+
+#text sequence
+“Hey pumpkin, please let me know if you need anything.”
+“I’m sorry for leaving you with him.”
+“I promise when everything’s over, we will both be happy together.”
+“Love you, pumpkin. Goodnight.” 
+=> END
