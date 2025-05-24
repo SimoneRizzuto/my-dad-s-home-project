@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bh7otdjt77r8m"]
+[gd_scene load_steps=29 format=3 uid="uid://bh7otdjt77r8m"]
 
 [ext_resource type="Texture2D" uid="uid://c04vcdhv4omev" path="res://Assets/Textures/StaticObjects/LivingRoom/orange-door.png" id="1_60vnj"]
 [ext_resource type="Texture2D" uid="uid://i10d657iytts" path="res://Assets/Textures/Environments/living-room-foreground-wall.png" id="1_a5bcu"]
@@ -27,8 +27,6 @@
 [ext_resource type="Texture2D" uid="uid://fugm0uhvliv7" path="res://Assets/Textures/StaticObjects/LivingRoom/cabinet-dining-room.png" id="20_cmb5b"]
 [ext_resource type="Texture2D" uid="uid://2xdvjq3ukvr8" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_point_light.webp" id="21_hb6dq"]
 [ext_resource type="Texture2D" uid="uid://0igud66o8lc0" path="res://Assets/Textures/StaticObjects/LivingRoom/spin-chair.png" id="21_ic2s8"]
-
-[sub_resource type="MeshTexture" id="MeshTexture_fuvfm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_std5u"]
 size = Vector2(547, 4)
@@ -69,6 +67,7 @@ ZIndex = 15
 
 [node name="MoveToForeground" parent="ZIndexModifiers" instance=ExtResource("3_c7aby")]
 position = Vector2(264, 75)
+ZIndex = 1010
 
 [node name="BackgroundWall" type="ColorRect" parent="."]
 z_index = 10
@@ -115,18 +114,18 @@ texture = ExtResource("8_0debt")
 centered = false
 
 [node name="Hanging-light" type="Sprite2D" parent="ForegroundWall/LivingRoom"]
-position = Vector2(373, -11)
+position = Vector2(373, 1)
 texture = ExtResource("9_wgxyc")
 centered = false
 
 [node name="Bounce" type="PointLight2D" parent="ForegroundWall/LivingRoom/Hanging-light"]
-position = Vector2(3.50001, 75)
+position = Vector2(3.50002, 74)
 scale = Vector2(0.722656, 0.398438)
 energy = 0.75
 texture = ExtResource("21_hb6dq")
 
 [node name="Point" type="PointLight2D" parent="ForegroundWall/LivingRoom/Hanging-light"]
-position = Vector2(3.50001, 60.5)
+position = Vector2(3.5, 43.5)
 scale = Vector2(0.649635, 0.414063)
 energy = 0.2
 texture = ExtResource("12_gdxjn")
@@ -193,11 +192,19 @@ position = Vector2(76, 1)
 texture = ExtResource("9_wgxyc")
 centered = false
 
-[node name="PointLight2D" type="PointLight2D" parent="ForegroundWall/Kitchen/Hanging-light"]
-z_index = 64
-position = Vector2(6, 46.875)
-scale = Vector2(23.25, 30.25)
-texture = SubResource("MeshTexture_fuvfm")
+[node name="Bounce" type="PointLight2D" parent="ForegroundWall/Kitchen/Hanging-light"]
+z_index = 2050
+position = Vector2(3.50002, 74)
+scale = Vector2(0.722656, 0.398438)
+energy = 0.75
+texture = ExtResource("21_hb6dq")
+
+[node name="Point" type="PointLight2D" parent="ForegroundWall/Kitchen/Hanging-light"]
+z_index = 2050
+position = Vector2(3.5, 43.5)
+scale = Vector2(0.649635, 0.414063)
+energy = 0.2
+texture = ExtResource("12_gdxjn")
 
 [node name="Plate-holder" type="Sprite2D" parent="ForegroundWall/Kitchen"]
 position = Vector2(16, 37)
