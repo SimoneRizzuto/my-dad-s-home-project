@@ -30,6 +30,8 @@ Oliver: *sigh* Crap.
 
 => END
 
+
+
 ~ in_the_car
 
 #Oliver and Dad are driving together
@@ -52,20 +54,32 @@ do Director.Wait(3)
 
 Dad: FUCK!
 Dad: I FUCKING KNEW IT!
-Dad: That's why she didn't say anything!
-Dad: She wanted to just run away to an Australian "man", I guess.
-Dad: What the fuck happened to her?
-Dad: What did I EVER do to deserve this?
-Dad: Can you believe her?
+Dad: She just ran away to an Australian "man".
+Dad: What happened to her Italian pride?
+Dad: ...
+Dad: Why?
+Dad: What did I EVER do?
+Dad: What the fuck?
 Oliver: ...
 
 do Director.Wait(4)
 
-Dad: Oliver.
+#dad stops the car
+
+do Director.Wait(2)
+
+Dad: ...
+
+#dad places his head on the steering wheel
+
+Dad: I'm...
+Dad: ...
+Dad: Calm... down...
+Oliver: 
 
 do Director.Wait(4)
 
-#dad stops the car
+
 
 do Director.Wait(2)
 
@@ -90,12 +104,12 @@ do Director.Wait(3)
 Oliver: ... Screw it.
 Oliver: She wasn't trying to cheat on you.
 Oliver: She was already unhappy. 
-Oliver: When she met him, she knew the right thing to do.
-Oliver: It was only fair.
+Oliver: When she met him, she knew what was the right thing to do.
+Oliver: It was only fair to you.
 
 do Director.Wait(3)
 
-Dad: You knew?!
+Dad: ... You knew?!
 Oliver: She would always vent to me about you.
 Oliver: And... I would too.
 Oliver: ...
@@ -116,6 +130,9 @@ Dad: Ok. Fine.
 Dad: Oliver. Why are you angry with me?
 
 #starts driving
+
+
+
 
 Oliver: You are racist to every goddamned person that isn't the perfect white person.
 Oliver: Or Italian!
@@ -139,7 +156,7 @@ Dad: So what? You want me to pat you on the back?
 Dad: Good job, son. Do nothing with your life.
 Oliver: No Papa. I'd love a dad that I can go to for help.
 Oliver: One that won't yell at me if I haven't done anything.
-Dad: You know FULL well you wouldn't do any of the work/
+Dad: You know FULL well you wouldn't do any of the work.
 Oliver: I would.
 Dad: Yes, totally.
 
