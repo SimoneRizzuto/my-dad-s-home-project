@@ -36,7 +36,7 @@ size = Vector2(547, 4)
 [node name="LivingRoom" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.513887, 0.441447, 0.375269, 1)
+color = Color(0.356863, 0.301961, 0.25098, 1)
 
 [node name="Tripods" type="Node2D" parent="."]
 
@@ -126,16 +126,10 @@ energy = 0.75
 texture = ExtResource("21_hb6dq")
 
 [node name="Point" type="PointLight2D" parent="ForegroundWall/LivingRoom/Hanging-light"]
-visible = false
 position = Vector2(3.50001, 60.5)
 scale = Vector2(0.649635, 0.414063)
 energy = 0.2
 texture = ExtResource("12_gdxjn")
-
-[node name="Test" type="PointLight2D" parent="ForegroundWall/LivingRoom/Hanging-light"]
-position = Vector2(-16.1228, 47.0049)
-scale = Vector2(0.250959, 36.0099)
-energy = 0.2
 
 [node name="Couch" type="Sprite2D" parent="ForegroundWall/LivingRoom"]
 position = Vector2(311, 53)
