@@ -1,4 +1,5 @@
 using Godot;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Dialogue.Base;
@@ -27,14 +28,14 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
         unitsToMove = -pixels;
         initialXPosition = (int)CharacterBody.Position.X;
         
-        await SetupActionTask(DialogueDirection.Move);
+        await SetupActionTask(DialogueDirection.Move,0);
     }
     public async Task MoveRight(int pixels)
     {
         unitsToMove = pixels;
         initialXPosition = (int)CharacterBody.Position.X;
         
-        await SetupActionTask(DialogueDirection.Move);
+        await SetupActionTask(DialogueDirection.Move, 0);
     }
     
     public async Task MoveToXPosition(int xPosition)
@@ -42,7 +43,12 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
         targetXToMoveTo = xPosition;
         initialXPosition = (int)CharacterBody.Position.X;
         
-        await SetupActionTask(DialogueDirection.MoveToPosition);
+        await SetupActionTask(DialogueDirection.MoveToPosition, 0);
+    } 
+    
+    public async Task Wait(double seconds)
+    {
+        await SetupActionTask(DialogueDirection.Nothing, seconds);
     } 
     
     #endregion
@@ -52,20 +58,39 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
     // async task variables
     public Task ActionCompleted => ActionGiven.Task;
     public TaskCompletionSource ActionGiven { get; set; } = new();
+    private double millisecondsToPass = 1000;
+    private readonly Stopwatch stopwatch = new();
     
     // state
     private DialogueDirection dialogueDirectionToPlay;
     
-    private async Task SetupActionTask(DialogueDirection dialogueDirection)
+    private async Task SetupActionTask(DialogueDirection dialogueDirection, double seconds)
     {
         ActionGiven = new TaskCompletionSource();
+        millisecondsToPass = seconds * 1000;
         dialogueDirectionToPlay = dialogueDirection;
         
         await ActionCompleted;
     }
     
+    private void FinishTask()
+    {
+        stopwatch.Stop();
+        ActionGiven.TrySetResult();
+    }
+    
     public override void _PhysicsProcess(double delta)
     {
+        if (!stopwatch.IsRunning)
+        {
+            stopwatch.Restart();
+        }
+        
+        if (stopwatch.ElapsedMilliseconds > millisecondsToPass)
+        {
+            FinishTask();
+        }
+        
         if (Character.CharacterState != CharacterState.Cutscene) return;
         
         switch (dialogueDirectionToPlay)
