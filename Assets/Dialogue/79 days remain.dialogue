@@ -1,0 +1,198 @@
+~ something_is_wrong
+
+# Oliver is on his computer
+# Dad barges into the room
+
+Oliver: PAPA!
+Oliver: Knock! What are you doing?
+Dad: Oliver. Something is wrong.
+Oliver: ... W-What?
+Dad: I found her car.
+Dad: It's not at your Nonna's house or Zia's.
+Oliver: Oh...
+
+do Director.Wait(5)
+
+Dad: I just wanted to see where she was.
+Dad: I didn't think...
+Oliver: ... It could mean anything.
+Dad: Could it?
+Oliver: Papa...
+Dad: I don't know, Oliver.
+Dad: Come with me, I'll show you.
+Oliver: I don't know.
+Dad: Just come. I'll wait in the car.
+Oliver: I-
+
+#he leaves the room, and shuts the door behind him
+
+Oliver: *sigh* Crap.
+
+=> END
+
+
+
+~ in_the_car
+
+#Oliver and Dad are driving together
+
+Dad: You'll see, I'm not seeing things.
+Dad: I KNEW something was up.
+Oliver: ...
+
+do Director.Wait(6)
+
+Dad: Just up here.
+Dad: See? Why is the car here?
+Dad: Is that... her?
+Oliver: Oh, no.
+Dad: That man...
+
+do Director.Wait(3)
+
+#the Dad skids, then drives off
+
+Dad: FUCK!
+Dad: I FUCKING KNEW IT!
+Dad: She just ran away to an Australian "man".
+Dad: What happened to her Italian pride?
+Dad: ...
+Dad: Why?
+Dad: What did I EVER do?
+Dad: What the fuck?
+Oliver: ...
+
+do Director.Wait(4)
+
+#dad stops the car
+
+do Director.Wait(2)
+
+Dad: ...
+
+#dad places his head on the steering wheel
+
+Dad: I'm...
+Dad: ...
+Dad: Calm... down...
+Oliver: 
+
+do Director.Wait(4)
+
+
+
+do Director.Wait(2)
+
+Dad: Oliver!
+Oliver: Look, Papa...
+Oliver: I just...
+Oliver: She isn't-
+Oliver: She wasn't...
+Dad: ...
+
+do Director.Wait(2)
+
+Oliver: She wasn't happy...
+Dad: Ok. She wasn't happy.
+Dad: But cheating?
+Dad: You can agree with me that's wrong, right?
+Oliver: Yes, but...
+Oliver: She just...
+
+do Director.Wait(3)
+
+Oliver: ... Screw it.
+Oliver: She wasn't trying to cheat on you.
+Oliver: She was already unhappy. 
+Oliver: When she met him, she knew what was the right thing to do.
+Oliver: It was only fair to you.
+
+do Director.Wait(3)
+
+Dad: ... You knew?!
+Oliver: She would always vent to me about you.
+Oliver: And... I would too.
+Oliver: ...
+Dad: You knew and you didn't tell me?
+Oliver: I...
+
+do Director.Wait(2)
+
+Oliver: When she met him three months ago... she immediately told she would break up with you to make it right.
+Dad: YOU KNEW FOR THREE MONTHS?
+Oliver: I-I... I wasn't trying to hide it.
+Dad: SO THEN WHY DIDN'T YOU SAY ANYTHING LAST WEEK?
+Oliver: BECAUSE I'M ALSO ANGRY WITH YOU, PAPA.
+Oliver: And when it happened... I've never seen you cry like that.
+Dad: Why in the FUCK are you angry with ME? SHE'S the one-
+Dad: ...
+Dad: Ok. Fine.
+Dad: Oliver. Why are you angry with me?
+
+#starts driving
+
+
+
+
+Oliver: You are racist to every goddamned person that isn't the perfect white person.
+Oliver: Or Italian!
+Oliver: A-And you get pissed off at me for every little thing I don't do right.
+Oliver: Anytime I'm in my room, I always feel like I have a hawk behind me.
+Oliver: It drives me insane!
+Dad: Oliver, what are you talking about? This is what a dad does...
+Oliver: So being racist is what dads do?
+Dad: That has nothing to do with ANYTHING!
+Oliver: THAT HAS EVERYTHING TO DO WITH EVERYTHING!
+Oliver: I am so SICK and TIRED of listening to you spout BULLSHIT!
+Oliver: What if I bring home a girlfriend that's asian? What are you going to do? Kill her?
+Dad: Where the fuck is this coming from?
+Oliver: I've been angry for years, Papa.
+Dad: Ok, fine. I'm racist. I hate all the races.
+Dad: But the other stuff...
+Dad: Do you see your room?
+Dad: What about your homework? Do you do that?
+Oliver: ... No.
+Dad: So what? You want me to pat you on the back?
+Dad: Good job, son. Do nothing with your life.
+Oliver: No Papa. I'd love a dad that I can go to for help.
+Oliver: One that won't yell at me if I haven't done anything.
+Dad: You know FULL well you wouldn't do any of the work.
+Oliver: I would.
+Dad: Yes, totally.
+
+do Director.Wait(4)
+
+Dad: Does she say this shit, too?
+Oliver: Yes.
+Oliver: And she's generally unhappy with you too.
+Oliver: But that's not my fight...
+Dad: No, tell me what she says.
+Oliver: No, Papa.
+Dad: Oh, I see whats happening.
+Dad: She's put bullshit into your mind.
+Oliver: What?
+Dad: Ohhh, that clever bitch.
+Dad: She puts my son against me, and then she runs away with her perfect Australian man.
+Oliver: Papa. I truly believe everything I've said.
+Dad: Sure.
+Oliver: Why are you dismissing it?
+Dad: I've heard enough.
+Oliver: These are my own thoughts, Papa!
+Dad: Yes, clearly.
+Oliver: Papa, I swear to god.
+Dad: My family hates me. Great!
+Oliver: Holy crap! THIS is why I'm angry. You never listen.
+Dad: I wish my son listened to the words of his dad.
+Dad: No. He'll defend his cheating mother.
+Dad: Fantastic...
+Oliver: ...
+
+# they arrive home
+# dad goes to his room
+
+=> END
+
+
+# the player goes to his room into his bed, and he cries
+
+

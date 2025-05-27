@@ -4,12 +4,12 @@
 
 Oliver: NO WAY!
 Friend: YES!
-Friend: And that’s a wrap!
+Friend: Woo!
 Oliver: That was SO UNLUCKY!
-Friend: Hey, what I can I say? I guess I'm just the drift queen!
-Oliver: Good games, I guess...
+Friend: Hey, what I can I say? They call me the drift queen!
+Oliver: No one says that...
 
-Director.Wait(3)
+do Director.Wait(3)
 
 Oliver: Ok, time to get up a bit.
 Oliver: Bathroom time!
@@ -42,7 +42,7 @@ Friend: You got me... Wow.
 Oliver: By the way, you never got to show me your drawings.
 Friend: Oh yeah!
 
-Friend gets up and walks to the computer. Merps are shown on the screen.
+#Friend gets up and walks to the computer. Merps are shown on the screen.
 
 Friend: Look at my little merps!
 Oliver: Daaamn!
@@ -104,7 +104,7 @@ Oliver: Pff. Unfortunately not.
 
 #Oliver sits next to the fireplace.
 
-Director.Wait(3)
+do Director.Wait(3)
 
 #Oliver looks around himself.
 #Oliver closes his eyes.
@@ -115,7 +115,7 @@ Oliver: Do you feel this warmth?
 Friend: Mhh?
 Oliver: It's really cozy. Don't you agree?
 Friend: ...
-Friend: Yeah.
+Friend: Yeah, it is.
 
 #Oliver opens his eyes. He lies down.
 
@@ -129,23 +129,23 @@ Oliver: They make it look really nice in movies.
 Oliver: Surely, it's just as nice in real life.
 Friend: ...
 Friend: Maybe.
-Oliver: One day, we should go definitely camping with everyone.
-Oliver: I think it would be really fun to be out there.
+Oliver: One day, we should definitely go camping with everyone.
+Oliver: It would be really fun to be out there, gathering wood for a fire, cooking dinner in that fire.
 Friend: As long as I can bring my sketchbook, I'm happy.
-Oliver: Oh, then you could draw your point of view, and capture the moment.
+Oliver: And then you could draw your point of view, and capture the moment.
 Oliver: That'd be cool.
 Friend: Eh. I'd rather draw whatever comes to mind.
-Oliver: Ok, I would do that if I could draw...
+Oliver: Well, I would do that... if I could draw.
 Friend: You COULD always learn.
-Friend: Just bring your own sketchbook and do it.
+Friend: Bring your own sketchbook and scribble whatever comes to mind.
 Oliver: Mhh.
 Oliver: You're right. Even if I would suck, it'd be worth it.
 Oliver: I'd capture the moment myself. Through my eyes.
 Friend: Yeah.
 
-Director.Wait(6)
+do Director.Wait(6)
 
-Oliver: I could... fall asleep... any time now...
+Oliver: I could fall asleep any time now...
 Oliver: I don't... want to though...
 Friend: I'm sleeeepy.
 Oliver: No... do not... succumb.

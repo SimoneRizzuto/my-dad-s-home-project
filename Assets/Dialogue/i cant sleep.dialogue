@@ -1,0 +1,22 @@
+~ i_cant_sleep
+
+# oliver is lying down on the bed.
+# it is back to being inside Sachi's bedroom
+
+# oliver sits up from his dream
+# he looks to Sachi before lying down again
+
+Oliver: Are you... awake? #small text
+
+do Director.Wait(3)
+
+Oliver: *sigh*
+
+do Director.Wait(2)
+
+# fade in the stars in the backgrpund, with a twinkle sound
+
+Oliver: 
+
+
+=> END

@@ -15,7 +15,7 @@ Friend: You want to see?
 Oliver: Soon soon.
 Oliver: Just taking a sec to relax.
 
-Director.Wait(4)
+do Director.Wait(4)
 
 Friend: I'm so excited for dinner tonight.
 Friend: Mum's making sushi again!
@@ -28,7 +28,7 @@ Oliver: I didn't really ask...
 Oliver: ...
 Friend: ... Right.
 
-Director.Wait(4)
+do Director.Wait(4)
 
 Oliver: Sorry, it's not a good night for me.
 Friend: Yeah... I could feel that.
@@ -47,13 +47,16 @@ Oliver: We went into it one time and then...
 Oliver: That was it.
 
 #Knocking on the door is heard.
+
+##do SceneSwitcher.
+
 #A cut to a bedroom, with Oliver sitting on a computer with his headphones on.
 #Oliver’s heart is heart beating.
 
 Oliver: Give me a sec...
 Oliver: Coming!
 
-Oliver.MoveToXPosition(100)
+do Oliver.MoveToXPosition(100)
 
 #Open door.
 #Spawn dad.
@@ -66,7 +69,7 @@ Dad: Which one?
 Oliver: You don’t know them.
 Dad: ...
 
-Director.Wait(2)
+do Director.Wait(2)
 
 The dad walks into the room. He places the plate on the table, and walk around the room, looking at the mess.
 

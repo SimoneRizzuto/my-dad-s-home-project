@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://kxhoqm1jw6fs" path="res://Assets/Textures/Environments/OnlineWorld1/clouds.png" id="2_hi6xt"]
 [ext_resource type="Texture2D" uid="uid://cqdpqfd4iskkt" path="res://Assets/Textures/Environments/OnlineWorld1/grass.png" id="3_o7jh8"]
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="3_vuomj"]
-[ext_resource type="Texture2D" uid="uid://mas7pba4uwc1" path="res://Assets/Textures/Environments/OnlineWorld1/tree.png" id="4_1yf36"]
+[ext_resource type="Texture2D" uid="uid://mas7pba4uwc1" path="res://Assets/Textures/StaticObjects/OnlineWorld1/tree.png" id="4_1yf36"]
 [ext_resource type="Texture2D" uid="uid://bb1x5dwh8hx40" path="res://Assets/Textures/Environments/OnlineWorld1/grass front.png" id="5_1gkci"]
 [ext_resource type="Script" path="res://Scenes/Rooms/CameraOverride.cs" id="7_24w43"]
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="9_kkpjs"]
