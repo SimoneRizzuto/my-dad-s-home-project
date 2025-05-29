@@ -1,6 +1,8 @@
 using Godot;
 using System;
 using System.Linq;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using DialogueManagerRuntime;
 using MyFathersHomeProject.Scripts.Dialogue;
 using MyFathersHomeProject.Scripts.Character;
@@ -13,6 +15,10 @@ public partial class DialogueDirector : Node2D, IDisposable
     public static DialogueDirector Instance { get; private set; }
     
     private bool inCutscene;
+    private double millisecondsToPass = 1000;
+    public Task ActionCompleted => ActionGiven.Task;
+    public TaskCompletionSource ActionGiven { get; set; } = new();
+    private readonly Stopwatch stopwatch = new();
     
     public override void _Ready()
     {
@@ -29,6 +35,16 @@ public partial class DialogueDirector : Node2D, IDisposable
             if (oliver.CharacterState == CharacterState.Cutscene) return;
             
             TriggerCutscene(GD.Load("res://Assets/Dialogue/test-dialogue.dialogue"), "debug");
+        }
+        
+        if (!stopwatch.IsRunning)
+        {
+            stopwatch.Restart();
+        }
+        
+        if (stopwatch.ElapsedMilliseconds > millisecondsToPass)
+        {
+            FinishTask();
         }
     }
     
@@ -83,6 +99,25 @@ public partial class DialogueDirector : Node2D, IDisposable
             actor.SetCharacterState(state);
         }
     }
+    
+    private async Task SetupActionTask(double seconds)
+    {
+        ActionGiven = new TaskCompletionSource();
+        millisecondsToPass = seconds * 1000;
+        
+        await ActionCompleted;
+    }
+    
+    private void FinishTask()
+    {
+        stopwatch.Stop();
+        ActionGiven.TrySetResult();
+    }
+    
+    public async Task Wait(double seconds)
+    {
+        await SetupActionTask(seconds);
+    } 
     
     #region signals
     
