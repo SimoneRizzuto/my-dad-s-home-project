@@ -18,7 +18,7 @@ do Director.Wait(2)
 # as the sounds blend in, a small motifs plays in the background, on the piano
 
 Oliver: 14 days left... #small text
-Oliver: I can't believe it. #small text
+Oliver: Jeez. #small text
 
 do Director.Wait(3)
 
@@ -29,8 +29,8 @@ Oliver: Sorry.
 Friend: It's ok.
 Friend: ... Were you having a nightmare?
 Oliver: A little.
-Friend: Do you... wanna talk about it?
-Friend: 14 days left, you said.
+Friend: Was it bad?
+Friend: You said "14 days left".
 Oliver: *sigh*
 Oliver: I just... can't stop thinking about it all.
 Friend: You say that as if you shouldn't be.
@@ -42,20 +42,21 @@ Oliver: I don't wanna be.
 
 do Director.Wait(4)
 
-Friend: Has staying over helped even a little?
+Friend: Has staying over helped a little?
 Oliver: Yes.
 Oliver: Definitely.
 Friend: Good.
-Oliver: Honestly, I could move in with you.
+Oliver: Honestly, I could stay here until I move.
 Friend: Pff.
 Friend: If you wanna sleep in the closet.
-Oliver: I'd take it right now.
+Oliver: I'd take that right now.
 Friend: Aw...
 
 do Director.Wait(2)
 
-Oliver: Um.
-Oliver: ... Is it weird I feel more at home here than at home?
+Oliver: I mean it though...
+Oliver: I feel more at home here than at home.
+Oliver: ... Is that weird?
 Friend: No, I get it.
 Friend: It's easier here than around your dad.
 Oliver: I mean, yes...
@@ -78,30 +79,43 @@ do Director.Wait(3)
 
 Oliver: It's really stupid.
 Oliver: Cause I know it's not true... but...
-Oliver: Maybe... I could've phrased things better, before he found out the way he did.
-Oliver: He doesn't listen to anything I say anymore.
-Oliver: He thinks I've been brainwashed.
-Oliver: Maybe I shouldn't take her side so much.
+
+do Director.Wait(2)
+
+Oliver: It really feels like... he hates me now...
+Oliver: I can't blame him.
+Oliver: All I've done is take my mum's side and...
+Oliver: Yell at him... cause I'm so angry with him about so much.
 Oliver: But... I don't know.
-Oliver: I didn't think it would end up like this.
-Oliver: ...
-Oliver: I am still angry at him.
-Oliver: But he's still my dad.
-Oliver: I want him to be ok.
+Oliver: I wish... I phrased things better with my dad...
+Oliver: I didn't think everything would go the way it did.
+Oliver: I want him to just be ok.
 Friend: I think he will be.
-Friend: Are you that worried?
+Friend: Are you worried he won't be?
 Oliver: ...
-Oliver: I think I'm just overthinking things.
-Oliver: He'll probably be ok after everything.
+Oliver: I don't know.
+Oliver: Maybe I'm just overthinking things...
 Friend: Yeah.
-Friend: And look...
-Friend: You did all you could.
+
+do Director.Wait(4)
+
+Friend: I hope you know you did all you could.
 Friend: For both your parents.
 Oliver: ...
 
 do Director.Wait(3)
 
-Oliver: For both of them.
+Oliver: I hope so.
+
+do Director.Wait(3)
+
+Oliver: I hope so.
+
+do Director.Wait(3)
+
+# black screen
+
+Oliver: I hope so. #slow text
 
 => END
 

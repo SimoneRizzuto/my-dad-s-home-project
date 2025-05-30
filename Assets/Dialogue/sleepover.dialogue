@@ -15,8 +15,8 @@ Oliver: Ok, time to get up a bit.
 Oliver: Bathroom time!
 Friend: Don’t fall in.
 Oliver: Hey, that’s my line!
-Friend: You literally stole it from Sarah.
-Oliver: I can't hear you, lalala!
+Friend: You literally stole that.
+Oliver: Sorry, I can't hear you!
 => END
 
 # ------------------------
@@ -66,14 +66,12 @@ Oliver: Hell yeah!
 Oliver: Hey, you got Gigi's again!
 Friend: I wasn't lying when I said I liked it.
 Oliver: So what you're telling me is...
-Oliver: ...actually good pizza exists after all?
+Oliver: ...good pizza exists after all?
 Friend: I never said I didn't like pizza.
 Friend: It just isn't my first option.
 Oliver: ... And yet clearly, you got Gigi's one time over something else.
-Friend: Ok, Olive-r.
+Friend: Ok, Olive Boy.
 Oliver: Hey!
-Friend: You heard me.
-Oliver: ...
 Oliver: That fits stupidly well...
 => END
 
@@ -85,7 +83,7 @@ Oliver: That fits stupidly well...
 #Separate Oliver from friend, by going to the toilet. The outside is a forest, separated by a door.
 
 Oliver: This is nice.
-Oliver: I wish nights like this never had to end.
+Oliver: Haven't had this for a little bit.
 Oliver: ...
 Oliver: I wonder what Papa is doing...
 Oliver: ...
@@ -93,6 +91,7 @@ Oliver: No. Don't think about him. This is meant to be a fun night.
 Oliver: A relaxing night away from...
 Oliver: ...
 Oliver: *sigh*
+Oliver: I wish nights like this never had to end.
 => END
 
 ~ going_to_bedroom
@@ -100,7 +99,7 @@ Oliver: *sigh*
 
 Oliver: ...
 Friend: You didn't fall in, did you?
-Oliver: Pff. Unfortunately not.
+Oliver: Not this time.
 
 #Oliver sits next to the fireplace.
 
@@ -121,33 +120,68 @@ Friend: Yeah, it is.
 
 Oliver: I wish we had marshmallows.
 Oliver: We could warm them up in a fire, and just...
-Oliver: Oh yeah... that would be awesome...
+Oliver: Oh yeah. That would be awesome.
 Friend: I've never done that before.
 Oliver: Me neither.
-Friend: Uh? I thought you were speaking from experience.
+Friend: I thought you were speaking from experience.
+Oliver: I don't know. I haven't done many things.
 Oliver: They make it look really nice in movies.
 Oliver: Surely, it's just as nice in real life.
 Friend: ...
 Friend: Maybe.
-Oliver: One day, we should definitely go camping with everyone.
-Oliver: It would be really fun to be out there, gathering wood for a fire, cooking dinner in that fire.
+Oliver: When we're older, we should definitely go camping with everyone.
+Oliver: It would be really fun to be out there, gathering wood for a fire, cooking dinner in it.
 Friend: As long as I can bring my sketchbook, I'm happy.
-Oliver: And then you could draw your point of view, and capture the moment.
+Oliver: True! And then you could draw your point of view, and capture the moment.
 Oliver: That'd be cool.
 Friend: Eh. I'd rather draw whatever comes to mind.
-Oliver: Well, I would do that... if I could draw.
-Friend: You COULD always learn.
-Friend: Bring your own sketchbook and scribble whatever comes to mind.
-Oliver: Mhh.
-Oliver: You're right. Even if I would suck, it'd be worth it.
-Oliver: I'd capture the moment myself. Through my eyes.
-Friend: Yeah.
+Oliver: Well, I would do that... even if its a bad doodle.
+Oliver: I'd try capture the moment myself. Through MY eyes.
+
+do Director.Wait(3)
+
+Oliver: What would you draw?
+Friend: ...
+
+# she looks up to the sky
+
+do Director.Wait(3)
+
+Friend: I've heard the night sky is full of stars when out there.
+Friend: I think that'd be nice.
+
+# the stars appear more shiny once that's said
+# do Director.Wait(2)
+
+Friend: I hope it's as pretty as I imagine it to be.
+Friend: You really think we'll get to do that one day?
+Oliver: I hope so.
+Oliver: Assuming I haven't moved too far away.
+Friend: We can still get together.
+Friend: It doesn't have to be hard.
+Oliver: I know.
+Oliver: I still worry.
+Friend: Then promise to make the effort.
+Oliver: ...
+
+do Director.Wait(2)
+
+Oliver: Ok, I promise.
+Friend: To?
+Oliver: I promise to go camping with you sometime.
+Friend: Oliver...
+Oliver: I-
+Oliver: *small text* I promise to try.
+Friend: Me too.
 
 do Director.Wait(6)
 
+
+# rewrite this last bit
+
 Oliver: I could fall asleep any time now...
 Oliver: I don't... want to though...
-Friend: I'm sleeeepy.
+Friend: I'm sleepy.
 Oliver: No... do not... succumb.
 Friend: Why?
 Oliver: I don't want this night to end...
