@@ -1,0 +1,100 @@
+# multiple days have passed, where Oliver walks past his dad on the couch
+# each day, multiple boxes are packed, with less furniture around
+
+# on the final day, everything is packed
+# oliver walks into the house from school
+
+# gameplay of you walking around
+# the player walks inside their room
+
+~ inside_oliver_bedroom
+
+# dad is looking around the room
+
+Oliver: ...
+Oliver: Papa.
+Dad: ... Hello, son.
+Oliver: What are you doing?
+Dad: Reminiscing...
+Oliver: ...
+
+do Director.Wait(3)
+
+Dad: This...
+Dad: This was your room.
+Dad: YOUR house.
+Dad: YOUR home.
+Oliver: It... didn't feel that way to me.
+Dad: I am aware.
+Dad: ... I can't pick what hurts the most about that.
+
+# dad walks out of room
+
+=> END
+
+
+~ dining_room
+
+Dad: Everytime we ate together...
+Dad: It really meant... nothing?
+Oliver: Not how you wanted it to.
+Dad: My cooking meant nothing.
+Oliver: No...
+Dad: My efforts...
+Oliver: Papa...
+Dad: Don't worry.
+Dad: We don't have to retread that night.
+
+# dad walks to the living room
+
+=> END
+
+
+~ living_room
+
+# dad facing to the right, away from Oliver
+
+Dad: And now we're at the end of the line.
+Oliver: ...
+
+do Director.Wait(3)
+
+Oliver: A-Are you-
+Oliver: ...
+Oliver: Will you be okay?
+Dad: ...
+Dad: Great question.
+Dad: I wonder if you understand how awful it is you ask me now.
+
+do Director.Wait(3)
+
+Dad: After everything...
+Dad: Don't be surprised...
+Dad: If one day, if you find me dead on the kitchen floor.
+
+# oliver takes a step backwards
+
+Oliver: ...
+
+# he walks out of the door
+# you hear the car sounds
+
+# after a bit, oliver walks to the kitchen
+# he walks in circles a little bit, then
+# he lies on the floor, crawls into a ball, and starts to sob
+
+# roll credits
+
+=> END
+
+
+# final final scene, 4 years later, could be Friend and Oliver walking to a grave
+# bait and pace scene to make audience think it's Papa's grave
+# friend walks to it, puts flowers down, as says "Miss you dad."
+# show Oliver is genuinely ok
+# he pulls out his phone, and texts his dad
+# "ciao Papa. how are you?"
+# "i'm keen to see you again soon"
+# "i hope Italy will be as fun as i remember"
+# "tvtb <3"
+# fine
