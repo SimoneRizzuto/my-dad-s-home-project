@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://brqethgaxv3tm"]
+[gd_scene load_steps=14 format=3 uid="uid://brqethgaxv3tm"]
 
+[ext_resource type="PackedScene" uid="uid://cehckxjxfklbj" path="res://Scenes/Modules/DialogueInteractable.tscn" id="1_1yqw7"]
 [ext_resource type="Texture2D" uid="uid://b4lgsu26f7f22" path="res://Assets/Textures/Environments/OnlineWorld1/city.png" id="1_qeykr"]
 [ext_resource type="Texture2D" uid="uid://cgbpixr77w03y" path="res://Assets/Textures/Environments/OnlineWorld1/sky.png" id="1_qxfir"]
+[ext_resource type="Resource" uid="uid://bpoi4men6pj61" path="res://Assets/Dialogue/14 days remain.dialogue" id="2_fa44l"]
 [ext_resource type="Texture2D" uid="uid://kxhoqm1jw6fs" path="res://Assets/Textures/Environments/OnlineWorld1/clouds.png" id="2_hi6xt"]
 [ext_resource type="Texture2D" uid="uid://cqdpqfd4iskkt" path="res://Assets/Textures/Environments/OnlineWorld1/grass.png" id="3_o7jh8"]
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="3_vuomj"]
@@ -15,6 +17,11 @@
 size = Vector2(656.5, 4)
 
 [node name="OnlineWorld1" type="Node2D"]
+
+[node name="DialogueInteractable" parent="." instance=ExtResource("1_1yqw7")]
+position = Vector2(426, 75)
+DialogueResource = ExtResource("2_fa44l")
+Title = "oliver_chats_online"
 
 [node name="Objects" type="Node2D" parent="."]
 
