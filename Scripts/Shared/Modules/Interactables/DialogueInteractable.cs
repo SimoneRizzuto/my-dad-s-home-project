@@ -1,4 +1,5 @@
 using Godot;
+using MyFathersHomeProject.Scripts.Dialogue;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
 public partial class DialogueInteractable : ItemInteractable
