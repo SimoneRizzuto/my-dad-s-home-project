@@ -1,29 +1,31 @@
 ~ oliver_chats_online
 
-# sit on tree
-# friend is already there, sitting by the tree
-
-do Oliver.MoveToXPosition(468)
-do Oliver.PlayAnimation("sit left")
-do Director.Wait()
-do Oliver.SetDirection(-1)
+# friend walks to toward tree and sits
+do Friend.MoveToXPosition(490)
+do Friend.SetDirection(1)
+#do Friend.PlayAnimation("")
 do Director.Wait(3)
 
+# Oliver walks toward tree, and sits down as well
+do Oliver.MoveToXPosition(468)
+do Oliver.SetDirection(-1)
+do Oliver.PlayAnimation("sit left")
+do Director.Wait(3)
 
-Oliver: TEST TEST TEST
 Friend: Hey Oli!
 Oliver: Sup. Just got home.
 Friend: Nice.
 Friend: How's your night going?
 Oliver: It's going. You?
-Friend: I'm just drawing.
-Friend: I decided to try drawing merps again, if you remember them.
-Oliver: Oh yeah! I do remember.
+Friend: Good, good.
+Friend: I'm been drawing merps again.
+Oliver: Oh yeah!
 Friend: You want to see?
 Oliver: Soon soon.
 Oliver: Just taking a sec to relax.
+Friend: Okay!
 
-do Director.Wait(4)
+do Director.Wait(5)
 
 Friend: I'm so excited for dinner tonight.
 Friend: Mum's making sushi again!
