@@ -1,6 +1,7 @@
 using Godot;
 using System.Linq;
 using MyFathersHomeProject.Scripts.Camera;
+using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
 namespace MyFathersHomeProject.Scripts.Shared.Helpers;

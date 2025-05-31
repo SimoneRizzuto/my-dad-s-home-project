@@ -1,7 +1,9 @@
-using Godot;
 using System;
+using Godot;
 using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Shared.Constants;
+
+namespace MyFathersHomeProject.Scripts.Player;
 
 [Icon("res://Assets/Textures/UI/oliver-head.png")]
 public partial class Oliver : CharacterBody2D, ICharacter

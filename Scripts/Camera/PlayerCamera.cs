@@ -1,7 +1,6 @@
 using Godot;
-using System;
+using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
-using MyFathersHomeProject.Scripts.Shared.Constants;
 
 namespace MyFathersHomeProject.Scripts.Camera;
 public partial class PlayerCamera : Camera2D

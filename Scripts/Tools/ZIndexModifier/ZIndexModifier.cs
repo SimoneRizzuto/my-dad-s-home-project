@@ -1,4 +1,5 @@
 using Godot;
+using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 
