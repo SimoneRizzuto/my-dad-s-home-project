@@ -4,12 +4,12 @@ using System.Linq;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using DialogueManagerRuntime;
-using MyFathersHomeProject.Scripts.Dialogue;
 using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 using MyFathersHomeProject.Scripts.Dialogue.Actor;
 
+namespace MyFathersHomeProject.Scripts.Dialogue;
 public partial class DialogueDirector : Node2D, IDisposable
 {
     public static DialogueDirector Instance { get; private set; }
