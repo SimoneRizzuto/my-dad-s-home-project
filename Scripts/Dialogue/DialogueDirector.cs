@@ -5,12 +5,13 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using DialogueManagerRuntime;
 using MyFathersHomeProject.Scripts.Character;
-using MyFathersHomeProject.Scripts.Shared.Constants;
-using MyFathersHomeProject.Scripts.Shared.Helpers;
+using MyFathersHomeProject.Scripts.Dialogue.Base;
 using MyFathersHomeProject.Scripts.Dialogue.Actor;
+using MyFathersHomeProject.Scripts.Shared.Helpers;
+using MyFathersHomeProject.Scripts.Shared.Constants;
 
 namespace MyFathersHomeProject.Scripts.Dialogue;
-public partial class DialogueDirector : Node2D, IDisposable
+public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDisposable
 {
     public static DialogueDirector Instance { get; private set; }
     
