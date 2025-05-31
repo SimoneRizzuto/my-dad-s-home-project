@@ -2,6 +2,7 @@ using Godot;
 using System.Threading.Tasks;
 using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Dialogue.Base;
+using MyFathersHomeProject.Scripts.Shared.Constants;
 
 namespace MyFathersHomeProject.Scripts.Dialogue.Actor;
 public partial class ActorModule : Node2D, IAsyncDialogueVariables
@@ -43,7 +44,20 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
         initialXPosition = (int)CharacterBody.Position.X;
         
         await SetupActionTask(DialogueDirection.MoveToPosition);
-    } 
+    }
+    
+    public void PlayAnimation(string animationString)
+    {
+        Character.Move(0);
+        Character.PlayAnimation(animationString);
+        dialogueDirectionToPlay = DialogueDirection.Nothing;
+    }
+    
+    public void SetDirection(int direction)
+    {
+        if (direction < 0) Character.SetDirection(Direction.Left);
+        else if (direction > 0) Character.SetDirection(Direction.Right);
+    }
     
     #endregion
     
@@ -71,6 +85,8 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
         switch (dialogueDirectionToPlay)
         {
             case DialogueDirection.Nothing:
+                break;
+            case DialogueDirection.Idle:
                 Character.Move(0);
                 break;
             case DialogueDirection.Move:
@@ -97,7 +113,7 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
         
         if (currentPosition == targetPosition)
         {
-            dialogueDirectionToPlay = DialogueDirection.Nothing;
+            dialogueDirectionToPlay = DialogueDirection.Idle;
             ActionGiven.TrySetResult();
         }
     }
@@ -115,7 +131,7 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
         }
         else
         {
-            dialogueDirectionToPlay = DialogueDirection.Nothing;
+            dialogueDirectionToPlay = DialogueDirection.Idle;
             ActionGiven.TrySetResult();
         }
     }

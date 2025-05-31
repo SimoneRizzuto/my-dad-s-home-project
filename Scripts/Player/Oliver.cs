@@ -70,8 +70,8 @@ public partial class Oliver : CharacterBody2D, ICharacter
     {
         var movementVector = new Vector2(direction * Movement.MoveSpeed, Velocity.Y);
         
-        if (movementVector.X < 0) LastDirection = Direction.Left;
-        else if (movementVector.X > 0) LastDirection = Direction.Right;
+        if (movementVector.X < 0) SetDirection(Direction.Left);
+        else if (movementVector.X > 0) SetDirection(Direction.Right);
         
         Velocity = movementVector;
         
@@ -79,13 +79,23 @@ public partial class Oliver : CharacterBody2D, ICharacter
         {
             if (movementVector.X != 0)
             {
-                MainSprite.Play($"walk {LastDirectionString}");
+                PlayAnimation($"walk {LastDirectionString}");
             }
             else
             {
-                MainSprite.Play($"idle {LastDirectionString}");
+                PlayAnimation($"idle {LastDirectionString}");
             }
         }
+    }
+    
+    public void PlayAnimation(string animationName)
+    {
+        MainSprite.Play(animationName);
+    }
+    
+    public void SetDirection(Direction direction)
+    {
+        LastDirection = direction;
     }
     
     public void Jump()
@@ -95,7 +105,7 @@ public partial class Oliver : CharacterBody2D, ICharacter
         Velocity = new Vector2(Velocity.X, JumpVelocity);
         
         MainSprite.SetFrameAndProgress(0, 0);
-        MainSprite.Play($"jump {LastDirectionString}");
+        PlayAnimation($"jump {LastDirectionString}");
     }
     
     #endregion
@@ -103,9 +113,11 @@ public partial class Oliver : CharacterBody2D, ICharacter
     #region signals
     private void OnAnimationFinished()
     {
+        if (CharacterState is CharacterState.Cutscene) return;
+        
         if (MainSprite.Animation.ToString().Contains("jump"))
         {
-            MainSprite.Play($"idle {LastDirectionString}");
+            PlayAnimation($"idle {LastDirectionString}");
         }
     }
     #endregion

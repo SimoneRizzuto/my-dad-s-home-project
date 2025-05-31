@@ -115,7 +115,7 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
         ActionGiven.TrySetResult();
     }
     
-    public async Task Wait(double seconds)
+    public async Task Wait(double seconds = 1)
     {
         await SetupActionTask(seconds);
     } 
