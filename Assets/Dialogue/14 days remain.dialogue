@@ -3,6 +3,14 @@
 # sit on tree
 # friend is already there, sitting by the tree
 
+do Oliver.MoveToXPosition(468)
+do Oliver.PlayAnimation("sit left")
+do Direction.Wait()
+do Oliver.SetDirection(-1)
+do Director.Wait(3)
+
+
+Oliver: TEST TEST TEST
 Friend: Hey Oli!
 Oliver: Sup. Just got home.
 Friend: Nice.
