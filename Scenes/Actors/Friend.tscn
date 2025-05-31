@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfrhcgnum5ctx"]
+[gd_scene load_steps=5 format=3 uid="uid://cfrhcgnum5ctx"]
 
+[ext_resource type="Script" path="res://Scripts/Character/BasicCharacter.cs" id="1_7spe3"]
 [ext_resource type="PackedScene" uid="uid://cemnuys6w3rjr" path="res://Scenes/Dialogue/Actor/ActorModule.tscn" id="1_sprrj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_egfdo"]
@@ -8,6 +9,7 @@ size = Vector2(20, 39)
 [sub_resource type="SpriteFrames" id="SpriteFrames_5lq05"]
 
 [node name="Friend" type="CharacterBody2D"]
+script = ExtResource("1_7spe3")
 
 [node name="MainShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, -19.5)

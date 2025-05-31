@@ -8,6 +8,7 @@ namespace MyFathersHomeProject.Scripts.Player;
 [Icon("res://Assets/Textures/UI/oliver-head.png")]
 public partial class Oliver : CharacterBody2D, ICharacter
 {
+    // getters
     private int Gravity => ProjectSettings.GetSetting("physics/2d/default_gravity").ToString().ToInt();
     private int JumpVelocity => -125;
     private bool JumpInput => Input.IsActionPressed(InputMapAction.Jump);
@@ -16,8 +17,20 @@ public partial class Oliver : CharacterBody2D, ICharacter
     private string LastDirectionString => Enum.GetName(LastDirection)?.ToLower();
     
     public Direction LastDirection { get; set; } = Direction.Left;
-    public CharacterState CharacterState { get; set; } = CharacterState.Gameplay;
-    
+    public CharacterState CharacterState
+    {
+        get => characterState;
+        set
+        {
+            characterState = value;
+            if (value == CharacterState.Cutscene)
+            {
+                Move(0);
+            }
+        }
+    }
+    private CharacterState characterState = CharacterState.Gameplay;
+
     public override void _Ready()
     {
         MainSprite.AnimationFinished += OnAnimationFinished;
