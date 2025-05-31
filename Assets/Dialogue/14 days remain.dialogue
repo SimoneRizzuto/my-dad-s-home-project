@@ -23,7 +23,7 @@ Oliver: Oh yeah!
 Friend: You want to see?
 Oliver: Soon soon.
 Oliver: Just taking a sec to relax.
-Friend: Okay!
+Friend: That's chill!
 
 do Director.Wait(5)
 
