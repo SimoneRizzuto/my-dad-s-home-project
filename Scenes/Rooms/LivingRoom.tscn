@@ -34,7 +34,7 @@ size = Vector2(547, 4)
 [node name="LivingRoom" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.356863, 0.301961, 0.25098, 1)
+color = Color(0.219608, 0.219608, 0.360784, 1)
 
 [node name="Tripods" type="Node2D" parent="."]
 
@@ -121,12 +121,14 @@ centered = false
 [node name="Bounce" type="PointLight2D" parent="ForegroundWall/LivingRoom/Hanging-light"]
 position = Vector2(3.50002, 74)
 scale = Vector2(0.722656, 0.398438)
+color = Color(0.901961, 0.764706, 0.509804, 1)
 energy = 0.75
 texture = ExtResource("21_hb6dq")
 
 [node name="Point" type="PointLight2D" parent="ForegroundWall/LivingRoom/Hanging-light"]
 position = Vector2(3.5, 43.5)
 scale = Vector2(0.649635, 0.414063)
+color = Color(0.901961, 0.764706, 0.509804, 1)
 energy = 0.2
 texture = ExtResource("12_gdxjn")
 
@@ -196,6 +198,7 @@ centered = false
 z_index = 2050
 position = Vector2(3.50002, 74)
 scale = Vector2(0.722656, 0.398438)
+color = Color(0.901961, 0.764706, 0.509804, 1)
 energy = 0.75
 texture = ExtResource("21_hb6dq")
 
@@ -203,6 +206,7 @@ texture = ExtResource("21_hb6dq")
 z_index = 2050
 position = Vector2(3.5, 43.5)
 scale = Vector2(0.649635, 0.414063)
+color = Color(0.901961, 0.764706, 0.509804, 1)
 energy = 0.2
 texture = ExtResource("12_gdxjn")
 
