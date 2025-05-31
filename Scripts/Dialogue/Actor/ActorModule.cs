@@ -1,5 +1,4 @@
 using Godot;
-
 using System.Threading.Tasks;
 using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Dialogue.Base;
@@ -44,11 +43,6 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
         initialXPosition = (int)CharacterBody.Position.X;
         
         await SetupActionTask(DialogueDirection.MoveToPosition);
-
-
-
-
-
     } 
     
     #endregion
@@ -58,8 +52,6 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
     // async task variables
     public Task ActionCompleted => ActionGiven.Task;
     public TaskCompletionSource ActionGiven { get; set; } = new();
-
-
     
     // state
     private DialogueDirection dialogueDirectionToPlay;
@@ -67,30 +59,13 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
     private async Task SetupActionTask(DialogueDirection dialogueDirection)
     {
         ActionGiven = new TaskCompletionSource();
-
         dialogueDirectionToPlay = dialogueDirection;
         
         await ActionCompleted;
     }
     
-
-
-
-
-
-
     public override void _PhysicsProcess(double delta)
     {
-
-
-
-
-
-
-
-
-
-
         if (Character.CharacterState != CharacterState.Cutscene) return;
         
         switch (dialogueDirectionToPlay)
