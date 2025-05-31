@@ -5,7 +5,7 @@
 
 do Oliver.MoveToXPosition(468)
 do Oliver.PlayAnimation("sit left")
-do Direction.Wait()
+do Director.Wait()
 do Oliver.SetDirection(-1)
 do Director.Wait(3)
 
