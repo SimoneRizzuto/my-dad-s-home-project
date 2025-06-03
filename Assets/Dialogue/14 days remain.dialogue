@@ -1,60 +1,61 @@
 ~ oliver_chats_online
 
-# friend walks to toward tree and sits
-do Friend.MoveToXPosition(490)
-do Friend.SetDirection(1)
-#do Friend.PlayAnimation("")
-do Director.Wait(3)
+# friend is sitting on the tree
+do Director.Wait(1)
+#do Friend.PlayAnimation("look left")
+do Director.Wait(1)
+Friend: Oh hi, Oli!
+do Director.Wait(1.5)
+#oli looks down, then back
+do Director.Wait(1.5)
 
 # Oliver walks toward tree, and sits down as well
 do Oliver.MoveToXPosition(468)
+do Director.Wait(1)
+do Oliver.PlayAnimation("idle left")
 do Oliver.SetDirection(-1)
+do Director.Wait(1)
 do Oliver.PlayAnimation("sit left")
 do Director.Wait(3)
 
-Friend: Hey Oli!
-Oliver: Sup. Just got home.
-Friend: Nice.
+Oliver: Hey...
 Friend: How's your night going?
-Oliver: It's going. You?
+Oliver: It's ok.
+Oliver: Just got home.
+Oliver: You?
 Friend: Good, good.
 Friend: I'm been drawing merps again.
-Oliver: Oh yeah!
+Oliver: Oh, nice.
 Friend: You want to see?
-Oliver: Soon soon.
-Oliver: Just taking a sec to relax.
-Friend: That's chill!
+Oliver: Soon...
+Oliver: I'm just taking a second.
 
-do Director.Wait(5)
+do Director.Wait(3)
 
-Friend: I'm so excited for dinner tonight.
+Friend: I'm excited for dinner tonight.
 Friend: Mum's making sushi again!
 Friend: I'll send you pics when I have it.
 Oliver: ... Mhh.
-Friend: ...
 Friend: What are you having for dinner?
 Oliver: Um...
 Oliver: I didn't really ask...
-Oliver: ...
-Friend: ... Right.
 
 do Director.Wait(4)
 
 Oliver: Sorry, it's not a good night for me.
-Friend: Yeah... I could feel that.
+Friend: Yeah... I can tell.
 Oliver: That obvious?
-Friend: Just a little.
-Friend: I get it, considering.
+Friend: A little bit.
+Friend: I get it, everything's almost over for you.
 Friend: ... How long do you have left in that house?
-Oliver: A few weeks left, I think.
+Oliver: Two weeks.
 Friend: Oh wow.
 Oliver: Yup.
 Friend: How's your dad taking everything that's happened?
 Oliver: Better than three months ago.
 Oliver: But... I don't know.
-Oliver: It's hard to talk to him about anything.
-Oliver: We went into it one time and then...
-Oliver: That was it.
+Oliver: I don't really wanna talk about it though.
+Friend: Oh... yeah. That's ok.
 
 #Knocking on the door is heard.
 
@@ -103,11 +104,11 @@ He puts his headset back on.
 
 Oliver: Hey, sorry. I'm back with dinner.
 
-Director.Wait(3)
+do Director.Wait(3)
 
 Oliver: Hello?
 
-Director.Wait(2)
+do Director.Wait(2)
 
 Oliver: *sigh*
 Oliver: Ok. Calm down.
@@ -127,7 +128,7 @@ Oliver: It’s great, what do you mean?
 Oliver: You just don’t see the vision.
 Friend: Pff.
 
-Director.Wait(3)
+do Director.Wait(3)
 
 Friend: Everything at home sounds rough, though.
 Oliver: Yeah.
@@ -143,7 +144,7 @@ Friend: Of course.
 Friend: I want to make sure you're ok.
 Oliver: ...
 
-Director.Wait(5)
+do Director.Wait(5)
 
 Oliver: Have I ever told you your awesome?
 Friend: Pff, stop.
@@ -175,7 +176,6 @@ Friend: Goodbye!
 ~ oliver_attempts_to_leave
 
 Dad: Where are you going?
-Oliver: ...
 Oliver: Out.
 Dad: ...
 
