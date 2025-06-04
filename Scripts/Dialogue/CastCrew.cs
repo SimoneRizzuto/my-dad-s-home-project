@@ -8,7 +8,7 @@ public partial class CastCrew : Node2D
 {
     // Actors
     public ActorModule Oliver;
-    public ActorModule Friend;
+    public ActorModule Sasha;
     
     public override void _Ready()
     {
@@ -25,9 +25,9 @@ public partial class CastCrew : Node2D
             {
                 Oliver = actor;
             }
-            if (actor.CharacterBody.Name == "Friend")
+            if (actor.CharacterBody.Name == "Sasha")
             {
-                Friend = actor;
+                Sasha = actor;
             }
         }
     }

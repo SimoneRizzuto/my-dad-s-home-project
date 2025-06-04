@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://Scenes/Rooms/CameraOverride.cs" id="7_24w43"]
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="9_kkpjs"]
 [ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="10_2gnje"]
-[ext_resource type="PackedScene" uid="uid://cfrhcgnum5ctx" path="res://Scenes/Actors/Friend.tscn" id="13_3vkiu"]
+[ext_resource type="PackedScene" uid="uid://cfrhcgnum5ctx" path="res://Scenes/Actors/Sasha.tscn" id="13_3vkiu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfnht"]
 size = Vector2(656.5, 4)
@@ -108,5 +108,5 @@ position = Vector2(44, 0)
 [node name="TripodDismounter" parent="." instance=ExtResource("10_2gnje")]
 position = Vector2(358, 84)
 
-[node name="Friend" parent="." instance=ExtResource("13_3vkiu")]
+[node name="Sasha" parent="." instance=ExtResource("13_3vkiu")]
 position = Vector2(497, 83)
