@@ -188,6 +188,6 @@ shape = SubResource("RectangleShape2D_3paqx")
 [node name="MainSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_aqi8e")
-animation = &"sit left"
+animation = &"walk left"
 
 [node name="ActorModule" parent="." instance=ExtResource("8_knplv")]

@@ -110,3 +110,4 @@ position = Vector2(358, 84)
 
 [node name="Sasha" parent="." instance=ExtResource("13_3vkiu")]
 position = Vector2(497, 83)
+InitialAnimation = "draw scribble right"

@@ -5,10 +5,24 @@ using MyFathersHomeProject.Scripts.Shared.Constants;
 namespace MyFathersHomeProject.Scripts.Character;
 public partial class BasicCharacter : CharacterBody2D, ICharacter
 {
+    [Export] public string InitialAnimation = "";
+    
     // getters
     private int Gravity => ProjectSettings.GetSetting("physics/2d/default_gravity").ToString().ToInt();
     private AnimatedSprite2D MainSprite => GetNode<AnimatedSprite2D>($"{nameof(MainSprite)}");
     private string LastDirectionString => Enum.GetName(LastDirection)?.ToLower();
+    
+    public override void _Ready()
+    {
+        if (!string.IsNullOrEmpty(InitialAnimation))
+        {
+            MainSprite?.Play(InitialAnimation);
+        }
+        else
+        {
+            MainSprite.Play();
+        }
+    }
     
     public override void _PhysicsProcess(double delta)
     {

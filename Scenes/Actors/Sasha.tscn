@@ -1,22 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://cfrhcgnum5ctx"]
+[gd_scene load_steps=23 format=3 uid="uid://cfrhcgnum5ctx"]
 
 [ext_resource type="Script" path="res://Scripts/Character/BasicCharacter.cs" id="1_kssbu"]
 [ext_resource type="Texture2D" uid="uid://dwbu4vfd35r47" path="res://Assets/Textures/Sasha/sasha idle left-Sheet.png" id="2_2p2j2"]
 [ext_resource type="Texture2D" uid="uid://fgeadydv07fh" path="res://Assets/Textures/Sasha/sasha draw right-Sheet.png" id="2_4r44i"]
 [ext_resource type="PackedScene" uid="uid://cemnuys6w3rjr" path="res://Scenes/Dialogue/Actor/ActorModule.tscn" id="3_foa8s"]
 [ext_resource type="Texture2D" uid="uid://pmxcf3so0285" path="res://Assets/Textures/Sasha/sasha draw right look left-Sheet.png" id="3_jtiwj"]
+[ext_resource type="Texture2D" uid="uid://dod545cc2tx2m" path="res://Assets/Textures/Sasha/sasha draw right look left down-Sheet.png" id="4_l2ekk"]
 [ext_resource type="Texture2D" uid="uid://bh7ka68xm0lny" path="res://Assets/Textures/Sasha/sasha draw right look right-Sheet.png" id="4_tvyxc"]
+[ext_resource type="Texture2D" uid="uid://bgsw5g2wlminy" path="res://Assets/Textures/Sasha/sasha idle right-Sheet.png" id="7_8kmy0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_egfdo"]
 size = Vector2(6, 18)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5hfm7"]
-atlas = ExtResource("2_4r44i")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ppcnn"]
-atlas = ExtResource("2_4r44i")
-region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_68ln8"]
 atlas = ExtResource("3_jtiwj")
@@ -24,6 +18,14 @@ region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kko7h"]
 atlas = ExtResource("3_jtiwj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbgiu"]
+atlas = ExtResource("4_l2ekk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywbe7"]
+atlas = ExtResource("4_l2ekk")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hhgxw"]
@@ -34,6 +36,14 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("4_tvyxc")
 region = Rect2(32, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hfm7"]
+atlas = ExtResource("2_4r44i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppcnn"]
+atlas = ExtResource("2_4r44i")
+region = Rect2(32, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_hkr08"]
 atlas = ExtResource("2_2p2j2")
 region = Rect2(0, 0, 32, 32)
@@ -42,19 +52,16 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("2_2p2j2")
 region = Rect2(32, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_neljv"]
+atlas = ExtResource("7_8kmy0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_352ue"]
+atlas = ExtResource("7_8kmy0")
+region = Rect2(32, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_5lq05"]
 animations = [{
-"frames": [{
-"duration": 3.0,
-"texture": SubResource("AtlasTexture_5hfm7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ppcnn")
-}],
-"loop": true,
-"name": &"draw right",
-"speed": 4.0
-}, {
 "frames": [{
 "duration": 16.0,
 "texture": SubResource("AtlasTexture_68ln8")
@@ -63,7 +70,18 @@ animations = [{
 "texture": SubResource("AtlasTexture_kko7h")
 }],
 "loop": true,
-"name": &"draw right look left",
+"name": &"draw look left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 16.0,
+"texture": SubResource("AtlasTexture_fbgiu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywbe7")
+}],
+"loop": true,
+"name": &"draw look left down",
 "speed": 8.0
 }, {
 "frames": [{
@@ -74,8 +92,19 @@ animations = [{
 "texture": SubResource("AtlasTexture_hxdyq")
 }],
 "loop": true,
-"name": &"draw right look right",
+"name": &"draw look right",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_5hfm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppcnn")
+}],
+"loop": true,
+"name": &"draw scribble right",
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 16.0,
@@ -86,6 +115,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 16.0,
+"texture": SubResource("AtlasTexture_neljv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_352ue")
+}],
+"loop": true,
+"name": &"idle right",
 "speed": 8.0
 }]
 
@@ -99,6 +139,6 @@ shape = SubResource("RectangleShape2D_egfdo")
 [node name="MainSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_5lq05")
-animation = &"draw right"
+animation = &"idle right"
 
 [node name="ActorModule" parent="." instance=ExtResource("3_foa8s")]

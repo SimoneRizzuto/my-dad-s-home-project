@@ -7,7 +7,6 @@ using DialogueManagerRuntime;
 using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Dialogue.Base;
 using MyFathersHomeProject.Scripts.Dialogue.Actor;
-using MyFathersHomeProject.Scripts.Shared.Helpers;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
 namespace MyFathersHomeProject.Scripts.Dialogue;
@@ -30,14 +29,6 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
     
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustPressed(InputMapAction.Debug1))
-        {
-            var oliver = GetNodeHelper.GetOliver(GetTree());
-            if (oliver.CharacterState == CharacterState.Cutscene) return;
-            
-            TriggerCutscene(GD.Load("res://Assets/Dialogue/test-dialogue.dialogue"), "debug");
-        }
-        
         if (!stopwatch.IsRunning)
         {
             stopwatch.Restart();
