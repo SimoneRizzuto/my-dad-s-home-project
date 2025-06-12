@@ -8,6 +8,8 @@ namespace MyFathersHomeProject.Scripts.Player;
 [Icon("res://Assets/Textures/UI/oliver-head.png")]
 public partial class Oliver : CharacterBody2D, ICharacter
 {
+    public static Oliver Instance { get; private set; }
+    
     // getters
     private int Gravity => ProjectSettings.GetSetting("physics/2d/default_gravity").ToString().ToInt();
     private int JumpVelocity => -125;
@@ -34,6 +36,8 @@ public partial class Oliver : CharacterBody2D, ICharacter
     public override void _Ready()
     {
         MainSprite.AnimationFinished += OnAnimationFinished;
+        
+        Instance = this;
     }
     
     public override void _PhysicsProcess(double delta)
