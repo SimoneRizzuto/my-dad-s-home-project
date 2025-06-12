@@ -13,7 +13,7 @@ public static class GetNodeHelper
         var oliver = oliverNodes.Cast<Oliver>().FirstOrDefault();
         if (oliver == null)
         {
-            GD.PrintErr($"{nameof(oliver)} was null.");
+            GD.Print($"{nameof(oliver)} was null.");
         }
         
         return oliver;
@@ -25,7 +25,7 @@ public static class GetNodeHelper
         var playerCamera = playerCameraNodes.Cast<PlayerCamera>().FirstOrDefault();
         if (playerCamera == null)
         {
-            GD.PrintErr($"{nameof(playerCamera)} was null.");
+            GD.Print($"{nameof(playerCamera)} was null.");
         }
         
         return playerCamera;
@@ -37,7 +37,7 @@ public static class GetNodeHelper
         var dialogueBalloon = dialogueBalloonNodes.Cast<CanvasLayer>().FirstOrDefault();
         if (dialogueBalloon == null)
         {
-            GD.PrintErr($"{nameof(dialogueBalloon)} was null.");
+            GD.Print($"{nameof(dialogueBalloon)} was null.");
         }
         
         return dialogueBalloon;
