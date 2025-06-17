@@ -94,7 +94,7 @@ Sasha: I know.
 
 do Director.Wait(3)
 
-Sasha: If you want...
+Sasha: If you want-
 
 #Knocking on the door is heard.
 
@@ -116,7 +116,7 @@ Oliver: I guess I didn’t hear it.
 Dad: ... Who are you talking to?
 Oliver: Just a friend.
 Dad: Which one?
-Oliver: You don’t know them.
+Oliver: ...
 Dad: ...
 
 do Director.Wait(2)
@@ -170,18 +170,13 @@ Sasha: Pff.
 do Director.Wait(3)
 
 #have Sasha ask (did you wanna come over tonight?)
-
-
-Sasha: Everything at home sounds rough, though.
-Oliver: Yeah.
-Oliver: To be honest, I'm keen to get out of here.
-Oliver: Even tonight.
-Oliver: I wanna do something!
-Oliver: ... I just don't know what, though.
-Sasha: Did you want to go to park together?
-Sasha: Or maybe come over to my place for the night.
+Sasha: I heard a little bit of that conversation...
+Sasha: Everything sounds rough.
+Oliver: ... Yeah.
+Sasha: Did you want to come over maybe?
 Sasha: We can play video games and not think about anything.
-Oliver: ... Is that ok with you?
+Oliver: ...
+Oliver: Is that ok with you?
 Sasha: Of course.
 Sasha: I want to make sure you're ok.
 Oliver: ...
@@ -197,7 +192,7 @@ Oliver gulps his food down.
 Oliver: I'm coming now.
 Sasha: ... Right now?
 Oliver: Yeah!
-Sasha: ... Did you just gulp your food down in one go?
+Sasha: Did you just gulp your food down in one go?
 Oliver: Maybe...
 Sasha: Jeez.
 Sasha: You shouldn't do that.
@@ -205,14 +200,6 @@ Oliver: Well, I just did.
 Sasha: Ok. Let me know when you outside.
 Oliver: Yup, see ya soon.
 Sasha: Goodbye!
-
-# 
-
-#do Oliver.MoveLeft(25)
-#do Oliver.MoveRight(25)
-#do Oliver.MoveToXPosition(100)
-#do Oliver.MoveToXPosition(200)
-
 => END 
 
 ~ oliver_attempts_to_leave

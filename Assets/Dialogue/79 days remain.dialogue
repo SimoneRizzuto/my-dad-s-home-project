@@ -9,12 +9,13 @@ Dad: Oliver. Something is wrong.
 Oliver: ... W-What?
 Dad: I found her car.
 Dad: It's not at your Nonna's house or Zia's.
+Dad: It's at someone else's.
 Oliver: Oh...
 
 do Director.Wait(5)
 
 Dad: I just wanted to see where she was.
-Dad: I didn't think...
+Dad: I didn't think-
 Oliver: ... It could mean anything.
 Dad: Could it?
 Oliver: Papa...
@@ -36,14 +37,14 @@ Oliver: *sigh* Crap.
 
 #Oliver and Dad are driving together
 
-Dad: You'll see, I'm not seeing things.
+Dad: You'll see, I'm not crazy.
 Dad: I KNEW something was up.
 Oliver: ...
 
 do Director.Wait(6)
 
 Dad: Just up here.
-Dad: See? Why is the car here?
+Dad: See? Why is her car there?
 Dad: Is that... her?
 Oliver: Oh, no.
 Dad: That man...
@@ -54,15 +55,14 @@ do Director.Wait(3)
 
 Dad: FUCK!
 Dad: I FUCKING KNEW IT!
-Dad: She just ran away to an Australian "man".
+Oliver: Woa, slow down!
+Dad: She just HAD to run away to an Australian "man".
 Dad: What happened to her Italian pride?
 Dad: ...
 Dad: Why?
-Dad: What did I EVER do?
-Dad: What the fuck?
-Oliver: ...
-
-do Director.Wait(4)
+Dad: What did I ever do?
+Dad: What the FUCK?
+Oliver: SLOW DOWN!
 
 #dad stops the car
 
@@ -70,14 +70,18 @@ do Director.Wait(2)
 
 Dad: ...
 
+do Director.Wait(4)
+
 #dad places his head on the steering wheel
 
-Dad: I'm...
+Dad: I'm-
 Dad: ...
 Dad: Calm... down...
-Oliver: 
+Oliver: Yes.
 
 do Director.Wait(4)
+
+Dad: I can't believe it.
 
 
 
