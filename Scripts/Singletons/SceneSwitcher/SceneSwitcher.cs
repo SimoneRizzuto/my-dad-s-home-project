@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Godot;
 using MyFathersHomeProject.Scripts.Player;
@@ -6,6 +7,13 @@ namespace MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 public partial class SceneSwitcher : Node, ISceneSwitcher
 {
     private Node Main => GetTree().CurrentScene;
+    
+
+    public void TransitionToScene(string uid)
+    {
+        ClearMain();
+        SpawnScene(uid);
+    }
     
     public void SpawnScene(Node node)
     {

@@ -8,6 +8,8 @@ namespace MyFathersHomeProject.Scripts.Player;
 [Icon("res://Assets/Textures/UI/oliver-head.png")]
 public partial class Oliver : CharacterBody2D, ICharacter
 {
+    [Export] public Direction LastDirection { get; set; } = Direction.Left;
+    
     public static Oliver Instance { get; private set; }
     
     // getters
@@ -18,7 +20,6 @@ public partial class Oliver : CharacterBody2D, ICharacter
     private AnimatedSprite2D MainSprite => GetNode<AnimatedSprite2D>($"{nameof(MainSprite)}");
     private string LastDirectionString => Enum.GetName(LastDirection)?.ToLower();
     
-    public Direction LastDirection { get; set; } = Direction.Left;
     public CharacterState CharacterState
     {
         get => characterState;
@@ -36,7 +37,6 @@ public partial class Oliver : CharacterBody2D, ICharacter
     public override void _Ready()
     {
         MainSprite.AnimationFinished += OnAnimationFinished;
-        
         Instance = this;
     }
     

@@ -98,6 +98,10 @@ Sasha: If you want-
 
 #Knocking on the door is heard.
 
+do SceneSwitcher.TransitionToScene("uid://cap325m8jhcqw") # transition to OliverBedroom
+
+
+
 ##do SceneSwitcher.
 
 #A cut to a bedroom, with Oliver sitting on a computer with his headphones on.

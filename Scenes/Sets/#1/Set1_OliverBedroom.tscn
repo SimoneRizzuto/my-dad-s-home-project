@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cap325m8jhcqw"]
+
+[ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="1_8gmls"]
+[ext_resource type="PackedScene" uid="uid://cyoekyq6ui657" path="res://Scenes/Rooms/OliverBedroom.tscn" id="2_8xlvl"]
+
+[node name="Set1OliverBedroom" type="Node2D"]
+
+[node name="Oliver" parent="." instance=ExtResource("1_8gmls")]
+position = Vector2(161, 53)
+
+[node name="OliverBedroom" parent="." instance=ExtResource("2_8xlvl")]
