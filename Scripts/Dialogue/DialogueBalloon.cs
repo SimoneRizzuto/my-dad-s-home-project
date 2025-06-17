@@ -206,7 +206,7 @@ namespace DialogueManagerRuntime
     #region Custom Logic
 
     private const int HeightOffset = 5;
-    private const int ActorDirectionOffset = 25;
+    private const int ActorDirectionOffset = 42;
     
     private void PlaceBubbleAboveActor()
     {

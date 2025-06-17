@@ -8,8 +8,8 @@
 [sub_resource type="Theme" id="Theme_v4kq1"]
 
 [node name="DialogueBalloon" type="CanvasLayer" groups=["dialogue balloon"]]
-scale = Vector2(0.2, 0.2)
-transform = Transform2D(0.2, 0, 0, 0.2, 0, 0)
+scale = Vector2(0.425, 0.425)
+transform = Transform2D(0.425, 0, 0, 0.425, 0, 0)
 script = ExtResource("1_36de5")
 
 [node name="Balloon" type="Control" parent="."]
