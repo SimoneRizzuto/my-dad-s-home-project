@@ -1,18 +1,45 @@
 using System;
 using System.Linq;
 using Godot;
+using MyFathersHomeProject.Scripts.Camera;
+using MyFathersHomeProject.Scripts.Dialogue;
 using MyFathersHomeProject.Scripts.Player;
 
 namespace MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 public partial class SceneSwitcher : Node, ISceneSwitcher
 {
-    private Node Main => GetTree().CurrentScene;
+    // const
+    public const string Set1_OnlineWorld = "uid://cjd6v6afkjbn0";
+    public const string Set1_OliverBedroom = "uid://cap325m8jhcqw";
     
+    // getters
+    private Node Main => GetTree().CurrentScene;
+    private PlayerCamera PlayerCamera => PlayerCamera.Instance;
+    private CastCrew CastCrew => CastCrew.Instance;
+    
+    #region cutscene transitionary methods
+    public void Spawn_TransitionaryScene()
+    {
+        
+    }
 
+    public void Spawn_Set1_OliverBedroom()
+    {
+        TransitionToScene(Set1_OliverBedroom);
+        PlayerCamera.SetPositionOnOliver(); // make into signal???
+        
+        /*do Oliver.SetCharacterState(1)
+         do Oliver.PlayAnimation("sit left")*/
+    }
+    
+    #endregion
+    
+    #region functionality
     public void TransitionToScene(string uid)
     {
         ClearMain();
         SpawnScene(uid);
+        CastCrew.InitialiseActors(); // make into signal???
     }
     
     public void SpawnScene(Node node)
@@ -44,11 +71,6 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
         Main.AddChild(instanced);
     }
     
-    public void SpawnTransitionaryScene()
-    {
-        
-    }
-    
     private void ClearMain()
     {
         var allChildren = Main.GetChildren();
@@ -57,4 +79,5 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
             child.QueueFree();
         }
     }
+    #endregion
 }

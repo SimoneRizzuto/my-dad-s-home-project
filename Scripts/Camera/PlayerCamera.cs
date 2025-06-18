@@ -4,6 +4,8 @@ using MyFathersHomeProject.Scripts.Player;
 namespace MyFathersHomeProject.Scripts.Camera;
 public partial class PlayerCamera : Camera2D
 {
+    public static PlayerCamera Instance { get; private set; }
+    
     public const int Height = 45;
 
     private Oliver Oliver => Oliver.Instance;
@@ -12,6 +14,7 @@ public partial class PlayerCamera : Camera2D
     
     public override void _Ready()
     {
+        Instance = this;
         PositionSmoothingEnabled = false;
         SetPositionOnOliver();
     }
@@ -26,7 +29,7 @@ public partial class PlayerCamera : Camera2D
         PositionSmoothingEnabled = true;
     }
     
-    private void SetPositionOnOliver()
+    public void SetPositionOnOliver()
     {
         if (!IsInstanceValid(Oliver)) return;
         

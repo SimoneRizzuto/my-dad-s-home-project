@@ -1,5 +1,10 @@
 ~ oliver_chats_online
 
+do SceneSwitcher.Spawn_Set1_OliverBedroom()
+do Oliver.SetCharacterState(1)
+do Oliver.PlayAnimation("sit left")
+
+
 # friend is sitting on the tree
 do Sasha.SetDirection(1)
 do Sasha.PlayAnimation("draw scribble right")
@@ -99,7 +104,7 @@ Sasha: If you want-
 #Knocking on the door is heard.
 
 do SceneSwitcher.TransitionToScene("uid://cap325m8jhcqw") # transition to OliverBedroom
-
+do PlayerCamera.SetPositionOnOliver()
 
 
 ##do SceneSwitcher.
