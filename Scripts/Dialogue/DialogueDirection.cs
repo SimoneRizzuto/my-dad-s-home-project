@@ -4,5 +4,6 @@ public enum DialogueDirection
     Nothing,
     Idle,
     Move,
+    Jump,
     MoveToPosition,
 }

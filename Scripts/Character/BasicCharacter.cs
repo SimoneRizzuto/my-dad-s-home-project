@@ -34,6 +34,8 @@ public partial class BasicCharacter : CharacterBody2D, ICharacter
     #region interface implementations
     public CharacterState CharacterState { get; set; }
     public Direction LastDirection { get; set; }
+    public bool IsJumping => !IsOnFloor();
+
     public void Move(float direction)
     {
         var movementVector = new Vector2(direction * Movement.MoveSpeed, Velocity.Y);

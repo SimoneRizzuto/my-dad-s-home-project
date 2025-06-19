@@ -22,6 +22,11 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
     private int unitsToMove;
     private int targetXToMoveTo;
     private int initialXPosition;
+
+    public async Task Idle()
+    {
+        await SetupActionTask(DialogueDirection.Idle);
+    }
     
     public async Task MoveLeft(int pixels)
     {
@@ -36,6 +41,12 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
         initialXPosition = (int)CharacterBody.Position.X;
         
         await SetupActionTask(DialogueDirection.Move);
+    }
+    
+    public async Task Jump()
+    {
+        Character.Jump();
+        await SetupActionTask(DialogueDirection.Jump);
     }
     
     public async Task MoveToXPosition(int xPosition)
@@ -92,6 +103,9 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
             case DialogueDirection.Move:
                 Process_Move();
                 break;
+            case DialogueDirection.Jump:
+                Process_Jump();
+                break;
             case DialogueDirection.MoveToPosition:
                 Process_MoveToPosition();
                 break;
@@ -116,6 +130,14 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
             dialogueDirectionToPlay = DialogueDirection.Idle;
             ActionGiven.TrySetResult();
         }
+    }
+    
+    private void Process_Jump()
+    {
+        if (Character.IsJumping) return;
+        
+        dialogueDirectionToPlay = DialogueDirection.Idle;
+        ActionGiven.TrySetResult();
     }
     
     private void Process_MoveToPosition()

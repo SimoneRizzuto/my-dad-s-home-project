@@ -15,8 +15,8 @@ public partial class Oliver : CharacterBody2D, ICharacter
     // getters
     private int Gravity => ProjectSettings.GetSetting("physics/2d/default_gravity").ToString().ToInt();
     private int JumpVelocity => -125;
-    private bool JumpInput => Input.IsActionPressed(InputMapAction.Jump);
-    private bool TriggeredJump => IsOnFloor() && JumpInput;
+    private bool JumpInputted => Input.IsActionPressed(InputMapAction.Jump);
+    public bool IsJumping => !IsOnFloor();
     private AnimatedSprite2D MainSprite => GetNode<AnimatedSprite2D>($"{nameof(MainSprite)}");
     private string LastDirectionString => Enum.GetName(LastDirection)?.ToLower();
     
@@ -52,6 +52,8 @@ public partial class Oliver : CharacterBody2D, ICharacter
                 break;
         }
         
+        ProcessGravity(delta);
+        
         MoveAndSlide();
         
         if (Velocity == Vector2.Zero)
@@ -66,17 +68,20 @@ public partial class Oliver : CharacterBody2D, ICharacter
     {
         Move();
         
-        if (IsOnFloor() && TriggeredJump)
+        if (JumpInputted)
         {
             Jump();
         }
-        
+    }
+    
+    private void ProcessGravity(double delta)
+    {
         if (!IsOnFloor())
         {
             Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * (float)delta);
         }
     }
-    
+
     private void Move()
     {
         var direction = Input.GetAxis(InputMapAction.MoveLeft, InputMapAction.MoveRight);
