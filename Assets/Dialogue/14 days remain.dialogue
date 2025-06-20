@@ -15,7 +15,6 @@ do Director.Wait(1.5)
 
 # Oliver walks toward tree, and sits down as well
 do Oliver.MoveToXPosition(468)
-do Director.Wait(1)
 do Oliver.PlayAnimation("idle left")
 do Oliver.SetDirection(-1)
 do Director.Wait(0.5)
@@ -34,9 +33,9 @@ do Director.Wait(0.5)
 do Sasha.PlayAnimation("draw look left")
 do Director.Wait(1)
 Sasha: You want to see?
-Oliver: Soon.
-Oliver: I'm just... taking a second.
-Sasha: Ok.
+Oliver: Um, soon.
+Oliver: I'm just... taking a second to relax.
+Sasha: Sure.
 do Director.Wait(0.5)
 do Sasha.PlayAnimation("draw look right")
 do Director.Wait(0.5)
@@ -44,30 +43,36 @@ do Sasha.PlayAnimation("draw scribble right")
 
 do Director.Wait(3)
 
+do Sasha.PlayAnimation("draw look left")
+do Director.Wait(2)
 do Sasha.PlayAnimation("draw look right")
 do Director.Wait(1)
-Sasha: I'm excited for dinner tonight.
-Sasha: Mum's making sushi again!
+Sasha: I'm so hungry.
+Sasha: Mum's making sushi again for dinner!
+Oliver: Oh, yeah.
 Sasha: I'll send you pics when I have it.
 Oliver: Mhh.
+do Director.Wait(0.5)
 do Sasha.PlayAnimation("draw look left")
+do Director.Wait(2)
 Sasha: What are you having for dinner?
 Oliver: Um...
 Oliver: I didn't really ask my dad.
-Sasha: Yeah?
 
-do Director.Wait(2.5)
+do Director.Wait(2)
 
 Oliver: Sorry, it's not a good night for me.
-Sasha: I can tell.
+Sasha: Yeah, I can tell.
+#Oliver.PlayAnimation("sit left look right")!!!!!!!!!!!!!!!!
 Oliver: That obvious?
-#LOOK RIGHT
 do Sasha.PlayAnimation("draw look left down")
 Sasha: A little bit.
 do Sasha.PlayAnimation("draw look left")
-Sasha: I get it though. 
-Sasha: Everything's almost over.
-do Director.Wait(1)
+Sasha: I get it. 
+Sasha: Everything's almost over for you.
+
+do Director.Wait(2)
+
 Sasha: How long until you move?
 Oliver: Two weeks.
 do Sasha.PlayAnimation("draw look left")
