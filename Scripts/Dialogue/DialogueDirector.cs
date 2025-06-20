@@ -7,6 +7,7 @@ using DialogueManagerRuntime;
 using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Dialogue.Base;
 using MyFathersHomeProject.Scripts.Dialogue.Actor;
+using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
 namespace MyFathersHomeProject.Scripts.Dialogue;
@@ -20,24 +21,13 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
     public TaskCompletionSource ActionGiven { get; set; } = new();
     private readonly Stopwatch stopwatch = new();
     
+    private DirectorDirection _directorDirectionToPlay;
+    
     public override void _Ready()
     {
         Instance = this;
         
         LoadActorsIntoCurrentScene();
-    }
-    
-    public override void _Process(double delta)
-    {
-        if (!stopwatch.IsRunning)
-        {
-            stopwatch.Restart();
-        }
-        
-        if (stopwatch.ElapsedMilliseconds > millisecondsToPass)
-        {
-            FinishTask();
-        }
     }
     
     private bool LoadActorsIntoCurrentScene()
@@ -92,24 +82,60 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
         }
     }
     
-    private async Task SetupActionTask(double seconds)
+    #region cutscene directions
+    
+    public async Task Wait(double seconds = 1)
+    {
+        millisecondsToPass = seconds * 1000;
+        await SetupActionTask(DirectorDirection.Wait);
+    }
+    
+    #endregion
+    
+    #region process directions
+    
+    private async Task SetupActionTask(DirectorDirection dialogueDirection)
     {
         ActionGiven = new TaskCompletionSource();
-        millisecondsToPass = seconds * 1000;
-        
+        _directorDirectionToPlay = dialogueDirection;
         await ActionCompleted;
     }
     
     private void FinishTask()
     {
-        stopwatch.Stop();
+        stopwatch.Reset();
+        _directorDirectionToPlay = DirectorDirection.Nothing;
         ActionGiven.TrySetResult();
     }
     
-    public async Task Wait(double seconds = 1)
+    public override void _Process(double delta)
     {
-        await SetupActionTask(seconds);
-    } 
+        if (Oliver.Instance.CharacterState != CharacterState.Cutscene) return;
+        
+        switch (_directorDirectionToPlay)
+        {
+            case DirectorDirection.Nothing:
+                break;
+            case DirectorDirection.Wait:
+                Process_Wait();
+                break;
+        }
+    }
+    
+    private void Process_Wait()
+    {
+        if (!stopwatch.IsRunning)
+        {
+            stopwatch.Restart();
+        }
+        
+        if (stopwatch.ElapsedMilliseconds > millisecondsToPass)
+        {
+            FinishTask();
+        }
+    }
+    
+    #endregion
     
     #region signals
     
