@@ -6,7 +6,7 @@
 # oliver sits up from his dream
 # he looks to Sachi before lying down again
 
-Oliver: Are you... awake? #small text
+Oliver: Pss. Are you awake? #small text
 
 do Director.Wait(3)
 
@@ -23,8 +23,9 @@ Oliver: Jeez. #small text
 do Director.Wait(3)
 
 Friend: I'm awake.
-Oliver: Oh, sorry, did I wake you?
-Friend: No, I've just been lying here... listening to you.
+Oliver: Oh! 
+Oliver: Sorry, did I wake you?
+Friend: No, I've just been lying here, listening to you.
 Oliver: Sorry.
 Friend: It's ok.
 Friend: ... Were you having a nightmare?
@@ -42,24 +43,20 @@ Oliver: I don't wanna be.
 
 do Director.Wait(4)
 
-Friend: Has staying over helped a little?
+Friend: I hope staying over helped a little.
 Oliver: Yes.
 Oliver: Definitely.
 Friend: Good.
 Oliver: Honestly, I could stay here until I move.
 Friend: Pff.
-Friend: If you wanna sleep in the closet.
-Oliver: I'd take that right now.
-Friend: Aw...
-
-do Director.Wait(2)
-
-Oliver: I mean it though...
+Friend: If you wanna sleep in the closet, I guess.
+Oliver: I'd really would right now.
 Oliver: I feel more at home here than at home.
+Friend: Aw...
 Oliver: ... Is that weird?
 Friend: No, I get it.
 Friend: It's easier here than around your dad.
-Oliver: I mean, yes...
+Oliver: I mean, yeah...
 Oliver: But it's more than just that.
 Oliver: ...
 Friend: Mhh?
@@ -89,7 +86,7 @@ Oliver: Yell at him... cause I'm so angry with him about so much.
 Oliver: But... I don't know.
 Oliver: I wish... I phrased things better with my dad...
 Oliver: I didn't think everything would go the way it did.
-Oliver: I want him to just be ok.
+Oliver: I just want him to be ok.
 Friend: I think he will be.
 Friend: Are you worried he won't be?
 Oliver: ...
@@ -99,6 +96,7 @@ Friend: Yeah.
 
 do Director.Wait(4)
 
+Friend: I used to think I didn't do enough for my dad.
 Friend: I hope you know you did all you could.
 Friend: For both your parents.
 Oliver: ...
@@ -109,7 +107,7 @@ Oliver: I hope so.
 
 do Director.Wait(3)
 
-Oliver: I hope so.
+Oliver: I hope so...
 
 do Director.Wait(3)
 

@@ -24,8 +24,9 @@ Oliver: Sorry, I can't hear you!
 # ------------------------
 
 ~ dad_picture_interaction
-Oliver: Her dad.
-Oliver: ...
+Oliver: (Her dad.)
+Oliver: (I never got to know him.)
+Oliver: (Only the stories.)
 => END
 
 ~ tv_interaction
@@ -55,7 +56,7 @@ Friend: It’s been difficult to think of different kinds of merps, so I keep on
 Oliver: You should make a chocolate one.
 Friend: Uh? But it doesn’t fit what I have in mind for them. 
 Friend: They’re meant to be plant based.
-Oliver: Cacao is a seed from a plant, technically. 
+Oliver: Cacao is technically a seed from a plant.
 Friend: Yes, cacao seeds are, but not chocolate. That’s different.
 Oliver: Then do a cacao one. That would still be cool.
 Friend: Ok ok. I'll keep it in mind for next time.
@@ -66,13 +67,14 @@ Oliver: Hell yeah!
 Oliver: Hey, you got Gigi's again!
 Friend: I wasn't lying when I said I liked it.
 Oliver: So what you're telling me is...
-Oliver: ...good pizza exists after all?
+Oliver: ...good pizza exists after all!
 Friend: I never said I didn't like pizza.
 Friend: It just isn't my first option.
 Oliver: ... And yet clearly, you got Gigi's one time over something else.
 Friend: Ok, Olive Boy.
 Oliver: Hey!
-Oliver: That fits stupidly well...
+Oliver: That fits too well...
+Friend: Hehe~
 => END
 
 # ------------------
@@ -99,6 +101,7 @@ Oliver: I wish nights like this never had to end.
 
 Oliver: ...
 Friend: You didn't fall in, did you?
+Oliver: Pff.
 Oliver: Not this time.
 
 #Oliver sits next to the fireplace.
@@ -112,18 +115,18 @@ Oliver: Ahhhh...
 Oliver: ...
 Oliver: Do you feel this warmth?
 Friend: Mhh?
-Oliver: It's really cozy. Don't you agree?
+Oliver: I feel really cozy. Don't you agree?
 Friend: ...
-Friend: Yeah, it is.
+Friend: Yeah, I  do.
 
 #Oliver opens his eyes. He lies down.
 
 Oliver: I wish we had marshmallows.
 Oliver: We could warm them up in a fire, and just...
-Oliver: Oh yeah. That would be awesome.
+Oliver: Ooooh yeah. That would be awesome.
 Friend: I've never done that before.
 Oliver: Me neither.
-Friend: I thought you were speaking from experience.
+Friend: What? I thought you were speaking from experience.
 Oliver: I don't know. I haven't done many things.
 Oliver: They make it look really nice in movies.
 Oliver: Surely, it's just as nice in real life.
@@ -140,27 +143,27 @@ Oliver: I'd try capture the moment myself. Through MY eyes.
 
 do Director.Wait(3)
 
-Oliver: What would you draw?
+Oliver: What would YOU draw?
 Friend: ...
 
 # she looks up to the sky
 
 do Director.Wait(3)
 
-Friend: I've heard the night sky is full of stars when out there.
+Friend: I've heard the night sky is filled with stars when you go camping.
 Friend: I think that'd be nice.
 
 # the stars appear more shiny once that's said
 # do Director.Wait(2)
 
 Friend: I hope it's as pretty as I imagine it to be.
-Friend: You really think we'll get to do that one day?
+Friend: You really think do that one day?
 Oliver: I hope so.
 Oliver: Assuming I haven't moved too far away.
 Friend: We can still get together.
-Friend: It doesn't have to be hard.
+Friend: It doesn't have to be hard...
 Oliver: I know.
-Oliver: I still worry.
+Oliver: But you never know...
 Friend: Then promise to make the effort.
 Oliver: ...
 

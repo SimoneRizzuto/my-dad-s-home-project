@@ -1,18 +1,20 @@
 using Godot;
 using MyFathersHomeProject.Scripts.Player;
-using MyFathersHomeProject.Scripts.Shared.Helpers;
 
 namespace MyFathersHomeProject.Scripts.Camera;
 public partial class PlayerCamera : Camera2D
 {
+    public static PlayerCamera Instance { get; private set; }
+    
     public const int Height = 45;
 
-    private Oliver Oliver => GetNodeHelper.GetOliver(GetTree());
+    private Oliver Oliver => Oliver.Instance;
 
     private bool isMounted;
     
     public override void _Ready()
     {
+        Instance = this;
         PositionSmoothingEnabled = false;
         SetPositionOnOliver();
     }
@@ -27,8 +29,10 @@ public partial class PlayerCamera : Camera2D
         PositionSmoothingEnabled = true;
     }
     
-    private void SetPositionOnOliver()
+    public void SetPositionOnOliver()
     {
+        if (!IsInstanceValid(Oliver)) return;
+        
         GlobalPosition = new(Oliver.Position.X, Height);
         
         PositionSmoothingSpeed = 8;

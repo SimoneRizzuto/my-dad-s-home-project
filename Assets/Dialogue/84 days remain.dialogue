@@ -39,8 +39,8 @@ do Director.Wait(1)
 
 Dad: Can you stay with me a bit?
 Dad: It's really quiet out there...
-Oliver: Sure.
-Oliver: ... Though I'm really tired.
+Oliver: Sure...
+Oliver: Though I'm really tired.
 Dad: That's ok.
 Dad: Sleep if you have to.
 Dad: I just don't want to be alone...
@@ -68,7 +68,8 @@ Oliver: sorry
 
 #close phone
 
-Oliver: ... Are you ok?
+Oliver: ... 
+Oliver: Are you ok?
 Dad: ...
 
 do Director.Wait(3)
@@ -94,14 +95,14 @@ Dad: I don't understand how you can be so calm about it.
 Oliver: But I'm not calm, Papa.
 Oliver: I'm... really worried for you.
 Dad: Yes but...
-Dad: Our family, Oliver.
-Dad: Does it not hurt that it's gone?
+Dad: Our FAMILY, Oliver!
+Dad: Doesn't not hurt that it's gone?
 Oliver: ...
 Oliver: I don't know.
-Dad: I don't know?
+Dad: You don't know?!
 Oliver: Papa...
-Dad: It should hurt like the world.
-Dad: And yet you're blank faced like it's just another day.
+Dad: It should hurt like the world!
+Dad: And yet you're blank faced like it's just another day!
 Oliver: Papa!
 Oliver: Stop... please...
 
@@ -117,12 +118,14 @@ Oliver: Then that's how it is.
 
 do Director.Wait(3)
 
-Dad: We've had this couch since you we're born.
+Dad: You know...
+Dad: We've had this couch since you were born.
 
 do Director.Wait(3)
 
+Dad: *sigh*
 Dad: You can go to bed if you want.
-Dad: Don't bother staying on this crappy couch.
+Dad: Don't bother staying on this "crappy" couch.
 Oliver: Papa...
 Oliver: I didn't mean it like that.
 Dad: ...
