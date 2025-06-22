@@ -28,16 +28,16 @@ theme = ExtResource("2_iwnh3")
 
 [node name="Panel" type="PanelContainer" parent="Balloon"]
 clip_children = 2
-custom_minimum_size = Vector2(50, 10)
+custom_minimum_size = Vector2(146, 10)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 94.1176
-offset_top = -37.765
-offset_right = 144.118
-offset_bottom = 0.235016
+offset_top = -77.3529
+offset_right = 146.0
+offset_bottom = -39.3529
 grow_vertical = 0
+scale = Vector2(2, 2)
 mouse_filter = 1
 theme = SubResource("Theme_v4kq1")
 
@@ -62,8 +62,9 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-text = "
-"
+theme_override_font_sizes/normal_font_size = 13
+autowrap_mode = 2
+threaded = true
 
 [node name="Responses" type="MarginContainer" parent="Balloon"]
 visible = false
@@ -91,3 +92,8 @@ response_template = NodePath("ResponseExample")
 [node name="ResponseExample" type="Button" parent="Balloon/Responses/ResponsesMenu"]
 layout_mode = 2
 text = "Response example"
+
+[node name="PanelContainer" type="PanelContainer" parent="Balloon/Responses/ResponsesMenu/ResponseExample"]
+layout_mode = 0
+offset_right = 12.0
+offset_bottom = 12.0
