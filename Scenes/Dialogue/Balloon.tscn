@@ -28,13 +28,15 @@ theme = ExtResource("2_iwnh3")
 
 [node name="Panel" type="PanelContainer" parent="Balloon"]
 clip_children = 2
-custom_minimum_size = Vector2(250, 50)
+custom_minimum_size = Vector2(50, 10)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -66.0
-offset_right = 250.0
+offset_left = 94.1176
+offset_top = -37.765
+offset_right = 144.118
+offset_bottom = 0.235016
 grow_vertical = 0
 mouse_filter = 1
 theme = SubResource("Theme_v4kq1")
