@@ -41,10 +41,10 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cvxop"]
 texture = ExtResource("1_a0wif")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 6.0
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
 
 [resource]
 default_font_size = 20
