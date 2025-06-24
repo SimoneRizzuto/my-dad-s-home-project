@@ -2,6 +2,7 @@ How old is Oliver? Either:
 - 16
 - 14
 - 19, but visually, is 14. Later, it is revealed he is 19
+- I'm sticking with 14/15
 
 Pragmatic Goals
 - the player is on the internet
