@@ -9,7 +9,7 @@ do Director.Wait(0.5)
 Sasha: Oli!
 
 do Sasha.PlayAnimation("draw wave left")
-do Directory.Wait(2.5)
+do Director.Wait(2.5)
 
 # Oliver walks toward tree, and sits down as well
 do Oliver.MoveToXPosition(468)
@@ -56,56 +56,100 @@ do Director.Wait(1)
 do Sasha.PlayAnimation("draw look left")
 do Director.Wait(2)
 
-Sasha: What are you having for dinner?
+Sasha: ...
+Sasha: What are you having for dinner? *slow text*
 Oliver: Um, I don't know.
-Oliver: I didn't really ask.
-Sasha: Right...
+Oliver: I didn't really ask my dad.
+Sasha: Oh, right...
 
 do Director.Wait(2)
 
+Sasha: You, um...
 Sasha: You ok, Oli?
 Oliver: ...
 Oliver: I'm fine.
 Oliver: Just got a lot on my mind is all.
-Sasha: That makes sense.
-Sasha: 
+Sasha: I don't blame you.
+Sasha: When DO you start packing up?
+Oliver: Um.
+Oliver: I'm not sure.
+Oliver: I'm not sure when's too early or too close.
+Oliver: I've kinda been avoiding doing anything for it.
+Sasha: It's always good to be prepared.
+Oliver: You almost sound like my mum right now.
+Sasha: Hey, sometimes, parents are right.
+Oliver: They wish.
+Sasha: Pff.
 
-################
+do Director.Wait(3)
+do Oliver.PlayAnimation("sit left look right")
+do Director.Wait(1.5)
+do Oliver.PlayAnimation("sit left")
+do Director.Wait(1)
 
+Oliver: ...
+Oliver: Um.
+Sasha: Yeah?
+Oliver: Can I-
 
+do Audio.PlaySound("knocking")
+do SceneSwitcher.Spawn_Set1_OliverBedroom()
+do Oliver.SetCharacterState(1)
+do Oliver.PlayAnimation("sit left")
 
-Sasha: 
+Oliver: Coming!
 
-
-	
-	
-- greeting
-
-- Oliver and Sasha talk about whats their parents are making for dinner
-Oliver takes a little bit to response, perhaps even not having heard
-maybe Oliver asks, wanting to start a convo, unsure what to bring up
-	- Oliver and Sasha are both younger teens (15ish)
-	- subtly shows something's on Oliver's mind
-
-- Sasha expresses doing something in two weeks, forgets that Oliver's moving out in two weeks
-	- "wanna do bla?"
-	- "i can't, remember?
-	- "the move's in two weeks?"
-	"*sigh* Yeah..."
-		- Oliver has home issues (might not even need this)
-	- two weeks until Oliver's moving
-
-
+do Oliver.PlayAnimation("stand from seat")
 
 => END
 
 ~ dad_walks_in
 
-#if you've cleaned up your room
-Dad: You're always stuck inside.
-#else
-Dad: *room is messy comment*
+Dad: Why didn’t you answer after the first time?
+Oliver: I guess I didn’t hear it.
 
+do Director.Wait(2)
+do Papa.PlayAnimation()
+
+Dad: Who are you talking to?
+Oliver: Just a friend.
+Dad: Who?
+Oliver: ...
+Dad: ...
+
+do Director.Wait(2)
+
+#The dad walks into the room. He places the plate on the table, and walk around the room.
+
+Dad: *sigh*
+#if you've cleaned up your room
+	Dad: You're always stuck inside.
+#else
+	Dad: This mess...
+Dad: I shouldn’t even have to say anything.
+Oliver: ...
+
+#The dad turns to Oliver.
+
+Dad: ARE you going to say anything?
+Oliver: I’ll clean it later...
+
+#He walks toward the door.
+
+Dad: Arrangia!
+
+#He leaves, and slams the door.
+#Oliver’s heart is still heard beating again.
+
+=> END
+
+~ back_on_the_computer
+
+Oliver: Hey, sorry, I'm back.
+Oliver: ...
+
+Sasha: Before I went to grab dinner, you forgot to mute your microphone.
+Sasha: Um...
 => END
 
 ~ oliver_attempts_to_leave
