@@ -1,0 +1,117 @@
+~ oliver_chats_online
+
+do Sasha.SetDirection(1)
+do Sasha.PlayAnimation("draw scribble right")
+do Director.Wait(2)
+do Sasha.PlayAnimation("draw look left")
+do Director.Wait(0.5)
+
+Sasha: Oli!
+
+do Sasha.PlayAnimation("draw wave left")
+do Directory.Wait(2.5)
+
+# Oliver walks toward tree, and sits down as well
+do Oliver.MoveToXPosition(468)
+do Oliver.PlayAnimation("idle left")
+do Oliver.SetDirection(-1)
+do Director.Wait(0.5)
+do Oliver.PlayAnimation("sit left")
+do Director.Wait(3)
+
+Sasha: You're finally on.
+Sasha: Look, I started drawing again.
+Sasha: Let me show you.
+Oliver: Soon, soon.
+Oliver: Just gimme a bit to chill first.
+Sasha: Ok ok.
+Sasha: Just tell me when.
+Oliver: I will.
+
+do Director.Wait(0.5)
+do Sasha.PlayAnimation("draw scribble right")
+do Director.Wait(2)
+do Oliver.PlayAnimation("sit left look right")
+do Director.Wait(1.5)
+do Oliver.PlayAnimation("sit left")
+do Director.Wait(1)
+do Sasha.PlayAnimation("draw look left")
+
+Sasha: ...
+
+do Director.Wait(2)
+do Sasha.PlayAnimation("")
+do Sasha.PlayAnimation("draw look right")
+
+Sasha: Your day been good?
+Oliver: Yeah, just school.
+Oliver: You?
+Sasha: It's been good.
+Sasha: Been thinking about dinner all day.
+Oliver: Mhh, why so?
+Sasha: Cause mum's making sushi tonight.
+Oliver: Mhh.
+
+do Director.Wait(1)
+do Sasha.PlayAnimation("draw look left")
+do Director.Wait(2)
+
+Sasha: What are you having for dinner?
+Oliver: Um, I don't know.
+Oliver: I didn't really ask.
+Sasha: Right...
+
+do Director.Wait(2)
+
+Sasha: You ok, Oli?
+Oliver: ...
+Oliver: I'm fine.
+Oliver: Just got a lot on my mind is all.
+Sasha: That makes sense.
+Sasha: 
+
+################
+
+
+
+Sasha: 
+
+
+	
+	
+- greeting
+
+- Oliver and Sasha talk about whats their parents are making for dinner
+Oliver takes a little bit to response, perhaps even not having heard
+maybe Oliver asks, wanting to start a convo, unsure what to bring up
+	- Oliver and Sasha are both younger teens (15ish)
+	- subtly shows something's on Oliver's mind
+
+- Sasha expresses doing something in two weeks, forgets that Oliver's moving out in two weeks
+	- "wanna do bla?"
+	- "i can't, remember?
+	- "the move's in two weeks?"
+	"*sigh* Yeah..."
+		- Oliver has home issues (might not even need this)
+	- two weeks until Oliver's moving
+
+
+
+=> END
+
+~ dad_walks_in
+
+#if you've cleaned up your room
+Dad: You're always stuck inside.
+#else
+Dad: *room is messy comment*
+
+=> END
+
+~ oliver_attempts_to_leave
+
+Dad: Where are you going?
+Oliver: Out.
+Dad: ...
+
+=> END
