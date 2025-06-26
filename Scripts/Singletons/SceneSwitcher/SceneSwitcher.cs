@@ -11,6 +11,7 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     // const
     public const string Set1_OnlineWorld = "uid://cjd6v6afkjbn0";
     public const string Set1_OliverBedroom = "uid://cap325m8jhcqw";
+    public const string TransitionScreen = "uid://ba8ajsihdkrwt";
     
     // getters
     private Node Main => GetTree().CurrentScene;
@@ -25,7 +26,7 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
 
     public void Spawn_Set1_OliverBedroom()
     {
-        TransitionToScene(Set1_OliverBedroom);
+        TransitionToScene(Set1_OliverBedroom, null);
         PlayerCamera.SetPositionOnOliver(); // make into signal???
         
         /*do Oliver.SetCharacterState(1)
@@ -35,10 +36,18 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     #endregion
     
     #region functionality
-    public void TransitionToScene(string uid)
+    public void TransitionToScene(string uid = null, PackedScene scene = null)
     {
         ClearMain();
-        SpawnScene(uid);
+        if (uid != null)
+        {
+            SpawnSceneUID(uid);
+        }
+        else
+        {
+            SpawnScenePacked(scene);
+        }
+        
         CastCrew.InitialiseActors(); // make into signal???
     }
     
@@ -56,7 +65,7 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
         Main.AddChild(instanced);
     }
     
-    public void SpawnScene(string uid)
+    public void SpawnSceneUID(string uid)
     {
         var uidLong = ResourceUid.TextToId(uid);
         var path = ResourceUid.GetIdPath(uidLong);
@@ -64,6 +73,19 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
         if (scene == null)
         {
             GD.PrintErr($"Scene cannot be loaded. UID: {uid}");
+            return;
+        }
+        
+        var instanced = scene.Instantiate();
+        Main.AddChild(instanced);
+    }
+    
+    public void SpawnScenePacked(PackedScene scene)
+    {
+        
+        if (scene == null)
+        {
+            GD.PrintErr($"Scene cannot be loaded. PackedScene: {scene.ToString()}");
             return;
         }
         

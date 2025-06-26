@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
 public partial class TransitionScreen : Control
 {
@@ -13,6 +14,9 @@ public partial class TransitionScreen : Control
     {
         richTextLabel = GetNode<RichTextLabel>("RichTextLabel");
         richTextLabel.Text = richText;
+        
+        TypeWriterText();
+        SceneSwitcher.TransitionToScene(null, NextScene);
     }
 
     private void TypeWriterText()
