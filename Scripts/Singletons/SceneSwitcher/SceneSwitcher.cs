@@ -41,7 +41,7 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
         ClearMain();
         if (uid != null)
         {
-            SpawnSceneUID(uid);
+            SpawnSceneUid(uid);
         }
         else
         {
@@ -65,7 +65,7 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
         Main.AddChild(instanced);
     }
     
-    public void SpawnSceneUID(string uid)
+    public void SpawnSceneUid(string uid)
     {
         var uidLong = ResourceUid.TextToId(uid);
         var path = ResourceUid.GetIdPath(uidLong);

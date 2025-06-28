@@ -22,6 +22,7 @@ ShortcutManager="*res://Scenes/Menus/ShortcutManager.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Director="*res://Scripts/Dialogue/DialogueDirector.cs"
 Audio="*res://Scripts/Dialogue/Audio/AudioDirector.cs"
+SceneSwitcher="*res://Scripts/Singletons/SceneSwitcher/SceneSwitcher.cs"
 
 [dialogue_manager]
 

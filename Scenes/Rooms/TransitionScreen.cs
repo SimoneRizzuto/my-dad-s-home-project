@@ -7,13 +7,14 @@ public partial class TransitionScreen : Control
     [Export] public PackedScene NextScene;
     [Export] string richText;
     
-    private RichTextLabel richTextLabel = new RichTextLabel();
+    private RichTextLabel RichTextLabel = new RichTextLabel();
     private Tween tween;
+    private SceneSwitcher SceneSwitcher = new();
 
     public override void _Ready()
     {
-        richTextLabel = GetNode<RichTextLabel>("RichTextLabel");
-        richTextLabel.Text = richText;
+        RichTextLabel = GetNode<RichTextLabel>("RichTextLabel");
+        RichTextLabel.Text = richText;
         
         TypeWriterText();
         SceneSwitcher.TransitionToScene(null, NextScene);
@@ -21,6 +22,6 @@ public partial class TransitionScreen : Control
 
     private void TypeWriterText()
     {
-        tween.TweenProperty(richTextLabel, "visible_ratio", 1.0, 2.0).From(0.0);
+        tween.TweenProperty(RichTextLabel, "visible_ratio", 1.0, 2.0).From(0.0);
     }
 }

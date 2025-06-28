@@ -4,7 +4,7 @@ namespace MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 public interface ISceneSwitcher
 {
     void SpawnScene(Node node);
-    void SpawnSceneUID(string uid);
+    void SpawnSceneUid(string uid);
     
     void SpawnScenePacked(PackedScene scene);
 }
