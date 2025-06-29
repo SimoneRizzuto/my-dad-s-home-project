@@ -1,5 +1,5 @@
 using Godot;
-using System;
+using System.Diagnostics;
 using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
 public partial class TransitionScreen : Control
@@ -7,16 +7,23 @@ public partial class TransitionScreen : Control
     [Export] public PackedScene NextScene;
     [Export] string richText;
     
-    private RichTextLabel RichTextLabel = new RichTextLabel();
+    private Label RichTextLabel = new Label();
     private Tween tween;
     private SceneSwitcher SceneSwitcher = new();
+    private Stopwatch stopwatch = new Stopwatch();
 
     public override void _Ready()
     {
-        RichTextLabel = GetNode<RichTextLabel>("RichTextLabel");
+        RichTextLabel = GetNode<Label>("RichTextLabel");
         RichTextLabel.Text = richText;
         
-        TypeWriterText();
+        stopwatch.Start();
+    }
+    
+    public override void _Process(double delta)
+    {
+        if (!stopwatch.IsRunning || !(stopwatch.Elapsed.TotalSeconds >= 2)) return;
+        stopwatch.Stop();
         SceneSwitcher.TransitionToScene(null, NextScene);
     }
 
