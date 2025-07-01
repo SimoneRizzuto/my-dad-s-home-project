@@ -161,7 +161,11 @@ do Director.Wait(1.5)
 
 Sasha: Um.
 Sasha: You forgot to mute your mic...
-Sasha: That didn't sound very nice.
+
+do Oliver.PlayAnimation("look down on chair")
+
+Oliver: Oh.
+Sasha: It didn't sound very nice.
 Oliver: ... Yeah.
 Oliver: I hate going out in the living room.
 Oliver: Never ends well.
@@ -220,6 +224,7 @@ Oliver: Yup, see ya soon.
 do Oliver.PlayAnimation("jump off chair")
 
 Oliver: I wish I could sneak out the window though.
+
 => END
 
 ~ oliver_attempts_to_leave
