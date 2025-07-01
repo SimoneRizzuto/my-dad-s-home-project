@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0a6mystt74m5"]
+
+[ext_resource type="Texture2D" uid="uid://cih7s2rohugoh" path="res://Assets/Textures/Environments/SashaBedroom/sasha-bedroom-wall.png" id="1_f6sw5"]
+
+[node name="SashaBedroom" type="Node2D"]
+
+[node name="Wall" type="Sprite2D" parent="."]
+texture = ExtResource("1_f6sw5")
+centered = false
