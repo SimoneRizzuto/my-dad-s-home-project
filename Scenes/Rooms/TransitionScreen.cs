@@ -5,30 +5,30 @@ using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 public partial class TransitionScreen : Control
 {
     [Export] public PackedScene NextScene;
-    [Export] string richText;
+    [Export] public string RichText;
     
-    private Label RichTextLabel = new Label();
-    private Tween tween;
-    private SceneSwitcher SceneSwitcher = new();
-    private Stopwatch stopwatch = new Stopwatch();
+    private Label _richTextLabel = new Label();
+    private Tween _tween;
+    private SceneSwitcher _sceneSwitcher = new();
+    private Stopwatch _stopwatch = new Stopwatch();
 
     public override void _Ready()
     {
-        RichTextLabel = GetNode<Label>("RichTextLabel");
-        RichTextLabel.Text = richText;
+        _richTextLabel = GetNode<Label>("RichTextLabel");
+        _richTextLabel.Text = RichText;
         
-        stopwatch.Start();
+        _stopwatch.Start();
     }
     
     public override void _Process(double delta)
     {
-        if (!stopwatch.IsRunning || !(stopwatch.Elapsed.TotalSeconds >= 2)) return;
-        stopwatch.Stop();
-        SceneSwitcher.TransitionToScene(null, NextScene);
+        if (!_stopwatch.IsRunning || !(_stopwatch.Elapsed.TotalSeconds >= 2)) return;
+        _stopwatch.Stop();
+        _sceneSwitcher.TransitionToScene(null, NextScene);
     }
 
     private void TypeWriterText()
     {
-        tween.TweenProperty(RichTextLabel, "visible_ratio", 1.0, 2.0).From(0.0);
+        _tween.TweenProperty(_richTextLabel, "visible_ratio", 1.0, 2.0).From(0.0);
     }
 }

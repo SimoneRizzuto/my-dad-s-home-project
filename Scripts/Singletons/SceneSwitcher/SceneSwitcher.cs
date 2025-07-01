@@ -26,7 +26,7 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
 
     public void Spawn_Set1_OliverBedroom()
     {
-        TransitionToScene(Set1_OliverBedroom, null);
+        TransitionToScene(Set1_OliverBedroom);
         PlayerCamera.SetPositionOnOliver(); // make into signal???
         
         /*do Oliver.SetCharacterState(1)
