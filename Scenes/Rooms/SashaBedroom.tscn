@@ -1,9 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0a6mystt74m5"]
+[gd_scene load_steps=4 format=3 uid="uid://d0a6mystt74m5"]
 
 [ext_resource type="Texture2D" uid="uid://cih7s2rohugoh" path="res://Assets/Textures/Environments/SashaBedroom/sasha-bedroom-wall.png" id="1_f6sw5"]
+[ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="2_d3vpb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rlomt"]
+size = Vector2(201, 4)
 
 [node name="SashaBedroom" type="Node2D"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.219608, 0.219608, 0.360784, 1)
 
 [node name="Wall" type="Sprite2D" parent="."]
 texture = ExtResource("1_f6sw5")
 centered = false
+
+[node name="Wall+Floor" type="Node2D" parent="."]
+
+[node name="Wall-Right" parent="Wall+Floor" instance=ExtResource("2_d3vpb")]
+position = Vector2(198, 75)
+
+[node name="Wall-Left" parent="Wall+Floor" instance=ExtResource("2_d3vpb")]
+position = Vector2(1, 75)
+
+[node name="Floor" type="StaticBody2D" parent="Wall+Floor"]
+position = Vector2(0, 75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall+Floor/Floor"]
+position = Vector2(99.5, 2)
+shape = SubResource("RectangleShape2D_rlomt")
+debug_color = Color(0, 0.0235294, 0.701961, 0.419608)
