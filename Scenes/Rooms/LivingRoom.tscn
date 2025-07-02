@@ -45,7 +45,7 @@ z_index = 4096
 position = Vector2(344, 75)
 
 [node name="Dismounter" parent="Tripods/Couch" instance=ExtResource("2_7l723")]
-position = Vector2(249, 65)
+position = Vector2(278, 65)
 
 [node name="Mounter1" parent="Tripods/Couch" node_paths=PackedStringArray("MountPosition") instance=ExtResource("1_njjkm")]
 position = Vector2(432, 66)
