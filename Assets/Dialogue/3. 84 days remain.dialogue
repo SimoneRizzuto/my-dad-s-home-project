@@ -11,11 +11,6 @@ do Director.Wait(3)
 Dad: A-Are you... awake?
 Dad: I'm...
 
-do Director.Wait(4)
-
-Dad: ... I'm really scared.
-Dad: I don't want to sleep alone.
-
 do Director.Wait(2)
 
 #Oliver gets up from the bed
@@ -68,18 +63,21 @@ Oliver: sorry
 
 #close phone
 
-Oliver: ... 
+Oliver: ...
+
+do Director.Wait(3)
+
 Oliver: Are you ok?
 Dad: ...
 
 do Director.Wait(3)
 
-Dad: Do you... realise... what she is doing?
+Dad: Do you... realise... what she did?
 Oliver: Yes. She was... unhappy...
 Dad: Unhappy enough to leave without saying anything?
 Oliver: Isn't that what happens when marriages are falling apart?
-Dad: No. What happens is couples talk.
-Dad: They talk about their problems, and after a bunch of fighting, they break up.
+Dad: No. Couples talk.
+Dad: Talk about their problems, and then after years of fighting, they break up.
 Dad: This isn't that...
 Dad: She never said anything to me.
 Dad: ... I don't get it.
@@ -96,7 +94,7 @@ Oliver: But I'm not calm, Papa.
 Oliver: I'm... really worried for you.
 Dad: Yes but...
 Dad: Our FAMILY, Oliver!
-Dad: Doesn't not hurt that it's gone?
+Dad: Doesn't it hurt that it's gone?
 Oliver: ...
 Oliver: I don't know.
 Dad: You don't know?!
@@ -136,8 +134,9 @@ Oliver: ...
 #oliver stays with his dad
 
 #text sequence
+# could this be written more interestingly
 “Hey pumpkin, please let me know if you need anything.”
 “I’m sorry for leaving you with him.”
-“I promise when everything’s over, we will both be happy together.”
+“I promise when everything’s over, we will both be together.”
 “Love you, pumpkin. Goodnight.” 
 => END

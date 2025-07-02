@@ -48,6 +48,18 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
         Character.Jump();
         await SetupActionTask(DialogueDirection.Jump);
     }
+
+    public void LookLeft()
+    {
+        PlayAnimation("idle left");
+        SetDirection(-1);
+    }
+
+    public void LookRight()
+    {
+        PlayAnimation("idle right");
+        SetDirection(1);
+    }
     
     public async Task MoveToXPosition(int xPosition)
     {
