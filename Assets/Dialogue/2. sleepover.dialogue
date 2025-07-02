@@ -107,7 +107,7 @@ Sasha: If you break it, I'm coming to your new place to steal your bed.
 #Separate Oliver from friend, by going to the toilet. The outside is a forest, separated by a door.
 
 Oliver: (This is nice.)
-Oliver: (Haven't had this for a little bit.)
+Oliver: (Haven't done this for a little bit.)
 
 do Director.Wait(3)
 
@@ -119,7 +119,7 @@ Oliver: (...)
 
 do Director.Wait(2)
 
-Oliver: (Two weeks left, uh?)
+Oliver: (Two weeks left, uh?) *slow text*
 
 do Director.Wait(2)
 #flush toilet
@@ -159,8 +159,8 @@ Sasha: I've never done that before.
 Oliver: Me neither.
 Sasha: What? I thought you were speaking from experience.
 Oliver: I don't know. I haven't done many things.
-Oliver: They make it look really nice in movies.
-Oliver: Surely, it's just as nice in real life.
+Oliver: They make it look really fun in movies.
+Oliver: Surely, it's just as fun in real life.
 Sasha: I'm sure it is.
 Oliver: When we're older, we should definitely go camping with the gang.
 Oliver: It would be really fun to be out there, gathering wood for a fire, cooking dinner in it.
@@ -180,7 +180,7 @@ Sasha: ...
 
 do Director.Wait(3)
 
-Sasha: I've heard the stars are clearer when away from a city.
+Sasha: I've heard the stars are clearer when away from the city.
 Sasha: I think that'd be nice.
 
 do Oliver.PlayAnimation("look up")
@@ -201,7 +201,7 @@ do Director.Wait(2)
 
 Oliver: Ok, I promise.
 Sasha: To?
-Oliver: I promise to go camping with you sometime.
+Oliver: I promise to go sometime.
 Sasha: Oliver...
 Oliver: I-
 
