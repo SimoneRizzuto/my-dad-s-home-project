@@ -1,26 +1,15 @@
 ~ oliver_chats_online
 
-# friend is sitting on the tree
 do Sasha.SetDirection(1)
 do Sasha.PlayAnimation("draw scribble right")
 do Director.Wait(2)
 do Sasha.PlayAnimation("draw look left")
 do Director.Wait(0.5)
+
 Sasha: Oli!
+
 do Sasha.PlayAnimation("draw wave left")
-do Director.Wait(2)
-do Sasha.PlayAnimation("draw look left")
-do Sasha.PlayAnimation("draw scribble right")
-do Director.Wait(1.5)
-#oli looks down, then back
-do Director.Wait(1.5)
-
-how are you?
-yeah, im ok
-
-this scene needs to feel less awkward.
-i still want Oli and Sasha to feel friendly, but the underpinning 
-of everything will come out naturally
+do Director.Wait(2.5)
 
 # Oliver walks toward tree, and sits down as well
 do Oliver.MoveToXPosition(468)
@@ -30,195 +19,213 @@ do Director.Wait(0.5)
 do Oliver.PlayAnimation("sit left")
 do Director.Wait(3)
 
-Oliver: Hey.
-Sasha: How's your night going?
-Oliver: It's ok.
-Oliver: Just got home.
+Sasha: You're finally on.
+Sasha: Look, I started drawing again.
+Sasha: Let me show you.
+Oliver: Soon, soon.
+Oliver: Just gimme a bit to chill first.
+Sasha: Ok ok.
+Sasha: Just tell me when.
+Oliver: I will.
+
+do Director.Wait(0.5)
+do Sasha.PlayAnimation("draw scribble right")
+do Director.Wait(2)
+do Oliver.PlayAnimation("sit left look right")
+do Director.Wait(1.5)
+do Oliver.PlayAnimation("sit left")
+do Director.Wait(1)
+do Sasha.PlayAnimation("draw look left")
+
+Sasha: ...
+
+do Director.Wait(2)
+do Sasha.PlayAnimation("")
+do Sasha.PlayAnimation("draw look right")
+
+Sasha: Your day been good?
+Oliver: Yeah, just school.
 Oliver: You?
-Sasha: Good, good.
-Sasha: I've been drawing merps again.
-Oliver: Oh, nice.
-do Director.Wait(0.5)
-do Sasha.PlayAnimation("draw look left")
-do Director.Wait(1)
-Sasha: You want to see?
-Oliver: Um, soon.
-Oliver: I'm just... taking a second to relax.
-Sasha: Sure.
-do Director.Wait(0.5)
-do Sasha.PlayAnimation("draw look right")
-do Director.Wait(0.5)
-do Sasha.PlayAnimation("draw scribble right")
-
-do Director.Wait(3)
-
-do Sasha.PlayAnimation("draw look left")
-do Director.Wait(2)
-do Sasha.PlayAnimation("draw look right")
-do Director.Wait(1)
-Sasha: I'm so hungry.
-Sasha: Mum's making sushi again for dinner!
-Oliver: Oh, yeah.
-Sasha: I'll send you pics when I have it.
+Sasha: It's been good.
+Sasha: Been thinking about dinner all day.
+Oliver: Mhh, why so?
+Sasha: Cause mum's making sushi tonight.
 Oliver: Mhh.
-do Director.Wait(0.5)
+
+do Director.Wait(1)
 do Sasha.PlayAnimation("draw look left")
 do Director.Wait(2)
-Sasha: What are you having for dinner?
-Oliver: Um...
+
+Sasha: ...
+Sasha: What are you having for dinner? *slow text*
+Oliver: Um, I don't know.
 Oliver: I didn't really ask my dad.
+Sasha: Oh, right...
 
 do Director.Wait(2)
 
-Oliver: Sorry, it's not a good night for me.
-Sasha: Yeah, I can tell.
-#Oliver.PlayAnimation("sit left look right")!!!!!!!!!!!!!!!!
-Oliver: That obvious?
-do Sasha.PlayAnimation("draw look left down")
-Sasha: A little bit.
-do Sasha.PlayAnimation("draw look left")
-Sasha: I get it. 
-Sasha: Everything's almost over for you.
-
-do Director.Wait(2)
-
-Sasha: How long until you move?
-Oliver: Two weeks.
-do Sasha.PlayAnimation("draw look left")
-Sasha: Oh wow.
-Oliver: Yup.
-do Director.Wait(1.5)
-Sasha: Has everything been going alright with... 
-Sasha: You and him?
-Oliver: Look, I-
-do Director.Wait(2.5)
-Oliver: I just wanna chill.
-Oliver: Sorry.
-Sasha: Oh, yeah. That's ok.
-do Director.Wait(1.5)
-do Sasha.PlayAnimation("draw look right")
-do Director.Wait(0.5)
-do Sasha.PlayAnimation("draw scribble right")
-do Director.Wait(3.5)
-Sasha: If you wanna talk...
-Sasha: I'm always here, y'know.
-Oliver: I know.
-Oliver: I just need company.
-Sasha: I know.
+Sasha: You, um...
+Sasha: You ok, Oli?
+Oliver: ...
+Oliver: I'm fine.
+Oliver: Just got a lot on my mind is all.
+Sasha: I don't blame you.
+Sasha: When do you start packing up everything in the house?
+Oliver: Um.
+Oliver: I'm not sure.
+Oliver: I'm not sure when's too early or too close.
+Oliver: I've kinda been avoiding doing anything for it.
+Sasha: It's always good to be prepared.
+Oliver: You almost sound like my mum right now.
+Sasha: Hey, sometimes, parents are right.
+Oliver: They wish.
+Sasha: Pff.
 
 do Director.Wait(3)
+do Oliver.PlayAnimation("sit left look right")
+do Director.Wait(1.5)
+do Oliver.PlayAnimation("sit left")
+do Director.Wait(1)
 
-Sasha: If you want-
+Oliver: ...
+Oliver: Um.
+Sasha: Yeah?
+Oliver: Can I-
 
-#Knocking on the door is heard.
-
+do Audio.PlaySound("knocking")
 do SceneSwitcher.Spawn_Set1_OliverBedroom()
 do Oliver.SetCharacterState(1)
 do Oliver.PlayAnimation("sit left")
 
-##do SceneSwitcher.
-
-#A cut to a bedroom, with Oliver sitting on a computer with his headphones on.
-#Oliver’s heart is heart beating.
-
-Oliver: Give me a sec...
 Oliver: Coming!
 
-do Oliver.MoveToXPosition(100)
+do Oliver.PlayAnimation("stand from seat")
 
-#Open door.
-#Spawn dad.
+=> END
+
+~ dad_walks_in
 
 Dad: Why didn’t you answer after the first time?
 Oliver: I guess I didn’t hear it.
-Dad: ... Who are you talking to?
+
+do Director.Wait(2)
+do Papa.PlayAnimation()
+
+Dad: Who are you talking to?
 Oliver: Just a friend.
-Dad: Which one?
+Dad: Who?
 Oliver: ...
 Dad: ...
 
 do Director.Wait(2)
 
-The dad walks into the room. He places the plate on the table, and walk around the room, looking at the mess.
+#The dad walks into the room. He places the plate on the table, and walk around the room.
 
 Dad: *sigh*
-Dad: This mess...
+#if you've cleaned up your room
+	Dad: You're always stuck inside.
+#else
+	Dad: This mess...
 Dad: I shouldn’t even have to say anything.
 Oliver: ...
 
-The dad turns to Oliver.
+#The dad turns to Oliver.
 
-Dad: ARE you going to say anything?
+Dad: Are YOU going to say anything?
 Oliver: I’ll clean it later...
 
-He walks toward the door.
+#He walks toward the door.
 
 Dad: Arrangia!
 
-He leaves, and slams the door.
-Oliver’s heart is still heard beating again.
-He puts his headset back on.
+#He leaves, and slams the door.
+#Oliver’s heart is still heard beating again.
 
-Oliver: Hey, sorry. I'm back with dinner.
+=> END
+
+~ back_on_the_computer
+
+Oliver: Hey, sorry, I'm back.
+Oliver: ...
+Oliver: You there?
+Oliver: ...
 
 do Director.Wait(3)
 
-Oliver: Hello?
+Oliver: *sigh*
+Sasha: I'm back.
+Sasha: My dinner's ready, too.
+Oliver: Oh yeah, cool...
+
+do Director.Wait(1.5)
+
+Sasha: Um.
+Sasha: You forgot to mute your mic...
+
+do Oliver.PlayAnimation("look down on chair")
+
+Oliver: Oh.
+Sasha: It didn't sound very nice.
+Oliver: ... Yeah.
+Oliver: I hate going out in the living room.
+Oliver: Never ends well.
+Sasha: I can only imagine.
 
 do Director.Wait(2)
 
-Oliver: *sigh*
-Oliver: Ok. Calm down.
+#soft piano plays a small motif repeatetdly
+# convey the flutter, the shyness, of asking
+# Unbroken - The Last of Us Part 2
 
-His heart is still beating.
-He takes some deeper breaths, and the beating fades.
-All you hear is the static of the room.
+Oliver: Can I... come over tonight?
+Oliver: Please...
+Sasha: Of course, I'm sure my mum won't mind!
+Oliver: Sorry for asking.
+Sasha: Don't apologise. It's ok.
+Sasha: Come anytime. Just let me finish my sushi first.
+Oliver: Cool.
 
-Sasha: I’m back. Dinner’s here!
-Oliver: Same.
-Sasha: What did you get?
-Oliver: Pasta with tuna. You?
-Sasha: Sushi!
-Oliver: Ew.
-Sasha: Hello? You're the person having pasta with tuna.
-Oliver: It’s great, what do you mean?
-Oliver: You just don’t see the vision.
-Sasha: Pff.
+do Director.Wait(2)
 
-do Director.Wait(3)
+Oliver: I- um.
+Sasha: Mhh?
+Oliver: I never asked what kind of sushi you got.
+Sasha: Oh, um.
+Sasha: Just avocado.
+Oliver: Ewww.
+Sasha: Hey, avocado in sushi's great!
+Oliver: Avocado is like eating straight butter. It's awful.
+Sasha: You don't even like sushi.
+Oliver: Yeah, but that's a different matter.
+Sasha: Ok, what are YOU having then?
+Oliver: Just a classic: spaghetti and tuna.
+Sasha: That's not a classic.
+Oliver: It's MY classic.
+Sasha: Ok, fine, but that's not a classic
+Oliver: You don't know what your missing out on.
+Sasha: Ok. If you try sushi and avocado, I'll try spaghetti and tuna.
+Oliver: Mhh.
+Oliver: I'll think about it.
 
-#have Sasha ask (did you wanna come over tonight?)
-Sasha: I heard a little bit of that conversation...
-Sasha: Everything sounds rough.
-Oliver: ... Yeah.
-Sasha: Did you want to come over maybe?
-Sasha: We can play video games and not think about anything.
-Oliver: ...
-Oliver: Is that ok with you?
-Sasha: Of course.
-Sasha: I want to make sure you're ok.
-Oliver: ...
+do Oliver.PlayAnimation("gobble food")
 
-do Director.Wait(5)
-
-Oliver: Have I ever told you your awesome?
-Sasha: Pff, stop.
-Oliver: Heheheh.
-
-Oliver gulps his food down.
-
-Oliver: I'm coming now.
+Oliver: Ahhhhhhhhhhhhhhhh.
+Oliver: Alright, I'm coming now.
 Sasha: ... Right now?
 Oliver: Yeah!
 Sasha: Did you just gulp your food down in one go?
 Oliver: Maybe...
 Sasha: Jeez.
-Sasha: You shouldn't do that.
+Sasha: You shouldn't do that, you know.
 Oliver: Well, I just did.
 Sasha: Ok. Let me know when you outside.
 Oliver: Yup, see ya soon.
-Sasha: Goodbye!
-=> END 
+
+do Oliver.PlayAnimation("jump off chair")
+
+Oliver: I wish I could sneak out the window though.
+
+=> END
 
 ~ oliver_attempts_to_leave
 
