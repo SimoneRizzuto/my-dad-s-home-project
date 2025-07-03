@@ -1,11 +1,214 @@
-~ this_is_a_node_title
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => this_is_a_node_title
-- End the conversation => END
-Nathan: For more information see the online documentation.
+~ something_is_wrong
+
+Dad: Oliver!
+Dad: I can't believe that- *continue without clicking*
+Dad: She was- *continue without clicking*
+Dad: I had a feeling but- *continue without clicking*
+Dad: I didn't think- *continue without clicking*
+
+do Director.Wait(2)
+
+Oliver: What happened?
+
+do Director.Wait(2)
+
+Dad: I found her car.
+Dad: I found it at a house we've never been to...
+Oliver: Oh.
+
+do Director.Wait(2)
+
+Oliver: It... could mean anything.
+Dad: I don't know, Oliver.
+Dad: You didn't see it.
+
+do Director.Wait(2)
+
+Dad: Screw it.
+Dad: I'm going to double check I'm not crazy.
+Dad: I'll wait for you in the car for a few.
+Dad: Come if you want.
+Oliver: I-
+
+do Dad.WalkRight(20)
+do Director.Wait(4)
+
+Oliver: (Maybe I should tell him.)
+Oliver: (He deserves to know.)
+Oliver: (But...)
+Oliver: (I don't know if I can.)
+
+do Director.Wait(3)
+
+Oliver: (Come on.)
+
+#oliver gets up
+
+=> END
+
+~ in_the_car
+
+# they are driving down a road, all you see is both of them inside the car
+
+do Director.Wait(8)
+
+Oliver: ...
+Oliver: What would you do if it was true?
+Dad: ...
+Oliver: ...
+Oliver: I'm worried, Papa.
+Dad: Me too, son.
+Oliver: ...
+
+do Director.Wait(5)
+
+Dad: Here we are.
+Dad: I'm not crazy, that IS her car.
+Oliver: It. Is.
+
+do Director.Wait(4)
+
+Dad: Is that her?
+Oliver: Oh no.
+Dad: And... that man.
+
+do Director.Wait(2)
+
+# he skids off, away from the scene, going fast
+
+Oliver: PAPA! SLOW DOWN!
+Dad: ...
+
+#he slows down a bit, still driving
+
+Dad: I knew.
+Dad: All along, I knew something was up.
+Dad: At least if it was someone worth it, I'd understand.
+Dad: But who the fuck was that!?
+Dad: She ran away to a "man" like THAT?
+Dad: What the fuck happened to her Italian pride?
+Oliver: ...
+
+do Director.Wait(4)
+
+Dad: I didn't get a good look at her reaction.
+Dad: Or his.
+Dad: Did you see their faces?
+Dad: She must've known it was us.
+Oliver: I'm sure she does, Papa.
+
+do Director.Wait(1.5)
+
+Dad: Why do you sound so upset with me?
+Oliver: You didn't need to drive off like that.
+Oliver: That scared me!
+
+do Director.Wait(2)
+
+# he stops the car
+
+do Director.Wait(2)
+
+Dad: Sorry.
+Dad: It's... been a lot.
+
+do Director.Wait(3)
+
+# starts driving again
+
+Dad: Are... you ok?
+Oliver: ...
+
+do Director.Wait(3)
+
+Oliver: No.
+Oliver: I am not ok.
+Oliver: I just...
+Oliver: I don't want either of you to be sad.
+
+do Director.Wait(4)
+
+Oliver: I think you should know.
+Oliver: I want you to know.
+Oliver: What I know.
+
+Dad: What do you mean?
+Dad: What... do you know?
+
+do Director.Wait(3)
+
+Oliver: She...
+Oliver: Um.
+Oliver: I- She just-
+Oliver: She wasn't going to-
+Oliver: Or I mean.
+Oliver: S-She didn't mean it to end up this way.
+Oliver: And when she told me.
+Oliver: Three months ago.
+Oliver: That she met him.
+Oliver: She knew.
+Oliver: She definitely knew.
+Oliver: What she had to do.
+Oliver: To make it all fair to you.
+
+do Director.Wait(3)
+
+Dad: Three months and you didn't tell me?
+Oliver: ...
+
+do Director.Wait(2)
+
+Dad: Oliver.
+Dad: I can't believe it.
+Dad: Listen to me.
+Dad: Don't listen to her words.
+Dad: She is cheating.
+Dad: Her not "meaning it" doesn't mean shit to me.
+Dad: She simply betrayed you and me.
+Dad: There is nothing else to it.
+Oliver: God, Papa!
+Oliver: Why is it always someone else's fault?
+Dad: Sorry, is it MY fault?
+Oliver: I don't know.
+Oliver: N-Not exactly, but like, come on!
+Oliver: You're always...
+Oliver: You are-
+Oliver: Such.
+Oliver: An.
+Oliver: A-A-Asshole!
+Dad: What the fuck?
+Dad: What are you saying?
+Dad: Why????
+Dad: What did I do wrong?
+
+do Director.Wait(3)
+
+Oliver: 
+
+Oliver: But WHY, Papa?
+Oliver: WHY?
+Dad: She got bored? I don't know. Why are you asking me?
+Oliver: Maybe... there's a real reason Papa.
+Oliver: Come on.
+
+do Director.Wait(2)
+
+Dad: Ok. You tell me then.
+Dad: Since three months ago, you learned her scheme.
+Dad: What's the reason?
+Oliver: I don't know her exact reasons.
+Oliver: 
+
+
+
+Oliver: She wasn't trying to cheat on you.
+Oliver: She was already unhappy. 
+Oliver: When she met him, she knew what was the right thing to do.
+Oliver: It was only fair to you.
+
+
+Dad: Tell me.
+Dad: What is going on?
+Dad: 
+
 => END
