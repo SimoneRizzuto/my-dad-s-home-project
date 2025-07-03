@@ -223,8 +223,19 @@ Sasha: Why?
 Oliver: I'm having too much fun.
 Oliver: I don't want tonight to end...
 Sasha: Me too.
-Sasha: But... we have to sleep.
-Oliver: *sigh* I know.
+
+do Director.Wait(1)
+
+Sasha: But we should sleep, right?
+Oliver: I know...
+
+do Director.Wait(3)
+
+Oliver: Still wish we had marshmallows.
+Sasha: Heh. Maybe next time.
+
+do Director.Wait(2)
+
 Oliver: I guess it really is...
 Oliver: ... sleepy time.
 Sasha: Good night, Oli.
