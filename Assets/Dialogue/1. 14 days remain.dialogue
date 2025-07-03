@@ -113,7 +113,7 @@ do Papa.PlayAnimation()
 
 Dad: Who are you talking to?
 Oliver: Just a friend.
-Dad: Who?
+Dad: Who is it?
 Oliver: ...
 Dad: ...
 
@@ -152,7 +152,6 @@ Oliver: ...
 
 do Director.Wait(3)
 
-Oliver: *sigh*
 Sasha: I'm back.
 Sasha: My dinner's ready, too.
 Oliver: Oh yeah, cool...
@@ -160,7 +159,8 @@ Oliver: Oh yeah, cool...
 do Director.Wait(1.5)
 
 Sasha: Um.
-Sasha: You forgot to mute your mic...
+Sasha: You forgot to mute your mic.
+Sasha: I heard a little bit of that.
 
 do Oliver.PlayAnimation("look down on chair")
 
