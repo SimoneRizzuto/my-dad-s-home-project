@@ -11,15 +11,18 @@ Sasha: Oli!
 do Sasha.PlayAnimation("draw wave left")
 do Director.Wait(2.5)
 
+
 # Oliver walks toward tree, and sits down as well
+do Oliver.MoveRight(15)
+do Sasha.PlayAnimation("draw look left")
 do Oliver.MoveToXPosition(468)
 do Oliver.PlayAnimation("idle left")
 do Oliver.SetDirection(-1)
 do Director.Wait(0.5)
 do Oliver.PlayAnimation("sit left")
-do Director.Wait(3)
+do Director.Wait(0.5)
 
-Sasha: You're finally on.
+Sasha: Finally, you're on.
 Sasha: Look, I started drawing again.
 Sasha: Let me show you.
 Oliver: Soon, soon.
@@ -60,7 +63,7 @@ Sasha: ...
 Sasha: What are you having for dinner? *slow text*
 Oliver: Um, I don't know.
 Oliver: I didn't really ask my dad.
-Sasha: Oh, right...
+Sasha: Yeah...
 
 do Director.Wait(2)
 
@@ -70,7 +73,7 @@ Oliver: ...
 Oliver: I'm fine.
 Oliver: Just got a lot on my mind is all.
 Sasha: I don't blame you.
-Sasha: When do you start packing up everything in the house?
+Sasha: When do you start packing all your things?
 Oliver: Um.
 Oliver: I'm not sure.
 Oliver: I'm not sure when's too early or too close.
