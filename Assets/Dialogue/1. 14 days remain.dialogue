@@ -80,6 +80,9 @@ Oliver: I'm not sure when's too early or too close.
 Oliver: I've kinda been avoiding doing anything for it.
 Sasha: It's always good to be prepared.
 Oliver: You almost sound like my mum right now.
+
+do Sasha.PlayAnimation("draw look right")
+
 Sasha: Hey, sometimes, parents are right.
 Oliver: They wish.
 Sasha: Pff.
@@ -92,6 +95,7 @@ do Director.Wait(1)
 
 Oliver: ...
 Oliver: Um.
+do Sasha.PlayAnimation("draw look left")
 Sasha: Yeah?
 Oliver: Can I-
 
