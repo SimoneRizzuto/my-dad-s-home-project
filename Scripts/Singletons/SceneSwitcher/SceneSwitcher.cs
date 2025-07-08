@@ -14,11 +14,28 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     public const string TransitionScreen = "uid://ba8ajsihdkrwt";
     
     // getters
-    private Node Main => GetTree().CurrentScene;
+    public static SceneSwitcher Instance { get; private set; }
+
     private PlayerCamera PlayerCamera => PlayerCamera.Instance;
     private CastCrew CastCrew => CastCrew.Instance;
     
     #region cutscene transitionary methods
+    
+    public override void _EnterTree()
+    {
+        Instance = this;
+    }
+    
+    private Node? GetMain()
+    {
+        var tree = GetTree();
+        if (tree == null)
+        {
+            GD.PrintErr("Scene tree is null. SceneSwitcher is likely being accessed too early.");
+            return null;
+        }
+        return tree.CurrentScene;
+    }
     public void Spawn_TransitionaryScene()
     {
         
@@ -62,7 +79,7 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
         }
         
         var instanced = scene.Instantiate();
-        Main.AddChild(instanced);
+        GetMain()?.AddChild(instanced);
     }
     
     public void SpawnSceneUid(string uid)
@@ -77,7 +94,7 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
         }
         
         var instanced = scene.Instantiate();
-        Main.AddChild(instanced);
+        GetMain()?.AddChild(instanced);
     }
     
     public void SpawnScenePacked(PackedScene scene)
@@ -90,16 +107,18 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
         }
         
         var instanced = scene.Instantiate();
-        Main.AddChild(instanced);
+        GetMain()?.AddChild(instanced);
     }
     
     private void ClearMain()
     {
-        var allChildren = Main.GetChildren();
-        foreach (var child in allChildren)
-        {
-            child.QueueFree();
-        }
+        
+        var allChildren = GetMain()?.GetChildren();
+        if (allChildren != null)
+            foreach (var child in allChildren)
+            {
+                child.QueueFree();
+            }
     }
     #endregion
 }

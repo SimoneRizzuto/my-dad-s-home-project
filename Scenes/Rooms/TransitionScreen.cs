@@ -9,11 +9,13 @@ public partial class TransitionScreen : Control
     
     private Label _richTextLabel = new Label();
     private Tween _tween;
-    private SceneSwitcher _sceneSwitcher = new();
+    private SceneSwitcher _sceneSwitcher;
     private Stopwatch _stopwatch = new Stopwatch();
 
     public override void _Ready()
     {
+        _sceneSwitcher = SceneSwitcher.Instance;
+        AddChild(_richTextLabel);
         _richTextLabel = GetNode<Label>("RichTextLabel");
         _richTextLabel.Text = RichText;
         
@@ -24,6 +26,12 @@ public partial class TransitionScreen : Control
     {
         if (!_stopwatch.IsRunning || !(_stopwatch.Elapsed.TotalSeconds >= 2)) return;
         _stopwatch.Stop();
+        CallDeferred(nameof(DoSceneSwitch));
+    }
+    
+    
+    private void DoSceneSwitch()
+    {
         _sceneSwitcher.TransitionToScene(null, NextScene);
     }
 
