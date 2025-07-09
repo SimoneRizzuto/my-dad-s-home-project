@@ -1,3 +1,4 @@
+~ i_cant_sleep
 
 # oliver is lying down on the bed.
 # it is back to being inside Sasha's bedroom
@@ -22,14 +23,14 @@ Oliver: Oh sorry.
 Oliver: Did I wake you?
 Sasha: No no.
 Sasha: I was just lying here.
-Sasha: I just I didn't say anything.
 Oliver: Ok.
 
 do Director.Wait(4)
 
-Sasha: I could also here you in your sleep.
-Oliver: Oh.
-Sasha: It didn't sound like a good sleep.
+Sasha: I could also hear you sleeping.
+Oliver: Was I loud?
+Sasha: Kinda.
+Sasha: ... It didn't sound like you were sleeping well.
 Oliver: Really?
 Oliver: I slept great!
 Sasha: Did you?
@@ -39,17 +40,58 @@ Oliver: Ha...
 do Director.Wait(2)
 
 Oliver: ...
-Oliver: It hasn't been easy, to be honest.
+Oliver: It's been hard to sleep lately.
+Oliver: Too much on my mind.
 Sasha: Yeah.
 Oliver: ...
+
+do Director.Wait(2)
+
+Sasha: Did you want to talk about it?
 
 do Director.Wait(3)
 
 Oliver: It's-
 Oliver: ...
-Oliver: Hard to talk about.
+Oliver: Hard to.
+Oliver: ...
+Sasha: I'll wait as long as you need.
 
 do Director.Wait(3)
+
+Oliver: I want my mum to be happy.
+Oliver: And I want my dad to be strong.
+Oliver: To push through everything.
+Oliver: But...
+Oliver: I don't see how Papa will get there.
+
+do Director.Wait(1.5)
+
+Oliver: I think back sometimes.
+Oliver: To when I told him everything.
+Oliver: ...
+Oliver: I could've-
+Oliver: Or should've waited a little longer.
+Oliver: I told him way too much all at once.
+Oliver: Maybe if I-
+Oliver: Told him things slowly.
+Oliver: Not just about what I knew.
+Oliver: But how I felt.
+Oliver: Then maybe he would've understood more.
+Oliver: But I was stupid and emotional.
+Oliver: I let my anger get to me.
+Oliver: Without thinking.
+
+do Director.Wait(1.5)
+
+Oliver: I didn't mean for any of this to happen.
+Sasha: Yeah.
+Oliver: ... I'm worried for him.
+Oliver: But everytime I'm around him, I have so much anxiety.
+Oliver: I'm so excited to leave, and yet I'm leaving him.
+Oliver: I don't know what I can do.
+Sasha: I don't think you can do anything, really.
+Oliver: 
 
 ??? unsure if good. need to plan out better
 Sasha: Oliver.
@@ -57,10 +99,5 @@ Sasha: You are in my house right now.
 Sasha: A house with no judgement.
 Sasha: Only friends that listen.
 Sasha: You can tell me anything...
-
-Oliver: It's almost over.
-Oliver: I'll soon have my space from my dad...
-Oliver: I just wish it didn't hsve to be this way.
-Sasha: 
 
 => END

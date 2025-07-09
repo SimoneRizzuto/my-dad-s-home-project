@@ -34,8 +34,7 @@ do Dad.WalkRight(20)
 do Director.Wait(4)
 
 Oliver: (Maybe I should tell him.)
-Oliver: (He deserves to know.)
-Oliver: (But...)
+Oliver: (...)
 Oliver: (I don't know if I can.)
 
 do Director.Wait(3)
