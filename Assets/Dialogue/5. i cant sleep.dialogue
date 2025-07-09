@@ -60,8 +60,9 @@ Sasha: I'll wait as long as you need.
 do Director.Wait(3)
 
 Oliver: I want my mum to be happy.
-Oliver: And I want my dad to be strong.
+Oliver: I want my dad to be strong.
 Oliver: To push through everything.
+Oliver: And eventually, be happy.
 Oliver: But...
 Oliver: I don't see how Papa will get there.
 
@@ -86,18 +87,37 @@ do Director.Wait(1.5)
 
 Oliver: I didn't mean for any of this to happen.
 Sasha: Yeah.
-Oliver: ... I'm worried for him.
-Oliver: But everytime I'm around him, I have so much anxiety.
-Oliver: I'm so excited to leave, and yet I'm leaving him.
-Oliver: I don't know what I can do.
+Oliver: But I don't know what I can do anymore.
 Sasha: I don't think you can do anything, really.
-Oliver: 
 
-??? unsure if good. need to plan out better
-Sasha: Oliver.
-Sasha: You are in my house right now.
-Sasha: A house with no judgement.
-Sasha: Only friends that listen.
-Sasha: You can tell me anything...
+do Director.Wait(2)
+
+Sasha: I know with my dad, I sometimes think about the things I never did with him.
+Sasha: Mum always tells me not to worry about that.
+Sasha: To simply focus on what we got to do together.
+Sasha: ...
+Sasha: I think you did all you could.
+Sasha: It's on him now.
+Oliver: I guess.
+Sasha: This move will be good.
+Sasha: Not just for your mental being.
+Sasha: But for this.
+Sasha: Some time apart will do you both good.
+Sasha: Just have to give it time.
+
+do Director.Wait(2)
+
+# stars start appearing in the sky
+
+Oliver: ...
+Oliver: I...
+
+do Director.Wait(2)
+
+Oliver: I hope so. #slow text
+
+do Director.Wait(2)
+
+Oliver: I hope so... #slow text
 
 => END
