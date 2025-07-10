@@ -114,7 +114,7 @@ do Director.Wait(3)
 
 # starts driving again
 
-Dad: Are... you ok?
+Dad: You... ok?
 Oliver: ...
 
 do Director.Wait(3)
@@ -181,48 +181,36 @@ Dad: What did I do wrong?
 do Director.Wait(3)
 
 Oliver: ...
-Oliver: Sometimes.
+Oliver: Do you know how often you wine about black people?
+Dad: What?
 Oliver: You'll wine about an aboriginal on the TV.
-Oliver: Or come home and wine about some random aboriginal person at work.
-Oliver: How entitled they are.
-Dad: Oliver!
-Oliver: Sometimes.
-Oliver: You SCREAM at me for cleaning my nose the wrong way.
-Oliver: Or putting my shoes on wrong.
-Oliver: O-Or not doing my homework at all.
-Dad: What is wrong with- *continue without input*
-Oliver: I don't NEED that pressure on me!
+Oliver: How entitled or disgusting they are!
+Dad: How does that have-
+Oliver: You SCREAM at me for cleaning my room.
+Oliver: Or not eating healthy.
+Oliver: Or not doing my homework.
+Oliver: I swear, you'll complain about me blinking the wrong way!
 Oliver: Sometimes-
 Dad: Oliver! Stop!
+
+do Director.Wait(3)
+
 Dad: ...
 Dad: All of these things you say.
 Dad: This is what a father does...
 Oliver: What? Being a racist asshole is being a "father"?
-Dad: No, that's not-
-
-
-
-Dad: ...
-Dad: Sorry, your mad at me for telling you to clean your room?
-Oliver: I- *continue without input*
-Dad: To do your homework?!
-Oliver: No, but- *continue without input*
-Dad: DO you do your homework?
-Oliver: ... No.
-Dad: So what? You want me to pat you on the back?
+Dad: No, telling you to clean your room!
+Dad: To do your homework!!
+Dad: What I supposed to do? Pat you on the back?
 Dad: Good job, son. Do nothing with your life.
-???
-Oliver: Papa! I don't like someone over my shoulder like that.
-
-
-
-
-
-Oliver: Maybe these reasons are WHY she's unhappy, Papa!
-Oliver: Maybe- *continue without input*
+Oliver: No, but-
+Oliver: I feel your weight on top of me.
+Oliver: I can't exist without you on my back constantely!
 Dad: Fine, I'm a racist.
 Dad: But everything else????
-Dad: That's what fathers DO for their sons.
+Dad: That's what fathers DO.
+Oliver: Ok.
+Oliver: Well, maybe this stuff is why she left you
 Dad: I don't know if you see.
 Dad: She is filling your brain, Oliver!
 Dad: Filling it with horseshit!
