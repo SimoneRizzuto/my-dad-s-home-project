@@ -122,7 +122,7 @@ do Director.Wait(3)
 Oliver: No.
 Oliver: No. I am not ok.
 Oliver: I just...
-Oliver: I don't want either of you to be sad.
+Oliver: ...
 
 do Director.Wait(4)
 
@@ -176,27 +176,41 @@ Oliver: A-A-Asshole!
 Dad: What the fuck?
 Dad: What are you saying?
 Dad: Why????
-Dad: What did I do wrong?
 
 do Director.Wait(3)
 
-Oliver: ...
-Oliver: Do you know how often you wine about black people?
-Dad: What?
-Oliver: You'll wine about an aboriginal on the TV.
-Oliver: How entitled or disgusting they are!
-Dad: How does that have-
-Oliver: You SCREAM at me for cleaning my room.
-Oliver: Or not eating healthy.
-Oliver: Or not doing my homework.
-Oliver: I swear, you'll complain about me blinking the wrong way!
-Oliver: Sometimes-
-Dad: Oliver! Stop!
+Oliver: I feel trapped in that house.
+Oliver: Anytime I want to leave my room.
+Oliver: I'm anxious.
+Dad: Of what?!
+Oliver: Of you!
+Oliver: You always have something to say.
+Oliver: About my hair.
+Oliver: Or my breath.
+Oliver: Or grades.
+Oliver: Or being in my room too long.
+Oliver: Or that it's messy.
+Oliver: Or that I "don't have a life".
+Oliver: When you know NOTHING of my life.
+Oliver: Or that a girl I like isn't Italian.
+Oliver: Or frankly, white... *slow text*
+Oliver: Or-
+Oliver: I don't know, but...
+Oliver: It's exhausting!!!
 
-do Director.Wait(3)
+do Director.Wait(2)
+
+Oliver: ... A-And she's sick of it too.
+Oliver: She knows how I feel.
+Oliver: She listens!!!
+Oliver: And... I-I... 
+Oliver: ... I understand her too!
+
+do Director.Wait(4)
 
 Dad: ...
-Dad: All of these things you say.
+Dad: You don't understand.
+Dad: You don't uderstand at all.
 Dad: This is what a father does...
 Oliver: What? Being a racist asshole is being a "father"?
 Dad: No, telling you to clean your room!
@@ -204,36 +218,30 @@ Dad: To do your homework!!
 Dad: What I supposed to do? Pat you on the back?
 Dad: Good job, son. Do nothing with your life.
 Oliver: No, but-
-Oliver: I feel your weight on top of me.
-Oliver: I can't exist without you on my back constantely!
 Dad: Fine, I'm a racist.
 Dad: But everything else????
 Dad: That's what fathers DO.
-Oliver: Ok.
-Oliver: Well, maybe this stuff is why she left you
-Dad: I don't know if you see.
+Dad: I don't know if you see it.
 Dad: She is filling your brain, Oliver!
 Dad: Filling it with horseshit!
 Oliver: Papa! These are my thoughts!
-Dad: No they aren't.
-Dad: You're too young to see it.
-Oliver: THESE ARE MY THOUGHTS!!!!
+Dad: SHE CHEATED ON ME!
+Dad: You should be on MY SIDE!
+Oliver: I DON'T CARE!!!
 
 do Director.Wait(5)
 
 Dad: *slow text* When you get older.
 Dad: *slow text* You'll look back at what you're saying.
 Dad: *slow text* And realise.
+Dad: *slow text* How awful you are.
 Dad: *slow text* But today...
 Dad: *slow text* She's won.
 Dad: ...
-Oliver: Why can't you just listen to me???
-Dad: Quiet.
-Dad: All that needs to be said has been.
-Dad: I... don't want to hear it anymore.
 Oliver: ...
-Oliver: *slow text* ... I just want to be around you.
-Oliver: *slow text* ... Without being scared.
+Oliver: I wish I could just talk to you.
+Oliver: Without being scared.
 Dad: ...
+Dad: I don't care.
 
 => END
