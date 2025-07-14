@@ -1,0 +1,154 @@
+~ dad_is_alone
+#oliver is sleeping in his room
+
+#gentle knock
+
+# the player doesn't know it's the dad until he opens the door
+Dad: Oliver...
+
+do Director.Wait(3)
+
+Dad: A-Are you... awake?
+Dad: I'm...
+
+do Director.Wait(2)
+
+#Oliver gets up from the bed
+#He rubs his eyes
+
+Oliver: Give me a sec.
+=> END
+
+# the player will walk around the room
+
+~ oliver_opens_the_door
+# door opens
+
+# dad is crying
+
+do Director.Wait(2)
+
+Oliver: Oh...
+
+do Director.Wait(1)
+
+Dad: Can you stay with me a bit?
+Dad: It's really quiet out there...
+Oliver: Sure...
+Oliver: Though I'm really tired.
+Dad: That's ok.
+Dad: Sleep if you have to.
+Dad: I just don't want to be alone...
+Oliver: Ok.
+
+# the player will walk with dad to the couch
+=> END
+
+~ oliver_and_dad_sit_on_the_couch
+
+#the TV is playing faint, mumbling sounds
+
+Dad: It's been really hard to sleep.
+Dad: I can't stop thinking about her. No matter what I do.
+Dad: And even when I do sleep, she's still there.
+Dad: How could she just...
+Dad: ... leave like that?
+Dad: *sigh*
+
+#open phone to text
+
+Oliver: hey, um
+Oliver: are you awake at all?
+Oliver: i don't know who else to ask, but i need help
+Oliver: idk what to do
+Oliver: sorry to msg at such a late time
+
+#close phone
+
+Oliver: ...
+
+do Director.Wait(3)
+
+Oliver: A-Are you ok?
+Dad: ...
+
+do Director.Wait(3)
+
+Dad: Do you... realise... what she did?
+Oliver: Yes.
+
+do Director.Wait(3)
+
+Oliver: She was... 
+Oliver: Unhappy.
+Dad: Unhappy?
+Dad: Enough to leave without saying anything?
+Oliver: I-Isn't that what happens when marriages are falling apart?
+Dad: No!
+Dad: Couples talk.
+Dad: Talk about their problems.
+Dad: Then, after years of fighting, they break up.
+Dad: This isn't that...
+Dad: She never said anything to me.
+Dad: ... I don't get it.
+Oliver: ...
+Dad: Why would she do this to me?
+Dad: To you?
+Dad: She's going to destroy this family like it's nothing.
+Oliver: ...
+
+do Director.Wait(5)
+
+Dad: I don't understand how you can be so calm about it.
+Oliver: I'm not calm, Papa.
+Oliver: I'm... really worried for you.
+Dad: Yes but...
+Dad: Our FAMILY, Oliver!
+#Dad: Doesn't it hurt that it's gone?
+
+do Director.Wait(2)
+
+Oliver: ...
+Oliver: I don't know.
+Dad: You don't know?!
+Oliver: Papa...
+Dad: It should hurt like the world!
+Dad: And yet you're blank faced like it's just another day!
+Oliver: Papa!
+Oliver: Stop... please...
+
+do Director.Wait(3)
+
+Oliver: I promise you, it isn't like that for me.
+Oliver: But it...
+Oliver: I...
+Oliver: I-I'm more worried for the both of you than the family.
+Oliver: If s-she isn't happy anymore, then I don't want her to put on a face for the family.
+Oliver: And if this crappy couch is my bed for the next few nights so you don't feel alone.
+Oliver: Then I will do my best.
+
+do Director.Wait(3)
+
+Dad: You know...
+Dad: We've had this couch since you were born.
+
+do Director.Wait(3)
+
+Dad: You can go to bed if you want.
+Dad: Don't bother staying on this "crappy" couch.
+Oliver: Papa...
+Oliver: I didn't mean it like that.
+Dad: ...
+Oliver: Please Papa.
+Dad: ...
+Oliver: ...
+
+#oliver stays with his dad
+
+#text sequence
+# could this be written more interestingly
+“Hey pumpkin, please let me know if you need anything.”
+“I’m sorry for leaving you with him.”
+“I promise when everything’s over, we will both be together.”
+“Love you, pumpkin. Goodnight.” 
+=> END

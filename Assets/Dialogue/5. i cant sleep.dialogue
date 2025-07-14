@@ -1,121 +1,132 @@
 ~ i_cant_sleep
 
 # oliver is lying down on the bed.
-# it is back to being inside Sachi's bedroom
+# it is back to being inside Sasha's bedroom
 
-# oliver sits up from his dream
-# he looks to Sachi before lying down again
+# oliver sits up from his dream, and looks to Sasha
 
-Oliver: Pss. Are you awake? #small text
-
-do Director.Wait(3)
-
-Oliver: *sigh*
-
-do Director.Wait(2)
-
-# fade in the stars in the background, with a twinkle sound
-# as the sounds blend in, a small motifs plays in the background, on the piano
-
-Oliver: 14 days left... #small text
-Oliver: Jeez. #small text
+Oliver: Ptss~ #small text
+Oliver: Are you awake? #small text
 
 do Director.Wait(3)
 
-Friend: I'm awake.
-Oliver: Oh! 
-Oliver: Sorry, did I wake you?
-Friend: No, I've just been lying here, listening to you.
-Oliver: Sorry.
-Friend: It's ok.
-Friend: ... Were you having a nightmare?
-Oliver: A little.
-Friend: Was it bad?
-Friend: You said "14 days left".
-Oliver: *sigh*
-Oliver: I just... can't stop thinking about it all.
-Friend: You say that as if you shouldn't be.
-Friend: But that's normal.
-Oliver: I mean yeah...
-Oliver: I just-
+# he lies down again
+
 Oliver: ...
-Oliver: I don't wanna be.
+
+# oliver stretches into a star
+
+do Director.Wait(3)
+
+Sasha: I'm awake...
+Oliver: Oh sorry.
+Oliver: Did I wake you?
+Sasha: No no.
+Sasha: I was just lying here.
+Oliver: Ok.
 
 do Director.Wait(4)
 
-Friend: I hope staying over helped a little.
-Oliver: Yes.
-Oliver: Definitely.
-Friend: Good.
-Oliver: Honestly, I could stay here until I move.
-Friend: Pff.
-Friend: If you wanna sleep in the closet, I guess.
-Oliver: I'd really would right now.
-Oliver: I feel more at home here than at home.
-Friend: Aw...
-Oliver: ... Is that weird?
-Friend: No, I get it.
-Friend: It's easier here than around your dad.
-Oliver: I mean, yeah...
-Oliver: But it's more than just that.
+Sasha: I could also hear you sleeping.
+Oliver: Was I loud?
+Sasha: Kinda.
+Sasha: ... It didn't sound like you were sleeping well.
+Oliver: Really?!
+Oliver: I slept great!
+Sasha: Did you?
+Oliver: Of course, hahah!
+Oliver: Ha...
+
+do Director.Wait(2)
+
 Oliver: ...
-Friend: Mhh?
+Oliver: It's been hard to sleep lately.
+Oliver: Too much on my mind.
+Sasha: Yeah.
 Oliver: ...
 
 do Director.Wait(2)
 
-Oliver: I just... hope he'll-
-Oliver: Ah, nevermind.
-Oliver: Forget it.
-Friend: ...
-Friend: I don't want to push you, but I can listen.
-Friend: I won't judge you, whatever it is.
-Oliver: ...
+Sasha: Did you want to talk about it?
 
 do Director.Wait(3)
 
-Oliver: It's really stupid.
-Oliver: Cause I know it's not true... but...
+Oliver: It's-
+Oliver: ...
 
 do Director.Wait(2)
 
-Oliver: It really feels like... he hates me now...
-Oliver: I can't blame him.
-Oliver: All I've done is take my mum's side and...
-Oliver: Yell at him... cause I'm so angry with him about so much.
-Oliver: But... I don't know.
-Oliver: I wish... I phrased things better with my dad...
-Oliver: I didn't think everything would go the way it did.
-Oliver: I just want him to be ok.
-Friend: I think he will be.
-Friend: Are you worried he won't be?
+Sasha: I can wait as long as you need.
+
+do Director.Wait(3)
+
+Oliver: I want my mum to be happy.
+Oliver: I want my dad to be strong.
+Oliver: To push through everything.
+Oliver: And eventually, be happy.
+Oliver: But...
+
+do Director.Wait(1.5)
+
+Oliver: I think back sometimes.
+Oliver: To when I told him everything.
 Oliver: ...
-Oliver: I don't know.
-Oliver: Maybe I'm just overthinking things...
-Friend: Yeah.
+Oliver: He's just so stubborn...
+Oliver: I could've-
+Oliver: Or should've waited a little longer.
+Oliver: I told him way too much all at once.
+Oliver: Maybe if I-
+Oliver: Told him things slowly.
+Oliver: Not just about what I knew.
+Oliver: But how I felt.
+Oliver: Then maybe he would've understood more.
+Oliver: But I was stupid and emotional.
+Oliver: I let my anger get to me.
+Oliver: Without thinking.
 
-do Director.Wait(4)
+do Director.Wait(1.5)
 
-Friend: I used to think I didn't do enough for my dad.
-Friend: I hope you know you did all you could.
-Friend: For both your parents.
+Oliver: I didn't mean for any of this to happen.
+Sasha: Yeah.
+Oliver: I don't know what I can do.
+Sasha: You can't do anything, really.
+
+do Director.Wait(2)
+
+Sasha: I know with my dad. 
+Sasha: I look back sometimes, and I think about all I didn't get to tell him.
+Sasha: Mum always tells me not to worry about that.
+Sasha: To simply focus on what we got to do together.
+Sasha: ...
+Sasha: It's a little different, but.
+Sasha: I think you did all you could.
+Sasha: It's on him now.
+Oliver: Yeeeah.
+Oliver: I know.
+
+do Director.Wait(1.5)
+
+Sasha: This move will be good.
+Sasha: Not just for your mental being.
+Sasha: But for his.
+Sasha: Some time apart will do you both good.
+Sasha: And maybe things will change in the future.
+Sasha: You will always have that possibility.
+
+do Director.Wait(2)
+
+Oliver: Even with my anger...
 Oliver: ...
+Oliver: I...
 
-do Director.Wait(3)
-
-Oliver: I hope so.
-
-do Director.Wait(3)
-
-Oliver: I hope so...
-
-do Director.Wait(3)
-
-# black screen
+# stars start appearing in the sky
+do Director.Wait(2)
 
 Oliver: I hope so. #slow text
 
+do Director.Wait(2)
+
+Oliver: I hope so... #slow text
+
+
 => END
-
-
-

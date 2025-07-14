@@ -29,6 +29,9 @@ Oliver: (Only through stories.)
 => END
 
 ~ tv_interaction
+do Oliver.SetDirection(1)
+do Oliver.LookLeft()
+
 Oliver: When did you get so good at Marco Kart?
 Sasha: I’ve always been good. It was just bubbling under the surface.
 Oliver: Hey, look.
@@ -48,7 +51,8 @@ Sasha: Look at my little merps!
 Oliver: Daaamn!
 Sasha: Yeah!
 Oliver: Are they different from the ones you drew the other day?
-Sasha: Yes. Well, some are.
+Sasha: Yes.
+Sasha: Well, some are.
 Sasha: The one on the right is the same reoccurring one. She’s called Potato.
 Sasha: The other ones are just little guys I doodled.
 Sasha: It’s been difficult to think of different kinds of merps, so I keep on resorting to the same plants.
@@ -76,6 +80,25 @@ Oliver: That fits too well...
 Sasha: Hehe~
 => END
 
+~ jump_on_bed
+#maybe iterate through dialogue if you keep on doing it
+Sasha: Oliver!
+Oliver: Sorry.
+
+# version 2
+Sasha: ...
+Oliver: Your bed is bouncier than mine, ok?
+
+# version 3
+Sasha: Are you a child?
+Oliver: ... No.
+Oliver: I'm worse!
+Oliver: I'm a teen with a problem.
+# Oliver bounces on bed non stop until the next line
+Oliver: A cripling addiction for bouncing on beds.
+Sasha: If you break it, I'm coming to your new place to steal your bed.
+=> END
+
 # ------------------
 # -- CONTINUATION --
 # ------------------
@@ -84,7 +107,7 @@ Sasha: Hehe~
 #Separate Oliver from friend, by going to the toilet. The outside is a forest, separated by a door.
 
 Oliver: (This is nice.)
-Oliver: (Haven't had this for a little bit.)
+Oliver: (Haven't done this for a little bit.)
 
 do Director.Wait(3)
 
@@ -96,7 +119,7 @@ Oliver: (...)
 
 do Director.Wait(2)
 
-Oliver: (Two weeks left, uh?)
+Oliver: (Two weeks left, uh?) *slow text*
 
 do Director.Wait(2)
 #flush toilet
@@ -122,20 +145,22 @@ Oliver: Ahhhh...
 Oliver: ...
 Oliver: Do you feel this warmth?
 Sasha: Mhh?
-Sasha: ...
-Sasha: Yeah, I  do.
+
+do Director.Wait(2)
+
+Sasha: Yeah, I do.
 
 #Oliver opens his eyes. He lies down.
 
 Oliver: I wish we had marshmallows.
-Oliver: We could warm them up in a fire, and just...
+Oliver: We could warm them up in a firepit, and just...
 Oliver: Ooooh yeah. That would be awesome.
 Sasha: I've never done that before.
 Oliver: Me neither.
 Sasha: What? I thought you were speaking from experience.
 Oliver: I don't know. I haven't done many things.
-Oliver: They make it look really nice in movies.
-Oliver: Surely, it's just as nice in real life.
+Oliver: They make it look really fun in movies.
+Oliver: Surely, it's just as fun in real life.
 Sasha: I'm sure it is.
 Oliver: When we're older, we should definitely go camping with the gang.
 Oliver: It would be really fun to be out there, gathering wood for a fire, cooking dinner in it.
@@ -155,7 +180,7 @@ Sasha: ...
 
 do Director.Wait(3)
 
-Sasha: I've heard the night sky is truly filled with stars when you go camping.
+Sasha: I've heard the stars are clearer when away from the city.
 Sasha: I think that'd be nice.
 
 do Oliver.PlayAnimation("look up")
@@ -166,7 +191,6 @@ Sasha: I hope it's as pretty as I imagine it to be.
 Sasha: You really think we'll do that one day?
 Oliver: I hope so.
 Oliver: Assuming the distance won't make it too hard.
-#Sasha: We can still get together.
 Sasha: It doesn't have to be hard...
 Oliver: I know.
 Oliver: But you never know...
@@ -177,14 +201,14 @@ do Director.Wait(2)
 
 Oliver: Ok, I promise.
 Sasha: To?
-Oliver: I promise to go camping with you sometime.
+Oliver: I promise to go sometime.
 Sasha: Oliver...
 Oliver: I-
 
 do Oliver.PlayAnimation("look up")
 
 Oliver: *small text* I promise to try.
-Sasha: Me too.
+Sasha: Good.
 
 do Director.Wait(6)
 
@@ -196,11 +220,22 @@ Oliver: I don't... want to though...
 Sasha: I'm sleepy.
 Oliver: No... do not... succumb.
 Sasha: Why?
-Oliver: I don't want this night to end...
 Oliver: I'm having too much fun.
+Oliver: I don't want tonight to end...
 Sasha: Me too.
-Sasha: But... we have to sleep.
-Oliver: *sigh* I know.
+
+do Director.Wait(1)
+
+Sasha: But we should sleep, right?
+Oliver: I know...
+
+do Director.Wait(3)
+
+Oliver: Still wish we had marshmallows.
+Sasha: Heh. Maybe next time.
+
+do Director.Wait(2)
+
 Oliver: I guess it really is...
 Oliver: ... sleepy time.
 Sasha: Good night, Oli.
