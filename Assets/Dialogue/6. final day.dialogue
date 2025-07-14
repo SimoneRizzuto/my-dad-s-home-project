@@ -36,27 +36,16 @@ Papa: ... I can't pick what hurts the most about that.
 
 ~ dining_room
 
-Papa: I will miss our family dinners.
+Papa: All those family dinners.
 Papa: And all you could think about...
-Papa: Was going back to your room.
+Papa: Was running away to your room.
 Oliver: ...
-Papa: I wonder if you'll still feel that with her.
+Papa: I wonder if you'll still do that with her.
 Oliver: ...
-
-
-# this needs a rewrite
-Papa: Everytime we ate together...
-Papa: It really meant... nothing?
-Oliver: Not how you wanted it to.
-Papa: My cooking meant nothing.
-Oliver: No...
-Papa: My efforts...
-Oliver: Papa...
-
-# these lines is good though
-Papa: Don't worry.
-Papa: We don't have to retread that night.
-
+Oliver: It's always about her...
+Papa: ...
+Papa: Lets not go back to that night.
+Papa: Please.
 # dad walks to the living room
 
 => END
@@ -66,7 +55,20 @@ Papa: We don't have to retread that night.
 
 # dad facing to the right, away from Oliver
 
-Papa: And now we're at the end of the line.
+Papa: Why did you sit next to me that night?
+Papa: If you we're so scared of me, why didn't you hide away?
+Oliver: ...
+Oliver: I don't know. *slow text*
+Papa: ...
+Papa: It doesn't matter.
+Papa: We're here now.
+
+do Director.Wait(2)
+
+Papa: I'm going to miss this place.
+Papa: The bright future I believed in.
+Papa: The moments we had together.
+Papa: Even if a lie, they still mattered to me.
 Oliver: ...
 
 do Director.Wait(3)
@@ -82,8 +84,8 @@ do Director.Wait(3)
 
 Papa: After everything...
 Papa: Don't be surprised...
-Papa: If one day, you visit me.
-Papa: And find me dead on the kitchen floor. *slow text*
+Papa: If one day, you find me.
+Papa: Dead on the kitchen floor. *slow text*
 
 # oliver takes a step backwards
 
