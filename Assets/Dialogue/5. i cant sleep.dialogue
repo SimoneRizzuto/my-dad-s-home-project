@@ -31,7 +31,7 @@ Sasha: I could also hear you sleeping.
 Oliver: Was I loud?
 Sasha: Kinda.
 Sasha: ... It didn't sound like you were sleeping well.
-Oliver: Really?
+Oliver: Really?!
 Oliver: I slept great!
 Sasha: Did you?
 Oliver: Of course, hahah!
@@ -53,9 +53,10 @@ do Director.Wait(3)
 
 Oliver: It's-
 Oliver: ...
-Oliver: Hard to.
-Oliver: ...
-Sasha: I'll wait as long as you need.
+
+do Director.Wait(2)
+
+Sasha: I can wait as long as you need.
 
 do Director.Wait(3)
 
@@ -64,13 +65,13 @@ Oliver: I want my dad to be strong.
 Oliver: To push through everything.
 Oliver: And eventually, be happy.
 Oliver: But...
-Oliver: I don't see how Papa will get there.
 
 do Director.Wait(1.5)
 
 Oliver: I think back sometimes.
 Oliver: To when I told him everything.
 Oliver: ...
+Oliver: He's just so stubborn...
 Oliver: I could've-
 Oliver: Or should've waited a little longer.
 Oliver: I told him way too much all at once.
@@ -87,31 +88,38 @@ do Director.Wait(1.5)
 
 Oliver: I didn't mean for any of this to happen.
 Sasha: Yeah.
-Oliver: But I don't know what I can do anymore.
-Sasha: I don't think you can do anything, really.
+Oliver: I don't know what I can do.
+Sasha: You can't do anything, really.
 
 do Director.Wait(2)
 
-Sasha: I know with my dad, I sometimes think about the things I never did with him.
+Sasha: I know with my dad. 
+Sasha: I look back sometimes, and I think about all I didn't get to tell him.
 Sasha: Mum always tells me not to worry about that.
 Sasha: To simply focus on what we got to do together.
 Sasha: ...
+Sasha: It's a little different, but.
 Sasha: I think you did all you could.
 Sasha: It's on him now.
-Oliver: I guess.
+Oliver: Yeeeah.
+Oliver: I know.
+
+do Director.Wait(1.5)
+
 Sasha: This move will be good.
 Sasha: Not just for your mental being.
-Sasha: But for this.
+Sasha: But for his.
 Sasha: Some time apart will do you both good.
-Sasha: Just have to give it time.
+Sasha: And maybe things will change in the future.
+Sasha: You will always have that possibility.
 
 do Director.Wait(2)
 
-# stars start appearing in the sky
-
+Oliver: Even with my anger...
 Oliver: ...
 Oliver: I...
 
+# stars start appearing in the sky
 do Director.Wait(2)
 
 Oliver: I hope so. #slow text
@@ -119,5 +127,6 @@ Oliver: I hope so. #slow text
 do Director.Wait(2)
 
 Oliver: I hope so... #slow text
+
 
 => END

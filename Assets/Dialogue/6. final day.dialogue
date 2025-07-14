@@ -12,21 +12,22 @@
 # dad is looking around the room
 
 Oliver: ...
-Oliver: Papa.
-Dad: ... Hello, son.
+Papa: ... Son.
+
+do Director.Wait(1.5)
+
 Oliver: What are you doing?
-Dad: Reminiscing...
+Papa: Reminiscing...
 Oliver: ...
 
 do Director.Wait(3)
 
-Dad: This...
-Dad: This was your room.
-Dad: YOUR house.
-Dad: YOUR home.
-Oliver: It... didn't feel that way to me.
-Dad: I am aware.
-Dad: ... I can't pick what hurts the most about that.
+Papa: All of this...
+Papa: It was supposed to be yours.
+Papa: Your house.
+Papa: Your home.
+Oliver: I didn't need it to be.
+Papa: ... I can't pick what hurts the most about that.
 
 # dad walks out of room
 
@@ -35,15 +36,26 @@ Dad: ... I can't pick what hurts the most about that.
 
 ~ dining_room
 
-Dad: Everytime we ate together...
-Dad: It really meant... nothing?
+Papa: I will miss our family dinners.
+Papa: And all you could think about...
+Papa: Was going back to your room.
+Oliver: ...
+Papa: I wonder if you'll still feel that with her.
+Oliver: ...
+
+
+# this needs a rewrite
+Papa: Everytime we ate together...
+Papa: It really meant... nothing?
 Oliver: Not how you wanted it to.
-Dad: My cooking meant nothing.
+Papa: My cooking meant nothing.
 Oliver: No...
-Dad: My efforts...
+Papa: My efforts...
 Oliver: Papa...
-Dad: Don't worry.
-Dad: We don't have to retread that night.
+
+# these lines is good though
+Papa: Don't worry.
+Papa: We don't have to retread that night.
 
 # dad walks to the living room
 
@@ -54,7 +66,7 @@ Dad: We don't have to retread that night.
 
 # dad facing to the right, away from Oliver
 
-Dad: And now we're at the end of the line.
+Papa: And now we're at the end of the line.
 Oliver: ...
 
 do Director.Wait(3)
@@ -62,15 +74,16 @@ do Director.Wait(3)
 Oliver: A-Are you-
 Oliver: ...
 Oliver: Will you be okay?
-Dad: ...
-Dad: Great question.
-Dad: I wonder if you understand how awful it is you ask me now.
+Papa: ...
+Papa: Great question.
+Papa: I hope you understand how awful it is to ask me that now.
 
 do Director.Wait(3)
 
-Dad: After everything...
-Dad: Don't be surprised...
-Dad: If one day, if you find me dead on the kitchen floor.
+Papa: After everything...
+Papa: Don't be surprised...
+Papa: If one day, you visit me.
+Papa: And find me dead on the kitchen floor. *slow text*
 
 # oliver takes a step backwards
 
