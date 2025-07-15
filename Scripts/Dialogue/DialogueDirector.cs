@@ -15,7 +15,8 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
 {
     public static DialogueDirector Instance { get; private set; }
     
-    private bool inCutscene;
+    private bool _inCutscene;
+    
     private double millisecondsToPass = 1000;
     public Task ActionCompleted => ActionGiven.Task;
     public TaskCompletionSource ActionGiven { get; set; } = new();
@@ -30,7 +31,7 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
         LoadActorsIntoCurrentScene();
     }
     
-    private bool LoadActorsIntoCurrentScene()
+    public bool LoadActorsIntoCurrentScene()
     {
         var scriptPath = $"res://Scripts/Dialogue/{nameof(CastCrew)}.cs";
         try
@@ -58,8 +59,8 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
     
     public void TriggerCutscene(Resource dialogueResource, string title)
     {
-        if (inCutscene) return;
-        inCutscene = true;
+        if (_inCutscene) return;
+        _inCutscene = true;
         
         SetActorsCharacterState(CharacterState.Cutscene);
         ShowDialogueBalloon(dialogueResource, title);
@@ -139,9 +140,9 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
     
     #region signals
     
-    private void FinishCutscene(Resource dialogueResource)
+    public void FinishCutscene(Resource dialogueResource)
     {
-        inCutscene = false;
+        _inCutscene = false;
         
         SetActorsCharacterState(CharacterState.Gameplay);
         DialogueManager.DialogueEnded -= FinishCutscene;
