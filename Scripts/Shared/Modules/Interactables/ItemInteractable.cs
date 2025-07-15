@@ -6,6 +6,7 @@ public partial class ItemInteractable : Area2D, IInteractable
 {
     [Signal] public delegate void TriggeredItemEventHandler();
     [Export] public TriggerMode TriggerMode;
+    [Export] public bool DisableOnInteract;
     
     private bool InputInteract => Input.IsActionPressed(InputMapAction.Interact);
     
@@ -59,6 +60,10 @@ public partial class ItemInteractable : Area2D, IInteractable
     public virtual void Interact()
     {
         EmitSignal(nameof(TriggeredItem));
+        if (DisableOnInteract)
+        {
+            Monitoring = false;
+        }
     }
 }
 

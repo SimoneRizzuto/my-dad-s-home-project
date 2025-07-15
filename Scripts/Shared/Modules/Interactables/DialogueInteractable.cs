@@ -10,5 +10,9 @@ public partial class DialogueInteractable : ItemInteractable
     public override void Interact()
     {
         DialogueDirector.Instance.TriggerCutscene(DialogueResource, Title);
+        if (DisableOnInteract)
+        {
+            Monitoring = false;
+        }
     }
 }

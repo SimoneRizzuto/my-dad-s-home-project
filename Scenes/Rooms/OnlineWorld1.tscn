@@ -23,6 +23,7 @@ size = Vector2(656.5, 4)
 position = Vector2(426, 75)
 DialogueResource = ExtResource("2_5646m")
 Title = "oliver_chats_online"
+DisableOnInteract = true
 
 [node name="Objects" type="Node2D" parent="."]
 
