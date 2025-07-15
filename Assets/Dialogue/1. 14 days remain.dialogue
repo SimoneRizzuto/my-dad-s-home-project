@@ -100,6 +100,13 @@ Sasha: Yeah?
 Oliver: Can I-
 
 do Audio.PlaySound("knocking")
+
+do SceneSwitcher.TransitionTo_DadKnocks()
+
+=> END
+
+~ dad_knocks
+
 do SceneSwitcher.Spawn_Set1_OliverBedroom()
 do Oliver.SetCharacterState(1)
 do Oliver.PlayAnimation("sit left")
@@ -109,6 +116,9 @@ Oliver: Coming!
 do Oliver.PlayAnimation("stand from seat")
 
 => END
+
+
+
 
 ~ dad_walks_in
 
