@@ -4,10 +4,10 @@ using System.Linq;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using DialogueManagerRuntime;
+using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Dialogue.Base;
 using MyFathersHomeProject.Scripts.Dialogue.Actor;
-using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
 namespace MyFathersHomeProject.Scripts.Dialogue;
