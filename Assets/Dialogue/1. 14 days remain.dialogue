@@ -100,7 +100,7 @@ Sasha: Yeah?
 Oliver: Can I-
 
 do Audio.PlaySound("knocking")
-
+do Director.Wait(0.5)
 do SceneSwitcher.Spawn_DadKnocksScene()
 
 => END
