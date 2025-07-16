@@ -28,6 +28,7 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
     {
         Instance = this;
         
+        DialogueManager.DialogueEnded += FinishCutscene;
         LoadActorsIntoCurrentScene();
     }
     
@@ -69,7 +70,6 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
     private void ShowDialogueBalloon(Resource dialogueResource, string title)
     {
         DialogueManager.ShowDialogueBalloon(dialogueResource, title);
-        DialogueManager.DialogueEnded += FinishCutscene;
     }
     
     private void SetActorsCharacterState(CharacterState state)
@@ -145,7 +145,6 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
         _inCutscene = false;
         
         SetActorsCharacterState(CharacterState.Gameplay);
-        DialogueManager.DialogueEnded -= FinishCutscene;
     }
     
     public void Dispose()
