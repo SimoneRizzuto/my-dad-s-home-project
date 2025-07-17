@@ -101,6 +101,7 @@ Oliver: Can I-
 
 do Audio.PlaySound("knocking")
 do Director.Wait(0.5)
+do Director.ToggleCameraSmoothing(false)
 do SceneSwitcher.Spawn_DadKnocksScene()
 
 => END
@@ -115,6 +116,7 @@ do Director.Wait(1)
 
 Oliver: Coming!
 
+do Director.ToggleCameraSmoothing(true)
 do Oliver.PlayAnimation("stand from seat")
 
 => END

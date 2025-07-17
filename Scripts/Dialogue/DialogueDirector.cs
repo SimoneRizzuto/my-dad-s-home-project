@@ -4,6 +4,7 @@ using System.Linq;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using DialogueManagerRuntime;
+using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Dialogue.Base;
@@ -65,6 +66,11 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
         
         SetActorsCharacterState(CharacterState.Cutscene);
         ShowDialogueBalloon(dialogueResource, title);
+    }
+    
+    public void ToggleCameraSmoothing(bool enabled)
+    {
+        PlayerCamera.Instance.ToggleSmoothing(enabled);
     }
     
     private void ShowDialogueBalloon(Resource dialogueResource, string title)

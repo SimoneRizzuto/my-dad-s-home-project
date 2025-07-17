@@ -32,7 +32,8 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     public void Spawn_DadKnocksScene()
     {
         TransitionToScene(Set1_OliverBedroom);
-        PlayerCamera.SetPositionOnOliver(); // make into signal???
+        
+        PlayerCamera.Dismount();
         
         var uidLong = ResourceUid.TextToId(FourteenDaysRemain);
         var path = ResourceUid.GetIdPath(uidLong);

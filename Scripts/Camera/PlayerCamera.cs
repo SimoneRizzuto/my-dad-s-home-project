@@ -15,7 +15,7 @@ public partial class PlayerCamera : Camera2D
     public override void _Ready()
     {
         Instance = this;
-        PositionSmoothingEnabled = false;
+        PositionSmoothingEnabled = true;
         SetPositionOnOliver();
     }
     
@@ -25,8 +25,6 @@ public partial class PlayerCamera : Camera2D
         {
             SetPositionOnOliver();
         }
-        
-        PositionSmoothingEnabled = true;
     }
     
     public void SetPositionOnOliver()
@@ -54,5 +52,19 @@ public partial class PlayerCamera : Camera2D
     public void Dismount()
     {
         isMounted = false;
+    }
+    
+    public void ToggleSmoothing(bool? enabled = null)
+    {
+        switch (enabled)
+        {
+            case true:
+            case false:
+                PositionSmoothingEnabled = enabled.Value;
+                break;
+            case null:
+                PositionSmoothingEnabled = !PositionSmoothingEnabled;
+                break;
+        }
     }
 }
