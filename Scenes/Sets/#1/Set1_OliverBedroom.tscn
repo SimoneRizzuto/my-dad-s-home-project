@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cap325m8jhcqw"]
+[gd_scene load_steps=5 format=3 uid="uid://cap325m8jhcqw"]
 
 [ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="1_8gmls"]
 [ext_resource type="PackedScene" uid="uid://cyoekyq6ui657" path="res://Scenes/Rooms/OliverBedroom.tscn" id="2_8xlvl"]
+[ext_resource type="PackedScene" uid="uid://cehckxjxfklbj" path="res://Scenes/Modules/DialogueInteractable.tscn" id="3_75tmm"]
+[ext_resource type="Resource" uid="uid://c4t0mo45346ew" path="res://Assets/Dialogue/1. 14 days remain.dialogue" id="4_ksg7h"]
 
 [node name="Set1OliverBedroom" type="Node2D"]
 
@@ -9,3 +11,11 @@
 position = Vector2(165, 45)
 
 [node name="OliverBedroom" parent="." instance=ExtResource("2_8xlvl")]
+
+[node name="DialogueInteractable" parent="OliverBedroom" instance=ExtResource("3_75tmm")]
+position = Vector2(237, 58)
+scale = Vector2(1.59635, 1.80161)
+DialogueResource = ExtResource("4_ksg7h")
+Title = "dad_walks_in"
+TriggerMode = 1
+DisableOnInteract = true
