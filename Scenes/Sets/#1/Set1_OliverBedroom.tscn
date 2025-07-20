@@ -6,6 +6,6 @@
 [node name="Set1OliverBedroom" type="Node2D"]
 
 [node name="Oliver" parent="." instance=ExtResource("1_8gmls")]
-position = Vector2(161, 53)
+position = Vector2(165, 45)
 
 [node name="OliverBedroom" parent="." instance=ExtResource("2_8xlvl")]

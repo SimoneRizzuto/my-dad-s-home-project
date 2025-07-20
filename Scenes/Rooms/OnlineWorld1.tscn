@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://mas7pba4uwc1" path="res://Assets/Textures/StaticObjects/OnlineWorld1/tree.png" id="4_1yf36"]
 [ext_resource type="Texture2D" uid="uid://bb1x5dwh8hx40" path="res://Assets/Textures/Environments/OnlineWorld1/grass front.png" id="5_1gkci"]
 [ext_resource type="Script" path="res://Scenes/Rooms/CameraOverride.cs" id="7_24w43"]
-[ext_resource type="PackedScene" path="res://Scenes/Camera/TripodMount.tscn" id="9_kkpjs"]
-[ext_resource type="PackedScene" path="res://Scenes/Camera/TripodDismounter.tscn" id="10_2gnje"]
+[ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="9_kkpjs"]
+[ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="10_2gnje"]
 [ext_resource type="PackedScene" uid="uid://cfrhcgnum5ctx" path="res://Scenes/Actors/Sasha.tscn" id="13_3vkiu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfnht"]
@@ -23,7 +23,6 @@ size = Vector2(656.5, 4)
 position = Vector2(426, 75)
 DialogueResource = ExtResource("2_5646m")
 Title = "oliver_chats_online"
-DisableOnInteract = true
 
 [node name="Objects" type="Node2D" parent="."]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://cyoekyq6ui657"]
+[gd_scene load_steps=28 format=3 uid="uid://cyoekyq6ui657"]
 
 [ext_resource type="Texture2D" uid="uid://bi14ih4bw0ew2" path="res://Assets/Textures/Environments/oliver-room-background-wall.png" id="1_bcs8k"]
+[ext_resource type="Script" path="res://Scenes/Rooms/CameraOverride.cs" id="1_pd1oj"]
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="2_piyi6"]
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="2_y5hah"]
 [ext_resource type="Texture2D" uid="uid://dr8ie6j8g2608" path="res://Assets/Textures/StaticObjects/OliverBedroom/hero-poster.png" id="4_d7bue"]
@@ -37,6 +38,9 @@ size = Vector2(279, 4)
 [node name="OliverBedroom" type="Node2D"]
 position = Vector2(0, -21)
 
+[node name="CameraOverride" type="Node2D" parent="."]
+script = ExtResource("1_pd1oj")
+
 [node name="LightSwitch" type="PointLight2D" parent="."]
 visible = false
 position = Vector2(143, 2)
@@ -46,12 +50,16 @@ blend_mode = 2
 texture = ExtResource("4_lmc7h")
 texture_scale = 1.78
 
-[node name="TripodMounter" parent="." node_paths=PackedStringArray("MountPosition") instance=ExtResource("2_piyi6")]
-position = Vector2(238, 71)
-MountPosition = NodePath("MountPoint")
+[node name="MountPoint" type="Marker2D" parent="."]
+position = Vector2(141, 75)
 
-[node name="MountPoint" type="Marker2D" parent="TripodMounter"]
-position = Vector2(-97, 4)
+[node name="TripodMounter2" parent="MountPoint" node_paths=PackedStringArray("MountPosition") instance=ExtResource("2_piyi6")]
+position = Vector2(25, -5)
+MountPosition = NodePath("..")
+
+[node name="TripodMounter" parent="MountPoint" node_paths=PackedStringArray("MountPosition") instance=ExtResource("2_piyi6")]
+position = Vector2(97, -4)
+MountPosition = NodePath("..")
 
 [node name="BackgroundWall" type="Sprite2D" parent="."]
 z_index = -50
