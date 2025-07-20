@@ -68,14 +68,32 @@ position = Vector2(113, 46)
 texture = ExtResource("5_6wfvo")
 
 [node name="ComputerSetup" type="Sprite2D" parent="Objects"]
+z_index = 10
 position = Vector2(137, 48)
 texture = ExtResource("4_mgifm")
 centered = false
 
-[node name="PointLight2D" type="PointLight2D" parent="Objects/ComputerSetup"]
-position = Vector2(12, 6)
-scale = Vector2(0.595703, 0.480469)
+[node name="Bounce_Front" type="PointLight2D" parent="Objects/ComputerSetup"]
+position = Vector2(23, 7)
+scale = Vector2(0.465332, 0.316406)
 energy = 0.63
+range_z_min = 10
+texture = ExtResource("4_lmc7h")
+
+[node name="Bounce_Screen" type="PointLight2D" parent="Objects/ComputerSetup"]
+position = Vector2(15.5, 6)
+scale = Vector2(0.15, 0.073)
+energy = 5.86
+range_z_min = 10
+range_z_max = 20
+texture = ExtResource("4_lmc7h")
+
+[node name="Bounce_Wall" type="PointLight2D" parent="Objects/ComputerSetup"]
+position = Vector2(13, 5)
+scale = Vector2(0.429687, 0.19043)
+energy = 0.4
+range_z_min = -50
+range_z_max = -25
 texture = ExtResource("4_lmc7h")
 
 [node name="BedsideTable" type="Sprite2D" parent="Objects"]
@@ -85,7 +103,7 @@ centered = false
 
 [node name="LampLight_Down" type="PointLight2D" parent="Objects/BedsideTable"]
 position = Vector2(7.5, 64)
-color = Color(0.968627, 0.776471, 0.490196, 1)
+color = Color(1, 0.807843, 0, 1)
 energy = 0.3
 range_z_max = 0
 texture = ExtResource("9_pmsv0")
@@ -93,7 +111,7 @@ texture = ExtResource("9_pmsv0")
 [node name="LampLight_Up" type="PointLight2D" parent="Objects/BedsideTable"]
 visible = false
 position = Vector2(7.5, -64)
-color = Color(0.968627, 0.776471, 0.490196, 1)
+color = Color(1, 0.807843, 0, 1)
 energy = 0.3
 texture = ExtResource("10_yjve7")
 
@@ -101,14 +119,14 @@ texture = ExtResource("10_yjve7")
 z_index = -4066
 position = Vector2(17.096, 6)
 scale = Vector2(0.428937, 0.304688)
-color = Color(1, 0.443137, 0, 1)
+color = Color(1, 0.807843, 0, 1)
 texture = ExtResource("4_lmc7h")
 
 [node name="Bounce1" type="PointLight2D" parent="Objects/BedsideTable"]
 z_index = -4066
 position = Vector2(7.596, -4.31375)
 scale = Vector2(0.0890937, 0.0672929)
-color = Color(1, 0.443137, 0, 1)
+color = Color(1, 0.972667, 0.18, 1)
 range_z_max = -10
 texture = ExtResource("11_epxpr")
 
@@ -116,7 +134,7 @@ texture = ExtResource("11_epxpr")
 z_index = -4066
 position = Vector2(8.1, 13.6819)
 scale = Vector2(0.0929687, 0.0984393)
-color = Color(1, 0.443137, 0, 1)
+color = Color(1, 0.807843, 0, 1)
 energy = 0.75
 range_z_max = 0
 texture = ExtResource("12_qvimp")
@@ -133,20 +151,34 @@ position = Vector2(68, 42)
 texture = ExtResource("6_k5h05")
 centered = false
 
-[node name="Bounce1" type="PointLight2D" parent="Objects/Lamp"]
-position = Vector2(2.5, 6)
-scale = Vector2(0.277344, 0.210937)
-color = Color(0, 0.843137, 1, 1)
-energy = 1.5
-texture = ExtResource("4_lmc7h")
-
-[node name="Bounce2" type="PointLight2D" parent="Objects/Lamp"]
+[node name="Bounce_Inner" type="PointLight2D" parent="Objects/Lamp"]
 position = Vector2(2.5, 6.5)
 scale = Vector2(0.0195313, 0.0507813)
 color = Color(0, 0.843137, 1, 1)
 energy = 1.25
 range_z_max = 0
 texture = ExtResource("4_lmc7h")
+
+[node name="Bounce_Big" type="PointLight2D" parent="Objects/Lamp"]
+position = Vector2(2.5, 8)
+scale = Vector2(0.308594, 0.328125)
+color = Color(0, 0.843137, 1, 1)
+energy = 1.5
+texture = ExtResource("4_lmc7h")
+
+[node name="Bounce1" type="PointLight2D" parent="Objects/Lamp"]
+position = Vector2(2.5, -3.8875)
+scale = Vector2(0.0585938, 0.0486686)
+color = Color(0, 0.843137, 1, 1)
+energy = 0.8
+texture = ExtResource("11_epxpr")
+
+[node name="Bounce2" type="PointLight2D" parent="Objects/Lamp"]
+position = Vector2(2.5, 14)
+scale = Vector2(0.050781, 0.061)
+color = Color(0, 0.843137, 1, 1)
+range_z_max = -11
+texture = ExtResource("12_qvimp")
 
 [node name="BedsideDrawer" type="Sprite2D" parent="Objects"]
 z_index = -10
@@ -183,7 +215,7 @@ shape = SubResource("RectangleShape2D_awltp")
 debug_color = Color(0, 0.0235294, 0.701961, 0.419608)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.54902, 0.498039, 0.45098, 1)
+color = Color(0.219608, 0.219608, 0.360784, 1)
 
 [node name="DialogueInteractable" parent="." instance=ExtResource("14_caslg")]
 position = Vector2(261, 70)
