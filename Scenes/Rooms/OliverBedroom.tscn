@@ -1,7 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://cyoekyq6ui657"]
+[gd_scene load_steps=22 format=3 uid="uid://cyoekyq6ui657"]
 
 [ext_resource type="Texture2D" uid="uid://bi14ih4bw0ew2" path="res://Assets/Textures/Environments/oliver-room-background-wall.png" id="1_bcs8k"]
-[ext_resource type="PackedScene" path="res://Scenes/Camera/TripodMount.tscn" id="2_piyi6"]
+[ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="2_piyi6"]
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="2_y5hah"]
 [ext_resource type="Texture2D" uid="uid://dr8ie6j8g2608" path="res://Assets/Textures/StaticObjects/OliverBedroom/hero-poster.png" id="4_d7bue"]
 [ext_resource type="Texture2D" uid="uid://dkaw555svegmx" path="res://Assets/Textures/StaticObjects/OliverBedroom/bedside-drawer-oliver.png" id="4_jfg7y"]
@@ -12,18 +12,22 @@
 [ext_resource type="Texture2D" uid="uid://dwjbm3hnhd314" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-bed.png" id="5_gjsmd"]
 [ext_resource type="Texture2D" uid="uid://dxdlfso230vqe" path="res://Assets/Textures/StaticObjects/OliverBedroom/lamp-2.png" id="6_k5h05"]
 [ext_resource type="Texture2D" uid="uid://dvxi1fkoqhfuc" path="res://Assets/Textures/StaticObjects/OliverBedroom/bedside-drawer-2-oliver.png" id="7_vxv3r"]
+[ext_resource type="Texture2D" uid="uid://bvfvlnrtbrfiu" path="res://Assets/Textures/Rendering/2d_pointed_light_texture_down.png" id="9_pmsv0"]
+[ext_resource type="Texture2D" uid="uid://dwftnnxn3wdel" path="res://Assets/Textures/Rendering/2d_pointed_light_texture_up.png" id="10_yjve7"]
+[ext_resource type="Texture2D" uid="uid://cich785oov6wr" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_up_point_light.webp" id="11_epxpr"]
+[ext_resource type="Texture2D" uid="uid://o0psnnkmfi2r" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_down_point_light.webp" id="12_qvimp"]
 [ext_resource type="Texture2D" uid="uid://b8smyff3h32v7" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-room-door-2.png" id="13_jdh1p"]
 [ext_resource type="PackedScene" uid="uid://cehckxjxfklbj" path="res://Scenes/Modules/DialogueInteractable.tscn" id="14_caslg"]
 [ext_resource type="Resource" uid="uid://cdralaghyawnb" path="res://Assets/Dialogue/test-dialogue.dialogue" id="15_8g3y8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ekbwx"]
-size = Vector2(45, 8)
+size = Vector2(39, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awltp"]
 size = Vector2(279, 4)
 
 [node name="OliverBedroom" type="Node2D"]
-position = Vector2(-1, -21)
+position = Vector2(0, -21)
 
 [node name="LightSwitch" type="PointLight2D" parent="."]
 visible = false
@@ -42,6 +46,7 @@ MountPosition = NodePath("MountPoint")
 position = Vector2(-97, 4)
 
 [node name="BackgroundWall" type="Sprite2D" parent="."]
+z_index = -50
 position = Vector2(1, 21)
 texture = ExtResource("1_bcs8k")
 centered = false
@@ -78,36 +83,79 @@ position = Vector2(5, 53)
 texture = ExtResource("4_jfg7y")
 centered = false
 
-[node name="LampLight" type="PointLight2D" parent="Objects/BedsideTable"]
-position = Vector2(8, 5)
-scale = Vector2(0.503906, 0.478516)
+[node name="LampLight_Down" type="PointLight2D" parent="Objects/BedsideTable"]
+position = Vector2(7.5, 64)
 color = Color(0.968627, 0.776471, 0.490196, 1)
-energy = 1.12
+energy = 0.3
+range_z_max = 0
+texture = ExtResource("9_pmsv0")
+
+[node name="LampLight_Up" type="PointLight2D" parent="Objects/BedsideTable"]
+visible = false
+position = Vector2(7.5, -64)
+color = Color(0.968627, 0.776471, 0.490196, 1)
+energy = 0.3
+texture = ExtResource("10_yjve7")
+
+[node name="Bounce_Big" type="PointLight2D" parent="Objects/BedsideTable"]
+z_index = -4066
+position = Vector2(17.096, 6)
+scale = Vector2(0.428937, 0.304688)
+color = Color(1, 0.443137, 0, 1)
 texture = ExtResource("4_lmc7h")
 
+[node name="Bounce1" type="PointLight2D" parent="Objects/BedsideTable"]
+z_index = -4066
+position = Vector2(7.596, -4.31375)
+scale = Vector2(0.0890937, 0.0672929)
+color = Color(1, 0.443137, 0, 1)
+range_z_max = -10
+texture = ExtResource("11_epxpr")
+
+[node name="Bounce2" type="PointLight2D" parent="Objects/BedsideTable"]
+z_index = -4066
+position = Vector2(8.1, 13.6819)
+scale = Vector2(0.0929687, 0.0984393)
+color = Color(1, 0.443137, 0, 1)
+energy = 0.75
+range_z_max = 0
+texture = ExtResource("12_qvimp")
+
 [node name="Window" type="Sprite2D" parent="Objects"]
+z_index = -40
 position = Vector2(21, 36)
 texture = ExtResource("5_45bm8")
 centered = false
 
 [node name="Lamp" type="Sprite2D" parent="Objects"]
+z_index = -10
 position = Vector2(68, 42)
 texture = ExtResource("6_k5h05")
 centered = false
 
-[node name="PointLight2D" type="PointLight2D" parent="Objects/Lamp"]
-position = Vector2(3, 8)
-scale = Vector2(0.240234, 0.410156)
+[node name="Bounce1" type="PointLight2D" parent="Objects/Lamp"]
+position = Vector2(2.5, 6)
+scale = Vector2(0.277344, 0.210937)
 color = Color(0, 0.843137, 1, 1)
 energy = 1.5
 texture = ExtResource("4_lmc7h")
 
+[node name="Bounce2" type="PointLight2D" parent="Objects/Lamp"]
+position = Vector2(2.5, 6.5)
+scale = Vector2(0.0195313, 0.0507813)
+color = Color(0, 0.843137, 1, 1)
+energy = 1.25
+range_z_max = 0
+texture = ExtResource("4_lmc7h")
+
 [node name="BedsideDrawer" type="Sprite2D" parent="Objects"]
+z_index = -10
 position = Vector2(61, 52)
 texture = ExtResource("7_vxv3r")
 centered = false
 
 [node name="Bed" type="Sprite2D" parent="Objects"]
+z_index = -10
 position = Vector2(21, 62)
 texture = ExtResource("5_gjsmd")
 centered = false
@@ -115,7 +163,7 @@ centered = false
 [node name="StaticBody2D" type="StaticBody2D" parent="Objects/Bed"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Bed/StaticBody2D"]
-position = Vector2(22.5, 9)
+position = Vector2(23.5, 9)
 shape = SubResource("RectangleShape2D_ekbwx")
 
 [node name="Wall+Floor" type="Node2D" parent="."]
