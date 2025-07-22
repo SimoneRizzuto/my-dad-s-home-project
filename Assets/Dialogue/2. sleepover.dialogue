@@ -1,0 +1,245 @@
+~ initial_scene
+#Friend and Oliver are in a bedroom together, playing video games while huddled next to each other.
+#Someone wins, and then Oliver gets up to walk around the room. There are things to interact with.
+
+Oliver: NO WAY!
+Sasha: YES!
+Sasha: Woo!
+Oliver: That was SO UNLUCKY!
+Sasha: Hey, what I can I say? They call me the drift queen!
+Oliver: No one says that...
+
+do Director.Wait(3)
+
+Oliver: Ok, it's bathroom time!
+Sasha: Don’t fall in.
+Oliver: Hey, that’s my line!
+Sasha: You literally stole that from Sahara.
+Oliver: Sorry, I can't hear you!
+=> END
+
+# ------------------------
+# -- SMALL INTERACTIONS -- 
+# ------------------------
+
+~ dad_picture_interaction
+Oliver: (Her dad.)
+Oliver: (I never got to know him.)
+Oliver: (Only through stories.)
+=> END
+
+~ tv_interaction
+do Oliver.SetDirection(1)
+do Oliver.LookLeft()
+
+Oliver: When did you get so good at Marco Kart?
+Sasha: I’ve always been good. It was just bubbling under the surface.
+Oliver: Hey, look.
+Oliver: I don't wanna say it, but I WAS going easy on you.
+Sasha: Oh yeah? Is that why you lost four times in a row?
+Oliver: ... Yeah, totally. Mhh mhh.
+Sasha: You got me... Wow.
+=> END
+
+~ computer_interaction
+Oliver: By the way, you never got to show me your drawings.
+Sasha: Oh yeah!
+
+#Friend gets up and walks to the computer. Merps are shown on the screen.
+
+Sasha: Look at my little merps!
+Oliver: Daaamn!
+Sasha: Yeah!
+Oliver: Are they different from the ones you drew the other day?
+Sasha: Yes.
+Sasha: Well, some are.
+Sasha: The one on the right is the same reoccurring one. She’s called Potato.
+Sasha: The other ones are just little guys I doodled.
+Sasha: It’s been difficult to think of different kinds of merps, so I keep on resorting to the same plants.
+Oliver: You should make a chocolate one.
+Sasha: Uh? But it doesn’t fit what I have in mind for them. 
+Sasha: They’re meant to be plant based.
+Oliver: Cacao is technically a seed from a plant.
+Sasha: Yes, cacao seeds are, but not chocolate. That’s different.
+Oliver: Then do a cacao one. That would still be cool.
+Sasha: Ok ok. I'll keep it in mind for next time.
+Oliver: Hell yeah!
+=> END
+
+~ pizza_carton_interaction
+Oliver: Hey, you got Gigi's again!
+Sasha: I wasn't lying when I said I liked it.
+Oliver: So what you're telling me is...
+Oliver: ...good pizza exists after all!
+Sasha: I never said I didn't like pizza.
+Sasha: It just isn't my first option.
+Oliver: ... And yet clearly, you got Gigi's one time over something else.
+Sasha: Ok, Olive Boy.
+Oliver: Hey!
+Oliver: That fits too well...
+Sasha: Hehe~
+=> END
+
+~ jump_on_bed
+#maybe iterate through dialogue if you keep on doing it
+Sasha: Oliver!
+Oliver: Sorry.
+
+# version 2
+Sasha: ...
+Oliver: Your bed is bouncier than mine, ok?
+
+# version 3
+Sasha: Are you a child?
+Oliver: ... No.
+Oliver: I'm worse!
+Oliver: I'm a teen with a problem.
+# Oliver bounces on bed non stop until the next line
+Oliver: A cripling addiction for bouncing on beds.
+Sasha: If you break it, I'm coming to your new place to steal your bed.
+=> END
+
+# ------------------
+# -- CONTINUATION --
+# ------------------
+
+~ going_to_bathroom
+#Separate Oliver from friend, by going to the toilet. The outside is a forest, separated by a door.
+
+Oliver: (This is nice.)
+Oliver: (Haven't done this for a little bit.)
+
+do Director.Wait(3)
+
+Oliver: (I wonder what Papa is doing...)
+Oliver: (No.) 
+Oliver: (Don't think about him. This is meant to be a fun night.)
+Oliver: (A relaxing night away from...)
+Oliver: (...)
+
+do Director.Wait(2)
+
+Oliver: (Two weeks left, uh?) *slow text*
+
+do Director.Wait(2)
+#flush toilet
+
+=> END
+
+~ going_to_bedroom
+#When rejoining his friend, this time, it is a campfire. No door separates the outside.
+
+Oliver: ...
+Sasha: You didn't fall in, did you?
+Oliver: Pff.
+Oliver: Not this time.
+
+#Oliver sits next to the fireplace.
+
+do Director.Wait(3)
+
+#Oliver looks around himself.
+#Oliver closes his eyes.
+
+Oliver: Ahhhh...
+Oliver: ...
+Oliver: Do you feel this warmth?
+Sasha: Mhh?
+
+do Director.Wait(2)
+
+Sasha: Yeah, I do.
+
+#Oliver opens his eyes. He lies down.
+
+Oliver: I wish we had marshmallows.
+Oliver: We could warm them up in a firepit, and just...
+Oliver: Ooooh yeah. That would be awesome.
+Sasha: I've never done that before.
+Oliver: Me neither.
+Sasha: What? I thought you were speaking from experience.
+Oliver: I don't know. I haven't done many things.
+Oliver: They make it look really fun in movies.
+Oliver: Surely, it's just as fun in real life.
+Sasha: I'm sure it is.
+Oliver: When we're older, we should definitely go camping with the gang.
+Oliver: It would be really fun to be out there, gathering wood for a fire, cooking dinner in it.
+Sasha: As long as I can bring my sketchbook, I'm happy.
+Oliver: True! And then you could draw your point of view, and capture the moment.
+Oliver: That'd be cool.
+Sasha: Eh. I'd rather draw something else.
+Oliver: Well, I would do that... even if its a bad doodle.
+Oliver: I'd try capture the moment myself. Through MY eyes.
+
+do Director.Wait(3)
+
+Oliver: What would YOU draw?
+Sasha: ...
+
+# she looks up to the sky
+
+do Director.Wait(3)
+
+Sasha: I've heard the stars are clearer when away from the city.
+Sasha: I think that'd be nice.
+
+do Oliver.PlayAnimation("look up")
+# the stars appear more shiny once that's said
+# do Director.Wait(2)
+
+Sasha: I hope it's as pretty as I imagine it to be.
+Sasha: You really think we'll do that one day?
+Oliver: I hope so.
+Oliver: Assuming the distance won't make it too hard.
+Sasha: It doesn't have to be hard...
+Oliver: I know.
+Oliver: But you never know...
+Sasha: Then promise to make the effort.
+Oliver: ...
+
+do Director.Wait(2)
+
+Oliver: Ok, I promise.
+Sasha: To?
+Oliver: I promise to go sometime.
+Sasha: Oliver...
+Oliver: I-
+
+do Oliver.PlayAnimation("look up")
+
+Oliver: *small text* I promise to try.
+Sasha: Good.
+
+do Director.Wait(6)
+
+
+# rewrite this last bit
+
+Oliver: I could fall asleep any time now...
+Oliver: I don't... want to though...
+Sasha: I'm sleepy.
+Oliver: No... do not... succumb.
+Sasha: Why?
+Oliver: I'm having too much fun.
+Oliver: I don't want tonight to end...
+Sasha: Me too.
+
+do Director.Wait(1)
+
+Sasha: But we should sleep, right?
+Oliver: I know...
+
+do Director.Wait(3)
+
+Oliver: Still wish we had marshmallows.
+Sasha: Heh. Maybe next time.
+
+do Director.Wait(2)
+
+Oliver: I guess it really is...
+Oliver: ... sleepy time.
+Sasha: Good night, Oli.
+Oliver: Good night, Sasha.
+
+=> END
+ 

@@ -5,13 +5,22 @@ do Sasha.SetDirection(1)
 do Sasha.PlayAnimation("draw scribble right")
 do Director.Wait(2)
 do Sasha.PlayAnimation("draw look left")
-do Director.Wait(0.75)
-Sasha: Oh.
-Sasha: Hi, Oli!
+do Director.Wait(0.5)
+Sasha: Oli!
+do Sasha.PlayAnimation("draw wave left")
+do Director.Wait(2)
+do Sasha.PlayAnimation("draw look left")
 do Sasha.PlayAnimation("draw scribble right")
 do Director.Wait(1.5)
 #oli looks down, then back
 do Director.Wait(1.5)
+
+how are you?
+yeah, im ok
+
+this scene needs to feel less awkward.
+i still want Oli and Sasha to feel friendly, but the underpinning 
+of everything will come out naturally
 
 # Oliver walks toward tree, and sits down as well
 do Oliver.MoveToXPosition(468)
