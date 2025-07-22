@@ -11,11 +11,6 @@ do Director.Wait(3)
 Dad: A-Are you... awake?
 Dad: I'm...
 
-do Director.Wait(4)
-
-Dad: ... I'm really scared.
-Dad: I don't want to sleep alone.
-
 do Director.Wait(2)
 
 #Oliver gets up from the bed
@@ -53,50 +48,66 @@ Oliver: Ok.
 
 #the TV is playing faint, mumbling sounds
 
-Dad: ... I don't even have words.
-Dad: How could she do that to us?
+Dad: It's been really hard to sleep.
+Dad: I can't stop thinking about her. No matter what I do.
+Dad: And even when I do sleep, she's still there.
+Dad: How could she just...
+Dad: ... leave like that?
 Dad: *sigh*
 
 #open phone to text
 
 Oliver: hey, um
-Oliver: i know its late, but i don't know who else to ask
-Oliver: my mum and dad split up, and a lot is happening rn
-Oliver: idk what to do or say
-Oliver: do you have any advice?
-Oliver: sorry
+Oliver: are you awake at all?
+Oliver: i don't know who else to ask, but i need help
+Oliver: idk what to do
+Oliver: sorry to msg at such a late time
 
 #close phone
 
-Oliver: ... 
-Oliver: Are you ok?
+Oliver: ...
+
+do Director.Wait(3)
+
+Oliver: A-Are you ok?
 Dad: ...
 
 do Director.Wait(3)
 
-Dad: Do you... realise... what she is doing?
-Oliver: Yes. She was... unhappy...
-Dad: Unhappy enough to leave without saying anything?
-Oliver: Isn't that what happens when marriages are falling apart?
-Dad: No. What happens is couples talk.
-Dad: They talk about their problems, and after a bunch of fighting, they break up.
+Dad: Do you... realise... what she did?
+Oliver: Yes.
+
+do Director.Wait(3)
+
+Oliver: She was... 
+Oliver: Unhappy.
+Dad: Unhappy?
+Dad: Enough to leave without saying anything?
+Oliver: I-Isn't that what happens when marriages are falling apart?
+Dad: No!
+Dad: Couples talk.
+Dad: Talk about their problems.
+Dad: Then, after years of fighting, they break up.
 Dad: This isn't that...
 Dad: She never said anything to me.
 Dad: ... I don't get it.
 Oliver: ...
 Dad: Why would she do this to me?
 Dad: To you?
-Dad: She's destroying this family like it's nothing.
+Dad: She's going to destroy this family like it's nothing.
 Oliver: ...
 
 do Director.Wait(5)
 
 Dad: I don't understand how you can be so calm about it.
-Oliver: But I'm not calm, Papa.
+Oliver: I'm not calm, Papa.
 Oliver: I'm... really worried for you.
 Dad: Yes but...
 Dad: Our FAMILY, Oliver!
-Dad: Doesn't not hurt that it's gone?
+#Dad: Doesn't it hurt that it's gone?
+
+do Director.Wait(2)
+
 Oliver: ...
 Oliver: I don't know.
 Dad: You don't know?!
@@ -114,7 +125,7 @@ Oliver: I...
 Oliver: I-I'm more worried for the both of you than the family.
 Oliver: If s-she isn't happy anymore, then I don't want her to put on a face for the family.
 Oliver: And if this crappy couch is my bed for the next few nights so you don't feel alone.
-Oliver: Then that's how it is.
+Oliver: Then I will do my best.
 
 do Director.Wait(3)
 
@@ -123,7 +134,6 @@ Dad: We've had this couch since you were born.
 
 do Director.Wait(3)
 
-Dad: *sigh*
 Dad: You can go to bed if you want.
 Dad: Don't bother staying on this "crappy" couch.
 Oliver: Papa...
@@ -136,8 +146,9 @@ Oliver: ...
 #oliver stays with his dad
 
 #text sequence
+# could this be written more interestingly
 “Hey pumpkin, please let me know if you need anything.”
 “I’m sorry for leaving you with him.”
-“I promise when everything’s over, we will both be happy together.”
+“I promise, when everything’s over, we will both be together.”
 “Love you, pumpkin. Goodnight.” 
 => END

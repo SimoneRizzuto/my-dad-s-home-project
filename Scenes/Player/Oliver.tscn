@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bggt6ckifdcow"]
+[gd_scene load_steps=33 format=3 uid="uid://bggt6ckifdcow"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Oliver.cs" id="1_vpp82"]
 [ext_resource type="Texture2D" uid="uid://dps0vqk0017i6" path="res://Assets/Textures/Oliver/oliver idle left animation-Sheet.png" id="2_jxa6b"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cqp8jgdm0dmyf" path="res://Assets/Textures/Oliver/oliver walk right animation-Sheet.png" id="5_xw50k"]
 [ext_resource type="Texture2D" uid="uid://b7n230pnwoiaj" path="res://Assets/Textures/Oliver/oliver walk left animation-Sheet.png" id="6_geu7j"]
 [ext_resource type="Texture2D" uid="uid://d3n0m1k1ysn5b" path="res://Assets/Textures/Oliver/oliver sit left-Sheet.png" id="6_sylhh"]
+[ext_resource type="Texture2D" uid="uid://dbwy6qv0bb1iq" path="res://Assets/Textures/Oliver/oliver sit left look right-Sheet.png" id="7_w0q4s"]
 [ext_resource type="PackedScene" uid="uid://cemnuys6w3rjr" path="res://Scenes/Dialogue/Actor/ActorModule.tscn" id="8_knplv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3paqx"]
@@ -51,6 +52,14 @@ region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ef275"]
 atlas = ExtResource("6_sylhh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psn0x"]
+atlas = ExtResource("7_w0q4s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcq78"]
+atlas = ExtResource("7_w0q4s")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k2t00"]
@@ -143,6 +152,17 @@ animations = [{
 "speed": 8.0
 }, {
 "frames": [{
+"duration": 16.0,
+"texture": SubResource("AtlasTexture_psn0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcq78")
+}],
+"loop": true,
+"name": &"sit left look right",
+"speed": 8.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k2t00")
 }, {
@@ -188,6 +208,6 @@ shape = SubResource("RectangleShape2D_3paqx")
 [node name="MainSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_aqi8e")
-animation = &"walk left"
+animation = &"idle left"
 
 [node name="ActorModule" parent="." instance=ExtResource("8_knplv")]

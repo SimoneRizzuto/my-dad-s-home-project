@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bxv00mgy46xa8"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bxv00mgy46xa8"]
 
 [ext_resource type="FontFile" uid="uid://cb0xauna5q601" path="res://Assets/Fonts/Reaper Font.ttf" id="1_533i1"]
+[ext_resource type="Texture2D" uid="uid://dvmqdg0kuwcam" path="res://Assets/Textures/UI/speech-bubble.png" id="1_a0wif"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -38,21 +39,12 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6xn6"]
-content_margin_left = 20.0
-content_margin_top = 20.0
-content_margin_right = 20.0
-content_margin_bottom = 20.0
-bg_color = Color(0.960784, 0.960784, 0.960784, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-corner_detail = 3
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cvxop"]
+texture = ExtResource("1_a0wif")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
 
 [resource]
 default_font_size = 20
@@ -64,6 +56,6 @@ MarginContainer/constants/margin_bottom = 0
 MarginContainer/constants/margin_left = 0
 MarginContainer/constants/margin_right = 0
 MarginContainer/constants/margin_top = 0
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_t6xn6")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_cvxop")
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/fonts/normal_font = ExtResource("1_533i1")

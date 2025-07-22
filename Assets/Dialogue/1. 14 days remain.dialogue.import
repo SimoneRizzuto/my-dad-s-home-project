@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://c4t0mo45346ew"
+path="res://.godot/imported/1. 14 days remain.dialogue-ca92df21624be914264b6b51b1e0c305.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/1. 14 days remain.dialogue"
+dest_files=["res://.godot/imported/1. 14 days remain.dialogue-ca92df21624be914264b6b51b1e0c305.tres"]
+
+[params]
+
+defaults=true
