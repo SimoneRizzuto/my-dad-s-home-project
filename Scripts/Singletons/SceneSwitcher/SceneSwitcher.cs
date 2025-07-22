@@ -11,13 +11,31 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     // const
     public const string Set1_OnlineWorld = "uid://cjd6v6afkjbn0";
     public const string Set1_OliverBedroom = "uid://cap325m8jhcqw";
+    public const string TransitionScreen = "uid://ba8ajsihdkrwt";
     
     // getters
-    private Node Main => GetTree().CurrentScene;
+    public static SceneSwitcher Instance { get; private set; }
+
     private PlayerCamera PlayerCamera => PlayerCamera.Instance;
     private CastCrew CastCrew => CastCrew.Instance;
     
     #region cutscene transitionary methods
+    
+    public override void _EnterTree()
+    {
+        Instance = this;
+    }
+    
+    private Node? GetMain()
+    {
+        var tree = GetTree();
+        if (tree == null)
+        {
+            GD.PrintErr("Scene tree is null. SceneSwitcher is likely being accessed too early.");
+            return null;
+        }
+        return tree.CurrentScene;
+    }
     public void Spawn_TransitionaryScene()
     {
         
@@ -35,10 +53,18 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     #endregion
     
     #region functionality
-    public void TransitionToScene(string uid)
+    public void TransitionToScene(string uid = null, PackedScene scene = null)
     {
         ClearMain();
-        SpawnScene(uid);
+        if (uid != null)
+        {
+            SpawnSceneUid(uid);
+        }
+        else
+        {
+            SpawnScenePacked(scene);
+        }
+        
         CastCrew.InitialiseActors(); // make into signal???
     }
     
@@ -53,10 +79,10 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
         }
         
         var instanced = scene.Instantiate();
-        Main.AddChild(instanced);
+        GetMain()?.AddChild(instanced);
     }
     
-    public void SpawnScene(string uid)
+    public void SpawnSceneUid(string uid)
     {
         var uidLong = ResourceUid.TextToId(uid);
         var path = ResourceUid.GetIdPath(uidLong);
@@ -68,16 +94,31 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
         }
         
         var instanced = scene.Instantiate();
-        Main.AddChild(instanced);
+        GetMain()?.AddChild(instanced);
+    }
+    
+    public void SpawnScenePacked(PackedScene scene)
+    {
+        
+        if (scene == null)
+        {
+            GD.PrintErr($"Scene cannot be loaded. PackedScene: {scene.ToString()}");
+            return;
+        }
+        
+        var instanced = scene.Instantiate();
+        GetMain()?.AddChild(instanced);
     }
     
     private void ClearMain()
     {
-        var allChildren = Main.GetChildren();
-        foreach (var child in allChildren)
-        {
-            child.QueueFree();
-        }
+        
+        var allChildren = GetMain()?.GetChildren();
+        if (allChildren != null)
+            foreach (var child in allChildren)
+            {
+                child.QueueFree();
+            }
     }
     #endregion
 }
