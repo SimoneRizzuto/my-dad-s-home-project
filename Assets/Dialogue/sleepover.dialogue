@@ -1,0 +1,200 @@
+~ initial_scene
+#Friend and Oliver are in a bedroom together, playing video games while huddled next to each other.
+#Someone wins, and then Oliver gets up to walk around the room. There are things to interact with.
+
+Oliver: NO WAY!
+Friend: YES!
+Friend: Woo!
+Oliver: That was SO UNLUCKY!
+Friend: Hey, what I can I say? They call me the drift queen!
+Oliver: No one says that...
+
+do Director.Wait(3)
+
+Oliver: Ok, time to get up a bit.
+Oliver: Bathroom time!
+Friend: Don’t fall in.
+Oliver: Hey, that’s my line!
+Friend: You literally stole that.
+Oliver: Sorry, I can't hear you!
+=> END
+
+# ------------------------
+# -- SMALL INTERACTIONS -- 
+# ------------------------
+
+~ dad_picture_interaction
+Oliver: (Her dad.)
+Oliver: (I never got to know him.)
+Oliver: (Only the stories.)
+=> END
+
+~ tv_interaction
+Oliver: When did you get so good at Marco Kart?
+Friend: I’ve always been good. It was just bubbling under the surface.
+Oliver: Hey, look.
+Oliver: I don't wanna say it, but I WAS going easy on you.
+Friend: Oh yeah? Is that why you lost four times in a row?
+Oliver: ... Yeah, totally. Mhh mhh.
+Friend: You got me... Wow.
+=> END
+
+~ computer_interaction
+Oliver: By the way, you never got to show me your drawings.
+Friend: Oh yeah!
+
+#Friend gets up and walks to the computer. Merps are shown on the screen.
+
+Friend: Look at my little merps!
+Oliver: Daaamn!
+Friend: Yeah!
+Oliver: Are they different from the ones you drew the other day?
+Friend: Yes. Well, some are.
+Friend: The one on the right is the same reoccurring one. She’s called Potato.
+Friend: The other ones are just little guys I doodled.
+Friend: It’s been difficult to think of different kinds of merps, so I keep on resorting to the same plants.
+Oliver: You should make a chocolate one.
+Friend: Uh? But it doesn’t fit what I have in mind for them. 
+Friend: They’re meant to be plant based.
+Oliver: Cacao is technically a seed from a plant.
+Friend: Yes, cacao seeds are, but not chocolate. That’s different.
+Oliver: Then do a cacao one. That would still be cool.
+Friend: Ok ok. I'll keep it in mind for next time.
+Oliver: Hell yeah!
+=> END
+
+~ pizza_carton_interaction
+Oliver: Hey, you got Gigi's again!
+Friend: I wasn't lying when I said I liked it.
+Oliver: So what you're telling me is...
+Oliver: ...good pizza exists after all!
+Friend: I never said I didn't like pizza.
+Friend: It just isn't my first option.
+Oliver: ... And yet clearly, you got Gigi's one time over something else.
+Friend: Ok, Olive Boy.
+Oliver: Hey!
+Oliver: That fits too well...
+Friend: Hehe~
+=> END
+
+# ------------------
+# -- CONTINUATION --
+# ------------------
+
+~ going_to_bathroom
+#Separate Oliver from friend, by going to the toilet. The outside is a forest, separated by a door.
+
+Oliver: This is nice.
+Oliver: Haven't had this for a little bit.
+Oliver: ...
+Oliver: I wonder what Papa is doing...
+Oliver: ...
+Oliver: No. Don't think about him. This is meant to be a fun night.
+Oliver: A relaxing night away from...
+Oliver: ...
+Oliver: *sigh*
+Oliver: I wish nights like this never had to end.
+=> END
+
+~ going_to_bedroom
+#When rejoining his friend, this time, it is a campfire. No door separates the outside.
+
+Oliver: ...
+Friend: You didn't fall in, did you?
+Oliver: Pff.
+Oliver: Not this time.
+
+#Oliver sits next to the fireplace.
+
+do Director.Wait(3)
+
+#Oliver looks around himself.
+#Oliver closes his eyes.
+
+Oliver: Ahhhh...
+Oliver: ...
+Oliver: Do you feel this warmth?
+Friend: Mhh?
+Oliver: I feel really cozy. Don't you agree?
+Friend: ...
+Friend: Yeah, I  do.
+
+#Oliver opens his eyes. He lies down.
+
+Oliver: I wish we had marshmallows.
+Oliver: We could warm them up in a fire, and just...
+Oliver: Ooooh yeah. That would be awesome.
+Friend: I've never done that before.
+Oliver: Me neither.
+Friend: What? I thought you were speaking from experience.
+Oliver: I don't know. I haven't done many things.
+Oliver: They make it look really nice in movies.
+Oliver: Surely, it's just as nice in real life.
+Friend: ...
+Friend: Maybe.
+Oliver: When we're older, we should definitely go camping with everyone.
+Oliver: It would be really fun to be out there, gathering wood for a fire, cooking dinner in it.
+Friend: As long as I can bring my sketchbook, I'm happy.
+Oliver: True! And then you could draw your point of view, and capture the moment.
+Oliver: That'd be cool.
+Friend: Eh. I'd rather draw whatever comes to mind.
+Oliver: Well, I would do that... even if its a bad doodle.
+Oliver: I'd try capture the moment myself. Through MY eyes.
+
+do Director.Wait(3)
+
+Oliver: What would YOU draw?
+Friend: ...
+
+# she looks up to the sky
+
+do Director.Wait(3)
+
+Friend: I've heard the night sky is filled with stars when you go camping.
+Friend: I think that'd be nice.
+
+# the stars appear more shiny once that's said
+# do Director.Wait(2)
+
+Friend: I hope it's as pretty as I imagine it to be.
+Friend: You really think do that one day?
+Oliver: I hope so.
+Oliver: Assuming I haven't moved too far away.
+Friend: We can still get together.
+Friend: It doesn't have to be hard...
+Oliver: I know.
+Oliver: But you never know...
+Friend: Then promise to make the effort.
+Oliver: ...
+
+do Director.Wait(2)
+
+Oliver: Ok, I promise.
+Friend: To?
+Oliver: I promise to go camping with you sometime.
+Friend: Oliver...
+Oliver: I-
+Oliver: *small text* I promise to try.
+Friend: Me too.
+
+do Director.Wait(6)
+
+
+# rewrite this last bit
+
+Oliver: I could fall asleep any time now...
+Oliver: I don't... want to though...
+Friend: I'm sleepy.
+Oliver: No... do not... succumb.
+Friend: Why?
+Oliver: I don't want this night to end...
+Oliver: I'm having too much fun.
+Friend: Me too.
+Friend: But... we have to sleep.
+Oliver: *sigh* I know.
+Oliver: Fine.
+Oliver: Sleepy time, I guess.
+Friend: Good night, Oli.
+Oliver: Good night, (name drop).
+=> END
+ 

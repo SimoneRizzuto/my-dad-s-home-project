@@ -10,7 +10,7 @@ public partial class Oliver : CharacterBody2D, ICharacter
 {
     [Export] public Direction LastDirection { get; set; } = Direction.Left;
     
-    public static Oliver? Instance { get; private set; }
+    public static Oliver Instance { get; private set; }
     
     // getters
     private int Gravity => ProjectSettings.GetSetting("physics/2d/default_gravity").ToString().ToInt();

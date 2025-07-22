@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cfrhcgnum5ctx"]
+[gd_scene load_steps=23 format=3 uid="uid://cfrhcgnum5ctx"]
 
 [ext_resource type="Script" path="res://Scripts/Character/BasicCharacter.cs" id="1_kssbu"]
 [ext_resource type="Texture2D" uid="uid://dwbu4vfd35r47" path="res://Assets/Textures/Sasha/sasha idle left-Sheet.png" id="2_2p2j2"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://pmxcf3so0285" path="res://Assets/Textures/Sasha/sasha draw right look left-Sheet.png" id="3_jtiwj"]
 [ext_resource type="Texture2D" uid="uid://dod545cc2tx2m" path="res://Assets/Textures/Sasha/sasha draw right look left down-Sheet.png" id="4_l2ekk"]
 [ext_resource type="Texture2D" uid="uid://bh7ka68xm0lny" path="res://Assets/Textures/Sasha/sasha draw right look right-Sheet.png" id="4_tvyxc"]
-[ext_resource type="Texture2D" uid="uid://dq0bo22y3ja1v" path="res://Assets/Textures/Sasha/sasha draw wave left-Sheet.png" id="6_qxr03"]
 [ext_resource type="Texture2D" uid="uid://bgsw5g2wlminy" path="res://Assets/Textures/Sasha/sasha idle right-Sheet.png" id="7_8kmy0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_egfdo"]
@@ -43,14 +42,6 @@ region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ppcnn"]
 atlas = ExtResource("2_4r44i")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uvn6k"]
-atlas = ExtResource("6_qxr03")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_syc3e"]
-atlas = ExtResource("6_qxr03")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hkr08"]
@@ -116,17 +107,6 @@ animations = [{
 "speed": 4.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uvn6k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_syc3e")
-}],
-"loop": true,
-"name": &"draw wave left",
-"speed": 3.0
-}, {
-"frames": [{
 "duration": 16.0,
 "texture": SubResource("AtlasTexture_hkr08")
 }, {
@@ -159,7 +139,6 @@ shape = SubResource("RectangleShape2D_egfdo")
 [node name="MainSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_5lq05")
-animation = &"draw wave left"
-frame_progress = 0.36249
+animation = &"idle right"
 
 [node name="ActorModule" parent="." instance=ExtResource("3_foa8s")]

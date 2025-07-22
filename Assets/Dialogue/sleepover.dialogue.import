@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://hqbevxyupoa2"
+path="res://.godot/imported/sleepover.dialogue-d2548fbd0e8422e126905e52ded75c8c.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/sleepover.dialogue"
+dest_files=["res://.godot/imported/sleepover.dialogue-d2548fbd0e8422e126905e52ded75c8c.tres"]
+
+[params]
+
+defaults=true

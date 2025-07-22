@@ -106,9 +106,7 @@ Interact={
 
 [internationalization]
 
-
-locale/translations_pot_files=PackedStringArray("res://Assets/Dialogue/test-dialogue.dialogue", "res://Assets/Dialogue/1. 14 days remain.dialogue", "res://Assets/Dialogue/2. sleepover.dialogue", "res://Assets/Dialogue/3. 79 days remain.dialogue", "res://Assets/Dialogue/4. 84 days remain.dialogue", "res://Assets/Dialogue/5. i cant sleep.dialogue", "res://Assets/Dialogue/6. final day.dialogue", "res://Assets/Dialogue/1. 14 days remain (2).dialogue")
-
+locale/translations_pot_files=PackedStringArray("res://Assets/Dialogue/test-dialogue.dialogue", "res://Assets/Dialogue/14 days remain.dialogue", "res://Assets/Dialogue/sleepover.dialogue", "res://Assets/Dialogue/84 days remain.dialogue", "res://Assets/Dialogue/79 days remain.dialogue", "res://Assets/Dialogue/final day.dialogue", "res://Assets/Dialogue/i cant sleep.dialogue")
 
 [physics]
 
