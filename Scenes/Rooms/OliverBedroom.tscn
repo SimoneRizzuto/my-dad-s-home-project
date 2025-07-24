@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cyoekyq6ui657"]
+[gd_scene load_steps=30 format=3 uid="uid://cyoekyq6ui657"]
 
 [ext_resource type="Texture2D" uid="uid://bi14ih4bw0ew2" path="res://Assets/Textures/Environments/oliver-room-background-wall.png" id="1_bcs8k"]
 [ext_resource type="Script" path="res://Scenes/Rooms/CameraOverride.cs" id="1_pd1oj"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bvfvlnrtbrfiu" path="res://Assets/Textures/Rendering/2d_pointed_light_texture_down.png" id="9_pmsv0"]
 [ext_resource type="Texture2D" uid="uid://py0lra5cwyuo" path="res://Assets/Textures/StaticObjects/OliverBedroom/computer-chair.png" id="9_v2o21"]
 [ext_resource type="PackedScene" uid="uid://s5admqqm1d77" path="res://Scenes/Modules/InteractableModule.tscn" id="10_3d4tr"]
+[ext_resource type="Script" path="res://Scripts/Interactables/ClothesMoveToDrawerAction.cs" id="10_a5xy8"]
 [ext_resource type="Script" path="res://Scripts/Interactables/ClothesMoveToHeadAction.cs" id="10_g7k14"]
 [ext_resource type="Texture2D" uid="uid://dwftnnxn3wdel" path="res://Assets/Textures/Rendering/2d_pointed_light_texture_up.png" id="10_yjve7"]
 [ext_resource type="Texture2D" uid="uid://cich785oov6wr" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_up_point_light.webp" id="11_epxpr"]
@@ -83,6 +84,21 @@ centered = false
 [node name="SpiderBoyPoster" type="Sprite2D" parent="Objects"]
 position = Vector2(113, 46)
 texture = ExtResource("5_6wfvo")
+
+[node name="BedsideDrawer" type="Sprite2D" parent="Objects"]
+z_index = -10
+position = Vector2(61, 52)
+texture = ExtResource("7_vxv3r")
+centered = false
+
+[node name="InteractableModule" parent="Objects/BedsideDrawer" instance=ExtResource("10_3d4tr")]
+position = Vector2(24, 13)
+scale = Vector2(1.76641, 0.972235)
+TriggerMode = 1
+DisableOnInteract = true
+
+[node name="Node2D" type="Node2D" parent="Objects/BedsideDrawer/InteractableModule"]
+script = ExtResource("10_a5xy8")
 
 [node name="Clothes" type="Sprite2D" parent="Objects"]
 position = Vector2(103, 70)
@@ -230,12 +246,6 @@ scale = Vector2(0.050781, 0.061)
 color = Color(0, 0.843137, 1, 1)
 range_z_max = -11
 texture = ExtResource("12_qvimp")
-
-[node name="BedsideDrawer" type="Sprite2D" parent="Objects"]
-z_index = -10
-position = Vector2(61, 52)
-texture = ExtResource("7_vxv3r")
-centered = false
 
 [node name="Bed" type="Sprite2D" parent="Objects"]
 z_index = -10

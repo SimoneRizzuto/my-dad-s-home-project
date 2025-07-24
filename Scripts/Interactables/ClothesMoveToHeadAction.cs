@@ -1,6 +1,4 @@
 using Godot;
-using System;
-using Godot.NativeInterop;
 using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Shared.Modules;
 
@@ -25,8 +23,6 @@ public partial class ClothesMoveToHeadAction : Node2D, IAction
 			ClothesSprite2D.Texture = PickUpTexture;
 			ClothesSprite2D.Position = new(-4, -22);
 		}
-		
-		
 		
 		// activate other Action to place into drawer
 		// maybe through signal??
