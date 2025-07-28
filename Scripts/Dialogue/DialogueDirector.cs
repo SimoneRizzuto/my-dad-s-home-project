@@ -117,7 +117,7 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
     
     public override void _Process(double delta)
     {
-        if (Oliver.Instance.CharacterState != CharacterState.Cutscene) return;
+        if (Oliver.Instance?.CharacterState != CharacterState.Cutscene) return;
         
         switch (_directorDirectionToPlay)
         {
