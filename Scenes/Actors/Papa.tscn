@@ -50,6 +50,8 @@ animations = [{
 }]
 
 [node name="Papa" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_bavyb")
 
 [node name="MainShape" type="CollisionShape2D" parent="."]
