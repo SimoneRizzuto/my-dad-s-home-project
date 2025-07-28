@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci3t7wpbmy852"]
+
+[ext_resource type="PackedScene" uid="uid://cemnuys6w3rjr" path="res://Scenes/Dialogue/Actor/ActorModule.tscn" id="1_dcdts"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxvwp"]
+
+[node name="Papa" type="Node2D"]
+
+[node name="MainShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_hxvwp")
+
+[node name="MainSprite" type="Sprite2D" parent="."]
+
+[node name="ActorModule" parent="." instance=ExtResource("1_dcdts")]
