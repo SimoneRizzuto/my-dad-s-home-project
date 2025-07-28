@@ -112,10 +112,8 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     
     public void SpawnScenePacked(PackedScene scene)
     {
-        
         if (scene == null)
         {
-            child.Free();
             GD.PrintErr($"Scene cannot be loaded. PackedScene: {scene.ToString()}");
             return;
         }
