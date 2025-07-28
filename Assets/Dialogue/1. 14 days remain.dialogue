@@ -126,38 +126,38 @@ do Oliver.PlayAnimation("stand from seat")
 
 ~ dad_walks_in
 
-Dad: Why didn’t you answer after the first time?
+Papa: Why didn’t you answer after the first time?
 Oliver: I guess I didn’t hear it.
 
 do Director.Wait(2)
 do Papa.PlayAnimation()
 
-Dad: Who are you talking to?
+Papa: Who are you talking to?
 Oliver: Just a friend.
-Dad: Who is it?
+Papa: Who is it?
 Oliver: ...
-Dad: ...
+Papa: ...
 
 do Director.Wait(2)
 
 #The dad walks into the room. He places the plate on the table, and walk around the room.
 
-Dad: *sigh*
+Papa: *sigh*
 #if you've cleaned up your room
-	Dad: You're always stuck inside.
+	Papa: You're always stuck inside.
 #else
-	Dad: This mess...
-Dad: I shouldn’t even have to say anything.
+	Papa: This mess...
+Papa: I shouldn’t even have to say anything.
 Oliver: ...
 
 #The dad turns to Oliver.
 
-Dad: Are YOU going to say anything?
+Papa: Are YOU going to say anything?
 Oliver: I’ll clean it later...
 
 #He walks toward the door.
 
-Dad: Arrangia!
+Papa: Arrangia!
 
 #He leaves, and slams the door.
 #Oliver’s heart is still heard beating again.
@@ -250,8 +250,8 @@ Oliver: I wish I could sneak out the window though.
 
 ~ oliver_attempts_to_leave
 
-Dad: Where are you going?
+Papa: Where are you going?
 Oliver: Out.
-Dad: ...
+Papa: ...
 
 => END
