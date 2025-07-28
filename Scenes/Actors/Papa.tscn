@@ -1,16 +1,65 @@
-[gd_scene load_steps=3 format=3 uid="uid://ci3t7wpbmy852"]
+[gd_scene load_steps=11 format=3 uid="uid://ci3t7wpbmy852"]
 
+[ext_resource type="Texture2D" uid="uid://cdkf25wwndaih" path="res://Assets/Textures/Papa/papa idle left-Sheet.png" id="1_8skv1"]
+[ext_resource type="Script" path="res://Scripts/Character/BasicCharacter.cs" id="1_bavyb"]
 [ext_resource type="PackedScene" uid="uid://cemnuys6w3rjr" path="res://Scenes/Dialogue/Actor/ActorModule.tscn" id="1_dcdts"]
+[ext_resource type="Texture2D" uid="uid://dlsiewk6ruw4x" path="res://Assets/Textures/Papa/papa idle right-Sheet.png" id="2_776xs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxvwp"]
-size = Vector2(13, 20)
+size = Vector2(7, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxnal"]
+atlas = ExtResource("1_8skv1")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8opp"]
+atlas = ExtResource("1_8skv1")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2xuq"]
+atlas = ExtResource("2_776xs")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1iblr"]
+atlas = ExtResource("2_776xs")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_egf5v"]
+animations = [{
+"frames": [{
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_lxnal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8opp")
+}],
+"loop": true,
+"name": &"idle left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_x2xuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1iblr")
+}],
+"loop": true,
+"name": &"idle right",
+"speed": 8.0
+}]
 
 [node name="Papa" type="CharacterBody2D"]
+script = ExtResource("1_bavyb")
 
 [node name="MainShape" type="CollisionShape2D" parent="."]
-position = Vector2(0, -11)
+position = Vector2(0.5, -10.5)
 shape = SubResource("RectangleShape2D_hxvwp")
 
-[node name="MainSprite" type="Sprite2D" parent="."]
+[node name="MainSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-24, -48)
+sprite_frames = SubResource("SpriteFrames_egf5v")
+animation = &"idle left"
+centered = false
 
 [node name="ActorModule" parent="." instance=ExtResource("1_dcdts")]
