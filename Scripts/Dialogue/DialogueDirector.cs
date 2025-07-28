@@ -4,10 +4,11 @@ using System.Linq;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using DialogueManagerRuntime;
+using MyFathersHomeProject.Scripts.Camera;
+using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Dialogue.Base;
 using MyFathersHomeProject.Scripts.Dialogue.Actor;
-using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
 namespace MyFathersHomeProject.Scripts.Dialogue;
@@ -15,7 +16,8 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
 {
     public static DialogueDirector Instance { get; private set; }
     
-    private bool inCutscene;
+    private bool _inCutscene;
+    
     private double millisecondsToPass = 1000;
     public Task ActionCompleted => ActionGiven.Task;
     public TaskCompletionSource ActionGiven { get; set; } = new();
@@ -27,10 +29,11 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
     {
         Instance = this;
         
+        DialogueManager.DialogueEnded += FinishCutscene;
         LoadActorsIntoCurrentScene();
     }
     
-    private bool LoadActorsIntoCurrentScene()
+    public bool LoadActorsIntoCurrentScene()
     {
         var scriptPath = $"res://Scripts/Dialogue/{nameof(CastCrew)}.cs";
         try
@@ -58,17 +61,21 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
     
     public void TriggerCutscene(Resource dialogueResource, string title)
     {
-        if (inCutscene) return;
-        inCutscene = true;
+        if (_inCutscene) return;
+        _inCutscene = true;
         
         SetActorsCharacterState(CharacterState.Cutscene);
         ShowDialogueBalloon(dialogueResource, title);
     }
     
+    public void ToggleCameraSmoothing(bool enabled)
+    {
+        PlayerCamera.Instance.ToggleSmoothing(enabled);
+    }
+    
     private void ShowDialogueBalloon(Resource dialogueResource, string title)
     {
         DialogueManager.ShowDialogueBalloon(dialogueResource, title);
-        DialogueManager.DialogueEnded += FinishCutscene;
     }
     
     private void SetActorsCharacterState(CharacterState state)
@@ -139,12 +146,11 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
     
     #region signals
     
-    private void FinishCutscene(Resource dialogueResource)
+    public void FinishCutscene(Resource dialogueResource)
     {
-        inCutscene = false;
+        _inCutscene = false;
         
         SetActorsCharacterState(CharacterState.Gameplay);
-        DialogueManager.DialogueEnded -= FinishCutscene;
     }
     
     public void Dispose()

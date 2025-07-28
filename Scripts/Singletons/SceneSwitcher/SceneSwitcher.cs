@@ -1,14 +1,20 @@
 using System;
 using System.Linq;
+using DialogueManagerRuntime;
 using Godot;
 using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Dialogue;
 using MyFathersHomeProject.Scripts.Player;
+using MyFathersHomeProject.Scripts.Shared.Helpers;
 
 namespace MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 public partial class SceneSwitcher : Node, ISceneSwitcher
 {
-    // const
+    // CONSTS
+    // dialogue resources
+    public const string FourteenDaysRemain = "uid://c4t0mo45346ew";
+    
+    // sets
     public const string Set1_OnlineWorld = "uid://cjd6v6afkjbn0";
     public const string Set1_OliverBedroom = "uid://cap325m8jhcqw";
     public const string TransitionScreen = "uid://ba8ajsihdkrwt";
@@ -41,13 +47,20 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
         
     }
 
-    public void Spawn_Set1_OliverBedroom()
+    public void Spawn_DadKnocksScene()
     {
         TransitionToScene(Set1_OliverBedroom);
-        PlayerCamera.SetPositionOnOliver(); // make into signal???
         
-        /*do Oliver.SetCharacterState(1)
-         do Oliver.PlayAnimation("sit left")*/
+        PlayerCamera.Dismount();
+        
+        var uidLong = ResourceUid.TextToId(FourteenDaysRemain);
+        var path = ResourceUid.GetIdPath(uidLong);
+        var resource = ResourceLoader.Load(path);
+        
+        var title = "dad_knocks";
+
+        DialogueDirector.Instance.FinishCutscene(resource);
+        DialogueDirector.Instance.TriggerCutscene(resource, title);
     }
     
     #endregion
@@ -102,6 +115,7 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
         
         if (scene == null)
         {
+            child.Free();
             GD.PrintErr($"Scene cannot be loaded. PackedScene: {scene.ToString()}");
             return;
         }

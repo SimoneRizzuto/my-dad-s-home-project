@@ -1,5 +1,5 @@
 namespace MyFathersHomeProject.Scripts.Shared.Modules;
-public interface IInteractable
+public interface IAction
 {
-    void Interact();
+    void Action();
 }

@@ -100,15 +100,29 @@ Sasha: Yeah?
 Oliver: Can I-
 
 do Audio.PlaySound("knocking")
-do SceneSwitcher.Spawn_Set1_OliverBedroom()
+do Director.Wait(0.5)
+do Director.ToggleCameraSmoothing(false)
+do SceneSwitcher.Spawn_DadKnocksScene()
+
+=> END
+
+~ dad_knocks
+
+#don't have a reference to Oliver
 do Oliver.SetCharacterState(1)
 do Oliver.PlayAnimation("sit left")
 
+do Director.Wait(1)
+
 Oliver: Coming!
 
+do Director.ToggleCameraSmoothing(true)
 do Oliver.PlayAnimation("stand from seat")
 
 => END
+
+
+
 
 ~ dad_walks_in
 

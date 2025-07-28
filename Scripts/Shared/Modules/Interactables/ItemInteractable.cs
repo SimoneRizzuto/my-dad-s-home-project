@@ -2,10 +2,11 @@ using Godot;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
-public partial class ItemInteractable : Area2D, IInteractable
+public partial class ItemInteractable : Area2D, IAction
 {
     [Signal] public delegate void TriggeredItemEventHandler();
     [Export] public TriggerMode TriggerMode;
+    [Export] public bool DisableOnInteract;
     
     private bool InputInteract => Input.IsActionPressed(InputMapAction.Interact);
     
@@ -26,7 +27,7 @@ public partial class ItemInteractable : Area2D, IInteractable
         
         if (triggerInteract)
         {
-            Interact();
+            Action();
         }
     }
     
@@ -56,9 +57,13 @@ public partial class ItemInteractable : Area2D, IInteractable
         }
     }
     
-    public virtual void Interact()
+    public virtual void Action()
     {
         EmitSignal(nameof(TriggeredItem));
+        if (DisableOnInteract)
+        {
+            Monitoring = false;
+        }
     }
 }
 

@@ -2,12 +2,12 @@ using Godot;
 using MyFathersHomeProject.Scripts.Dialogue;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
-public partial class DialogueInteractable : ItemInteractable
+public partial class DialogueTriggerAction : Node2D, IAction
 {
     [Export] public Resource DialogueResource;
     [Export] public string Title;
     
-    public override void Interact()
+    public void Action()
     {
         DialogueDirector.Instance.TriggerCutscene(DialogueResource, Title);
     }
