@@ -132,6 +132,11 @@ public partial class Oliver : CharacterBody2D, ICharacter
         PlayAnimation($"jump {LastDirectionString}");
     }
     
+    public void SetVisibility(bool visible)
+    {
+        Visible = visible;
+    }
+    
     #endregion
     
     #region signals

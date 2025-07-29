@@ -73,5 +73,10 @@ public partial class BasicCharacter : CharacterBody2D, ICharacter
         throw new NotImplementedException();
     }
     
+    public void SetVisibility(bool visible)
+    {
+        Visible = visible;
+    }
+    
     #endregion
 }

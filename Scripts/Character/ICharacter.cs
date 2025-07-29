@@ -10,4 +10,5 @@ public interface ICharacter
     void PlayAnimation(string animationName);
     void SetDirection(Direction direction);
     void Jump();
+    void SetVisibility(bool visible);
 }

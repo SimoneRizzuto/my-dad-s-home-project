@@ -82,6 +82,11 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
         else if (direction > 0) Character.SetDirection(Direction.Right);
     }
     
+    public void SetVisibility(bool visible)
+    {
+        Character.SetVisibility(visible);
+    }
+    
     #endregion
     
     #region process logic
