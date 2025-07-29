@@ -130,6 +130,12 @@ do Papa.SetVisibility(true)
 do Papa.SetDirection(1)
 do Oliver.SetDirection(1)
 
+if (true)
+	do Director.Wait(2.5)
+	Papa: What are you *continue without skipping*
+	do Papa.SetVisibility(false)
+	=> END
+
 Papa: Why didn’t you answer after the first time?
 Oliver: I guess I didn’t hear it.
 
@@ -155,7 +161,7 @@ do Papa.MoveToXPosition(100)
 
 do Director.Wait(1)
 
-if (true)
+if (true) #do this
 	do Papa.MoveRight(1)
 	do Director.Wait(1)
 	
