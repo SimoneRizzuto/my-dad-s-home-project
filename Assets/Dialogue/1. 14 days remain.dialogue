@@ -126,7 +126,9 @@ do Oliver.PlayAnimation("stand from seat")
 
 ~ dad_walks_in
 
+do Papa.SetVisibility(true)
 do Papa.SetDirection(1)
+do Oliver.SetDirection(1)
 
 Papa: Why didn’t you answer after the first time?
 Oliver: I guess I didn’t hear it.
