@@ -1,8 +1,7 @@
 using Godot;
 using MyFathersHomeProject.Scripts.Player;
-using MyFathersHomeProject.Scripts.Shared.Modules;
 
-namespace MyFathersHomeProject.Scripts.Interactables;
+namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables.Custom;
 public partial class ClothesMoveToHeadAction : Node2D, IAction
 {
 	[Export] public Texture2D? PickUpTexture;

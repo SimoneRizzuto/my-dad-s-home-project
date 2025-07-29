@@ -1,9 +1,8 @@
-using System.Linq;
 using Godot;
+using System.Linq;
 using MyFathersHomeProject.Scripts.Player;
-using MyFathersHomeProject.Scripts.Shared.Modules;
 
-namespace MyFathersHomeProject.Scripts.Interactables;
+namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables.Custom;
 public partial class ClothesMoveToDrawerAction : Node2D, IAction
 {
     // getters
