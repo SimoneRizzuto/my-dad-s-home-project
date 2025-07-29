@@ -166,6 +166,8 @@ Papa: Arrangia!
 #He leaves, and slams the door.
 #Oliver’s heart is still heard beating again.
 
+do Papa.SetVisibility(false)
+
 => END
 
 ~ back_on_the_computer
