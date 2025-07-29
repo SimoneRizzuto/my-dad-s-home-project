@@ -11,6 +11,7 @@ public partial class CastCrew : Node2D
     // Actors
     public ActorModule Oliver;
     public ActorModule Sasha;
+    public ActorModule Papa;
     
     public override void _Ready()
     {
@@ -34,6 +35,9 @@ public partial class CastCrew : Node2D
                     break;
                 case "Sasha":
                     Sasha = actor;
+                    break;
+                case "Papa":
+                    Papa = actor;
                     break;
             }
         }

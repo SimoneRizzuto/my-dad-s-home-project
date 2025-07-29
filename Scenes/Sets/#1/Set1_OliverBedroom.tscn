@@ -24,4 +24,5 @@ Title = "dad_walks_in"
 
 [node name="Papa" parent="." instance=ExtResource("6_mvq4p")]
 z_index = 115
-position = Vector2(203, 51)
+position = Vector2(269, 51)
+InitialAnimation = "idle_left"
