@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cyoekyq6ui657"]
+[gd_scene load_steps=34 format=3 uid="uid://cyoekyq6ui657"]
 
 [ext_resource type="Texture2D" uid="uid://bi14ih4bw0ew2" path="res://Assets/Textures/Environments/oliver-room-background-wall.png" id="1_bcs8k"]
 [ext_resource type="Script" path="res://Scenes/Rooms/CameraOverride.cs" id="1_pd1oj"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cu4vgtlot0af6" path="res://Assets/Textures/StaticObjects/OliverBedroom/spider-boy-poster.png" id="5_6wfvo"]
 [ext_resource type="Texture2D" uid="uid://ds7aj5pn0ud40" path="res://Assets/Textures/StaticObjects/LivingRoom/window-1.png" id="5_45bm8"]
 [ext_resource type="Texture2D" uid="uid://dwjbm3hnhd314" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-bed.png" id="5_gjsmd"]
+[ext_resource type="Texture2D" uid="uid://ccww1rylfw6oo" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-room-door-2-open.png" id="6_4pnky"]
 [ext_resource type="Texture2D" uid="uid://dxdlfso230vqe" path="res://Assets/Textures/StaticObjects/OliverBedroom/lamp-2.png" id="6_k5h05"]
 [ext_resource type="Texture2D" uid="uid://04nacisj1c5p" path="res://Assets/Textures/StaticObjects/OliverBedroom/clothes.png" id="7_ru0kb"]
 [ext_resource type="Texture2D" uid="uid://dvxi1fkoqhfuc" path="res://Assets/Textures/StaticObjects/OliverBedroom/bedside-drawer-2-oliver.png" id="7_vxv3r"]
@@ -25,6 +26,33 @@
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/ClothesMoveToHeadAction.cs" id="12_2pib8"]
 [ext_resource type="Texture2D" uid="uid://o0psnnkmfi2r" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_down_point_light.webp" id="12_qvimp"]
 [ext_resource type="Texture2D" uid="uid://b8smyff3h32v7" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-room-door-2.png" id="13_jdh1p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8roxj"]
+atlas = ExtResource("13_jdh1p")
+region = Rect2(0, 0, 28, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqw4f"]
+atlas = ExtResource("6_4pnky")
+region = Rect2(0, 0, 28, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qfc3c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8roxj")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqw4f")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ic21g"]
 
@@ -71,9 +99,10 @@ centered = false
 
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="Door" type="Sprite2D" parent="Objects"]
+[node name="Door" type="AnimatedSprite2D" parent="Objects"]
 position = Vector2(223, 32)
-texture = ExtResource("13_jdh1p")
+sprite_frames = SubResource("SpriteFrames_qfc3c")
+animation = &"closed"
 centered = false
 
 [node name="HeroPoster" type="Sprite2D" parent="Objects"]
