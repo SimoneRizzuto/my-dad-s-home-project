@@ -1,8 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://cyoekyq6ui657"]
+[gd_scene load_steps=34 format=3 uid="uid://cyoekyq6ui657"]
 
 [ext_resource type="Texture2D" uid="uid://bi14ih4bw0ew2" path="res://Assets/Textures/Environments/oliver-room-background-wall.png" id="1_bcs8k"]
 [ext_resource type="Script" path="res://Scenes/Rooms/CameraOverride.cs" id="1_pd1oj"]
-[ext_resource type="PackedScene" path="res://Scenes/Camera/TripodMount.tscn" id="2_piyi6"]
+[ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="2_piyi6"]
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="2_y5hah"]
 [ext_resource type="Texture2D" uid="uid://dr8ie6j8g2608" path="res://Assets/Textures/StaticObjects/OliverBedroom/hero-poster.png" id="4_d7bue"]
 [ext_resource type="Texture2D" uid="uid://dkaw555svegmx" path="res://Assets/Textures/StaticObjects/OliverBedroom/bedside-drawer-oliver.png" id="4_jfg7y"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cu4vgtlot0af6" path="res://Assets/Textures/StaticObjects/OliverBedroom/spider-boy-poster.png" id="5_6wfvo"]
 [ext_resource type="Texture2D" uid="uid://ds7aj5pn0ud40" path="res://Assets/Textures/StaticObjects/LivingRoom/window-1.png" id="5_45bm8"]
 [ext_resource type="Texture2D" uid="uid://dwjbm3hnhd314" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-bed.png" id="5_gjsmd"]
+[ext_resource type="Texture2D" uid="uid://ccww1rylfw6oo" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-room-door-2-open.png" id="6_4pnky"]
 [ext_resource type="Texture2D" uid="uid://dxdlfso230vqe" path="res://Assets/Textures/StaticObjects/OliverBedroom/lamp-2.png" id="6_k5h05"]
 [ext_resource type="Texture2D" uid="uid://04nacisj1c5p" path="res://Assets/Textures/StaticObjects/OliverBedroom/clothes.png" id="7_ru0kb"]
 [ext_resource type="Texture2D" uid="uid://dvxi1fkoqhfuc" path="res://Assets/Textures/StaticObjects/OliverBedroom/bedside-drawer-2-oliver.png" id="7_vxv3r"]
@@ -18,13 +19,40 @@
 [ext_resource type="Texture2D" uid="uid://bvfvlnrtbrfiu" path="res://Assets/Textures/Rendering/2d_pointed_light_texture_down.png" id="9_pmsv0"]
 [ext_resource type="Texture2D" uid="uid://py0lra5cwyuo" path="res://Assets/Textures/StaticObjects/OliverBedroom/computer-chair.png" id="9_v2o21"]
 [ext_resource type="PackedScene" uid="uid://s5admqqm1d77" path="res://Scenes/Modules/InteractableModule.tscn" id="10_3d4tr"]
-[ext_resource type="Script" path="res://Scripts/Interactables/ClothesMoveToDrawerAction.cs" id="10_a5xy8"]
-[ext_resource type="Script" path="res://Scripts/Interactables/ClothesMoveToHeadAction.cs" id="10_g7k14"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/ClothesMoveToDrawerAction.cs" id="10_bebr2"]
 [ext_resource type="Texture2D" uid="uid://dwftnnxn3wdel" path="res://Assets/Textures/Rendering/2d_pointed_light_texture_up.png" id="10_yjve7"]
 [ext_resource type="Texture2D" uid="uid://cich785oov6wr" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_up_point_light.webp" id="11_epxpr"]
 [ext_resource type="Texture2D" uid="uid://b5b5t5lllkio2" path="res://Assets/Textures/StaticObjects/OliverBedroom/clothes-ball.png" id="11_s4via"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/ClothesMoveToHeadAction.cs" id="12_2pib8"]
 [ext_resource type="Texture2D" uid="uid://o0psnnkmfi2r" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_down_point_light.webp" id="12_qvimp"]
 [ext_resource type="Texture2D" uid="uid://b8smyff3h32v7" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-room-door-2.png" id="13_jdh1p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8roxj"]
+atlas = ExtResource("13_jdh1p")
+region = Rect2(0, 0, 28, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqw4f"]
+atlas = ExtResource("6_4pnky")
+region = Rect2(0, 0, 28, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qfc3c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8roxj")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqw4f")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ic21g"]
 
@@ -71,9 +99,10 @@ centered = false
 
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="Door" type="Sprite2D" parent="Objects"]
+[node name="Door" type="AnimatedSprite2D" parent="Objects"]
 position = Vector2(223, 32)
-texture = ExtResource("13_jdh1p")
+sprite_frames = SubResource("SpriteFrames_qfc3c")
+animation = &"closed"
 centered = false
 
 [node name="HeroPoster" type="Sprite2D" parent="Objects"]
@@ -97,8 +126,8 @@ scale = Vector2(1.76641, 0.972235)
 TriggerMode = 1
 DisableOnInteract = true
 
-[node name="Node2D" type="Node2D" parent="Objects/BedsideDrawer/InteractableModule"]
-script = ExtResource("10_a5xy8")
+[node name="Action" type="Node2D" parent="Objects/BedsideDrawer/InteractableModule"]
+script = ExtResource("10_bebr2")
 
 [node name="Clothes" type="Sprite2D" parent="Objects"]
 position = Vector2(103, 70)
@@ -111,8 +140,8 @@ scale = Vector2(0.770285, 0.299503)
 TriggerMode = 1
 DisableOnInteract = true
 
-[node name="Node2D" type="Node2D" parent="Objects/Clothes/InteractableModule"]
-script = ExtResource("10_g7k14")
+[node name="Action" type="Node2D" parent="Objects/Clothes/InteractableModule"]
+script = ExtResource("12_2pib8")
 PickUpTexture = ExtResource("11_s4via")
 
 [node name="Bin" type="Sprite2D" parent="Objects"]
@@ -269,6 +298,8 @@ position = Vector2(2, 79)
 
 [node name="Floor" type="StaticBody2D" parent="Wall+Floor"]
 position = Vector2(0, 75)
+collision_layer = 15
+collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall+Floor/Floor"]
 position = Vector2(140.5, 2)

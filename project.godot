@@ -49,6 +49,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 folder_colors={
 "res://Assets/": "red",
+"res://Assets/Textures/Rendering/": "gray",
 "res://Scenes/": "gray",
 "res://Scripts/": "yellow"
 }
@@ -106,7 +107,7 @@ Interact={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Assets/Dialogue/test-dialogue.dialogue", "res://Assets/Dialogue/1. 14 days remain.dialogue", "res://Assets/Dialogue/2. sleepover.dialogue", "res://Assets/Dialogue/3. 79 days remain.dialogue", "res://Assets/Dialogue/4. 84 days remain.dialogue", "res://Assets/Dialogue/5. i cant sleep.dialogue", "res://Assets/Dialogue/6. final day.dialogue", "res://Assets/Dialogue/1. 14 days remain (2).dialogue")
+locale/translations_pot_files=PackedStringArray("res://Assets/Dialogue/test-dialogue.dialogue", "res://Assets/Dialogue/1. 14 days remain.dialogue", "res://Assets/Dialogue/2. sleepover.dialogue", "res://Assets/Dialogue/5. i cant sleep.dialogue", "res://Assets/Dialogue/6. final day.dialogue", "res://Assets/Dialogue/3. 84 days remain.dialogue", "res://Assets/Dialogue/4. 79 days remain.dialogue", "res://Assets/Dialogue/Drafts/1. 14 days remain (old).dialogue", "res://Assets/Dialogue/Drafts/4. 79 days remain (old).dialogue", "res://Assets/Dialogue/Drafts/5. i cant sleep (old).dialogue")
 
 [physics]
 
