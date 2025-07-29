@@ -144,19 +144,37 @@ Papa: ...
 
 do Director.Wait(2)
 
+Papa: I made you dinner.
+
+do Director.Wait(2)
+
 #The dad walks into the room. He places the plate on the table, and walk around the room.
 
-Papa: *sigh*
-#if you've cleaned up your room
+do Papa.MoveToXPosition(100)
+
+
+do Director.Wait(1)
+
+if (true)
+	do Papa.MoveRight(1)
+	do Director.Wait(1)
+	
+	Papa: *sigh*
 	Papa: You're always stuck inside.
-#else
+else
+	do Papa.MoveRight(1)
+	do Director.Wait(1)
+	do Papa.PlayAnimation("idle right look down")
+	do Director.Wait(1)
+	
 	Papa: This mess...
+
 Papa: I shouldn’t even have to say anything.
 Oliver: ...
 
 #The dad turns to Oliver.
 
-Papa: Are YOU going to say anything?
+Papa: ARE you going to say anything?
 Oliver: I’ll clean it later...
 
 #He walks toward the door.
