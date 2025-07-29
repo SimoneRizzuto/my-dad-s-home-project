@@ -132,7 +132,6 @@ Papa: Why didn’t you answer after the first time?
 Oliver: I guess I didn’t hear it.
 
 do Director.Wait(2)
-do Papa.MoveLeft(200)
 #do Papa.PlayAnimation()
 
 Papa: Who are you talking to?
