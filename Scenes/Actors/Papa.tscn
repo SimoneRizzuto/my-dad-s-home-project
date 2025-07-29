@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://urkmurqsd723" path="res://Assets/Textures/Papa/papa walk right-Sheet.png" id="5_elw0b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxvwp"]
-size = Vector2(6, 21)
+size = Vector2(6, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lxnal"]
 atlas = ExtResource("1_8skv1")
@@ -123,7 +123,7 @@ collision_mask = 2
 script = ExtResource("1_bavyb")
 
 [node name="MainShape" type="CollisionShape2D" parent="."]
-position = Vector2(0, -10.5)
+position = Vector2(0, -16.5)
 shape = SubResource("RectangleShape2D_hxvwp")
 
 [node name="MainSprite" type="AnimatedSprite2D" parent="."]
