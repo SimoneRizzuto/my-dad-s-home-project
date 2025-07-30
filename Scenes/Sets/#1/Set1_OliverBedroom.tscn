@@ -16,7 +16,8 @@ position = Vector2(165, 45)
 [node name="OliverBedroom" parent="." instance=ExtResource("2_8xlvl")]
 
 [node name="InteractableModule" parent="OliverBedroom" instance=ExtResource("3_g8cnf")]
-position = Vector2(226, 66)
+position = Vector2(237, 66)
+scale = Vector2(1.33105, 1.33908)
 TriggerMode = 1
 
 [node name="DadKnocksSceneSetupAction" type="Node2D" parent="OliverBedroom/InteractableModule"]
