@@ -1,4 +1,5 @@
 using Godot;
+using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
@@ -12,7 +13,7 @@ public partial class InteractableModule : Area2D
 	private bool InputInteract => Input.IsActionPressed(InputMapAction.Interact);
 	
 	// variables
-	private bool _areaTriggered;
+	private bool _inRange;
 	
 	public override void _PhysicsProcess(double delta)
 	{
@@ -20,10 +21,10 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				triggerInteract = _areaTriggered;
+				triggerInteract = _inRange;
 				break;
 			case TriggerMode.Input:
-				triggerInteract = _areaTriggered && InputInteract;
+				triggerInteract = _inRange && InputInteract;
 				break;
 		}
         
@@ -35,7 +36,8 @@ public partial class InteractableModule : Area2D
 	
 	public void Interact()
 	{
-		foreach (var child in GetChildren())
+		var children = GetChildren();
+		foreach (var child in children)
 		{
 			if (child is IAction actionToTrigger)
 			{
@@ -52,26 +54,30 @@ public partial class InteractableModule : Area2D
 	// signals
 	private void OnBodyEntered(Node2D body)
 	{
+		if (body is not Oliver) return;
+		
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				_areaTriggered = body.IsInGroup(NodeGroup.Oliver);
+				_inRange = body.IsInGroup(NodeGroup.Oliver);
 				break;
 			case TriggerMode.Input:
-				_areaTriggered = true;
+				_inRange = true;
 				break;
 		}
 	}
     
 	private void OnBodyExited(Node2D body)
 	{
+		if (body is not Oliver) return;
+		
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				if (body.IsInGroup(NodeGroup.Oliver)) _areaTriggered = false;
+				if (body.IsInGroup(NodeGroup.Oliver)) _inRange = false;
 				break;
 			case TriggerMode.Input:
-				_areaTriggered = false;
+				_inRange = false;
 				break;
 		}
 	}
