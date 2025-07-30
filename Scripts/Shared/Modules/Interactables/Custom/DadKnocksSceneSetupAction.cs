@@ -1,5 +1,6 @@
 using Godot;
 using DialogueManagerRuntime;
+using MyFathersHomeProject.Scripts.Singletons.SceneStates;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables.Custom;
 public partial class DadKnocksSceneSetupAction : Node, IAction
@@ -12,13 +13,19 @@ public partial class DadKnocksSceneSetupAction : Node, IAction
         
         doorAnimatedSprite.Play("open");
         // play door open sound
-        
-        DialogueManager.DialogueEnded += OnDialogueFinished;
+
+        var clothesBeingHeld = SceneStates.Instance.ClothesPickedUp && !SceneStates.Instance.ClothesPutAway;
+        if (!clothesBeingHeld)
+        {
+            DialogueManager.DialogueEnded += OnDialogueFinished;
+        }
     }
     
     private void OnDialogueFinished(Resource _)
     {
         doorAnimatedSprite?.Play("closed");
         DialogueManager.DialogueEnded -= OnDialogueFinished;
+        
+        GetParent().QueueFree();
     }
 }

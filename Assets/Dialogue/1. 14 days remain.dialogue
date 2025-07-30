@@ -130,8 +130,9 @@ do Papa.SetVisibility(true)
 do Papa.SetDirection(1)
 do Oliver.SetDirection(1)
 
-if (true)
-	do Director.Wait(2.5)
+do Director.Wait(0.75)
+
+if (SceneStates.ClothesPickedUp and !SceneStates.ClothesPutAway)
 	Papa: What are you *continue without skipping*
 	do Papa.SetVisibility(false)
 	=> END
@@ -156,19 +157,19 @@ do Director.Wait(2)
 
 #The dad walks into the room. He places the plate on the table, and walk around the room.
 
-do Papa.MoveToXPosition(100)
+do Papa.MoveToXPosition(75)
 
 
 do Director.Wait(1)
 
-if (true) #do this
-	do Papa.MoveRight(1)
+if (SceneStates.ClothesPutAway)
+	do Papa.MoveToXPosition(120)
 	do Director.Wait(1)
 	
 	Papa: *sigh*
 	Papa: You're always stuck inside.
 else
-	do Papa.MoveRight(1)
+	do Papa.MoveToXPosition(100)
 	do Director.Wait(1)
 	do Papa.PlayAnimation("idle right look down")
 	do Director.Wait(1)
@@ -187,7 +188,10 @@ Oliver: I’ll clean it later...
 
 Papa: Arrangia!
 
-#He leaves, and slams the door.
+do Papa.MoveToXPosition(235)
+do Director.Wait(1)
+#do playsound slam door
+
 #Oliver’s heart is still heard beating again.
 
 do Papa.SetVisibility(false)

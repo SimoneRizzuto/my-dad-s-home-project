@@ -17,7 +17,7 @@ position = Vector2(165, 45)
 
 [node name="InteractableModule" parent="OliverBedroom" instance=ExtResource("3_g8cnf")]
 position = Vector2(226, 66)
-DisableOnInteract = true
+TriggerMode = 1
 
 [node name="DadKnocksSceneSetupAction" type="Node2D" parent="OliverBedroom/InteractableModule"]
 script = ExtResource("4_e82rh")
