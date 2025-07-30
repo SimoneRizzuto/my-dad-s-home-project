@@ -1,8 +1,11 @@
-using System;
 using Godot;
+using System;
+using System.Linq;
 using Godot.Collections;
-using MyFathersHomeProject.Scripts.Shared.Constants;
+using DialogueManagerRuntime;
+using System.Collections.Generic;
 using MyFathersHomeProject.Scripts.Dialogue.Actor;
+using MyFathersHomeProject.Scripts.Shared.Constants;
 
 namespace DialogueManagerRuntime
 {
@@ -127,7 +130,7 @@ namespace DialogueManagerRuntime
     {
       if (!IsNodeReady())
       {
-        await ToSignal(this, SignalName.Ready);
+        await ToSignal(this, DialogueManagerRuntime.DialogueBalloon.SignalName.Ready);
       }
 
       temporaryGameStates = extraGameStates ?? new Array<Variant>();
@@ -151,7 +154,7 @@ namespace DialogueManagerRuntime
     {
       if (!IsNodeReady())
       {
-        await ToSignal(this, SignalName.Ready);
+        await ToSignal(this, DialogueManagerRuntime.DialogueBalloon.SignalName.Ready);
       }
 
       // Set up the character name
@@ -159,6 +162,23 @@ namespace DialogueManagerRuntime
       //characterLabel.Text = Tr(dialogueLine.Character, "dialogue");
       
       PlaceBubbleAboveActor();
+
+      var nextAuto = false;
+      
+      // skip dialogue if tag exists
+      var tags = dialogueLine.Tags.ToList();
+      foreach (var tag in tags)
+      {
+        switch (tag)
+        {
+          case DialogueConstants.Tags.NextAuto:
+            nextAuto = true;
+            break;
+          default:
+            GD.PrintS("An unknown dialogue tag was set.", tag);
+            break;
+        }
+      }
       
       // Set up the dialogue
       dialogueLabel.Hide();
@@ -196,7 +216,11 @@ namespace DialogueManagerRuntime
       }
       else
       {
-        isWaitingForInput = true;
+        if (!nextAuto)
+        {
+          Next(dialogueLine.NextId);
+        }
+        isWaitingForInput = !nextAuto;
         balloon.FocusMode = Control.FocusModeEnum.All;
         balloon.GrabFocus();
       }
@@ -286,6 +310,11 @@ namespace DialogueManagerRuntime
       var actorModule = actorSpeaking.GetNode<ActorModule>("ActorModule");
       var rect = actorModule.MainShape.Shape.GetRect();
       return (int)rect.Size.Y;
+    }
+    
+    private void ProcessTags(List<string> tags)
+    {
+      
     }
     
     #endregion
