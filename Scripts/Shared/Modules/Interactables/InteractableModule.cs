@@ -10,7 +10,7 @@ public partial class InteractableModule : Area2D
 	[Export] public bool DisableOnInteract;
 	
 	// getters
-	private bool InputInteract => Input.IsActionPressed(InputMapAction.Interact);
+	private bool InputInteract => Input.IsActionJustPressed(InputMapAction.Interact);
 	
 	// variables
 	private bool _inRange;
