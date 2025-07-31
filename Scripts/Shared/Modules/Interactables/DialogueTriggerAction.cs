@@ -2,7 +2,8 @@ using Godot;
 using MyFathersHomeProject.Scripts.Dialogue;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
-public partial class DialogueTriggerAction : Node2D, IAction
+[GlobalClass]
+public partial class DialogueTriggerAction : Node, IAction
 {
     [Export] public Resource DialogueResource;
     [Export] public string Title;

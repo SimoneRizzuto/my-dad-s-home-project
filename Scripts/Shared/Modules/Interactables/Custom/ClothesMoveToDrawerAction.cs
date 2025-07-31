@@ -4,7 +4,8 @@ using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Singletons.SceneStates;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables.Custom;
-public partial class ClothesMoveToDrawerAction : Node2D, IAction
+[GlobalClass]
+public partial class ClothesMoveToDrawerAction : Node, IAction
 {
     // getters
     private Oliver? Oliver => Oliver.Instance;

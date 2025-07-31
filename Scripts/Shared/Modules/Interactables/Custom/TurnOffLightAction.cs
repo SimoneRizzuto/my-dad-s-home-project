@@ -1,6 +1,7 @@
 using Godot;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables.Custom;
+[GlobalClass]
 public partial class TurnOffLightAction : Node, IAction
 {
 	private bool _switchedOn;

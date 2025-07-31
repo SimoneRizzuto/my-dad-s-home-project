@@ -3,6 +3,7 @@ using DialogueManagerRuntime;
 using MyFathersHomeProject.Scripts.Singletons.SceneStates;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables.Custom;
+[GlobalClass]
 public partial class DadKnocksSceneSetupAction : Node, IAction
 {
     private AnimatedSprite2D? doorAnimatedSprite;
