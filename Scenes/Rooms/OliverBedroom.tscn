@@ -204,6 +204,14 @@ position = Vector2(68, 42)
 texture = ExtResource("6_k5h05")
 centered = false
 
+[node name="InteractableModule" parent="Objects/Lamp" instance=ExtResource("10_3d4tr")]
+position = Vector2(-7, 3)
+scale = Vector2(0.236828, 0.908157)
+TriggerMode = 1
+
+[node name="TurnOffLightAction" type="Node2D" parent="Objects/Lamp/InteractableModule"]
+script = ExtResource("24_60wok")
+
 [node name="Bounce_Inner" type="PointLight2D" parent="Objects/Lamp"]
 position = Vector2(2.5, 6.5)
 scale = Vector2(0.0195313, 0.0507813)
