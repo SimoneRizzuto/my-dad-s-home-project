@@ -133,7 +133,7 @@ do Oliver.SetDirection(1)
 do Director.Wait(0.75)
 
 if (SceneStates.ClothesPickedUp and !SceneStates.ClothesPutAway)
-	Papa: What are you[#nextuto]
+	Papa: What are you[#next_auto]
 	do Papa.SetVisibility(false)
 	=> END
 

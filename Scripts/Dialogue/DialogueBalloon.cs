@@ -214,13 +214,13 @@ namespace DialogueManagerRuntime
         await ToSignal(GetTree().CreateTimer(time), "timeout");
         Next(dialogueLine.NextId);
       }
+      else if (nextAuto)
+      {
+        Next(dialogueLine.NextId);
+      }
       else
       {
-        if (!nextAuto)
-        {
-          Next(dialogueLine.NextId);
-        }
-        isWaitingForInput = !nextAuto;
+        isWaitingForInput = true;
         balloon.FocusMode = Control.FocusModeEnum.All;
         balloon.GrabFocus();
       }
