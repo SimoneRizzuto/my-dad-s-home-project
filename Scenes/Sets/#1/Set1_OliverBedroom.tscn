@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cap325m8jhcqw"]
+[gd_scene load_steps=10 format=3 uid="uid://cap325m8jhcqw"]
 
 [ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="1_8gmls"]
 [ext_resource type="PackedScene" uid="uid://cyoekyq6ui657" path="res://Scenes/Rooms/OliverBedroom.tscn" id="2_8xlvl"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/DadKnocksSceneSetupAction.cs" id="4_e82rh"]
 [ext_resource type="Resource" uid="uid://c4t0mo45346ew" path="res://Assets/Dialogue/1. 14 days remain.dialogue" id="4_ksg7h"]
 [ext_resource type="PackedScene" uid="uid://ci3t7wpbmy852" path="res://Scenes/Actors/Papa.tscn" id="6_mvq4p"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/ToggleEnabledAction.cs" id="7_wlmcx"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/DialogueTriggerAction.cs" id="8_ygcud"]
 
 [node name="Set1_OliverBedroom" type="Node2D"]
 
@@ -15,17 +17,34 @@ position = Vector2(165, 45)
 
 [node name="OliverBedroom" parent="." instance=ExtResource("2_8xlvl")]
 
-[node name="InteractableModule" parent="OliverBedroom" instance=ExtResource("3_g8cnf")]
+[node name="DadKnocksTrigger" parent="OliverBedroom" instance=ExtResource("3_g8cnf")]
 position = Vector2(237, 66)
 scale = Vector2(1.33105, 1.33908)
 TriggerMode = 1
 
-[node name="DadKnocksSceneSetupAction" type="Node2D" parent="OliverBedroom/InteractableModule"]
+[node name="DadKnocksSceneSetupAction" type="Node2D" parent="OliverBedroom/DadKnocksTrigger"]
 script = ExtResource("4_e82rh")
 
-[node name="DialogueTriggerAction" parent="OliverBedroom/InteractableModule" instance=ExtResource("3_75tmm")]
+[node name="DialogueTriggerAction" parent="OliverBedroom/DadKnocksTrigger" instance=ExtResource("3_75tmm")]
 DialogueResource = ExtResource("4_ksg7h")
 Title = "dad_walks_in"
+
+[node name="ToggleEnabledAction" type="Node" parent="OliverBedroom/DadKnocksTrigger" node_paths=PackedStringArray("Node")]
+script = ExtResource("7_wlmcx")
+Node = NodePath("../../BackOnComputerTrigger")
+
+[node name="BackOnComputerTrigger" parent="OliverBedroom" instance=ExtResource("3_g8cnf")]
+process_mode = 4
+z_index = 4096
+position = Vector2(166, 62)
+scale = Vector2(0.467511, -0.264907)
+TriggerMode = 1
+DisableOnInteract = true
+
+[node name="DialogueTriggerAction" type="Node" parent="OliverBedroom/BackOnComputerTrigger"]
+script = ExtResource("8_ygcud")
+DialogueResource = ExtResource("4_ksg7h")
+Title = "back_on_the_computer"
 
 [node name="Papa" parent="." instance=ExtResource("6_mvq4p")]
 visible = false
