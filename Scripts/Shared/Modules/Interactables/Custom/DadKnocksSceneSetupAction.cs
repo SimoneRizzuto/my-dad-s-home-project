@@ -14,9 +14,8 @@ public partial class DadKnocksSceneSetupAction : Node, IAction
         
         doorAnimatedSprite.Play("open");
         // play door open sound
-
-        var clothesBeingHeld = SceneStates.Instance.ClothesPickedUp && !SceneStates.Instance.ClothesPutAway;
-        if (!clothesBeingHeld)
+        
+        if (!SceneStates.Instance.ClothesBeingHeld)
         {
             DialogueManager.DialogueEnded += OnDialogueFinished;
         }

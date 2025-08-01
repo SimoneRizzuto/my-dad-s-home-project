@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/DadKnocksSceneSetupAction.cs" id="4_e82rh"]
 [ext_resource type="Resource" uid="uid://c4t0mo45346ew" path="res://Assets/Dialogue/1. 14 days remain.dialogue" id="4_ksg7h"]
 [ext_resource type="PackedScene" uid="uid://ci3t7wpbmy852" path="res://Scenes/Actors/Papa.tscn" id="6_mvq4p"]
-[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/ToggleEnabledAction.cs" id="7_wlmcx"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/EnableBackOnComputerTriggerAction.cs" id="7_o5g3m"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/DialogueTriggerAction.cs" id="8_ygcud"]
 
 [node name="Set1_OliverBedroom" type="Node2D"]
@@ -29,9 +29,8 @@ script = ExtResource("4_e82rh")
 DialogueResource = ExtResource("4_ksg7h")
 Title = "dad_walks_in"
 
-[node name="ToggleEnabledAction" type="Node" parent="OliverBedroom/DadKnocksTrigger" node_paths=PackedStringArray("Node")]
-script = ExtResource("7_wlmcx")
-Node = NodePath("../../BackOnComputerTrigger")
+[node name="EnableBackOnComputerTriggerAction" type="Node" parent="OliverBedroom/DadKnocksTrigger"]
+script = ExtResource("7_o5g3m")
 
 [node name="BackOnComputerTrigger" parent="OliverBedroom" instance=ExtResource("3_g8cnf")]
 process_mode = 4
