@@ -204,6 +204,12 @@ do Papa.SetVisibility(false)
 
 ~ back_on_the_computer
 
+# Oliver moved into position and sits down
+do Oliver.MoveToXPosition(165)
+do Oliver.PlayAnimation("sit left")
+do Oliver.SetDirection(-1)
+do Director.Wait(1.25)
+
 Oliver: Hey, sorry, I'm back.
 Oliver: ...
 Oliver: You there?
