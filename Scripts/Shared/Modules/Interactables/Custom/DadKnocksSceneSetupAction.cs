@@ -15,10 +15,7 @@ public partial class DadKnocksSceneSetupAction : Node, IAction
         doorAnimatedSprite.Play("open");
         // play door open sound
         
-        if (!SceneStates.Instance.ClothesBeingHeld)
-        {
-            DialogueManager.DialogueEnded += OnDialogueFinished;
-        }
+        DialogueManager.DialogueEnded += OnDialogueFinished;
     }
     
     private void OnDialogueFinished(Resource _)
@@ -26,6 +23,9 @@ public partial class DadKnocksSceneSetupAction : Node, IAction
         doorAnimatedSprite?.Play("closed");
         DialogueManager.DialogueEnded -= OnDialogueFinished;
         
-        GetParent().QueueFree();
+        if (!SceneStates.Instance.ClothesBeingHeld)
+        {
+            GetParent().QueueFree();
+        }
     }
 }
