@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b620wgsrqjwui"]
+
+[ext_resource type="Texture2D" uid="uid://cip52m3svsbi8" path="res://Assets/Textures/UI/speech-bubble-sasha.png" id="1_b10hv"]
+
+[resource]
+texture = ExtResource("1_b10hv")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
