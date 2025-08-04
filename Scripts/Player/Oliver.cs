@@ -9,6 +9,7 @@ namespace MyFathersHomeProject.Scripts.Player;
 public partial class Oliver : CharacterBody2D, ICharacter
 {
     [Export] public Direction LastDirection { get; set; } = Direction.Left;
+    [Export] public bool IsHoldingBag { get; set; }
     
     public static Oliver? Instance { get; private set; }
     
@@ -87,6 +88,11 @@ public partial class Oliver : CharacterBody2D, ICharacter
         var direction = Input.GetAxis(InputMapAction.MoveLeft, InputMapAction.MoveRight);
         Move(direction);
     }
+
+    private void ToggleHoldingBag()
+    {
+        IsHoldingBag = !IsHoldingBag;
+    }
     
     #region interface implementations
     
@@ -101,14 +107,23 @@ public partial class Oliver : CharacterBody2D, ICharacter
         
         if (IsOnFloor())
         {
+            string animationToPlay;
+            
             if (movementVector.X != 0)
             {
-                PlayAnimation($"walk {LastDirectionString}");
+                animationToPlay = $"walk {LastDirectionString}";
             }
             else
             {
-                PlayAnimation($"idle {LastDirectionString}");
+                animationToPlay = $"idle {LastDirectionString}";
             }
+
+            if (IsHoldingBag)
+            {
+                animationToPlay += " bag";
+            }
+            
+            PlayAnimation(animationToPlay);
         }
     }
     
@@ -129,7 +144,13 @@ public partial class Oliver : CharacterBody2D, ICharacter
         Velocity = new Vector2(Velocity.X, JumpVelocity);
         
         MainSprite.SetFrameAndProgress(0, 0);
-        PlayAnimation($"jump {LastDirectionString}");
+        
+        var animationToPlay = $"jump {LastDirectionString}";
+        if (IsHoldingBag)
+        {
+            animationToPlay += " bag";
+        }
+        PlayAnimation(animationToPlay);
     }
     
     public void SetVisibility(bool visible)
