@@ -14,6 +14,9 @@ namespace DialogueManagerRuntime
     [Export] public string NextAction = "ui_accept";
     [Export] public string SkipAction = "ui_cancel";
 
+    private const string DefaultThemeUid = "uid://do2u6x4b0b2tv";
+    private const string PapaThemeUid = "uid://";
+    private const string SashaThemeUid = "uid://b620wgsrqjwui";
 
     Control balloon;
     //RichTextLabel characterLabel;
@@ -163,6 +166,8 @@ namespace DialogueManagerRuntime
       
       PlaceBubbleAboveActor();
 
+      SetStyleBox();
+      
       var nextAuto = false;
       
       // skip dialogue if tag exists
@@ -312,9 +317,23 @@ namespace DialogueManagerRuntime
       return (int)rect.Size.Y;
     }
     
-    private void ProcessTags(List<string> tags)
+    private void SetStyleBox()
     {
+      StyleBoxTexture theme;
+      switch (dialogueLine.Character)
+      {
+        case "Sasha":
+          theme = GD.Load<StyleBoxTexture>(SashaThemeUid);
+          break;
+        case "Papa":
+          theme = GD.Load<StyleBoxTexture>(PapaThemeUid);
+          break;
+        default:
+          theme = GD.Load<StyleBoxTexture>(DefaultThemeUid);
+          break;
+      }
       
+      balloon.Theme.SetStylebox("panel", "PanelContainer", theme);
     }
     
     #endregion
