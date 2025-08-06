@@ -15,7 +15,7 @@ namespace DialogueManagerRuntime
     [Export] public string SkipAction = "ui_cancel";
 
     private const string DefaultThemeUid = "uid://do2u6x4b0b2tv";
-    private const string PapaThemeUid = "uid://";
+    private const string OliverThemeUid = "uid://bay2n3vjalsks";
     private const string SashaThemeUid = "uid://b620wgsrqjwui";
 
     Control balloon;
@@ -325,8 +325,8 @@ namespace DialogueManagerRuntime
         case "Sasha":
           theme = GD.Load<StyleBoxTexture>(SashaThemeUid);
           break;
-        case "Papa":
-          theme = GD.Load<StyleBoxTexture>(PapaThemeUid);
+        case "Oliver":
+          theme = GD.Load<StyleBoxTexture>(OliverThemeUid);
           break;
         default:
           theme = GD.Load<StyleBoxTexture>(DefaultThemeUid);
