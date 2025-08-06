@@ -226,9 +226,6 @@ do Director.Wait(1.5)
 Sasha: Um.
 Sasha: You forgot to mute your mic.
 Sasha: I heard a little bit of that.
-
-do Oliver.PlayAnimation("look down on chair")
-
 Oliver: Oh.
 Sasha: It didn't sound very nice.
 Oliver: ... Yeah.
@@ -269,10 +266,22 @@ Oliver: It's MY classic.
 Sasha: Ok, fine, but that's not a classic
 Oliver: You don't know what your missing out on.
 Sasha: Ok. If you try sushi and avocado, I'll try spaghetti and tuna.
-Oliver: Mhh.
+Oliver: Mhh.‎
 Oliver: I'll think about it.
 
-do Oliver.PlayAnimation("gobble food")
+do Director.Wait(2)
+
+do Oliver.MoveToXPosition(145)
+do Director.Wait(1)
+
+do Oliver.PlayAnimation("fling hand up")
+do Director.Wait(0.25)
+do Oliver.PlayAnimation("eating food")
+do Director.Wait(2)
+
+
+do Oliver.PlayAnimation("idle left")
+do Director.Wait(1)
 
 Oliver: Ahhhhhhhhhhhhhhhh.
 Oliver: Alright, I'm coming now.
