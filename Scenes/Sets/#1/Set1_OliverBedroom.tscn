@@ -49,4 +49,5 @@ Title = "back_on_the_computer"
 visible = false
 z_index = 115
 position = Vector2(236, 54)
-InitialAnimation = "idle_left"
+InitialAnimation = "idle left plate"
+IsHoldingPlate = true
