@@ -1,0 +1,121 @@
+[gd_scene load_steps=19 format=3 uid="uid://cvyko5jswa0cn"]
+
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Door/DoorModule.cs" id="1_clxig"]
+[ext_resource type="Texture2D" uid="uid://b8smyff3h32v7" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-room-door-2.png" id="2_pkgif"]
+[ext_resource type="Texture2D" uid="uid://ccww1rylfw6oo" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-room-door-2-open.png" id="3_kib2c"]
+[ext_resource type="Texture2D" uid="uid://bsuh7xp6sxfde" path="res://Assets/Textures/StaticObjects/LivingRoom/oliver-room-door-1.png" id="4_hu4ab"]
+[ext_resource type="Texture2D" uid="uid://dnteevc41uv70" path="res://Assets/Textures/StaticObjects/LivingRoom/oliver-room-door-1 open.png" id="5_0f8y2"]
+[ext_resource type="Texture2D" uid="uid://c04vcdhv4omev" path="res://Assets/Textures/StaticObjects/LivingRoom/orange-door.png" id="6_m8tc7"]
+[ext_resource type="Texture2D" uid="uid://iqjqwheaqqjw" path="res://Assets/Textures/StaticObjects/LivingRoom/orange door open.png" id="7_edwsw"]
+[ext_resource type="Texture2D" uid="uid://bdi237u1cvc3u" path="res://Assets/Textures/StaticObjects/SashaBedroom/sasha room door closed.png" id="8_b1c08"]
+[ext_resource type="Texture2D" uid="uid://biycahtyrlgdv" path="res://Assets/Textures/StaticObjects/SashaBedroom/sasha room door open.png" id="9_ubkff"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5exca"]
+atlas = ExtResource("2_pkgif")
+region = Rect2(0, 0, 28, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqoai"]
+atlas = ExtResource("3_kib2c")
+region = Rect2(0, 0, 28, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py658"]
+atlas = ExtResource("4_hu4ab")
+region = Rect2(0, 0, 28, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icef0"]
+atlas = ExtResource("5_0f8y2")
+region = Rect2(0, 0, 28, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lym32"]
+atlas = ExtResource("6_m8tc7")
+region = Rect2(0, 0, 28, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a12ui"]
+atlas = ExtResource("7_edwsw")
+region = Rect2(0, 0, 28, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxkff"]
+atlas = ExtResource("8_b1c08")
+region = Rect2(0, 0, 28, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfth5"]
+atlas = ExtResource("9_ubkff")
+region = Rect2(0, 0, 28, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m8wxk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5exca")
+}],
+"loop": true,
+"name": &"blue closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqoai")
+}],
+"loop": true,
+"name": &"blue open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py658")
+}],
+"loop": true,
+"name": &"oliver blue closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icef0")
+}],
+"loop": true,
+"name": &"oliver blue open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lym32")
+}],
+"loop": true,
+"name": &"orange closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a12ui")
+}],
+"loop": true,
+"name": &"orange open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxkff")
+}],
+"loop": true,
+"name": &"wooden closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfth5")
+}],
+"loop": true,
+"name": &"wooden open",
+"speed": 5.0
+}]
+
+[node name="DoorModule" type="Node2D"]
+script = ExtResource("1_clxig")
+
+[node name="DoorSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -43)
+sprite_frames = SubResource("SpriteFrames_m8wxk")
+animation = &"oliver blue open"
+centered = false
+
+[node name="Area2D" type="Area2D" parent="."]
