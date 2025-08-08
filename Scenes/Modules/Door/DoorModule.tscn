@@ -109,7 +109,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="DoorModule" type="Node2D"]
+[node name="DoorModule" type="Node2D" groups=["door"]]
 script = ExtResource("1_clxig")
 
 [node name="DoorSprite" type="AnimatedSprite2D" parent="."]

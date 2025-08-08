@@ -126,16 +126,26 @@ do Oliver.PlayAnimation("stand from seat")
 
 ~ dad_walks_in
 
+if (SceneStates.ClothesPickedUp and !SceneStates.ClothesPutAway)
+	do Director.OpenAllDoors()
+	do Papa.SetVisibility(true)
+	do Papa.SetDirection(1)
+	do Oliver.SetDirection(1)
+	do Director.Wait(1)
+	
+	Papa: What are you[#next_auto]
+	do Papa.SetVisibility(false)
+	do Director.CloseAllDoors()
+	=> END
+
+do Oliver.MoveToXPosition(220)
+do Oliver.MoveRight(1)
+do Director.Wait(0.125)
+do Director.OpenAllDoors()
 do Papa.SetVisibility(true)
 do Papa.SetDirection(1)
 do Oliver.SetDirection(1)
-
-do Director.Wait(0.75)
-
-if (SceneStates.ClothesPickedUp and !SceneStates.ClothesPutAway)
-	Papa: What are you[#next_auto]
-	do Papa.SetVisibility(false)
-	=> END
+do Director.Wait(1.25)
 
 Papa: Why didn’t you answer after the first time?
 Oliver: I guess I didn’t hear it.
@@ -194,7 +204,6 @@ Papa: Arrangia!
 
 do Papa.MoveToXPosition(235)
 do Director.Wait(1)
-#do playsound slam door
 
 #Oliver’s heart is still heard beating again.
 

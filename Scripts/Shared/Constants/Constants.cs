@@ -14,6 +14,7 @@ public static class NodeGroup
     public const string PlayerCamera = "player camera";
     public const string ActorModule = "actor module";
     public const string DialogueBalloon = "dialogue balloon";
+    public const string Door = "door";
 }
 
 public static class ZIndexLayers
