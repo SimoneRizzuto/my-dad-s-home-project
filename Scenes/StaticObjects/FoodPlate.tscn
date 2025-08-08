@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4sfh3btwj0ej"]
+
+[ext_resource type="Script" path="res://Scripts/Misc/FoodPlate.cs" id="1_8hhhb"]
+[ext_resource type="Texture2D" uid="uid://du2yeim42tfs3" path="res://Assets/Textures/StaticObjects/OliverBedroom/food-plate.png" id="2_ohg4a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ci4u"]
+size = Vector2(7, 4)
+
+[node name="FoodPlate" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_8hhhb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_7ci4u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, -9)
+texture = ExtResource("2_ohg4a")
+centered = false

@@ -7,6 +7,8 @@ public partial class BasicCharacter : CharacterBody2D, ICharacter
 {
     [Export] public string InitialAnimation = "";
     
+    [Export] public bool IsHoldingPlate;
+    
     // getters
     private int Gravity => ProjectSettings.GetSetting("physics/2d/default_gravity").ToString().ToInt();
     private AnimatedSprite2D MainSprite => GetNode<AnimatedSprite2D>($"{nameof(MainSprite)}");
@@ -47,14 +49,23 @@ public partial class BasicCharacter : CharacterBody2D, ICharacter
         
         if (IsOnFloor())
         {
+            var animationToPlay = "";
+            
             if (movementVector.X != 0)
             {
-                PlayAnimation($"walk {LastDirectionString}");
+                animationToPlay = $"walk {LastDirectionString}";
             }
             else
             {
-                PlayAnimation($"idle {LastDirectionString}");
+                animationToPlay = $"idle {LastDirectionString}";
             }
+            
+            if (IsHoldingPlate)
+            {
+                animationToPlay += " plate";
+            }
+            
+            PlayAnimation(animationToPlay);
         }
     }
     
