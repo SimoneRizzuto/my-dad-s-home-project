@@ -13,6 +13,7 @@
 [node name="Set1_OliverBedroom" type="Node2D"]
 
 [node name="Oliver" parent="." instance=ExtResource("1_8gmls")]
+z_index = 115
 position = Vector2(165, 45)
 
 [node name="OliverBedroom" parent="." instance=ExtResource("2_8xlvl")]
@@ -47,7 +48,7 @@ Title = "back_on_the_computer"
 
 [node name="Papa" parent="." instance=ExtResource("6_mvq4p")]
 visible = false
-z_index = 115
+z_index = 100
 position = Vector2(236, 54)
 InitialAnimation = "idle left plate"
 IsHoldingPlate = true
