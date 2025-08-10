@@ -115,6 +115,12 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
         foodPlate.Visible = true;
     }
     
+    public void MakePlateFly()
+    {
+        var foodPlate = GetNodeHelper.GetFoodPlate(GetTree());
+        foodPlate.Action();
+    }
+    
     #endregion
     
     #region process directions

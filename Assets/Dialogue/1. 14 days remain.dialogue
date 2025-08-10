@@ -249,7 +249,7 @@ Sasha: Um.
 Sasha: You forgot to mute your mic.
 Sasha: I heard a little bit of that.
 Oliver: Oh.
-Sasha: It didn't sound very nice.
+Sasha: It didn't sound good.
 Oliver: ... Yeah.
 Oliver: This is why I hate going out in the living room.
 Oliver: Never ends well.
@@ -282,10 +282,10 @@ Oliver: Avocado is like eating straight butter. It's awful.
 Sasha: You don't even like sushi.
 Oliver: Yeah, but that's a different matter.
 Sasha: Ok, what are YOU having then?
-Oliver: Just a classic: spaghetti and tuna.
+Oliver: Just a classic. Spaghetti and tuna.
 Sasha: That's not a classic.
-Oliver: It's MY classic.
-Sasha: Ok, fine, but that's not a classic
+Oliver: It's MY classic!
+Sasha: Ok, fine, but that's not a classic.
 Oliver: You don't know what your missing out on.
 Sasha: Ok. If you try sushi and avocado, I'll try spaghetti and tuna.
 Oliver: Mhh.‎
@@ -293,17 +293,21 @@ Oliver: I'll think about it.
 
 do Director.Wait(2)
 
-do Oliver.MoveToXPosition(145)
+do Oliver.PlayAnimation("idle left")
+do Director.Wait(1)
+
+do Oliver.MoveToXPosition(148)
 do Director.Wait(1)
 
 do Oliver.PlayAnimation("fling hand up")
+do Director.MakePlateFly()
 do Director.Wait(0.25)
 do Oliver.PlayAnimation("eating food")
-do Director.Wait(2)
+do Director.Wait(2.3)
 
 
 do Oliver.PlayAnimation("idle left")
-do Director.Wait(1)
+do Director.Wait(0.75)
 
 Oliver: Ahhhhhhhhhhhhhhhh.
 Oliver: Alright, I'm coming now.
