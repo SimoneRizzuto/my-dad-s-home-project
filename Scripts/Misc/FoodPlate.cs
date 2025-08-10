@@ -1,10 +1,9 @@
-using System;
 using Godot;
-using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Shared.Modules;
 
 namespace MyFathersHomeProject.Scripts.Misc;
+[Icon("res://Assets/Textures/StaticObjects/OliverBedroom/food-plate.png")]
 public partial class FoodPlate : CharacterBody2D, IAction
 {
     // variables
