@@ -1,21 +1,37 @@
+using System;
 using Godot;
 using MyFathersHomeProject.Scripts.Shared.Modules;
 
 namespace MyFathersHomeProject.Scripts.Misc;
 public partial class FoodPlate : CharacterBody2D, IAction
 {
+    // variables
     private bool _sheIsFlying;
+    private bool _comingBackDown;
     
-    public override void _Process(double delta)
+    public override void _PhysicsProcess(double delta)
     {
-        //if (!_sheIsFlying) return;
+        if (!_sheIsFlying) return;
         
-        //Velocity = new Vector2(Velocity.X, Velocity.Y * (float)delta);
+        if (!_comingBackDown)
+        {
+            Velocity = new Vector2(Velocity.X, (Velocity.Y - 6750) * (float)delta);
+            
+            if (Position.Y < -80)
+            {
+                _comingBackDown = true;
+            }
+        }
+        else
+        {
+            Velocity = new Vector2(Velocity.X, (Velocity.Y + 6750) * (float)delta);
+        }
+        
+        MoveAndSlide();
     }
     
     public void Action()
     {
         _sheIsFlying = true;
-        
     }
 }
