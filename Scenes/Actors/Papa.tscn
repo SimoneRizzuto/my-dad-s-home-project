@@ -250,7 +250,7 @@ shape = SubResource("RectangleShape2D_hxvwp")
 [node name="MainSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-24, -48)
 sprite_frames = SubResource("SpriteFrames_egf5v")
-animation = &"place plate right"
+animation = &"idle left"
 centered = false
 
 [node name="ActorModule" parent="." instance=ExtResource("1_dcdts")]
