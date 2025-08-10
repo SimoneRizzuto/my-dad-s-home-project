@@ -6,7 +6,6 @@ namespace MyFathersHomeProject.Scripts.Character;
 public partial class BasicCharacter : CharacterBody2D, ICharacter
 {
     [Export] public string InitialAnimation = "";
-    
     [Export] public bool IsHoldingPlate;
     
     // getters
@@ -89,5 +88,10 @@ public partial class BasicCharacter : CharacterBody2D, ICharacter
         Visible = visible;
     }
     
+    public void SetHoldingPlate(bool isHolding)
+    {
+        IsHoldingPlate = isHolding;
+    }
+
     #endregion
 }

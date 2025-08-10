@@ -158,6 +158,11 @@ public partial class Oliver : CharacterBody2D, ICharacter
         Visible = visible;
     }
     
+    public void SetHoldingPlate(bool isHolding)
+    {
+        throw new NotImplementedException();
+    }
+
     #endregion
     
     #region signals

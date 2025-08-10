@@ -139,8 +139,9 @@ if (SceneStates.ClothesPickedUp and !SceneStates.ClothesPutAway)
 	=> END
 
 do Oliver.MoveToXPosition(220)
-do Oliver.MoveRight(1)
-do Director.Wait(0.125)
+do Oliver.LookRight()
+do Director.Wait(1.75)
+
 do Director.OpenAllDoors()
 do Papa.SetVisibility(true)
 do Papa.SetDirection(1)
@@ -165,10 +166,21 @@ Papa: I made you dinner.
 
 do Director.Wait(2)
 
-#The dad walks into the room. He places the plate on the table, and walk around the room.
+# moves to table, places plate, looks left & waits
+do Papa.MoveToXPosition(135)
+do Oliver.LookLeft()
+do Papa.PlayAnimation("idle right plate")
+do Director.Wait(0.75)
+do Papa.PlayAnimation("place plate right")
+do Director.Wait(0.25)
+do Papa.LookRight()
+do Director.SetPlateToVisible()
+do Papa.SetHoldingPlate(false)
+do Director.Wait(1)
+do Papa.LookLeft()
+do Director.Wait(1.25)
 
 do Papa.MoveToXPosition(75)
-
 
 do Director.Wait(1)
 
@@ -203,6 +215,7 @@ else
 Papa: Arrangia!
 
 do Papa.MoveToXPosition(235)
+do Oliver.LookRight()
 do Director.Wait(1)
 
 #Oliver’s heart is still heard beating again.

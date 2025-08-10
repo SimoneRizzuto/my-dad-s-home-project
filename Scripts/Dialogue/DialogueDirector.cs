@@ -10,6 +10,7 @@ using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Dialogue.Base;
 using MyFathersHomeProject.Scripts.Dialogue.Actor;
 using MyFathersHomeProject.Scripts.Shared.Constants;
+using MyFathersHomeProject.Scripts.Shared.Helpers;
 using MyFathersHomeProject.Scripts.Shared.Modules.Door;
 
 namespace MyFathersHomeProject.Scripts.Dialogue;
@@ -106,6 +107,12 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
     public void CloseAllDoors()
     {
         ChangeDoorState(true);
+    }
+    
+    public void SetPlateToVisible()
+    {
+        var foodPlate = GetNodeHelper.GetFoodPlate(GetTree());
+        foodPlate.Visible = true;
     }
     
     #endregion

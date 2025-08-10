@@ -6,7 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ci4u"]
 size = Vector2(7, 4)
 
-[node name="FoodPlate" type="CharacterBody2D"]
+[node name="FoodPlate" type="CharacterBody2D" groups=["plate"]]
+visible = false
 collision_layer = 4
 script = ExtResource("1_8hhhb")
 
