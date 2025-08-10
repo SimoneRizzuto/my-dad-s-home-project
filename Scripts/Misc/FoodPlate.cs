@@ -1,5 +1,7 @@
 using System;
 using Godot;
+using MyFathersHomeProject.Scripts.Camera;
+using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Shared.Modules;
 
 namespace MyFathersHomeProject.Scripts.Misc;
@@ -33,5 +35,14 @@ public partial class FoodPlate : CharacterBody2D, IAction
     public void Action()
     {
         _sheIsFlying = true;
+    }
+    
+    private void OnBodyShapeEntered(Rid bodyrid, Node2D body, long bodyshapeindex, long localshapeindex)
+    {
+        if (body is Oliver && _comingBackDown)
+        {
+            // play eat sound effect
+            QueueFree();
+        }
     }
 }
