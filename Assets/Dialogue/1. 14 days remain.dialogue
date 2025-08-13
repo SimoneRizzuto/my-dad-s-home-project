@@ -164,7 +164,7 @@ do Director.Wait(2)
 
 Papa: I made you dinner.
 
-do Director.Wait(2)
+do Director.Wait(1)
 
 # moves to table, places plate, looks left & waits
 do Papa.MoveToXPosition(135)
@@ -315,16 +315,21 @@ Oliver: Alright, I'm coming now.
 Sasha: ... Right now?
 Oliver: Yeah!
 Sasha: Did you just gulp your food down in one go?
-Oliver: Maybe...
+Oliver: Maybe.
 Sasha: Jeez.
 Sasha: You shouldn't do that, you know.
 Oliver: Well, I just did.
 Sasha: Ok. Let me know when you outside.
 Oliver: Yup, see ya soon.
 
-do Oliver.PlayAnimation("jump off chair")
+do Director.LookRight()
+do Director.Wait(0.5)
+do Director.LookLeft()
+do Director.Wait(0.5)
 
-Oliver: I wish I could sneak out the window though.
+do Director.Wait(1)
+
+Oliver: Just wish I could sneak out the window, though.
 
 => END
 
