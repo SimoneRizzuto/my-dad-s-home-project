@@ -13,6 +13,7 @@ public static class NodeGroup
     public const string DialogueBalloon = "dialogue balloon";
     public const string Door = "door";
     public const string Plate = "plate";
+    public const string Window = "window";
 }
 
 public static class ZIndexLayers
