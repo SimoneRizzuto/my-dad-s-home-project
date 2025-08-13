@@ -309,7 +309,8 @@ do Director.Wait(2.3)
 do Oliver.PlayAnimation("idle left")
 do Director.Wait(0.75)
 
-Oliver: Ahhhhhhhhhhhhhhhh.
+Oliver: Ahhhhhhhhhhhh.
+Oliver: That hits the spot.
 Oliver: Alright, I'm coming now.
 Sasha: ... Right now?
 Oliver: Yeah!
