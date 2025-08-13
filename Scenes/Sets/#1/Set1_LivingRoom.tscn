@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bggng8c6npq0v"]
+[gd_scene load_steps=8 format=3 uid="uid://bggng8c6npq0v"]
 
 [ext_resource type="PackedScene" uid="uid://bh7otdjt77r8m" path="res://Scenes/Rooms/LivingRoom.tscn" id="1_e11s4"]
 [ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="1_errd4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://s5admqqm1d77" path="res://Scenes/Modules/InteractableModule.tscn" id="3_nj5l2"]
 [ext_resource type="PackedScene" uid="uid://cehckxjxfklbj" path="res://Scenes/Modules/DialogueTriggerAction.tscn" id="5_7nxkw"]
 [ext_resource type="Resource" uid="uid://c4t0mo45346ew" path="res://Assets/Dialogue/1. 14 days remain.dialogue" id="6_04kj3"]
+[ext_resource type="PackedScene" uid="uid://cvyko5jswa0cn" path="res://Scenes/Modules/Door/DoorModule.tscn" id="7_j5k16"]
 
 [node name="Set1_LivingRoom" type="Node2D"]
 
@@ -30,3 +31,7 @@ DisableOnInteract = true
 [node name="DialogueTriggerAction" parent="InteractableModule" instance=ExtResource("5_7nxkw")]
 DialogueResource = ExtResource("6_04kj3")
 Title = "oliver_attempts_to_leave"
+
+[node name="DoorModule" parent="." instance=ExtResource("7_j5k16")]
+z_index = 10
+position = Vector2(471, 75)
