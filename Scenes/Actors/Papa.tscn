@@ -1,7 +1,7 @@
 [gd_scene load_steps=39 format=3 uid="uid://ci3t7wpbmy852"]
 
 [ext_resource type="Texture2D" uid="uid://cdkf25wwndaih" path="res://Assets/Textures/Papa/papa idle left-Sheet.png" id="1_8skv1"]
-[ext_resource type="Script" path="res://Scripts/Character/BasicCharacter.cs" id="1_bavyb"]
+[ext_resource type="Script" path="res://Scripts/Character/Actors/Papa.cs" id="1_c15we"]
 [ext_resource type="PackedScene" uid="uid://cemnuys6w3rjr" path="res://Scenes/Dialogue/Actor/ActorModule.tscn" id="1_dcdts"]
 [ext_resource type="Texture2D" uid="uid://dlsiewk6ruw4x" path="res://Assets/Textures/Papa/papa idle right-Sheet.png" id="2_776xs"]
 [ext_resource type="Texture2D" uid="uid://b744lawd01d48" path="res://Assets/Textures/Papa/papa idle left plate-Sheet.png" id="3_a7udc"]
@@ -241,7 +241,7 @@ animations = [{
 [node name="Papa" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_bavyb")
+script = ExtResource("1_c15we")
 
 [node name="MainShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, -16.5)

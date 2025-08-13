@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://cfrhcgnum5ctx"]
 
-[ext_resource type="Script" path="res://Scripts/Character/BasicCharacter.cs" id="1_kssbu"]
+[ext_resource type="Script" path="res://Scripts/Character/Actors/Sasha.cs" id="1_euxa3"]
 [ext_resource type="Texture2D" uid="uid://dwbu4vfd35r47" path="res://Assets/Textures/Sasha/sasha idle left-Sheet.png" id="2_2p2j2"]
 [ext_resource type="Texture2D" uid="uid://fgeadydv07fh" path="res://Assets/Textures/Sasha/sasha draw right-Sheet.png" id="2_4r44i"]
 [ext_resource type="PackedScene" uid="uid://cemnuys6w3rjr" path="res://Scenes/Dialogue/Actor/ActorModule.tscn" id="3_foa8s"]
@@ -150,7 +150,7 @@ animations = [{
 }]
 
 [node name="Sasha" type="CharacterBody2D"]
-script = ExtResource("1_kssbu")
+script = ExtResource("1_euxa3")
 
 [node name="MainShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9)
