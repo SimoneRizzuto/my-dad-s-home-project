@@ -238,6 +238,8 @@ position = Vector2(1, 75)
 
 [node name="Floor" type="StaticBody2D" parent="ForegroundWall/Wall+Floor"]
 position = Vector2(0, 75)
+collision_layer = 15
+collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ForegroundWall/Wall+Floor/Floor"]
 position = Vector2(273.5, 2)
