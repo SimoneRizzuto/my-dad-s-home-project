@@ -357,6 +357,8 @@ do Director.Wait(0.1)
 
 ~ oliver_attempts_to_leave
 
+do Papa.PlayAnimation("sit couch look right")
+
 Papa: Where are you going?
 
 do Director.Wait(1)
@@ -364,6 +366,7 @@ do Director.Wait(1)
 Oliver: Out.
 Papa: ...
 
+do Papa.PlayAnimation("sit couch right")
 do Director.Wait(0.1)
 
 => END
