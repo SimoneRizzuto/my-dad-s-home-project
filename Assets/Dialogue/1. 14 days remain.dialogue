@@ -120,6 +120,8 @@ Oliver: Coming!
 do Director.ToggleCameraSmoothing(true)
 do Oliver.PlayAnimation("stand from seat")
 
+do Director.Wait(0.1)
+
 => END
 
 
@@ -336,6 +338,20 @@ do Oliver.LookRight()
 
 do Director.EnableAllDoorNavigation()
 
+do Director.Wait(0.1)
+
+=> END
+
+~ looking_out_the_window
+
+do Oliver.MoveToXPosition(45)
+do Oliver.LookLeft()
+do Director.Wait(0.25)
+
+Oliver: The next house better have openable windows, or I swear.
+
+do Director.Wait(0.1)
+
 => END
 
 ~ oliver_attempts_to_leave
@@ -343,5 +359,7 @@ do Director.EnableAllDoorNavigation()
 Papa: Where are you going?
 Oliver: Out.
 Papa: ...
+
+do Director.Wait(0.1)
 
 => END

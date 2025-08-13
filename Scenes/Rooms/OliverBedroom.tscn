@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cyoekyq6ui657"]
+[gd_scene load_steps=33 format=3 uid="uid://cyoekyq6ui657"]
 
 [ext_resource type="Texture2D" uid="uid://bi14ih4bw0ew2" path="res://Assets/Textures/Environments/oliver-room-background-wall.png" id="1_bcs8k"]
 [ext_resource type="Script" path="res://Scenes/Rooms/CameraOverride.cs" id="1_pd1oj"]
@@ -25,6 +25,8 @@
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/ClothesMoveToHeadAction.cs" id="12_2pib8"]
 [ext_resource type="Texture2D" uid="uid://o0psnnkmfi2r" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_down_point_light.webp" id="12_qvimp"]
 [ext_resource type="PackedScene" uid="uid://c4sfh3btwj0ej" path="res://Scenes/StaticObjects/FoodPlate.tscn" id="18_cruoa"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/DialogueTriggerAction.cs" id="19_x8p4j"]
+[ext_resource type="Resource" uid="uid://c4t0mo45346ew" path="res://Assets/Dialogue/1. 14 days remain.dialogue" id="20_w067e"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/TurnOffLightAction.cs" id="24_60wok"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ic21g"]
@@ -174,6 +176,17 @@ z_index = -40
 position = Vector2(21, 36)
 texture = ExtResource("5_45bm8")
 centered = false
+
+[node name="InteractableModule" parent="Objects/Window" instance=ExtResource("10_3d4tr")]
+position = Vector2(21, 30)
+scale = Vector2(0.769603, 0.137548)
+TriggerMode = 1
+DisableOnInteract = true
+
+[node name="DialogueTriggerAction" type="Node" parent="Objects/Window/InteractableModule"]
+script = ExtResource("19_x8p4j")
+DialogueResource = ExtResource("20_w067e")
+Title = "looking_out_the_window"
 
 [node name="Lamp" type="Sprite2D" parent="Objects"]
 z_index = -10
