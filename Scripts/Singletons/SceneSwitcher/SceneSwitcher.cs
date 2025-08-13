@@ -73,7 +73,7 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
         ClearMain();
         SpawnSceneUid(uid);
         
-        CastCrew.InitialiseActors(); // make into signal???
+        CastCrew.FindExistingActors(); // make into signal???
     }
     
     public void TransitionToScene(PackedScene scene)
@@ -81,7 +81,7 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
         ClearMain();
         SpawnScenePacked(scene);
         
-        CastCrew.InitialiseActors(); // make into signal???
+        CastCrew.FindExistingActors(); // make into signal???
     }
     
     public void SpawnScene(Node node)
