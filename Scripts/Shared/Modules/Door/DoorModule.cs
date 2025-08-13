@@ -1,5 +1,6 @@
 using System;
 using Godot;
+using MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Door;
 public partial class DoorModule : Node
@@ -20,7 +21,21 @@ public partial class DoorModule : Node
 	public override void _Process(double delta)
 	{
 		DoorSprite.Play(DoorSpriteToPlay);
-	}	
+	}
+	
+	public void EnableNavigationAction(bool enable = true)
+    {
+    	var doorNavigationTrigger = GetNode<InteractableModule>("DoorNavigationTrigger");
+    	switch (enable)
+    	{
+    		case true:
+    			doorNavigationTrigger.ProcessMode = ProcessModeEnum.Inherit;
+    			break;
+    		case false:
+    			doorNavigationTrigger.ProcessMode = ProcessModeEnum.Disabled;
+    			break;
+    	}
+    }
 	
 	private string GetDoorSpriteString(DoorType type)
 	{

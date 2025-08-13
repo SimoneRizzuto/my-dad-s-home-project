@@ -112,6 +112,7 @@ do SceneSwitcher.Spawn_DadKnocksScene()
 do Oliver.SetCharacterState(1)
 do Oliver.PlayAnimation("sit left")
 
+do Director.DisableAllDoorNavigation()
 do Director.Wait(1)
 
 Oliver: Coming!
@@ -125,6 +126,8 @@ do Oliver.PlayAnimation("stand from seat")
 
 
 ~ dad_walks_in
+
+do Director.DisableAllDoorNavigation()
 
 if (SceneStates.ClothesPickedUp and !SceneStates.ClothesPutAway)
 	do Director.OpenAllDoors()
@@ -140,7 +143,7 @@ if (SceneStates.ClothesPickedUp and !SceneStates.ClothesPutAway)
 
 do Oliver.MoveToXPosition(220)
 do Oliver.LookRight()
-do Director.Wait(1.75)
+do Director.Wait(0.25)
 
 do Director.OpenAllDoors()
 do Papa.SetVisibility(true)
@@ -225,6 +228,8 @@ do Papa.SetVisibility(false)
 => END
 
 ~ back_on_the_computer
+
+do Sasha.LookRight()
 
 # Oliver moved into position and sits down
 do Oliver.MoveToXPosition(165)
@@ -328,6 +333,8 @@ do Oliver.LookLeft()
 do Director.Wait(0.75)
 Oliver: Just wish I could sneak out the window, though.
 do Oliver.LookRight()
+
+do Director.EnableAllDoorNavigation()
 
 => END
 

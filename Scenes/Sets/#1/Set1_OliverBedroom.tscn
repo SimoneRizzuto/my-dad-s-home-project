@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cap325m8jhcqw"]
+[gd_scene load_steps=12 format=3 uid="uid://cap325m8jhcqw"]
 
 [ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="1_8gmls"]
 [ext_resource type="PackedScene" uid="uid://cyoekyq6ui657" path="res://Scenes/Rooms/OliverBedroom.tscn" id="2_8xlvl"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ci3t7wpbmy852" path="res://Scenes/Actors/Papa.tscn" id="6_mvq4p"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/EnableBackOnComputerTriggerAction.cs" id="7_o5g3m"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/DialogueTriggerAction.cs" id="8_ygcud"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/EnableWindow.cs" id="10_6glir"]
 
 [node name="Set1_OliverBedroom" type="Node2D"]
 
@@ -51,6 +52,9 @@ DisableOnInteract = true
 script = ExtResource("8_ygcud")
 DialogueResource = ExtResource("4_ksg7h")
 Title = "back_on_the_computer"
+
+[node name="EnableWindow" type="Node" parent="OliverBedroom/BackOnComputerTrigger"]
+script = ExtResource("10_6glir")
 
 [node name="Papa" parent="." instance=ExtResource("6_mvq4p")]
 visible = false

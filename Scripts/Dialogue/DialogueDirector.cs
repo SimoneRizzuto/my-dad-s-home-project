@@ -109,6 +109,16 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
         ChangeDoorState(true);
     }
     
+    public void EnableAllDoorNavigation()
+    {
+        ChangeDoorNavigationState(true);
+    }
+    
+    public void DisableAllDoorNavigation()
+    {
+        ChangeDoorNavigationState(false);
+    }
+    
     public void SetPlateToVisible()
     {
         var foodPlate = GetNodeHelper.GetFoodPlate(GetTree());
@@ -138,7 +148,7 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
         _directorDirectionToPlay = DirectorDirection.Nothing;
         ActionGiven.TrySetResult();
     }
-
+    
     private void ChangeDoorState(bool closed)
     {
         var doors = GetTree().GetNodesInGroup(NodeGroup.Door);
@@ -155,6 +165,18 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
                     // play other sound effect
                 }
                 doorModule.Closed = closed;
+            }
+        }
+    }
+    
+    private void ChangeDoorNavigationState(bool enable)
+    {
+        var doors = GetTree().GetNodesInGroup(NodeGroup.Door);
+        foreach (var door in doors)
+        {
+            if (door is DoorModule doorModule)
+            {
+                doorModule.EnableNavigationAction(enable);
             }
         }
     }

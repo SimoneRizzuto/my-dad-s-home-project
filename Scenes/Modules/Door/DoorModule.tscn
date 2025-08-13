@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://cvyko5jswa0cn"]
+[gd_scene load_steps=21 format=3 uid="uid://cvyko5jswa0cn"]
 
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Door/DoorModule.cs" id="1_clxig"]
+[ext_resource type="PackedScene" uid="uid://s5admqqm1d77" path="res://Scenes/Modules/InteractableModule.tscn" id="2_5vlvo"]
 [ext_resource type="Texture2D" uid="uid://b8smyff3h32v7" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-room-door-2.png" id="2_pkgif"]
 [ext_resource type="Texture2D" uid="uid://ccww1rylfw6oo" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-room-door-2-open.png" id="3_kib2c"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/DoorNavigationAction.cs" id="3_oxnpg"]
 [ext_resource type="Texture2D" uid="uid://bsuh7xp6sxfde" path="res://Assets/Textures/StaticObjects/LivingRoom/oliver-room-door-1.png" id="4_hu4ab"]
 [ext_resource type="Texture2D" uid="uid://dnteevc41uv70" path="res://Assets/Textures/StaticObjects/LivingRoom/oliver-room-door-1 open.png" id="5_0f8y2"]
 [ext_resource type="Texture2D" uid="uid://c04vcdhv4omev" path="res://Assets/Textures/StaticObjects/LivingRoom/orange-door.png" id="6_m8tc7"]
@@ -112,10 +114,16 @@ animations = [{
 [node name="DoorModule" type="Node2D" groups=["door"]]
 script = ExtResource("1_clxig")
 
+[node name="DoorNavigationTrigger" parent="." instance=ExtResource("2_5vlvo")]
+position = Vector2(14, -7)
+scale = Vector2(0.6, 1)
+TriggerMode = 1
+
+[node name="DoorNavigationAction" type="Node" parent="DoorNavigationTrigger"]
+script = ExtResource("3_oxnpg")
+
 [node name="DoorSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -43)
 sprite_frames = SubResource("SpriteFrames_m8wxk")
 animation = &"blue closed"
 centered = false
-
-[node name="Area2D" type="Area2D" parent="."]
