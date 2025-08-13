@@ -155,6 +155,7 @@ script = ExtResource("1_euxa3")
 [node name="MainShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_egfdo")
+one_way_collision = true
 
 [node name="MainSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
