@@ -1,8 +1,11 @@
-using System;
 using Godot;
+using System;
+using System.Linq;
 using Godot.Collections;
-using MyFathersHomeProject.Scripts.Shared.Constants;
+using DialogueManagerRuntime;
+using System.Collections.Generic;
 using MyFathersHomeProject.Scripts.Dialogue.Actor;
+using MyFathersHomeProject.Scripts.Shared.Constants;
 
 namespace DialogueManagerRuntime
 {
@@ -11,6 +14,9 @@ namespace DialogueManagerRuntime
     [Export] public string NextAction = "ui_accept";
     [Export] public string SkipAction = "ui_cancel";
 
+    private const string DefaultThemeUid = "uid://do2u6x4b0b2tv";
+    private const string OliverThemeUid = "uid://bay2n3vjalsks";
+    private const string SashaThemeUid = "uid://b620wgsrqjwui";
 
     Control balloon;
     //RichTextLabel characterLabel;
@@ -127,7 +133,7 @@ namespace DialogueManagerRuntime
     {
       if (!IsNodeReady())
       {
-        await ToSignal(this, SignalName.Ready);
+        await ToSignal(this, DialogueManagerRuntime.DialogueBalloon.SignalName.Ready);
       }
 
       temporaryGameStates = extraGameStates ?? new Array<Variant>();
@@ -151,7 +157,7 @@ namespace DialogueManagerRuntime
     {
       if (!IsNodeReady())
       {
-        await ToSignal(this, SignalName.Ready);
+        await ToSignal(this, DialogueManagerRuntime.DialogueBalloon.SignalName.Ready);
       }
 
       // Set up the character name
@@ -159,6 +165,25 @@ namespace DialogueManagerRuntime
       //characterLabel.Text = Tr(dialogueLine.Character, "dialogue");
       
       PlaceBubbleAboveActor();
+
+      SetStyleBox();
+      
+      var nextAuto = false;
+      
+      // skip dialogue if tag exists
+      var tags = dialogueLine.Tags.ToList();
+      foreach (var tag in tags)
+      {
+        switch (tag)
+        {
+          case DialogueConstants.Tags.NextAuto:
+            nextAuto = true;
+            break;
+          default:
+            GD.PrintS("An unknown dialogue tag was set.", tag);
+            break;
+        }
+      }
       
       // Set up the dialogue
       dialogueLabel.Hide();
@@ -192,6 +217,10 @@ namespace DialogueManagerRuntime
           time = dialogueLine.Text.Length * 0.02f;
         }
         await ToSignal(GetTree().CreateTimer(time), "timeout");
+        Next(dialogueLine.NextId);
+      }
+      else if (nextAuto)
+      {
         Next(dialogueLine.NextId);
       }
       else
@@ -286,6 +315,25 @@ namespace DialogueManagerRuntime
       var actorModule = actorSpeaking.GetNode<ActorModule>("ActorModule");
       var rect = actorModule.MainShape.Shape.GetRect();
       return (int)rect.Size.Y;
+    }
+    
+    private void SetStyleBox()
+    {
+      StyleBoxTexture theme;
+      switch (dialogueLine.Character)
+      {
+        case "Sasha":
+          theme = GD.Load<StyleBoxTexture>(SashaThemeUid);
+          break;
+        case "Oliver":
+          theme = GD.Load<StyleBoxTexture>(OliverThemeUid);
+          break;
+        default:
+          theme = GD.Load<StyleBoxTexture>(DefaultThemeUid);
+          break;
+      }
+      
+      balloon.Theme.SetStylebox("panel", "PanelContainer", theme);
     }
     
     #endregion

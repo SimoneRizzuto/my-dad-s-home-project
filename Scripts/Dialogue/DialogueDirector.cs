@@ -10,6 +10,8 @@ using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Dialogue.Base;
 using MyFathersHomeProject.Scripts.Dialogue.Actor;
 using MyFathersHomeProject.Scripts.Shared.Constants;
+using MyFathersHomeProject.Scripts.Shared.Helpers;
+using MyFathersHomeProject.Scripts.Shared.Modules.Door;
 
 namespace MyFathersHomeProject.Scripts.Dialogue;
 public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDisposable
@@ -96,6 +98,38 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
         millisecondsToPass = seconds * 1000;
         await SetupActionTask(DirectorDirection.Wait);
     }
+
+    public void OpenAllDoors()
+    { 
+        ChangeDoorState(false);
+    }
+    
+    public void CloseAllDoors()
+    {
+        ChangeDoorState(true);
+    }
+    
+    public void EnableAllDoorNavigation()
+    {
+        ChangeDoorNavigationState(true);
+    }
+    
+    public void DisableAllDoorNavigation()
+    {
+        ChangeDoorNavigationState(false);
+    }
+    
+    public void SetPlateToVisible()
+    {
+        var foodPlate = GetNodeHelper.GetFoodPlate(GetTree());
+        foodPlate.Visible = true;
+    }
+    
+    public void MakePlateFly()
+    {
+        var foodPlate = GetNodeHelper.GetFoodPlate(GetTree());
+        foodPlate.Action();
+    }
     
     #endregion
     
@@ -113,6 +147,38 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
         stopwatch.Reset();
         _directorDirectionToPlay = DirectorDirection.Nothing;
         ActionGiven.TrySetResult();
+    }
+    
+    private void ChangeDoorState(bool closed)
+    {
+        var doors = GetTree().GetNodesInGroup(NodeGroup.Door);
+        foreach (var door in doors)
+        {
+            if (door is DoorModule doorModule)
+            {
+                if (closed)
+                {
+                    // play sound effect
+                }
+                else
+                {
+                    // play other sound effect
+                }
+                doorModule.Closed = closed;
+            }
+        }
+    }
+    
+    private void ChangeDoorNavigationState(bool enable)
+    {
+        var doors = GetTree().GetNodesInGroup(NodeGroup.Door);
+        foreach (var door in doors)
+        {
+            if (door is DoorModule doorModule)
+            {
+                doorModule.EnableNavigationAction(enable);
+            }
+        }
     }
     
     public override void _Process(double delta)

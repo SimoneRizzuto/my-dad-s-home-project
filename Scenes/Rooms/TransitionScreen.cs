@@ -31,7 +31,7 @@ public partial class TransitionScreen : Control
     
     private void DoSceneSwitch()
     {
-        _sceneSwitcher.TransitionToScene(null, NextScene);
+        _sceneSwitcher.TransitionToScene(NextScene);
     }
 
     private void FadeOutLabel()

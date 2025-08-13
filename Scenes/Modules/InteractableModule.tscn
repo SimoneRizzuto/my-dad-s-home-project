@@ -9,6 +9,7 @@ script = ExtResource("1_biv0k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sum5w")
+debug_color = Color(0.701961, 0, 0, 0.419608)
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
 [connection signal="body_exited" from="." to="." method="OnBodyExited"]

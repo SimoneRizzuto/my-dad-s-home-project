@@ -11,4 +11,5 @@ public interface ICharacter
     void SetDirection(Direction direction);
     void Jump();
     void SetVisibility(bool visible);
+    void SetHoldingPlate(bool isHolding);
 }

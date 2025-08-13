@@ -112,12 +112,15 @@ do SceneSwitcher.Spawn_DadKnocksScene()
 do Oliver.SetCharacterState(1)
 do Oliver.PlayAnimation("sit left")
 
+do Director.DisableAllDoorNavigation()
 do Director.Wait(1)
 
 Oliver: Coming!
 
 do Director.ToggleCameraSmoothing(true)
 do Oliver.PlayAnimation("stand from seat")
+
+do Director.Wait(0.1)
 
 => END
 
@@ -126,9 +129,29 @@ do Oliver.PlayAnimation("stand from seat")
 
 ~ dad_walks_in
 
+do Director.DisableAllDoorNavigation()
+
+if (SceneStates.ClothesPickedUp and !SceneStates.ClothesPutAway)
+	do Director.OpenAllDoors()
+	do Papa.SetVisibility(true)
+	do Papa.SetDirection(1)
+	do Oliver.SetDirection(1)
+	do Director.Wait(1)
+	
+	Papa: What are you[#next_auto]
+	do Papa.SetVisibility(false)
+	do Director.CloseAllDoors()
+	=> END
+
+do Oliver.MoveToXPosition(220)
+do Oliver.LookRight()
+do Director.Wait(0.25)
+
+do Director.OpenAllDoors()
 do Papa.SetVisibility(true)
 do Papa.SetDirection(1)
 do Oliver.SetDirection(1)
+do Director.Wait(1.25)
 
 Papa: Why didn’t you answer after the first time?
 Oliver: I guess I didn’t hear it.
@@ -144,26 +167,62 @@ Papa: ...
 
 do Director.Wait(2)
 
-#The dad walks into the room. He places the plate on the table, and walk around the room.
+Papa: I made you dinner.
 
-Papa: *sigh*
-#if you've cleaned up your room
+do Director.Wait(1)
+
+# moves to table, places plate, looks left & waits
+do Papa.MoveToXPosition(135)
+do Oliver.LookLeft()
+do Papa.PlayAnimation("idle right plate")
+do Director.Wait(0.75)
+do Papa.PlayAnimation("place plate right")
+do Director.Wait(0.25)
+do Papa.LookRight()
+do Director.SetPlateToVisible()
+do Papa.SetHoldingPlate(false)
+do Director.Wait(1)
+do Papa.LookLeft()
+do Director.Wait(1.25)
+
+do Papa.MoveToXPosition(75)
+
+do Director.Wait(1)
+
+if (SceneStates.ClothesPutAway)
+	do Papa.MoveToXPosition(120)
+	do Director.Wait(1)
+	
+	Papa: *sigh*
 	Papa: You're always stuck inside.
-#else
+else
+	do Papa.MoveToXPosition(100)
+	do Director.Wait(1)
+	do Papa.PlayAnimation("idle right look down")
+	do Director.Wait(1)
+	
 	Papa: This mess...
+
 Papa: I shouldn’t even have to say anything.
 Oliver: ...
 
 #The dad turns to Oliver.
 
-Papa: Are YOU going to say anything?
-Oliver: I’ll clean it later...
+Papa: ARE you going to say anything?
+
+if (SceneStates.ClothesPutAway)
+	Oliver: ...
+else
+	Oliver: I’ll clean it later...
 
 #He walks toward the door.
 
 Papa: Arrangia!
 
-#He leaves, and slams the door.
+do Papa.MoveToXPosition(235)
+do Oliver.LookRight()
+do Director.Wait(1)
+
 #Oliver’s heart is still heard beating again.
 
 do Papa.SetVisibility(false)
@@ -171,6 +230,14 @@ do Papa.SetVisibility(false)
 => END
 
 ~ back_on_the_computer
+
+do Sasha.LookRight()
+
+# Oliver moved into position and sits down
+do Oliver.MoveToXPosition(165)
+do Oliver.PlayAnimation("sit left")
+do Oliver.SetDirection(-1)
+do Director.Wait(1.25)
 
 Oliver: Hey, sorry, I'm back.
 Oliver: ...
@@ -188,11 +255,8 @@ do Director.Wait(1.5)
 Sasha: Um.
 Sasha: You forgot to mute your mic.
 Sasha: I heard a little bit of that.
-
-do Oliver.PlayAnimation("look down on chair")
-
 Oliver: Oh.
-Sasha: It didn't sound very nice.
+Sasha: It didn't sound good.
 Oliver: ... Yeah.
 Oliver: This is why I hate going out in the living room.
 Oliver: Never ends well.
@@ -225,39 +289,84 @@ Oliver: Avocado is like eating straight butter. It's awful.
 Sasha: You don't even like sushi.
 Oliver: Yeah, but that's a different matter.
 Sasha: Ok, what are YOU having then?
-Oliver: Just a classic: spaghetti and tuna.
+Oliver: Just a classic. Spaghetti and tuna.
 Sasha: That's not a classic.
-Oliver: It's MY classic.
-Sasha: Ok, fine, but that's not a classic
+Oliver: It's MY classic!
+Sasha: Ok, fine, but that's not a classic.
 Oliver: You don't know what your missing out on.
 Sasha: Ok. If you try sushi and avocado, I'll try spaghetti and tuna.
-Oliver: Mhh.
+Oliver: Mhh.‎
 Oliver: I'll think about it.
 
-do Oliver.PlayAnimation("gobble food")
+do Director.Wait(1.5)
 
-Oliver: Ahhhhhhhhhhhhhhhh.
+do Oliver.PlayAnimation("idle left")
+do Director.Wait(0.5)
+
+do Oliver.MoveToXPosition(148)
+do Director.Wait(0.75)
+
+do Oliver.PlayAnimation("fling hand up")
+do Director.MakePlateFly()
+do Director.Wait(0.25)
+do Oliver.PlayAnimation("eating food")
+do Director.Wait(1.25)
+
+
+do Oliver.PlayAnimation("idle left")
+do Director.Wait(0.75)
+
+Oliver: Ahhhhhhhhhhhh.
+Oliver: That hits the spot.
+do Oliver.LookRight()
+do Director.Wait(0.5)
 Oliver: Alright, I'm coming now.
 Sasha: ... Right now?
 Oliver: Yeah!
 Sasha: Did you just gulp your food down in one go?
-Oliver: Maybe...
-Sasha: Jeez.
+Oliver: Maybe.
 Sasha: You shouldn't do that, you know.
 Oliver: Well, I just did.
-Sasha: Ok. Let me know when you outside.
+Sasha: Let me know when you're outside.
 Oliver: Yup, see ya soon.
 
-do Oliver.PlayAnimation("jump off chair")
+do Director.Wait(0.75)
+do Oliver.LookLeft()
+do Director.Wait(0.75)
+Oliver: Just wish I could sneak out the window, though.
+do Oliver.LookRight()
 
-Oliver: I wish I could sneak out the window though.
+do Director.EnableAllDoorNavigation()
+
+do Director.Wait(0.1)
+
+=> END
+
+~ looking_out_the_window
+
+do Oliver.MoveToXPosition(45)
+do Oliver.LookLeft()
+do Oliver.SetDirection(1)
+do Director.Wait(0.25)
+
+Oliver: The next house better have openable windows, or I swear.
+
+do Director.Wait(0.1)
 
 => END
 
 ~ oliver_attempts_to_leave
 
+do Papa.PlayAnimation("sit couch look right")
+
 Papa: Where are you going?
+
+do Director.Wait(1)
+
 Oliver: Out.
 Papa: ...
+
+do Papa.PlayAnimation("sit couch right")
+do Director.Wait(0.1)
 
 => END

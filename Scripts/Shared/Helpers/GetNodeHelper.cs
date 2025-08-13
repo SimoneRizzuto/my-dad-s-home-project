@@ -1,6 +1,7 @@
 using Godot;
 using System.Linq;
 using MyFathersHomeProject.Scripts.Camera;
+using MyFathersHomeProject.Scripts.Misc;
 using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
@@ -41,5 +42,17 @@ public static class GetNodeHelper
         }
         
         return dialogueBalloon;
+    }
+    
+    public static FoodPlate GetFoodPlate(SceneTree tree)
+    {
+        var plateNodes = tree.GetNodesInGroup(NodeGroup.Plate);
+        var plate = plateNodes.Cast<FoodPlate>().FirstOrDefault();
+        if (plate == null)
+        {
+            GD.Print($"{nameof(plate)} was null.");
+        }
+        
+        return plate;
     }
 }
