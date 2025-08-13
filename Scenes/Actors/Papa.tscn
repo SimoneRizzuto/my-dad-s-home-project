@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://ci3t7wpbmy852"]
+[gd_scene load_steps=45 format=3 uid="uid://ci3t7wpbmy852"]
 
 [ext_resource type="Texture2D" uid="uid://cdkf25wwndaih" path="res://Assets/Textures/Papa/papa idle left-Sheet.png" id="1_8skv1"]
 [ext_resource type="Script" path="res://Scripts/Character/Actors/Papa.cs" id="1_c15we"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://de84q7svre6rp" path="res://Assets/Textures/Papa/papa idle right plate-Sheet.png" id="5_uvimh"]
 [ext_resource type="Texture2D" uid="uid://doqtmip5ij0li" path="res://Assets/Textures/Papa/papa place plate right.png" id="6_ht3an"]
 [ext_resource type="Texture2D" uid="uid://b6fqkr710l8ar" path="res://Assets/Textures/Papa/papa walk left plate-Sheet.png" id="7_k7yuu"]
+[ext_resource type="Texture2D" uid="uid://d35obwqxbgx11" path="res://Assets/Textures/Papa/papa sit couch right look right-Sheet.png" id="7_mt2u8"]
+[ext_resource type="Texture2D" uid="uid://dq6b48urahcuv" path="res://Assets/Textures/Papa/papa sit couch right-Sheet.png" id="8_13bms"]
 [ext_resource type="Texture2D" uid="uid://jmqchphyq8r4" path="res://Assets/Textures/Papa/papa walk right plate-Sheet.png" id="9_8hlr0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxvwp"]
@@ -50,6 +52,22 @@ region = Rect2(48, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1se38"]
 atlas = ExtResource("6_ht3an")
 region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ukpr"]
+atlas = ExtResource("7_mt2u8")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikj8n"]
+atlas = ExtResource("7_mt2u8")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfmrd"]
+atlas = ExtResource("8_13bms")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfu0i"]
+atlas = ExtResource("8_13bms")
+region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1pvrb"]
 atlas = ExtResource("4_oed8v")
@@ -168,6 +186,28 @@ animations = [{
 "loop": true,
 "name": &"place plate right",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_0ukpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikj8n")
+}],
+"loop": true,
+"name": &"sit couch look right",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_yfmrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfu0i")
+}],
+"loop": true,
+"name": &"sit couch right",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,

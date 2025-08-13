@@ -358,6 +358,9 @@ do Director.Wait(0.1)
 ~ oliver_attempts_to_leave
 
 Papa: Where are you going?
+
+do Director.Wait(1)
+
 Oliver: Out.
 Papa: ...
 
