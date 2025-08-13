@@ -346,6 +346,7 @@ do Director.Wait(0.1)
 
 do Oliver.MoveToXPosition(45)
 do Oliver.LookLeft()
+do Oliver.SetDirection(1)
 do Director.Wait(0.25)
 
 Oliver: The next house better have openable windows, or I swear.
