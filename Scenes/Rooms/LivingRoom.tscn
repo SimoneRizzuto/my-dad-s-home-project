@@ -44,8 +44,11 @@ color = Color(0.219608, 0.219608, 0.360784, 1)
 z_index = 4096
 position = Vector2(344, 75)
 
-[node name="Dismounter" parent="Tripods/Couch" instance=ExtResource("2_7l723")]
+[node name="CouchDismounter" parent="Tripods/Couch" instance=ExtResource("2_7l723")]
 position = Vector2(278, 65)
+
+[node name="DoorDismounter" parent="Tripods/Couch" instance=ExtResource("2_7l723")]
+position = Vector2(128, 65)
 
 [node name="Mounter1" parent="Tripods/Couch" node_paths=PackedStringArray("MountPosition") instance=ExtResource("1_njjkm")]
 position = Vector2(432, 66)
