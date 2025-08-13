@@ -16,16 +16,16 @@ public partial class FoodPlate : CharacterBody2D, IAction
         
         if (!_comingBackDown)
         {
-            Velocity = new Vector2(Velocity.X, (Velocity.Y - 6750) * (float)delta);
+            Velocity = new Vector2(Velocity.X, (Velocity.Y - 10000) * (float)delta);
             
-            if (Position.Y < -80)
+            if (Position.Y < -60)
             {
                 _comingBackDown = true;
             }
         }
         else
         {
-            Velocity = new Vector2(Velocity.X, (Velocity.Y + 6750) * (float)delta);
+            Velocity = new Vector2(Velocity.X, (Velocity.Y + 10000) * (float)delta);
         }
         
         MoveAndSlide();

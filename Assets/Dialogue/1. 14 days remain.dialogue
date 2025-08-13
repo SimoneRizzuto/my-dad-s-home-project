@@ -291,19 +291,19 @@ Sasha: Ok. If you try sushi and avocado, I'll try spaghetti and tuna.
 Oliver: Mhh.‎
 Oliver: I'll think about it.
 
-do Director.Wait(2)
+do Director.Wait(1.5)
 
 do Oliver.PlayAnimation("idle left")
-do Director.Wait(1)
+do Director.Wait(0.5)
 
 do Oliver.MoveToXPosition(148)
-do Director.Wait(1)
+do Director.Wait(0.75)
 
 do Oliver.PlayAnimation("fling hand up")
 do Director.MakePlateFly()
 do Director.Wait(0.25)
 do Oliver.PlayAnimation("eating food")
-do Director.Wait(2.3)
+do Director.Wait(1.25)
 
 
 do Oliver.PlayAnimation("idle left")
@@ -311,25 +311,23 @@ do Director.Wait(0.75)
 
 Oliver: Ahhhhhhhhhhhh.
 Oliver: That hits the spot.
+do Oliver.LookRight()
+do Director.Wait(0.5)
 Oliver: Alright, I'm coming now.
 Sasha: ... Right now?
 Oliver: Yeah!
 Sasha: Did you just gulp your food down in one go?
 Oliver: Maybe.
-Sasha: Jeez.
 Sasha: You shouldn't do that, you know.
 Oliver: Well, I just did.
-Sasha: Ok. Let me know when you outside.
+Sasha: Let me know when you're outside.
 Oliver: Yup, see ya soon.
 
-do Director.LookRight()
-do Director.Wait(0.5)
-do Director.LookLeft()
-do Director.Wait(0.5)
-
-do Director.Wait(1)
-
+do Director.Wait(0.75)
+do Oliver.LookLeft()
+do Director.Wait(0.75)
 Oliver: Just wish I could sneak out the window, though.
+do Oliver.LookRight()
 
 => END
 
