@@ -17,6 +17,8 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     // sets
     public const string Set1_OnlineWorld = "uid://cjd6v6afkjbn0";
     public const string Set1_OliverBedroom = "uid://cap325m8jhcqw";
+    public const string Set1_LivingRoom = "uid://bggng8c6npq0v";
+    
     public const string TransitionScreen = "uid://ba8ajsihdkrwt";
     
     // getters
@@ -66,17 +68,18 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     #endregion
     
     #region functionality
-    public void TransitionToScene(string uid = null, PackedScene scene = null)
+    public void TransitionToScene(string uid)
     {
         ClearMain();
-        if (uid != null)
-        {
-            SpawnSceneUid(uid);
-        }
-        else
-        {
-            SpawnScenePacked(scene);
-        }
+        SpawnSceneUid(uid);
+        
+        CastCrew.InitialiseActors(); // make into signal???
+    }
+    
+    public void TransitionToScene(PackedScene scene)
+    {
+        ClearMain();
+        SpawnScenePacked(scene);
         
         CastCrew.InitialiseActors(); // make into signal???
     }
