@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bi14ih4bw0ew2" path="res://Assets/Textures/Environments/oliver-room-background-wall.png" id="1_bcs8k"]
 [ext_resource type="Script" path="res://Scenes/Rooms/CameraOverride.cs" id="1_pd1oj"]
-[ext_resource type="PackedScene" uid="uid://cnoqyr5k1dm5n" path="res://Scenes/Camera/TripodMount.tscn" id="2_piyi6"]
+[ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="2_piyi6"]
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="2_y5hah"]
 [ext_resource type="Texture2D" uid="uid://dr8ie6j8g2608" path="res://Assets/Textures/StaticObjects/OliverBedroom/hero-poster.png" id="4_d7bue"]
 [ext_resource type="Texture2D" uid="uid://dkaw555svegmx" path="res://Assets/Textures/StaticObjects/OliverBedroom/bedside-drawer-oliver.png" id="4_jfg7y"]

@@ -115,7 +115,7 @@ script = ExtResource("1_clxig")
 [node name="DoorSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -43)
 sprite_frames = SubResource("SpriteFrames_m8wxk")
-animation = &"oliver blue open"
+animation = &"blue closed"
 centered = false
 
 [node name="Area2D" type="Area2D" parent="."]
