@@ -29,3 +29,4 @@ DisableOnInteract = true
 
 [node name="DialogueTriggerAction" parent="InteractableModule" instance=ExtResource("5_7nxkw")]
 DialogueResource = ExtResource("6_04kj3")
+Title = "oliver_attempts_to_leave"
