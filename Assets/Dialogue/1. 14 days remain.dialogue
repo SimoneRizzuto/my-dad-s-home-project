@@ -366,7 +366,13 @@ do Director.Wait(1)
 Oliver: Out.
 Papa: ...
 
+do Director.Wait(2)
+
 do Papa.PlayAnimation("sit couch right")
+
+do Director.Wait(1)
+Papa: Do whatever you want.
+
 do Director.Wait(0.1)
 
 => END
