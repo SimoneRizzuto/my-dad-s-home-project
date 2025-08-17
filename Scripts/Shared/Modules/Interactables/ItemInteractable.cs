@@ -23,6 +23,8 @@ public partial class ItemInteractable : Area2D, IAction
             case TriggerMode.Input:
                 triggerInteract = areaTriggered && InputInteract;
                 break;
+            case TriggerMode.CollisionEnteredOrExited:
+                break;
         }
         
         if (triggerInteract)
@@ -41,6 +43,10 @@ public partial class ItemInteractable : Area2D, IAction
             case TriggerMode.Input:
                 areaTriggered = true;
                 break;
+            case TriggerMode.CollisionEntered:
+            case TriggerMode.CollisionEnteredOrExited:
+                Action();
+                break;
         }
     }
     
@@ -53,6 +59,10 @@ public partial class ItemInteractable : Area2D, IAction
                 break;
             case TriggerMode.Input:
                 areaTriggered = false;
+                break;
+            case TriggerMode.CollisionExited:
+            case TriggerMode.CollisionEnteredOrExited:
+                Action();
                 break;
         }
     }
@@ -71,4 +81,7 @@ public enum TriggerMode
 {
     Collision,
     Input,
+    CollisionEntered,
+    CollisionExited,
+    CollisionEnteredOrExited
 }

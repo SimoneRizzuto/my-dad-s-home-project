@@ -64,6 +64,10 @@ public partial class InteractableModule : Area2D
 			case TriggerMode.Input:
 				_inRange = true;
 				break;
+			case TriggerMode.CollisionEntered:
+			case TriggerMode.CollisionEnteredOrExited:
+				Interact();
+				break;
 		}
 	}
     
@@ -78,6 +82,10 @@ public partial class InteractableModule : Area2D
 				break;
 			case TriggerMode.Input:
 				_inRange = false;
+				break;
+			case TriggerMode.CollisionExited:
+			case TriggerMode.CollisionEnteredOrExited:
+				Interact();
 				break;
 		}
 	}
