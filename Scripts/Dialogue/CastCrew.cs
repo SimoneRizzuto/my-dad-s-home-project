@@ -16,10 +16,10 @@ public partial class CastCrew : Node2D
     public override void _Ready()
     {
         Instance = this;
-        InitialiseActors();
+        FindExistingActors();
     }
     
-    public void InitialiseActors()
+    public void FindExistingActors()
     {
         var tree = GetTree();
         

@@ -1,8 +1,10 @@
 using Godot;
 using MyFathersHomeProject.Scripts.Player;
+using MyFathersHomeProject.Scripts.Singletons.SceneStates;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables.Custom;
-public partial class ClothesMoveToHeadAction : Node2D, IAction
+[GlobalClass]
+public partial class ClothesMoveToHeadAction : Node, IAction
 {
 	[Export] public Texture2D? PickUpTexture;
 	
@@ -21,6 +23,8 @@ public partial class ClothesMoveToHeadAction : Node2D, IAction
 			
 			ClothesSprite2D.Texture = PickUpTexture;
 			ClothesSprite2D.Position = new(-4, -22);
+			
+			SceneStates.Instance.ClothesPickedUp = true;
 		}
 		
 		// activate other Action to place into drawer

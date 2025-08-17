@@ -87,6 +87,11 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
         Character.SetVisibility(visible);
     }
     
+    public void SetHoldingPlate(bool isHolding)
+    {
+        Character.SetHoldingPlate(isHolding);
+    }
+    
     #endregion
     
     #region process logic

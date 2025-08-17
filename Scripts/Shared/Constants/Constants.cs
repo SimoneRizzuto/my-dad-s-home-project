@@ -1,11 +1,8 @@
 namespace MyFathersHomeProject.Scripts.Shared.Constants;
 public enum Direction
 {
-    Up = 0,
     Left = 1,
     Right = 2,
-    Down = 3,
-    None = 4,
 }
 
 public static class NodeGroup
@@ -14,6 +11,9 @@ public static class NodeGroup
     public const string PlayerCamera = "player camera";
     public const string ActorModule = "actor module";
     public const string DialogueBalloon = "dialogue balloon";
+    public const string Door = "door";
+    public const string Plate = "plate";
+    public const string Window = "window";
 }
 
 public static class ZIndexLayers
