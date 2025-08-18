@@ -5,7 +5,7 @@
 
 [node name="Set2_SashaBedroom" type="Node2D"]
 
-[node name="SashaBedroom" parent="." instance=ExtResource("1_0lddp")]
-
 [node name="Oliver" parent="." instance=ExtResource("2_pk1vq")]
 position = Vector2(103, 73)
+
+[node name="SashaBedroom" parent="." instance=ExtResource("1_0lddp")]
