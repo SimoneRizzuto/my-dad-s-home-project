@@ -150,6 +150,7 @@ animations = [{
 }]
 
 [node name="Sasha" type="CharacterBody2D"]
+z_index = 100
 script = ExtResource("1_euxa3")
 
 [node name="MainShape" type="CollisionShape2D" parent="."]
