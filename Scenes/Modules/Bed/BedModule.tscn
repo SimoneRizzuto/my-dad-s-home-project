@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://vdqs0lk5wye3"]
+
+[ext_resource type="Texture2D" uid="uid://dwjbm3hnhd314" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-bed.png" id="1_r3pdq"]
+[ext_resource type="Texture2D" uid="uid://b8kodykusgjvm" path="res://Assets/Textures/StaticObjects/SashaBedroom/sasha-bed.png" id="2_2fpnv"]
+[ext_resource type="Texture2D" uid="uid://c822pyrll4whr" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-bed-bounce.png" id="2_nqk51"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Bed/BedModule.cs" id="4_wyvod"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1hdy"]
+atlas = ExtResource("1_r3pdq")
+region = Rect2(0, 0, 45, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm7wv"]
+atlas = ExtResource("2_nqk51")
+region = Rect2(0, 0, 45, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj32r"]
+atlas = ExtResource("2_2fpnv")
+region = Rect2(0, 0, 41, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_52jho"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1hdy")
+}],
+"loop": true,
+"name": &"oliver bed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm7wv")
+}],
+"loop": true,
+"name": &"oliver bed bounce",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj32r")
+}],
+"loop": true,
+"name": &"sasha bed",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"sasha bed bounce",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wjeg"]
+size = Vector2(40, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5e5mm"]
+size = Vector2(40, 4)
+
+[node name="BedModule" type="AnimatedSprite2D"]
+z_index = 115
+position = Vector2(0, -13)
+sprite_frames = SubResource("SpriteFrames_52jho")
+animation = &"oliver bed bounce"
+centered = false
+script = ExtResource("4_wyvod")
+
+[node name="Collision" type="StaticBody2D" parent="."]
+position = Vector2(3, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+position = Vector2(20, 3)
+shape = SubResource("RectangleShape2D_6wjeg")
+
+[node name="BounceArea" type="Area2D" parent="."]
+position = Vector2(31, -9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceArea"]
+position = Vector2(-8, 14)
+shape = SubResource("RectangleShape2D_5e5mm")
+debug_color = Color(0.960784, 0, 0, 0.384314)
