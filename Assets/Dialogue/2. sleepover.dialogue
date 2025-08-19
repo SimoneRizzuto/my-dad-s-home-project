@@ -29,7 +29,6 @@ Oliver: (Only through stories.)
 => END
 
 ~ tv_interaction
-do Oliver.SetDirection(1)
 do Oliver.LookLeft()
 
 Oliver: When did you get so good at Marco Kart?
