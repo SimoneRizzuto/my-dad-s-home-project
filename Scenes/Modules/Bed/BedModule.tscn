@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://vdqs0lk5wye3"]
+[gd_scene load_steps=14 format=3 uid="uid://vdqs0lk5wye3"]
 
 [ext_resource type="Texture2D" uid="uid://dwjbm3hnhd314" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-bed.png" id="1_r3pdq"]
 [ext_resource type="Texture2D" uid="uid://b8kodykusgjvm" path="res://Assets/Textures/StaticObjects/SashaBedroom/sasha-bed.png" id="2_2fpnv"]
 [ext_resource type="Texture2D" uid="uid://c822pyrll4whr" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-bed-bounce.png" id="2_nqk51"]
+[ext_resource type="Texture2D" uid="uid://cb3e0him2jou0" path="res://Assets/Textures/StaticObjects/SashaBedroom/sasha-bed-bounce.png" id="4_imxcs"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Bed/BedModule.cs" id="4_wyvod"]
 [ext_resource type="PackedScene" uid="uid://1q3qlo8wd64c" path="res://Scenes/Tools/ZIndexModifier/ZIndexModifier.tscn" id="5_jnna4"]
 
@@ -16,6 +17,10 @@ region = Rect2(0, 0, 45, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kj32r"]
 atlas = ExtResource("2_2fpnv")
+region = Rect2(0, 0, 41, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrl7x"]
+atlas = ExtResource("4_imxcs")
 region = Rect2(0, 0, 41, 13)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_52jho"]
@@ -44,7 +49,10 @@ animations = [{
 "name": &"sasha bed",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrl7x")
+}],
 "loop": true,
 "name": &"sasha bed bounce",
 "speed": 5.0
@@ -60,9 +68,10 @@ size = Vector2(36, 3)
 z_index = 115
 position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_52jho")
-animation = &"oliver bed bounce"
+animation = &"sasha bed bounce"
 centered = false
 script = ExtResource("4_wyvod")
+Type = 1
 
 [node name="ZIndexModifierInFront" parent="." instance=ExtResource("5_jnna4")]
 position = Vector2(17, 6)
