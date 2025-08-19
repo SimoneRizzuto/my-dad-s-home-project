@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://vdqs0lk5wye3"]
+[gd_scene load_steps=12 format=3 uid="uid://vdqs0lk5wye3"]
 
 [ext_resource type="Texture2D" uid="uid://dwjbm3hnhd314" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-bed.png" id="1_r3pdq"]
 [ext_resource type="Texture2D" uid="uid://b8kodykusgjvm" path="res://Assets/Textures/StaticObjects/SashaBedroom/sasha-bed.png" id="2_2fpnv"]
 [ext_resource type="Texture2D" uid="uid://c822pyrll4whr" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-bed-bounce.png" id="2_nqk51"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Bed/BedModule.cs" id="4_wyvod"]
+[ext_resource type="PackedScene" uid="uid://1q3qlo8wd64c" path="res://Scenes/Tools/ZIndexModifier/ZIndexModifier.tscn" id="5_jnna4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l1hdy"]
 atlas = ExtResource("1_r3pdq")
@@ -62,6 +63,16 @@ sprite_frames = SubResource("SpriteFrames_52jho")
 animation = &"oliver bed bounce"
 centered = false
 script = ExtResource("4_wyvod")
+
+[node name="ZIndexModifierInFront" parent="." instance=ExtResource("5_jnna4")]
+position = Vector2(17, 6)
+scale = Vector2(0.199999, 1)
+ZIndex = 116
+
+[node name="ZIndexModifierBehind" parent="." instance=ExtResource("5_jnna4")]
+position = Vector2(28, 6)
+scale = Vector2(0.199999, 1)
+ZIndex = 100
 
 [node name="Collision" type="StaticBody2D" parent="."]
 position = Vector2(3, 5)
