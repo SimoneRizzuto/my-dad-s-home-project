@@ -56,13 +56,25 @@ public partial class BedModule : AnimatedSprite2D
 	
 	private string GetBedSpriteString(BedType type)
 	{
-		return type switch
+		var shape = (RectangleShape2D)Collision.Shape;
+		
+		switch (type)
 		{
-			BedType.Oliver => "oliver bed",
-			BedType.Papa => "papa bed",
-			BedType.Sasha => "sasha bed",
-			_ => "oliver"
-		};
+			case BedType.Oliver:
+				Collision.Position = new(20, Collision.Position.Y);
+				shape.Size = new(40, shape.Size.Y);
+				return "oliver bed";
+			case BedType.Sasha:
+				Collision.Position = new(18, Collision.Position.Y);
+				shape.Size = new(36, shape.Size.Y);
+				return "sasha bed";
+			case BedType.Papa:
+				Collision.Position = new(20, Collision.Position.Y);
+				shape.Size = new(40, shape.Size.Y);
+				return "papa bed";
+			default:
+				return "oliver";
+		}
 	}
 	
 	// signals
