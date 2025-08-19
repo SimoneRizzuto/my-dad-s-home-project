@@ -83,6 +83,15 @@ position = Vector2(174, 58)
 texture = ExtResource("2_nkrq3")
 centered = false
 
+[node name="InteractableModule" parent="Wall/Tv-sasha-bedroom" instance=ExtResource("8_utd7k")]
+position = Vector2(9, 14)
+scale = Vector2(0.95998, 0.319995)
+TriggerMode = 1
+
+[node name="DialogueTriggerAction" parent="Wall/Tv-sasha-bedroom/InteractableModule" instance=ExtResource("9_42c4i")]
+DialogueResource = ExtResource("10_bia8r")
+Title = "tv_interaction"
+
 [node name="Teal-pillow" type="Sprite2D" parent="Wall"]
 position = Vector2(156, 72)
 texture = ExtResource("3_pwltc")
