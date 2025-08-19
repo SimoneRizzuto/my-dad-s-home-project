@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://04b8h1sndcr5"]
+
+[ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="1_w8u7j"]
+[ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="2_1qwlo"]
+[ext_resource type="PackedScene" uid="uid://vdqs0lk5wye3" path="res://Scenes/Modules/Bed/BedModule.tscn" id="3_mcccf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4tp4x"]
+size = Vector2(547, 4)
+
+[node name="DebugScene" type="Node2D"]
+
+[node name="Oliver" parent="." instance=ExtResource("1_w8u7j")]
+position = Vector2(148, 59)
+
+[node name="Wall+Floor" type="Node2D" parent="."]
+
+[node name="Wall-Right" parent="Wall+Floor" instance=ExtResource("2_1qwlo")]
+position = Vector2(546, 75)
+
+[node name="Wall-Left" parent="Wall+Floor" instance=ExtResource("2_1qwlo")]
+position = Vector2(1, 75)
+
+[node name="Floor" type="StaticBody2D" parent="Wall+Floor"]
+position = Vector2(0, 75)
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall+Floor/Floor"]
+position = Vector2(273.5, 2)
+shape = SubResource("RectangleShape2D_4tp4x")
+debug_color = Color(0, 0.0235294, 0.701961, 0.419608)
+
+[node name="BedModule" parent="." instance=ExtResource("3_mcccf")]
+position = Vector2(93, 62)
