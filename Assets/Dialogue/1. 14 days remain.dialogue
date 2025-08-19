@@ -15,7 +15,7 @@ do Director.Wait(2.5)
 # Oliver walks toward tree, and sits down as well
 do Oliver.MoveRight(15)
 do Sasha.PlayAnimation("draw look left")
-do Oliver.MoveToXPosition(468)
+do Oliver.MoveToXPosition(469)
 do Oliver.PlayAnimation("idle left")
 do Oliver.SetDirection(-1)
 do Director.Wait(0.5)
@@ -143,7 +143,7 @@ if (SceneStates.ClothesPickedUp and !SceneStates.ClothesPutAway)
 	do Director.CloseAllDoors()
 	=> END
 
-do Oliver.MoveToXPosition(220)
+do Oliver.MoveToXPosition(221)
 do Oliver.LookRight()
 do Director.Wait(0.25)
 
@@ -234,7 +234,7 @@ do Papa.SetVisibility(false)
 do Sasha.LookRight()
 
 # Oliver moved into position and sits down
-do Oliver.MoveToXPosition(165)
+do Oliver.MoveToXPosition(166)
 do Oliver.PlayAnimation("sit left")
 do Oliver.SetDirection(-1)
 do Director.Wait(1.25)
@@ -303,7 +303,7 @@ do Director.Wait(1.5)
 do Oliver.PlayAnimation("idle left")
 do Director.Wait(0.5)
 
-do Oliver.MoveToXPosition(148)
+do Oliver.MoveToXPosition(149)
 do Director.Wait(0.75)
 
 do Oliver.PlayAnimation("fling hand up")
@@ -344,7 +344,7 @@ do Director.Wait(0.1)
 
 ~ looking_out_the_window
 
-do Oliver.MoveToXPosition(45)
+do Oliver.MoveToXPosition(46)
 do Oliver.LookLeft()
 do Oliver.SetDirection(1)
 do Director.Wait(0.25)

@@ -22,7 +22,7 @@ public partial class ClothesMoveToHeadAction : Node, IAction
 			Oliver.AddChild(ClothesSprite2D);
 			
 			ClothesSprite2D.Texture = PickUpTexture;
-			ClothesSprite2D.Position = new(-4, -22);
+			ClothesSprite2D.Position = new(-5, -22);
 			
 			SceneStates.Instance.ClothesPickedUp = true;
 		}
