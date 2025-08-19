@@ -54,7 +54,7 @@ animations = [{
 size = Vector2(40, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5e5mm"]
-size = Vector2(40, 4)
+size = Vector2(36, 3)
 
 [node name="BedModule" type="AnimatedSprite2D"]
 z_index = 115
@@ -85,6 +85,6 @@ shape = SubResource("RectangleShape2D_6wjeg")
 position = Vector2(31, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BounceArea"]
-position = Vector2(-8, 14)
+position = Vector2(-8, 14.5)
 shape = SubResource("RectangleShape2D_5e5mm")
 debug_color = Color(0.960784, 0, 0, 0.384314)
