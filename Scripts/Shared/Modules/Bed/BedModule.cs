@@ -10,6 +10,7 @@ public partial class BedModule : AnimatedSprite2D
 	
 	// getters
 	private Area2D BounceArea => GetNode<Area2D>("BounceArea");
+	private CollisionShape2D BounceAreaCollision => GetNode<CollisionShape2D>("BounceArea/CollisionShape2D");
 	private CollisionShape2D Collision => GetNode<CollisionShape2D>("Collision/CollisionShape2D");
 	private string BedBounceStateString => _timer is { ElapsedMilliseconds: < 150, IsRunning: true }
 		? " bounce"
@@ -38,15 +39,15 @@ public partial class BedModule : AnimatedSprite2D
 			_triggerBounce = false;
 		}
 		
-		var shape = (RectangleShape2D)Collision.Shape;
+		var collisionShape = (RectangleShape2D)Collision.Shape;
 		
 		if (_timer.ElapsedMilliseconds < 100)
 		{
-			shape.Size = new(shape.Size.X, 4);
+			collisionShape.Size = new(collisionShape.Size.X, 4);
 		}
 		else
 		{
-			shape.Size = new(shape.Size.X, 6);
+			collisionShape.Size = new(collisionShape.Size.X, 6);
 		}
 		
 		Play(BedSpriteToPlay);
@@ -56,25 +57,30 @@ public partial class BedModule : AnimatedSprite2D
 	
 	private string GetBedSpriteString(BedType type)
 	{
-		var shape = (RectangleShape2D)Collision.Shape;
+		var collisionShape = (RectangleShape2D)Collision.Shape;
+		var bounceAreaShape = (RectangleShape2D)BounceArea.GetNode<CollisionShape2D>("CollisionShape2D").Shape;
 		
 		switch (type)
 		{
 			case BedType.Oliver:
+			case BedType.Papa:
+			default:
 				Collision.Position = new(20, Collision.Position.Y);
-				shape.Size = new(40, shape.Size.Y);
-				return "oliver bed";
+				BounceAreaCollision.Position = new(20, BounceAreaCollision.Position.Y);
+				
+				collisionShape.Size = new(40, collisionShape.Size.Y);
+				bounceAreaShape.Size = new(36, bounceAreaShape.Size.Y);
+				break;
 			case BedType.Sasha:
 				Collision.Position = new(18, Collision.Position.Y);
-				shape.Size = new(36, shape.Size.Y);
-				return "sasha bed";
-			case BedType.Papa:
-				Collision.Position = new(20, Collision.Position.Y);
-				shape.Size = new(40, shape.Size.Y);
-				return "papa bed";
-			default:
-				return "oliver";
+				BounceAreaCollision.Position = new(18, BounceAreaCollision.Position.Y);
+				
+				collisionShape.Size = new(36, collisionShape.Size.Y);
+				bounceAreaShape.Size = new(32, bounceAreaShape.Size.Y);
+				break;
 		}
+
+		return $"{Enum.GetName(type)?.ToLower()} bed";
 	}
 	
 	// signals
