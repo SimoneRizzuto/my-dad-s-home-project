@@ -9,11 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://2xdvjq3ukvr8" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_point_light.webp" id="3_fqvas"]
 [ext_resource type="Texture2D" uid="uid://ceu57vodrcy64" path="res://Assets/Textures/StaticObjects/SashaBedroom/teal-pillow.png" id="3_pwltc"]
 [ext_resource type="Texture2D" uid="uid://bgtmhnu3q6ree" path="res://Assets/Textures/StaticObjects/SashaBedroom/pizza-box-on-stool.png" id="3_r3fya"]
-[ext_resource type="Texture2D" uid="uid://b8kodykusgjvm" path="res://Assets/Textures/StaticObjects/SashaBedroom/sasha-bed.png" id="4_bicpd"]
 [ext_resource type="Texture2D" uid="uid://cs80qied8c61p" path="res://Assets/Textures/StaticObjects/SashaBedroom/bedside-drawer-sasha.png" id="5_00h2x"]
 [ext_resource type="PackedScene" path="res://Scenes/Modules/InteractableModule.tscn" id="8_utd7k"]
 [ext_resource type="PackedScene" path="res://Scenes/Modules/DialogueTriggerAction.tscn" id="9_42c4i"]
 [ext_resource type="Resource" uid="uid://hqbevxyupoa2" path="res://Assets/Dialogue/2. sleepover.dialogue" id="10_bia8r"]
+[ext_resource type="PackedScene" uid="uid://vdqs0lk5wye3" path="res://Scenes/Modules/Bed/BedModule.tscn" id="14_utv8w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rlomt"]
 size = Vector2(201, 4)
@@ -59,10 +59,9 @@ position = Vector2(124, 63)
 texture = ExtResource("3_r3fya")
 centered = false
 
-[node name="Sasha-bed" type="Sprite2D" parent="Wall"]
+[node name="BedModule" parent="Wall" instance=ExtResource("14_utv8w")]
 position = Vector2(19, 62)
-texture = ExtResource("4_bicpd")
-centered = false
+Type = 1
 
 [node name="Bedside-drawer-sasha" type="Sprite2D" parent="Wall"]
 position = Vector2(3, 63)
