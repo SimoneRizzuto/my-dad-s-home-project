@@ -32,3 +32,4 @@ debug_color = Color(0, 0.0235294, 0.701961, 0.419608)
 
 [node name="BedModule" parent="." instance=ExtResource("3_mcccf")]
 position = Vector2(93, 62)
+Type = 1
