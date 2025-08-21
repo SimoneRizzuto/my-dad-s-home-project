@@ -8,12 +8,20 @@ public partial class InteractableModule : Area2D
 	//[Signal] public delegate void TriggeredItemEventHandler();
 	[Export] public TriggerMode TriggerMode;
 	[Export] public bool DisableOnInteract;
+	private Label _interactLabel;
+
 	
 	// getters
 	private bool InputInteract => Input.IsActionJustPressed(InputMapAction.Interact);
 	
 	// variables
 	private bool _inRange;
+	
+	public override void _Ready()
+	{
+		_interactLabel = GetNode<Label>("./Label"); 
+		_interactLabel.Visible = false;
+	}
 	
 	public override void _PhysicsProcess(double delta)
 	{
@@ -63,6 +71,7 @@ public partial class InteractableModule : Area2D
 				break;
 			case TriggerMode.Input:
 				_inRange = true;
+				_interactLabel.Visible = true;
 				break;
 			case TriggerMode.CollisionEntered:
 			case TriggerMode.CollisionEnteredOrExited:
@@ -82,6 +91,7 @@ public partial class InteractableModule : Area2D
 				break;
 			case TriggerMode.Input:
 				_inRange = false;
+				_interactLabel.Visible = false;
 				break;
 			case TriggerMode.CollisionExited:
 			case TriggerMode.CollisionEnteredOrExited:
