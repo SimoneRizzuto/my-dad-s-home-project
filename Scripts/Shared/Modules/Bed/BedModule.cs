@@ -1,25 +1,36 @@
 using Godot;
 using System;
 using System.Diagnostics;
+using DialogueManagerRuntime;
+using MyFathersHomeProject.Scripts.Dialogue;
 using MyFathersHomeProject.Scripts.Player;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Bed;
 public partial class BedModule : AnimatedSprite2D
 {
 	[Export] public BedType Type { get; set; }
+	[Export] public bool TriggerDialogue { get; set; }
+	[Export] public Resource? Dialogue { get; set; }
 	
 	// getters
 	private Area2D BounceArea => GetNode<Area2D>("BounceArea");
 	private CollisionShape2D BounceAreaCollision => GetNode<CollisionShape2D>("BounceArea/CollisionShape2D");
 	private CollisionShape2D Collision => GetNode<CollisionShape2D>("Collision/CollisionShape2D");
-	private string BedBounceStateString => _timer is { ElapsedMilliseconds: < 150, IsRunning: true }
+	private string BedBounceStateString => _bounceTimer is { ElapsedMilliseconds: < 150, IsRunning: true }
 		? " bounce"
 		: "";
 	private string BedSpriteToPlay => $"{GetBedSpriteString(Type)}{BedBounceStateString}";
 	
 	// variables
 	private bool _triggerBounce;
-	private readonly Stopwatch _timer = new();
+	private int _bounceCount;
+	private int _bounceDialogueIndex;
+	
+	//private readonly Stopwatch _bounceBufferTimer = new();
+	
+	// idea: if bounce on Bed 3 times, do thing.
+	//  if collide with Floor, reset
+	private readonly Stopwatch _bounceTimer = new();
 	
 	public override void _EnterTree()
 	{
@@ -33,15 +44,20 @@ public partial class BedModule : AnimatedSprite2D
 	
 	public override void _Process(double delta)
 	{
+		if (_bounceCount == 3)
+		{
+			TriggerAction();
+		}
+		
 		if (_triggerBounce)
 		{
-			_timer.Restart();
+			_bounceTimer.Restart();
 			_triggerBounce = false;
 		}
 		
 		var collisionShape = (RectangleShape2D)Collision.Shape;
 		
-		if (_timer.ElapsedMilliseconds < 100)
+		if (_bounceTimer.ElapsedMilliseconds < 100)
 		{
 			collisionShape.Size = new(collisionShape.Size.X, 4);
 		}
@@ -51,8 +67,27 @@ public partial class BedModule : AnimatedSprite2D
 		}
 		
 		Play(BedSpriteToPlay);
+	}
+	
+	private void TriggerAction()
+	{
+		if (Dialogue == null) return;
 		
-		Console.WriteLine(BedSpriteToPlay);
+		switch (_bounceDialogueIndex)
+		{
+			case 0:
+				DialogueDirector.Instance.TriggerCutscene(Dialogue, "jump_on_bed_1");
+				break;
+			case 1:
+				DialogueDirector.Instance.TriggerCutscene(Dialogue, "jump_on_bed_2");
+				break;
+			case 2:
+				DialogueDirector.Instance.TriggerCutscene(Dialogue, "jump_on_bed_3");
+				break;
+		}
+		
+		_bounceDialogueIndex++;
+		_bounceCount = 0;
 	}
 	
 	private string GetBedSpriteString(BedType type)
@@ -79,7 +114,7 @@ public partial class BedModule : AnimatedSprite2D
 				bounceAreaShape.Size = new(32, bounceAreaShape.Size.Y);
 				break;
 		}
-
+		
 		return $"{Enum.GetName(type)?.ToLower()} bed";
 	}
 	
@@ -88,6 +123,11 @@ public partial class BedModule : AnimatedSprite2D
 	{
 		if (body is not Oliver) return;
 		_triggerBounce = true;
+		
+		if (TriggerDialogue)
+		{
+			_bounceCount++;
+		}
 	}
 }
 
