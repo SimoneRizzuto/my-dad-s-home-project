@@ -80,12 +80,11 @@ Sasha: Hehe~
 => END
 
 ~ jump_on_bed_1
-#maybe iterate through dialogue if you keep on doing it
-Sasha: Oliver!
+Sasha: Stop bouncing on my bed!
 Oliver: Sorry.
 => END
 ~ jump_on_bed_2
-Sasha: ...
+Sasha: Oliver!
 Oliver: Your bed is bouncier than mine, ok?
 => END
 ~ jump_on_bed_3
