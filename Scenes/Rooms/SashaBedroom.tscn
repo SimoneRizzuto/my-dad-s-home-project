@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0a6mystt74m5"]
+[gd_scene load_steps=17 format=3 uid="uid://d0a6mystt74m5"]
 
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="1_5m3ee"]
 [ext_resource type="Texture2D" uid="uid://cih7s2rohugoh" path="res://Assets/Textures/Environments/SashaBedroom/sasha-bedroom-wall.png" id="1_f6sw5"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ceu57vodrcy64" path="res://Assets/Textures/StaticObjects/SashaBedroom/teal-pillow.png" id="3_pwltc"]
 [ext_resource type="Texture2D" uid="uid://bgtmhnu3q6ree" path="res://Assets/Textures/StaticObjects/SashaBedroom/pizza-box-on-stool.png" id="3_r3fya"]
 [ext_resource type="Texture2D" uid="uid://cs80qied8c61p" path="res://Assets/Textures/StaticObjects/SashaBedroom/bedside-drawer-sasha.png" id="5_00h2x"]
+[ext_resource type="PackedScene" uid="uid://cgobk3l7mmbe1" path="res://Scenes/Modules/Bed/BedBounceResetter.tscn" id="8_h02hs"]
 [ext_resource type="PackedScene" path="res://Scenes/Modules/InteractableModule.tscn" id="8_utd7k"]
 [ext_resource type="PackedScene" path="res://Scenes/Modules/DialogueTriggerAction.tscn" id="9_42c4i"]
 [ext_resource type="Resource" uid="uid://hqbevxyupoa2" path="res://Assets/Dialogue/2. sleepover.dialogue" id="10_bia8r"]
@@ -64,6 +65,9 @@ position = Vector2(19, 62)
 Type = 1
 TriggerDialogue = true
 Dialogue = ExtResource("10_bia8r")
+
+[node name="BedBounceResetter" parent="Wall" instance=ExtResource("8_h02hs")]
+position = Vector2(72, 77)
 
 [node name="Bedside-drawer-sasha" type="Sprite2D" parent="Wall"]
 position = Vector2(3, 63)

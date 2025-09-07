@@ -64,7 +64,7 @@ size = Vector2(40, 6)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5e5mm"]
 size = Vector2(36, 3)
 
-[node name="BedModule" type="AnimatedSprite2D"]
+[node name="BedModule" type="AnimatedSprite2D" groups=["bed"]]
 z_index = 115
 position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_52jho")

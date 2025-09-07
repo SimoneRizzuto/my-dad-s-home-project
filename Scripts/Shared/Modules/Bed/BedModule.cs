@@ -22,8 +22,8 @@ public partial class BedModule : AnimatedSprite2D
 	private string BedSpriteToPlay => $"{GetBedSpriteString(Type)}{BedBounceStateString}";
 	
 	// variables
-	private bool _triggerBounce;
 	private int _bounceCount;
+	private bool _triggerBounce;
 	private int _bounceDialogueIndex;
 	
 	//private readonly Stopwatch _bounceBufferTimer = new();
@@ -116,6 +116,11 @@ public partial class BedModule : AnimatedSprite2D
 		}
 		
 		return $"{Enum.GetName(type)?.ToLower()} bed";
+	}
+	
+	public void ResetBounceCount()
+	{
+		_bounceCount = 0;
 	}
 	
 	// signals
