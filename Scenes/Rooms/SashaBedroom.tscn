@@ -60,6 +60,16 @@ position = Vector2(124, 63)
 texture = ExtResource("3_r3fya")
 centered = false
 
+[node name="InteractableModule" parent="Wall/Pizza-box-on-stool" instance=ExtResource("8_utd7k")]
+position = Vector2(6, 5)
+scale = Vector2(0.347404, 0.67965)
+TriggerMode = 1
+DisableOnInteract = true
+
+[node name="DialogueTriggerAction" parent="Wall/Pizza-box-on-stool/InteractableModule" instance=ExtResource("9_42c4i")]
+DialogueResource = ExtResource("10_bia8r")
+Title = "pizza_carton_interaction"
+
 [node name="BedModule" parent="Wall" instance=ExtResource("14_utv8w")]
 position = Vector2(19, 62)
 Type = 1
@@ -92,6 +102,7 @@ centered = false
 position = Vector2(9, 14)
 scale = Vector2(0.95998, 0.319995)
 TriggerMode = 1
+DisableOnInteract = true
 
 [node name="DialogueTriggerAction" parent="Wall/Tv-sasha-bedroom/InteractableModule" instance=ExtResource("9_42c4i")]
 DialogueResource = ExtResource("10_bia8r")
