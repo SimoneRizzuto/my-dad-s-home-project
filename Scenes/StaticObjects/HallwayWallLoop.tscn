@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bipnn0lp8ls3u"]
+
+[ext_resource type="Texture2D" uid="uid://bt1ph0mfsqohl" path="res://Assets/Textures/Environments/SashaHallway/hallway wall loop.png" id="1_pf0fb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iniqj"]
+size = Vector2(202, 4)
+
+[node name="HallwayWallLoop" type="Sprite2D"]
+position = Vector2(10, 0)
+texture = ExtResource("1_pf0fb")
+centered = false
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(0, 63)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(101, 2)
+shape = SubResource("RectangleShape2D_iniqj")
+debug_color = Color(0, 0.0235294, 0.701961, 0.419608)
