@@ -1,16 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqcbyp88igw8a"]
+[gd_scene load_steps=11 format=3 uid="uid://bqcbyp88igw8a"]
 
 [ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="1_7ph40"]
 [ext_resource type="Texture2D" uid="uid://wmi7oxbdvhci" path="res://Assets/Textures/Environments/SashaHallway/hallway wall start.png" id="1_txoun"]
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="2_br87p"]
 [ext_resource type="PackedScene" uid="uid://bipnn0lp8ls3u" path="res://Scenes/StaticObjects/HallwayWallLoop.tscn" id="4_lqpx0"]
 [ext_resource type="Texture2D" uid="uid://dldj431jboypw" path="res://Assets/Textures/StaticObjects/SashaBedroom/light-bulb-sasha-bedroom.png" id="5_tc0bw"]
+[ext_resource type="PackedScene" uid="uid://cvyko5jswa0cn" path="res://Scenes/Modules/Door/DoorModule.tscn" id="5_v4rpc"]
 [ext_resource type="Texture2D" uid="uid://2xdvjq3ukvr8" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_point_light.webp" id="6_3bgya"]
+[ext_resource type="Texture2D" uid="uid://dya2atr272co6" path="res://Assets/Textures/StaticObjects/SashaBedroom/plant-big.png" id="8_4ipcp"]
+[ext_resource type="Texture2D" uid="uid://k0bd2repv7nu" path="res://Assets/Textures/StaticObjects/SashaBedroom/book-cabinet.png" id="9_tys7r"]
+[ext_resource type="Texture2D" uid="uid://o8g6nils7gw1" path="res://Assets/Textures/StaticObjects/SashaBedroom/plant-cactus.png" id="10_ifwgk"]
 
 [node name="Set2_SashaHallway" type="Node2D"]
 
 [node name="Oliver" parent="." instance=ExtResource("1_7ph40")]
-position = Vector2(29, 63)
+position = Vector2(64, 63)
 LastDirection = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -41,6 +45,15 @@ flip_h = true
 [node name="Wall-Right" parent="Room/Walls+Floor/HallwayWallEnd" instance=ExtResource("2_br87p")]
 position = Vector2(13, 75)
 
+[node name="SashaDoor" parent="Room" instance=ExtResource("5_v4rpc")]
+position = Vector2(49, 63)
+scale = Vector2(-1, 1)
+Type = 3
+
+[node name="BathroomDoor" parent="Room" instance=ExtResource("5_v4rpc")]
+position = Vector2(351, 63)
+Type = 4
+
 [node name="Light-bulb-sasha-bedroom" type="Sprite2D" parent="Room"]
 position = Vector2(79, 1)
 texture = ExtResource("5_tc0bw")
@@ -60,3 +73,18 @@ scale = Vector2(1.00781, 1)
 color = Color(0.901961, 0.764706, 0.509804, 1)
 texture = ExtResource("6_3bgya")
 texture_scale = 0.6
+
+[node name="Plant-big" type="Sprite2D" parent="."]
+position = Vector2(4, 41)
+texture = ExtResource("8_4ipcp")
+centered = false
+
+[node name="Book-cabinet" type="Sprite2D" parent="."]
+position = Vector2(58, 49)
+texture = ExtResource("9_tys7r")
+centered = false
+
+[node name="Plant-cactus" type="Sprite2D" parent="Book-cabinet"]
+position = Vector2(36, -12)
+texture = ExtResource("10_ifwgk")
+centered = false

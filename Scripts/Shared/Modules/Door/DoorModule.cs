@@ -3,6 +3,8 @@ using Godot;
 using MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Door;
+
+[Icon("res://Assets/Textures/StaticObjects/OliverBedroom/oliver-room-door-2.png")]
 public partial class DoorModule : Node
 {
 	[Export] public DoorType Type = DoorType.Orange;
@@ -45,6 +47,7 @@ public partial class DoorModule : Node
 			DoorType.Blue => "blue",
 			DoorType.OliverBlue => "oliver blue",
 			DoorType.Wooden => "wooden",
+			DoorType.WoodenBathroom => "wooden bathroom",
 			_ => "orange"
 		};
 	}
@@ -56,4 +59,5 @@ public enum DoorType
 	Blue,
 	OliverBlue,
 	Wooden,
+	WoodenBathroom,
 }
