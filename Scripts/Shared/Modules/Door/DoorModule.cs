@@ -50,6 +50,7 @@ public partial class DoorModule : Node
 			DoorType.Blue => "blue",
 			DoorType.OliverBlue => "oliver blue",
 			DoorType.Wooden => "wooden",
+			DoorType.Wooden2 => "wooden 2",
 			DoorType.WoodenBathroom => "wooden bathroom",
 			_ => "orange"
 		};
@@ -62,5 +63,6 @@ public enum DoorType
 	Blue,
 	OliverBlue,
 	Wooden,
+	Wooden2,
 	WoodenBathroom,
 }

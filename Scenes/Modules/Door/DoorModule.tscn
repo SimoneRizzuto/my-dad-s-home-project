@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cvyko5jswa0cn"]
+[gd_scene load_steps=25 format=3 uid="uid://cvyko5jswa0cn"]
 
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Door/DoorModule.cs" id="1_clxig"]
 [ext_resource type="PackedScene" uid="uid://s5admqqm1d77" path="res://Scenes/Modules/InteractableModule.tscn" id="2_5vlvo"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://iqjqwheaqqjw" path="res://Assets/Textures/StaticObjects/LivingRoom/orange door open.png" id="7_edwsw"]
 [ext_resource type="Texture2D" uid="uid://bdi237u1cvc3u" path="res://Assets/Textures/StaticObjects/SashaBedroom/sasha room door closed.png" id="8_b1c08"]
 [ext_resource type="Texture2D" uid="uid://biycahtyrlgdv" path="res://Assets/Textures/StaticObjects/SashaBedroom/sasha room door open.png" id="9_ubkff"]
+[ext_resource type="Texture2D" uid="uid://da06vgtp2rk78" path="res://Assets/Textures/StaticObjects/SashaBedroom/sasha room door 2 closed.png" id="10_35n3i"]
 [ext_resource type="Texture2D" uid="uid://ct2vv8cy8xmwb" path="res://Assets/Textures/StaticObjects/SashaBedroom/sasha-door-bathroom.png" id="10_kk2f4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5exca"]
@@ -35,6 +36,10 @@ region = Rect2(0, 0, 28, 43)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a12ui"]
 atlas = ExtResource("7_edwsw")
+region = Rect2(0, 0, 28, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8oye5"]
+atlas = ExtResource("10_35n3i")
 region = Rect2(0, 0, 28, 43)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_46ewu"]
@@ -97,6 +102,19 @@ animations = [{
 }],
 "loop": true,
 "name": &"orange open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8oye5")
+}],
+"loop": true,
+"name": &"wooden 2 closed",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"wooden 2 open",
 "speed": 5.0
 }, {
 "frames": [{
