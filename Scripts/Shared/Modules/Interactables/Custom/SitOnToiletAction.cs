@@ -1,6 +1,8 @@
 using Godot;
 using System.Diagnostics;
+using DialogueManagerRuntime;
 using MyFathersHomeProject.Scripts.Player;
+using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Modules.Door;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables.Custom;
@@ -15,21 +17,40 @@ public partial class SitOnToiletAction : Node, IAction
     
     public void Action()
     {
-        Door.Closed = false;
-        watch.Restart();
+        DialogueManager.DialogueEnded += ShowOliver;
+        
+        OpenDoor();
         
         if (Oliver.Instance != null)
         {
             Oliver.Instance.Visible = false;
+            Oliver.Instance.SetDirection(Direction.Left);
         }
+    }
+    
+    private void OpenDoor()
+    {
+        Door.Closed = false;
+        watch.Restart();
     }
     
     public override void _Process(double delta)
     {
-        if (!Door.Closed && watch.Elapsed.Seconds > 0.8f)
+        if (!Door.Closed && watch.Elapsed.Seconds > 0.25f)
         {
             Door.Closed = true;
             watch.Stop();
+        }
+    }
+    
+    private void ShowOliver(Resource dialogueresource)
+    {
+        if (Oliver.Instance != null)
+        {
+            OpenDoor();
+            
+            Oliver.Instance.Visible = true;
+            DialogueManager.DialogueEnded -= ShowOliver;
         }
     }
 }
