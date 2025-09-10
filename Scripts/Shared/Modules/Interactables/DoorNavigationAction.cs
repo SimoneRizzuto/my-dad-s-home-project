@@ -11,8 +11,9 @@ public partial class DoorNavigationAction : Node, IAction
     
     public void Action()
     {
-        Door.Closed = false;
+        if (Door.Locked) return;
         
+        Door.Closed = false;
         SceneSwitcher.Instance.TransitionToScene(SceneSwitcher.Set1_LivingRoom);
     }
 }

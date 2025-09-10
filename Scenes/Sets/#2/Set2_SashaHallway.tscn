@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="1_7ph40"]
 [ext_resource type="Texture2D" uid="uid://wmi7oxbdvhci" path="res://Assets/Textures/Environments/SashaHallway/hallway wall start.png" id="1_txoun"]
+[ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="2_2dttg"]
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="2_br87p"]
+[ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="3_83xkt"]
 [ext_resource type="PackedScene" uid="uid://bipnn0lp8ls3u" path="res://Scenes/StaticObjects/HallwayWallLoop.tscn" id="4_lqpx0"]
-[ext_resource type="Texture2D" uid="uid://dldj431jboypw" path="res://Assets/Textures/StaticObjects/SashaBedroom/light-bulb-sasha-bedroom.png" id="5_tc0bw"]
 [ext_resource type="PackedScene" uid="uid://cvyko5jswa0cn" path="res://Scenes/Modules/Door/DoorModule.tscn" id="5_v4rpc"]
-[ext_resource type="Texture2D" uid="uid://2xdvjq3ukvr8" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_point_light.webp" id="6_3bgya"]
 [ext_resource type="Texture2D" uid="uid://dya2atr272co6" path="res://Assets/Textures/StaticObjects/SashaBedroom/plant-big.png" id="8_4ipcp"]
 [ext_resource type="Texture2D" uid="uid://k0bd2repv7nu" path="res://Assets/Textures/StaticObjects/SashaBedroom/book-cabinet.png" id="9_tys7r"]
 [ext_resource type="Texture2D" uid="uid://o8g6nils7gw1" path="res://Assets/Textures/StaticObjects/SashaBedroom/plant-cactus.png" id="10_ifwgk"]
@@ -22,6 +22,20 @@ color = Color(0.219608, 0.219608, 0.360784, 1)
 
 [node name="Room" type="Node2D" parent="."]
 
+[node name="Mounts" type="Node2D" parent="Room"]
+position = Vector2(192, 0)
+
+[node name="BedroomMount" type="Marker2D" parent="Room/Mounts"]
+z_index = 100
+position = Vector2(317, 63)
+
+[node name="TripodMounter" parent="Room/Mounts" node_paths=PackedStringArray("MountPosition") instance=ExtResource("2_2dttg")]
+position = Vector2(307, 60)
+MountPosition = NodePath("../BedroomMount")
+
+[node name="TripodDismounter" parent="Room/Mounts" instance=ExtResource("3_83xkt")]
+position = Vector2(269, 61)
+
 [node name="Walls+Floor" type="Node2D" parent="Room"]
 
 [node name="HallwayWallStart" type="Sprite2D" parent="Room/Walls+Floor"]
@@ -31,13 +45,28 @@ centered = false
 [node name="Wall-Left" parent="Room/Walls+Floor/HallwayWallStart" instance=ExtResource("2_br87p")]
 position = Vector2(1, 75)
 
-[node name="HallwayWallLoop" parent="Room/Walls+Floor" instance=ExtResource("4_lqpx0")]
+[node name="HallwayWallLoopBedroom" parent="Room/Walls+Floor" instance=ExtResource("4_lqpx0")]
 
-[node name="HallwayWallLoop2" parent="Room/Walls+Floor" instance=ExtResource("4_lqpx0")]
+[node name="MiddleLight" parent="Room/Walls+Floor/HallwayWallLoopBedroom" index="1"]
+position = Vector2(69, 1)
+
+[node name="HallwayWallLoop" parent="Room/Walls+Floor" instance=ExtResource("4_lqpx0")]
 position = Vector2(194, 0)
 
+[node name="Point" parent="Room/Walls+Floor/HallwayWallLoop/MiddleLight" index="0"]
+visible = false
+
+[node name="Bounce" parent="Room/Walls+Floor/HallwayWallLoop/MiddleLight" index="1"]
+visible = false
+
+[node name="HallwayWallLoopToilet" parent="Room/Walls+Floor" instance=ExtResource("4_lqpx0")]
+position = Vector2(378, 0)
+
+[node name="MiddleLight" parent="Room/Walls+Floor/HallwayWallLoopToilet" index="1"]
+position = Vector2(140, 1)
+
 [node name="HallwayWallEnd" type="Sprite2D" parent="Room/Walls+Floor"]
-position = Vector2(385, 0)
+position = Vector2(569, 0)
 texture = ExtResource("1_txoun")
 centered = false
 flip_h = true
@@ -45,34 +74,19 @@ flip_h = true
 [node name="Wall-Right" parent="Room/Walls+Floor/HallwayWallEnd" instance=ExtResource("2_br87p")]
 position = Vector2(13, 75)
 
-[node name="SashaDoor" parent="Room" instance=ExtResource("5_v4rpc")]
+[node name="BedroomDoor" parent="Room" instance=ExtResource("5_v4rpc")]
 position = Vector2(49, 63)
 scale = Vector2(-1, 1)
 Type = 3
 
-[node name="BathroomDoor" parent="Room" instance=ExtResource("5_v4rpc")]
-position = Vector2(351, 63)
+[node name="ToiletDoor" parent="Room" instance=ExtResource("5_v4rpc")]
+position = Vector2(535, 63)
 Type = 4
 
-[node name="Light-bulb-sasha-bedroom" type="Sprite2D" parent="Room"]
-position = Vector2(79, 1)
-texture = ExtResource("5_tc0bw")
-centered = false
-
-[node name="Point" type="PointLight2D" parent="Room/Light-bulb-sasha-bedroom"]
-position = Vector2(2.5, 21.5)
-scale = Vector2(1.03125, 1.03125)
-color = Color(0.901961, 0.764706, 0.509804, 1)
-energy = 1.1
-texture = ExtResource("6_3bgya")
-texture_scale = 0.13
-
-[node name="Bounce" type="PointLight2D" parent="Room/Light-bulb-sasha-bedroom"]
-position = Vector2(2.5, 28)
-scale = Vector2(1.00781, 1)
-color = Color(0.901961, 0.764706, 0.509804, 1)
-texture = ExtResource("6_3bgya")
-texture_scale = 0.6
+[node name="EmptyDoor" parent="Room" instance=ExtResource("5_v4rpc")]
+position = Vector2(150, 63)
+Type = 3
+Locked = true
 
 [node name="Plant-big" type="Sprite2D" parent="."]
 position = Vector2(4, 41)
@@ -88,3 +102,7 @@ centered = false
 position = Vector2(36, -12)
 texture = ExtResource("10_ifwgk")
 centered = false
+
+[editable path="Room/Walls+Floor/HallwayWallLoopBedroom"]
+[editable path="Room/Walls+Floor/HallwayWallLoop"]
+[editable path="Room/Walls+Floor/HallwayWallLoopToilet"]
