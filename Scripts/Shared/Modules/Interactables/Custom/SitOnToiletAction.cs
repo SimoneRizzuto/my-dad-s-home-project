@@ -11,6 +11,8 @@ public partial class SitOnToiletAction : Node, IAction
 {
     // getters
     private DoorModule Door => GetParent().GetParent<DoorModule>();
+    private Node2D HallwayBedroom => GetParent().GetParent().GetParent().GetNode<Node2D>("./Walls+Floor/HallwayBedroom");
+    private Node2D Fadeout => GetParent().GetParent().GetParent().GetNode<Node2D>("./Walls+Floor/FadeOut");
     
     // variables
     private readonly Stopwatch watch = new();
@@ -25,6 +27,10 @@ public partial class SitOnToiletAction : Node, IAction
         {
             Oliver.Instance.Visible = false;
             Oliver.Instance.SetDirection(Direction.Left);
+            
+            HallwayBedroom.Visible = false;
+            HallwayBedroom.ProcessMode = ProcessModeEnum.Disabled;
+            Fadeout.Visible = true;
         }
     }
     
