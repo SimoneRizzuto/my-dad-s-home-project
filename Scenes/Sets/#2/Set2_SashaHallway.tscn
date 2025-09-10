@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqcbyp88igw8a"]
+[gd_scene load_steps=14 format=3 uid="uid://bqcbyp88igw8a"]
 
 [ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="1_7ph40"]
 [ext_resource type="Texture2D" uid="uid://wmi7oxbdvhci" path="res://Assets/Textures/Environments/SashaHallway/hallway wall start.png" id="1_txoun"]
@@ -8,7 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://bipnn0lp8ls3u" path="res://Scenes/StaticObjects/HallwayWallLoop.tscn" id="4_lqpx0"]
 [ext_resource type="PackedScene" uid="uid://cvyko5jswa0cn" path="res://Scenes/Modules/Door/DoorModule.tscn" id="5_v4rpc"]
 [ext_resource type="Texture2D" uid="uid://dya2atr272co6" path="res://Assets/Textures/StaticObjects/SashaBedroom/plant-big.png" id="8_4ipcp"]
+[ext_resource type="PackedScene" uid="uid://cehckxjxfklbj" path="res://Scenes/Modules/DialogueTriggerAction.tscn" id="8_cuy8l"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/SitOnToiletAction.cs" id="8_ekgoh"]
 [ext_resource type="Texture2D" uid="uid://k0bd2repv7nu" path="res://Assets/Textures/StaticObjects/SashaBedroom/book-cabinet.png" id="9_tys7r"]
+[ext_resource type="Resource" uid="uid://hqbevxyupoa2" path="res://Assets/Dialogue/2. sleepover.dialogue" id="9_xglgq"]
 [ext_resource type="Texture2D" uid="uid://o8g6nils7gw1" path="res://Assets/Textures/StaticObjects/SashaBedroom/plant-cactus.png" id="10_ifwgk"]
 
 [node name="Set2_SashaHallway" type="Node2D"]
@@ -81,6 +84,14 @@ Type = 4
 [node name="ToiletDoor" parent="Room" instance=ExtResource("5_v4rpc")]
 position = Vector2(535, 63)
 Type = 5
+Locked = true
+
+[node name="SitOnToiletAction" type="Node" parent="Room/ToiletDoor/DoorNavigationTrigger" index="1"]
+script = ExtResource("8_ekgoh")
+
+[node name="DialogueTriggerAction" parent="Room/ToiletDoor/DoorNavigationTrigger" index="3" instance=ExtResource("8_cuy8l")]
+DialogueResource = ExtResource("9_xglgq")
+Title = "going_to_bathroom"
 
 [node name="EmptyDoor" parent="Room" instance=ExtResource("5_v4rpc")]
 position = Vector2(150, 63)
@@ -105,3 +116,4 @@ centered = false
 [editable path="Room/Walls+Floor/HallwayWallLoopBedroom"]
 [editable path="Room/Walls+Floor/HallwayWallLoop"]
 [editable path="Room/Walls+Floor/HallwayWallLoopToilet"]
+[editable path="Room/ToiletDoor"]

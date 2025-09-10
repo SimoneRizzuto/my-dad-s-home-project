@@ -105,20 +105,22 @@ Sasha: If you break it, I'm stealing your bed.
 ~ going_to_bathroom
 #Separate Oliver from friend, by going to the toilet. The outside is a forest, separated by a door.
 
-Oliver: (This is nice.)
-Oliver: (Haven't done this for a little bit.)
+do Director.Wait(3)
+
+Oliver: This is nice.
+Oliver: Haven't done this for a little bit.
 
 do Director.Wait(3)
 
-Oliver: (I wonder what Papa is doing...)
-Oliver: (No.) 
-Oliver: (Don't think about him. This is meant to be a fun night.)
-Oliver: (A relaxing night away from...)
-Oliver: (...)
+Oliver: I wonder what Papa is doing...
+Oliver: No.
+Oliver: Don't think about him. This is meant to be a fun night.
+Oliver: A relaxing night away from...
+Oliver: ...
 
 do Director.Wait(2)
 
-Oliver: (Two weeks left, uh?) *slow text*
+Oliver: Two weeks left, uh? *slow text*
 
 do Director.Wait(2)
 #flush toilet
