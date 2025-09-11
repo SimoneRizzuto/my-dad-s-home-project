@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://o8g6nils7gw1" path="res://Assets/Textures/StaticObjects/SashaBedroom/plant-cactus.png" id="10_ifwgk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5eay"]
-size = Vector2(329, 4)
+size = Vector2(610, 4)
 
 [node name="Set2_SashaHallway" type="Node2D"]
 
@@ -46,8 +46,7 @@ position = Vector2(269, 61)
 [node name="Walls+Floor" type="Node2D" parent="Room"]
 
 [node name="FadeOut" type="Node2D" parent="Room/Walls+Floor"]
-visible = false
-position = Vector2(201, 0)
+position = Vector2(385, 0)
 
 [node name="HallwayWallFadeOut" type="Sprite2D" parent="Room/Walls+Floor/FadeOut"]
 position = Vector2(-685, 0)
@@ -56,10 +55,10 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Floor" type="StaticBody2D" parent="Room/Walls+Floor/FadeOut/HallwayWallFadeOut"]
-position = Vector2(-76, 63)
+position = Vector2(13, 63)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Walls+Floor/FadeOut/HallwayWallFadeOut/Floor"]
-position = Vector2(37.5, 2)
+position = Vector2(-103, 2)
 shape = SubResource("RectangleShape2D_e5eay")
 debug_color = Color(0, 0.0235294, 0.701961, 0.419608)
 metadata/_edit_lock_ = true
@@ -82,16 +81,6 @@ metadata/_edit_lock_ = true
 visible = false
 
 [node name="Bounce" parent="Room/Walls+Floor/FadeOut/HallwayWallFadeOut/HallwayWallLoop2/MiddleLight" index="1"]
-visible = false
-
-[node name="HallwayWallLoop3" parent="Room/Walls+Floor/FadeOut/HallwayWallFadeOut" instance=ExtResource("4_lqpx0")]
-position = Vector2(494, 0)
-metadata/_edit_lock_ = true
-
-[node name="Point" parent="Room/Walls+Floor/FadeOut/HallwayWallFadeOut/HallwayWallLoop3/MiddleLight" index="0"]
-visible = false
-
-[node name="Bounce" parent="Room/Walls+Floor/FadeOut/HallwayWallFadeOut/HallwayWallLoop3/MiddleLight" index="1"]
 visible = false
 
 [node name="HallwayWallLoop" parent="Room/Walls+Floor" instance=ExtResource("4_lqpx0")]
@@ -179,7 +168,6 @@ Title = "going_to_bathroom"
 
 [editable path="Room/Walls+Floor/FadeOut/HallwayWallFadeOut/HallwayWallLoop"]
 [editable path="Room/Walls+Floor/FadeOut/HallwayWallFadeOut/HallwayWallLoop2"]
-[editable path="Room/Walls+Floor/FadeOut/HallwayWallFadeOut/HallwayWallLoop3"]
 [editable path="Room/Walls+Floor/HallwayWallLoop"]
 [editable path="Room/Walls+Floor/HallwayWallLoop/HallwayWallLoop"]
 [editable path="Room/Walls+Floor/HallwayWallLoopToilet"]
