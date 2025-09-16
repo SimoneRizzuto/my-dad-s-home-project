@@ -46,6 +46,7 @@ position = Vector2(269, 61)
 [node name="Walls+Floor" type="Node2D" parent="Room"]
 
 [node name="FadeOut" type="Node2D" parent="Room/Walls+Floor"]
+visible = false
 position = Vector2(385, 0)
 
 [node name="HallwayWallFadeOut" type="Sprite2D" parent="Room/Walls+Floor/FadeOut"]
