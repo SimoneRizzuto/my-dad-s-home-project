@@ -1,0 +1,100 @@
+[gd_scene load_steps=13 format=3 uid="uid://b7p00ye3x46qt"]
+
+[ext_resource type="Texture2D" uid="uid://lte6pr231s1x" path="res://Assets/Textures/Environments/SashaCampfire/grass-front.png" id="1_o5niv"]
+[ext_resource type="Texture2D" uid="uid://d4msgtmn2ilt4" path="res://Assets/Textures/Environments/SashaCampfire/sky.png" id="1_s5wl1"]
+[ext_resource type="Texture2D" uid="uid://txllfybwrk5w" path="res://Assets/Textures/StaticObjects/SashaCampfire/firepit.png" id="2_g6ecg"]
+[ext_resource type="Texture2D" uid="uid://bh0pmjs0jo00r" path="res://Assets/Textures/Environments/SashaCampfire/grass-back.png" id="3_766uj"]
+[ext_resource type="Texture2D" uid="uid://2xdvjq3ukvr8" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_point_light.webp" id="3_pa21d"]
+[ext_resource type="Texture2D" uid="uid://d24r5htxq10he" path="res://Assets/Textures/Environments/SashaCampfire/moon.png" id="3_x718n"]
+[ext_resource type="Texture2D" uid="uid://bejmvcbkq8gbo" path="res://Assets/Textures/Environments/SashaCampfire/shadow.png" id="6_13ne2"]
+[ext_resource type="Texture2D" uid="uid://2kjoyvyrx1fl" path="res://Assets/Textures/StaticObjects/SashaCampfire/bush.png" id="6_rlux3"]
+[ext_resource type="Texture2D" uid="uid://b4n3euodnvrnk" path="res://Assets/Textures/StaticObjects/SashaCampfire/bed-log.png" id="7_pi2n5"]
+[ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="7_y0s3y"]
+[ext_resource type="Texture2D" uid="uid://v56t5cp0lanf" path="res://Assets/Textures/StaticObjects/SashaBedroom/tv-sasha-bedroom.png" id="8_hbiku"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8y2g4"]
+size = Vector2(481, 4)
+
+[node name="SashaCampfire" type="Node2D"]
+position = Vector2(0, -57)
+
+[node name="CanvasLayer" type="ParallaxBackground" parent="."]
+layer = -1
+
+[node name="Sky" type="Sprite2D" parent="CanvasLayer"]
+texture = ExtResource("1_s5wl1")
+centered = false
+
+[node name="Moon" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(7, 32)
+texture = ExtResource("3_x718n")
+centered = false
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Node2D"]
+color = Color(0.219608, 0.219608, 0.360784, 1)
+
+[node name="Grass-back" type="Sprite2D" parent="Node2D"]
+position = Vector2(0, 2)
+texture = ExtResource("3_766uj")
+centered = false
+
+[node name="Shadow" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("6_13ne2")
+centered = false
+
+[node name="GrassFront" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("1_o5niv")
+centered = false
+
+[node name="Bush" type="Sprite2D" parent="Node2D"]
+position = Vector2(11, 132)
+texture = ExtResource("6_rlux3")
+centered = false
+
+[node name="Bed-log" type="Sprite2D" parent="Node2D"]
+position = Vector2(37, 138)
+texture = ExtResource("7_pi2n5")
+centered = false
+
+[node name="Tv-sasha-bedroom" type="Sprite2D" parent="Node2D"]
+position = Vector2(196, 131)
+texture = ExtResource("8_hbiku")
+centered = false
+
+[node name="Firepit" type="Sprite2D" parent="Node2D"]
+position = Vector2(110, 130)
+texture = ExtResource("2_g6ecg")
+centered = false
+
+[node name="Point" type="PointLight2D" parent="Node2D/Firepit"]
+position = Vector2(17, 28.3412)
+scale = Vector2(0.393325, 0.381084)
+color = Color(0.901961, 0.764706, 0.509804, 1)
+energy = 1.1
+texture = ExtResource("3_pa21d")
+texture_scale = 0.13
+
+[node name="Bounce" type="PointLight2D" parent="Node2D/Firepit"]
+position = Vector2(18.3998, -4.1)
+scale = Vector2(1.00781, 0.897135)
+color = Color(0.901961, 0.764706, 0.509804, 1)
+texture = ExtResource("3_pa21d")
+texture_scale = 0.6
+
+[node name="Wall+Floor" type="Node2D" parent="."]
+
+[node name="Wall-Right" parent="Wall+Floor" instance=ExtResource("7_y0s3y")]
+position = Vector2(482, 148)
+
+[node name="Wall-Left" parent="Wall+Floor" instance=ExtResource("7_y0s3y")]
+position = Vector2(-1, 148)
+
+[node name="Floor" type="StaticBody2D" parent="Wall+Floor"]
+position = Vector2(27, 148)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall+Floor/Floor"]
+position = Vector2(213.5, 2)
+shape = SubResource("RectangleShape2D_8y2g4")
+debug_color = Color(0, 0.0235294, 0.701961, 0.419608)
