@@ -23,9 +23,10 @@ Oliver: Sorry, I can't hear you!
 # ------------------------
 
 ~ dad_picture_interaction
-Oliver: (Her dad)
-Oliver: (I never got to know him)
-Oliver: (Only through stories)
+Oliver: Her dad.
+Oliver: I never got to know him.
+Oliver: Only through stories.
+Oliver: ... Would've been nice.
 => END
 
 ~ tv_interaction
