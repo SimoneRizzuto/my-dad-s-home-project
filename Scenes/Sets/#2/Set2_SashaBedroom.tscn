@@ -11,6 +11,6 @@ position = Vector2(149, 75)
 InitialAnimation = "sasha sit right"
 
 [node name="Oliver" parent="." instance=ExtResource("2_pk1vq")]
-position = Vector2(104, 75)
+position = Vector2(107, 75)
 
 [node name="SashaBedroom" parent="." instance=ExtResource("1_0lddp")]
