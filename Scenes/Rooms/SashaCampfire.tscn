@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b7p00ye3x46qt"]
+[gd_scene load_steps=15 format=3 uid="uid://b7p00ye3x46qt"]
 
 [ext_resource type="Texture2D" uid="uid://lte6pr231s1x" path="res://Assets/Textures/Environments/SashaCampfire/grass-front.png" id="1_o5niv"]
 [ext_resource type="Texture2D" uid="uid://d4msgtmn2ilt4" path="res://Assets/Textures/Environments/SashaCampfire/sky.png" id="1_s5wl1"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="7_y0s3y"]
 [ext_resource type="Texture2D" uid="uid://v56t5cp0lanf" path="res://Assets/Textures/StaticObjects/SashaBedroom/tv-sasha-bedroom.png" id="8_hbiku"]
 [ext_resource type="Texture2D" uid="uid://bhecwfix68y27" path="res://Assets/Textures/StaticObjects/SashaCampfire/painting-canvas.png" id="9_a23ou"]
+[ext_resource type="Texture2D" uid="uid://bk1ay43316v4y" path="res://Assets/Textures/StaticObjects/SashaCampfire/chill-area.png" id="10_nuf7p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y2g4"]
 size = Vector2(481, 4)
@@ -67,6 +68,11 @@ centered = false
 [node name="Painting-canvas" type="Sprite2D" parent="Node2D"]
 position = Vector2(93, 128)
 texture = ExtResource("9_a23ou")
+centered = false
+
+[node name="Chill-area" type="Sprite2D" parent="Node2D"]
+position = Vector2(138, 140)
+texture = ExtResource("10_nuf7p")
 centered = false
 
 [node name="Firepit" type="Sprite2D" parent="Node2D"]
