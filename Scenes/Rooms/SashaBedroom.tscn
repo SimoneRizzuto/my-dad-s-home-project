@@ -94,6 +94,7 @@ DialogueResource = ExtResource("10_bia8r")
 Title = "dad_picture_interaction"
 
 [node name="Tv-sasha-bedroom" type="Sprite2D" parent="Wall"]
+z_index = 110
 position = Vector2(174, 58)
 texture = ExtResource("2_nkrq3")
 centered = false

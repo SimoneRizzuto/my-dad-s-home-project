@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfts6y7qvca2x"]
+[gd_scene load_steps=4 format=3 uid="uid://cfts6y7qvca2x"]
 
 [ext_resource type="PackedScene" uid="uid://b7p00ye3x46qt" path="res://Scenes/Rooms/SashaCampfire.tscn" id="1_gcxv8"]
 [ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="2_gjqvs"]
+[ext_resource type="PackedScene" uid="uid://cfrhcgnum5ctx" path="res://Scenes/Actors/Sasha.tscn" id="3_2do0h"]
 
 [node name="Set2_SashaCampfire" type="Node2D"]
 
-[node name="SashaCampfire" parent="." instance=ExtResource("1_gcxv8")]
+[node name="Sasha" parent="." instance=ExtResource("3_2do0h")]
+position = Vector2(171, 91)
 
 [node name="Oliver" parent="." instance=ExtResource("2_gjqvs")]
-position = Vector2(455, 80)
+position = Vector2(471, 91)
+
+[node name="SashaCampfire" parent="." instance=ExtResource("1_gcxv8")]
