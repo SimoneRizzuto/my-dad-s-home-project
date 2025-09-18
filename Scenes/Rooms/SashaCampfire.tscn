@@ -1,5 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7p00ye3x46qt"]
+[gd_scene load_steps=17 format=3 uid="uid://b7p00ye3x46qt"]
 
+[ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="1_b0ggq"]
+[ext_resource type="PackedScene" path="res://Scenes/Camera/TripodDismounter.tscn" id="1_gbvlr"]
 [ext_resource type="Texture2D" uid="uid://lte6pr231s1x" path="res://Assets/Textures/Environments/SashaCampfire/grass-front.png" id="1_o5niv"]
 [ext_resource type="Texture2D" uid="uid://d4msgtmn2ilt4" path="res://Assets/Textures/Environments/SashaCampfire/sky.png" id="1_s5wl1"]
 [ext_resource type="Texture2D" uid="uid://txllfybwrk5w" path="res://Assets/Textures/StaticObjects/SashaCampfire/firepit.png" id="2_g6ecg"]
@@ -19,6 +21,18 @@ size = Vector2(481, 4)
 
 [node name="SashaCampfire" type="Node2D"]
 position = Vector2(0, -57)
+
+[node name="Tripod" type="Node2D" parent="."]
+
+[node name="TripodDismounter" parent="Tripod" instance=ExtResource("1_gbvlr")]
+position = Vector2(236, 138)
+
+[node name="TripodMounter" parent="Tripod" node_paths=PackedStringArray("MountPosition") instance=ExtResource("1_b0ggq")]
+position = Vector2(194, 139)
+MountPosition = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="Tripod/TripodMounter"]
+position = Vector2(-66, 13)
 
 [node name="CanvasLayer" type="ParallaxBackground" parent="."]
 layer = -1
