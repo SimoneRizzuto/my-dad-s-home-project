@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://hfxvip0br2fg"]
+
+[ext_resource type="Texture2D" uid="uid://dtih4sxias4v1" path="res://Assets/Textures/Environments/SashaCampfire/stars-Sheet.png" id="1_eetyt"]
+[ext_resource type="Script" path="res://Scripts/Misc/Stars.cs" id="2_d72eh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq5if"]
+atlas = ExtResource("1_eetyt")
+region = Rect2(0, 0, 448, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_warct"]
+atlas = ExtResource("1_eetyt")
+region = Rect2(448, 0, 448, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpwsh"]
+atlas = ExtResource("1_eetyt")
+region = Rect2(896, 0, 448, 95)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_13adm"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_uq5if")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_warct")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_cpwsh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Stars" type="AnimatedSprite2D" groups=["stars"]]
+modulate = Color(1, 1, 1, 0)
+sprite_frames = SubResource("SpriteFrames_13adm")
+frame_progress = 0.36284
+centered = false
+script = ExtResource("2_d72eh")

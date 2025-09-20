@@ -185,6 +185,8 @@ do Director.Wait(3)
 Sasha: I've heard the stars are clearer when away from the city.
 Sasha: I think that'd be nice.
 
+do Director.ShowStars()
+
 do Oliver.PlayAnimation("look up")
 # the stars appear more shiny once that's said
 # do Director.Wait(2)

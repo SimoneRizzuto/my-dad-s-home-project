@@ -4,13 +4,14 @@ using System.Linq;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using DialogueManagerRuntime;
+using MyFathersHomeProject.Scripts.Misc;
 using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Dialogue.Base;
 using MyFathersHomeProject.Scripts.Dialogue.Actor;
-using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
+using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Modules.Door;
 
 namespace MyFathersHomeProject.Scripts.Dialogue;
@@ -73,6 +74,21 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
     public void ToggleCameraSmoothing(bool enabled)
     {
         PlayerCamera.Instance.ToggleSmoothing(enabled);
+    }
+    
+    public async Task ShowStars()
+    {
+        var starsModuleNodes = GetTree().GetNodesInGroup(NodeGroup.Stars);
+        var starsModules = starsModuleNodes.Cast<Stars>().ToList();
+        
+        var stars = starsModules.FirstOrDefault();
+        if (stars != null)
+        {
+            stars.TriggerStarsFadingIn();
+            stars.FinishedFadingInStars += FinishShowingStars;
+        }
+        
+        await SetupActionTask(DirectorDirection.Nothing);
     }
     
     private void ShowDialogueBalloon(Resource dialogueResource, string title)
@@ -217,6 +233,20 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
         _inCutscene = false;
         
         SetActorsCharacterState(CharacterState.Gameplay);
+    }
+    
+    private void FinishShowingStars()
+    {
+        FinishTask();
+        
+        var starsModuleNodes = GetTree().GetNodesInGroup(NodeGroup.Stars);
+        var starsModules = starsModuleNodes.Cast<Stars>().ToList();
+        
+        var stars = starsModules.FirstOrDefault();
+        if (stars != null)
+        {
+            stars.FinishedFadingInStars -= FinishShowingStars;
+        }
     }
     
     public void Dispose()

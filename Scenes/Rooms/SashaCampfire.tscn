@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b7p00ye3x46qt"]
+[gd_scene load_steps=22 format=3 uid="uid://b7p00ye3x46qt"]
 
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="1_b0ggq"]
 [ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="1_gbvlr"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bh0pmjs0jo00r" path="res://Assets/Textures/Environments/SashaCampfire/grass-back.png" id="3_766uj"]
 [ext_resource type="Texture2D" uid="uid://2xdvjq3ukvr8" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_point_light.webp" id="3_pa21d"]
 [ext_resource type="Texture2D" uid="uid://d24r5htxq10he" path="res://Assets/Textures/Environments/SashaCampfire/moon.png" id="3_x718n"]
+[ext_resource type="PackedScene" uid="uid://hfxvip0br2fg" path="res://Scenes/StaticObjects/Stars.tscn" id="5_7e1me"]
 [ext_resource type="Texture2D" uid="uid://bejmvcbkq8gbo" path="res://Assets/Textures/Environments/SashaCampfire/shadow.png" id="6_13ne2"]
 [ext_resource type="Texture2D" uid="uid://cd71to1ko3f6q" path="res://Assets/Textures/StaticObjects/SashaCampfire/tree.png" id="6_r23oo"]
 [ext_resource type="Texture2D" uid="uid://2kjoyvyrx1fl" path="res://Assets/Textures/StaticObjects/SashaCampfire/bush.png" id="6_rlux3"]
@@ -15,7 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="7_y0s3y"]
 [ext_resource type="Texture2D" uid="uid://v56t5cp0lanf" path="res://Assets/Textures/StaticObjects/SashaBedroom/tv-sasha-bedroom.png" id="8_hbiku"]
 [ext_resource type="Texture2D" uid="uid://bhecwfix68y27" path="res://Assets/Textures/StaticObjects/SashaCampfire/painting-canvas.png" id="9_a23ou"]
+[ext_resource type="PackedScene" uid="uid://s5admqqm1d77" path="res://Scenes/Modules/InteractableModule.tscn" id="9_wsav8"]
+[ext_resource type="PackedScene" uid="uid://cehckxjxfklbj" path="res://Scenes/Modules/DialogueTriggerAction.tscn" id="10_5cgqg"]
 [ext_resource type="Texture2D" uid="uid://bk1ay43316v4y" path="res://Assets/Textures/StaticObjects/SashaCampfire/chill-area.png" id="10_nuf7p"]
+[ext_resource type="Resource" uid="uid://hqbevxyupoa2" path="res://Assets/Dialogue/2. sleepover.dialogue" id="11_uj4na"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y2g4"]
 size = Vector2(522, 4)
@@ -25,15 +29,15 @@ position = Vector2(0, -57)
 
 [node name="Tripod" type="Node2D" parent="."]
 
+[node name="Marker2D" type="Marker2D" parent="Tripod"]
+position = Vector2(128, 152)
+
 [node name="TripodDismounter" parent="Tripod" instance=ExtResource("1_gbvlr")]
 position = Vector2(236, 138)
 
 [node name="TripodMounter" parent="Tripod" node_paths=PackedStringArray("MountPosition") instance=ExtResource("1_b0ggq")]
-position = Vector2(194, 139)
-MountPosition = NodePath("Marker2D")
-
-[node name="Marker2D" type="Marker2D" parent="Tripod/TripodMounter"]
-position = Vector2(-66, 13)
+position = Vector2(142, 139)
+MountPosition = NodePath("../Marker2D")
 
 [node name="ParallaxGrass" type="ParallaxBackground" parent="."]
 layer = -5
@@ -73,6 +77,9 @@ motion_mirroring = Vector2(480, 0)
 position = Vector2(2, 57)
 texture = ExtResource("1_s5wl1")
 centered = false
+
+[node name="Stars" parent="ParallaxSky/SkyParallax" instance=ExtResource("5_7e1me")]
+position = Vector2(88, 89)
 
 [node name="MoonParallax" type="ParallaxLayer" parent="ParallaxSky"]
 position = Vector2(0, -57)
@@ -137,6 +144,15 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Items" type="Node2D" parent="."]
+
+[node name="InteractableModule" parent="Items" instance=ExtResource("9_wsav8")]
+position = Vector2(183, 145)
+scale = Vector2(0.95998, 0.319995)
+DisableOnInteract = true
+
+[node name="DialogueTriggerAction" parent="Items/InteractableModule" instance=ExtResource("10_5cgqg")]
+DialogueResource = ExtResource("11_uj4na")
+Title = "going_to_bedroom"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Items"]
 color = Color(0.219608, 0.219608, 0.360784, 1)
