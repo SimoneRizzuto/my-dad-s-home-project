@@ -48,7 +48,7 @@ Sasha: Oh yeah!
 #Friend gets up and walks to the computer. Merps are shown on the screen.
 
 Sasha: Look at my little merps!
-Oliver: Daaamn!
+Oliver: Woah!
 Sasha: Yeah!
 Oliver: Are they different from the ones you drew the other day?
 Sasha: Yes.
@@ -171,11 +171,10 @@ Oliver: True! And then you could draw your point of view, and capture the moment
 Oliver: That'd be cool.
 Sasha: Eh. I'd rather draw something else.
 Oliver: Well, I would do that... even if its a bad doodle.
-Oliver: I'd try capture the moment myself. Through MY eyes.
 
 do Director.Wait(3)
 
-Oliver: What would YOU draw?
+Oliver: What WOULD you draw?
 Sasha: ...
 
 # she looks up to the sky
