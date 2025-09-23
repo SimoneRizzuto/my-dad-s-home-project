@@ -1,5 +1,6 @@
 using System;
 using Godot;
+using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 using MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Door;
@@ -10,6 +11,7 @@ public partial class DoorModule : Node
 	[Export] public DoorType Type = DoorType.Orange;
 	[Export] public bool Closed = true;
 	[Export] public bool Locked;
+	[Export] public string NavigateToUid = SceneSwitcher.Set1_LivingRoom;
 	
 	// getters
 	private AnimatedSprite2D DoorSprite => GetNode<AnimatedSprite2D>("DoorSprite");
@@ -29,6 +31,7 @@ public partial class DoorModule : Node
 	public void EnableNavigationAction(bool enable = true)
 	{
 		if (Locked) return;
+	    // implement dialogue check before navigation through
 	    
     	var doorNavigationTrigger = GetNode<InteractableModule>("DoorNavigationTrigger");
     	switch (enable)

@@ -1,15 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://bqcbyp88igw8a"]
+[gd_scene load_steps=18 format=3 uid="uid://bqcbyp88igw8a"]
 
 [ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="1_7ph40"]
 [ext_resource type="Texture2D" uid="uid://wmi7oxbdvhci" path="res://Assets/Textures/Environments/SashaHallway/hallway wall start.png" id="1_txoun"]
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="2_2dttg"]
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="2_br87p"]
-[ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="3_83xkt"]
+[ext_resource type="PackedScene" path="res://Scenes/Camera/TripodDismounter.tscn" id="3_83xkt"]
 [ext_resource type="PackedScene" uid="uid://bipnn0lp8ls3u" path="res://Scenes/StaticObjects/HallwayWallLoop.tscn" id="4_lqpx0"]
 [ext_resource type="Texture2D" uid="uid://dsj263cckjwgu" path="res://Assets/Textures/Environments/SashaHallway/hallway wall fade out.png" id="4_w38nn"]
 [ext_resource type="PackedScene" uid="uid://cvyko5jswa0cn" path="res://Scenes/Modules/Door/DoorModule.tscn" id="5_v4rpc"]
+[ext_resource type="PackedScene" uid="uid://dgwvdtfwm2gvj" path="res://Scenes/Modules/InteractableModule.tscn" id="6_e7btl"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/DoorNavigationAction.cs" id="7_pdbw6"]
 [ext_resource type="Texture2D" uid="uid://dya2atr272co6" path="res://Assets/Textures/StaticObjects/SashaBedroom/plant-big.png" id="8_4ipcp"]
-[ext_resource type="PackedScene" uid="uid://cehckxjxfklbj" path="res://Scenes/Modules/DialogueTriggerAction.tscn" id="8_cuy8l"]
+[ext_resource type="PackedScene" path="res://Scenes/Modules/DialogueTriggerAction.tscn" id="8_cuy8l"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/SitOnToiletAction.cs" id="8_ekgoh"]
 [ext_resource type="Texture2D" uid="uid://k0bd2repv7nu" path="res://Assets/Textures/StaticObjects/SashaBedroom/book-cabinet.png" id="9_tys7r"]
 [ext_resource type="Resource" uid="uid://hqbevxyupoa2" path="res://Assets/Dialogue/2. sleepover.dialogue" id="9_xglgq"]
@@ -21,7 +23,7 @@ size = Vector2(610, 4)
 [node name="Set2_SashaHallway" type="Node2D"]
 
 [node name="Oliver" parent="." instance=ExtResource("1_7ph40")]
-position = Vector2(64, 63)
+position = Vector2(-274, 42)
 LastDirection = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -46,8 +48,14 @@ position = Vector2(269, 61)
 [node name="Walls+Floor" type="Node2D" parent="Room"]
 
 [node name="FadeOut" type="Node2D" parent="Room/Walls+Floor"]
-visible = false
 position = Vector2(385, 0)
+
+[node name="InteractableModule" parent="Room/Walls+Floor/FadeOut" instance=ExtResource("6_e7btl")]
+position = Vector2(-954, 52)
+
+[node name="DoorNavigationAction" type="Node" parent="Room/Walls+Floor/FadeOut/InteractableModule"]
+script = ExtResource("7_pdbw6")
+NavigateToUid = "uid://cfts6y7qvca2x"
 
 [node name="HallwayWallFadeOut" type="Sprite2D" parent="Room/Walls+Floor/FadeOut"]
 position = Vector2(-685, 0)
