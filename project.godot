@@ -24,6 +24,7 @@ Director="*res://Scripts/Dialogue/DialogueDirector.cs"
 Audio="*res://Scripts/Dialogue/Audio/AudioDirector.cs"
 SceneSwitcher="*res://Scripts/Singletons/SceneSwitcher/SceneSwitcher.cs"
 SceneStates="*res://Scripts/Singletons/SceneStates/SceneStates.cs"
+InteractionAllocator="*res://Scripts/Singletons/InteractionAllocator/InteractionAllocator.cs"
 
 [dialogue_manager]
 
