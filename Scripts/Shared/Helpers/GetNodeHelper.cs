@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Godot;
 using System.Linq;
 using MyFathersHomeProject.Scripts.Camera;
@@ -55,4 +56,20 @@ public static class GetNodeHelper
         
         return plate;
     }
+    
+    public static List<T> GetChildrenRecursive<T>(this Node parent) where T : Node
+    {
+        List<T> results = new List<T>();
+
+        foreach (Node child in parent.GetChildren())
+        {
+            if (child is T tNode)
+                results.Add(tNode);
+
+            results.AddRange(child.GetChildrenRecursive<T>());
+        }
+
+        return results;
+    }
+
 }
