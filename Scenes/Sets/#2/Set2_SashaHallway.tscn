@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bipnn0lp8ls3u" path="res://Scenes/StaticObjects/HallwayWallLoop.tscn" id="4_lqpx0"]
 [ext_resource type="Texture2D" uid="uid://dsj263cckjwgu" path="res://Assets/Textures/Environments/SashaHallway/hallway wall fade out.png" id="4_w38nn"]
 [ext_resource type="PackedScene" uid="uid://cvyko5jswa0cn" path="res://Scenes/Modules/Door/DoorModule.tscn" id="5_v4rpc"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/FadeAction.cs" id="6_1aoen"]
 [ext_resource type="PackedScene" uid="uid://dgwvdtfwm2gvj" path="res://Scenes/Modules/InteractableModule.tscn" id="6_e7btl"]
-[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/FadeOutAction.cs" id="6_igprw"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/DoorNavigationAction.cs" id="7_pdbw6"]
 [ext_resource type="Texture2D" uid="uid://dya2atr272co6" path="res://Assets/Textures/StaticObjects/SashaBedroom/plant-big.png" id="8_4ipcp"]
 [ext_resource type="PackedScene" uid="uid://cehckxjxfklbj" path="res://Scenes/Modules/DialogueTriggerAction.tscn" id="8_cuy8l"]
@@ -52,7 +52,7 @@ position = Vector2(269, 61)
 position = Vector2(385, 0)
 
 [node name="InteractableModule" parent="Room/Walls+Floor/FadeOut" instance=ExtResource("6_e7btl")]
-position = Vector2(-954, 52)
+position = Vector2(-857, 52)
 
 [node name="DoorNavigationAction" type="Node" parent="Room/Walls+Floor/FadeOut/InteractableModule"]
 script = ExtResource("7_pdbw6")
@@ -62,8 +62,9 @@ NavigateToUid = "uid://cfts6y7qvca2x"
 z_index = 1000
 position = Vector2(-690, 53)
 
-[node name="FadeOutAction" type="Node" parent="Room/Walls+Floor/FadeOut/FadeOutInteractable"]
-script = ExtResource("6_igprw")
+[node name="FadeAction" type="Node" parent="Room/Walls+Floor/FadeOut/FadeOutInteractable"]
+script = ExtResource("6_1aoen")
+FadeBehavior = 1
 
 [node name="HallwayWallFadeOut" type="Sprite2D" parent="Room/Walls+Floor/FadeOut"]
 position = Vector2(-685, 0)

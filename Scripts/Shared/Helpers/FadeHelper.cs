@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 namespace MyFathersHomeProject.Scripts.Shared.Helpers;
@@ -6,7 +7,7 @@ namespace MyFathersHomeProject.Scripts.Shared.Helpers;
 /// Acts as a wrapper around the Universal Fade library: https://github.com/KoBeWi/Godot-Universal-Fade
 /// All credit goes to KoBeWi.
 /// </summary>
-public static class FadeHelper
+public class FadeHelper
 {
     private static Node? fadeUtil;
     private static Node? FadeUtil
@@ -21,20 +22,34 @@ public static class FadeHelper
         }
     }
     
-    
-    
-    public static void FadeOut(float time = 1.0f, string pattern = "", bool reverse = false, bool smooth = false, Color colour = new())//time := 1.0, color := Color.BLACK, pattern := "", reverse := false, smooth := false
+    public static void FadeOut(float time = 1.0f, string pattern = "", bool reverse = false, bool smooth = false, Color colour = new())
     {
         FadeUtil?.Call("fade_out", time, colour, pattern, reverse, smooth);
     }
     
-    public static void FadeIn(float time = 1.0f, string pattern = "", bool reverse = true, bool smooth = false, Color colour = new()) //time := 1.0, color := Color.BLACK, pattern := "", reverse := true, smooth := false
+    public static void FadeIn(float time = 1.0f, string pattern = "", bool reverse = true, bool smooth = false, Color colour = new())
     {
         FadeUtil?.Call("fade_in", time, colour, pattern, reverse, smooth);
     }
+    
+    public static void OnFinished(Action callback)
+    {
+        if (FadeUtil != null)
+        {
+            FadeUtil.Connect("finished", Callable.From(callback));
+        }
+    }
+    
+    public static void DisconnectFinished(Action callback)
+    {
+        if (FadeUtil != null && FadeUtil.IsConnected("finished", Callable.From(callback)))
+        {
+            FadeUtil.Disconnect("finished", Callable.From(callback));
+        }
+    }
 }
 
-public static class FadePattern
+public static class FadePatternConstants
 {
     public const string Diagonal = "Diagonal";
     public const string Diamond = "Diamond";

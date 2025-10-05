@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b7p00ye3x46qt"]
+[gd_scene load_steps=23 format=3 uid="uid://b7p00ye3x46qt"]
 
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="1_b0ggq"]
 [ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="1_gbvlr"]
@@ -18,26 +18,38 @@
 [ext_resource type="Texture2D" uid="uid://bhecwfix68y27" path="res://Assets/Textures/StaticObjects/SashaCampfire/painting-canvas.png" id="9_a23ou"]
 [ext_resource type="PackedScene" uid="uid://dgwvdtfwm2gvj" path="res://Scenes/Modules/InteractableModule.tscn" id="9_wsav8"]
 [ext_resource type="PackedScene" uid="uid://cehckxjxfklbj" path="res://Scenes/Modules/DialogueTriggerAction.tscn" id="10_5cgqg"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/FadeAction.cs" id="10_lxerd"]
 [ext_resource type="Texture2D" uid="uid://bk1ay43316v4y" path="res://Assets/Textures/StaticObjects/SashaCampfire/chill-area.png" id="10_nuf7p"]
 [ext_resource type="Resource" uid="uid://hqbevxyupoa2" path="res://Assets/Dialogue/2. sleepover.dialogue" id="11_uj4na"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y2g4"]
-size = Vector2(522, 4)
+size = Vector2(1003, 4)
 
 [node name="SashaCampfire" type="Node2D"]
 position = Vector2(0, -57)
 
 [node name="Tripod" type="Node2D" parent="."]
 
-[node name="Marker2D" type="Marker2D" parent="Tripod"]
+[node name="CampfireMarker" type="Marker2D" parent="Tripod"]
 position = Vector2(128, 152)
 
-[node name="TripodDismounter" parent="Tripod" instance=ExtResource("1_gbvlr")]
+[node name="CampfireDismounter" parent="Tripod" instance=ExtResource("1_gbvlr")]
 position = Vector2(236, 138)
 
-[node name="TripodMounter" parent="Tripod" node_paths=PackedStringArray("MountPosition") instance=ExtResource("1_b0ggq")]
+[node name="CampfireMounter" parent="Tripod" node_paths=PackedStringArray("MountPosition") instance=ExtResource("1_b0ggq")]
 position = Vector2(142, 139)
-MountPosition = NodePath("../Marker2D")
+MountPosition = NodePath("../CampfireMarker")
+
+[node name="ForestMarker" type="Marker2D" parent="Tripod"]
+position = Vector2(760, 147)
+
+[node name="ForestMounter" parent="Tripod" node_paths=PackedStringArray("MountPosition") instance=ExtResource("1_b0ggq")]
+position = Vector2(823, 142)
+scale = Vector2(6.19388, 1.17071)
+MountPosition = NodePath("../ForestMarker")
+
+[node name="ForestDismounter" parent="Tripod" instance=ExtResource("1_gbvlr")]
+position = Vector2(734, 143)
 
 [node name="ParallaxGrass" type="ParallaxBackground" parent="."]
 layer = -5
@@ -145,13 +157,20 @@ metadata/_edit_lock_ = true
 
 [node name="Items" type="Node2D" parent="."]
 
-[node name="InteractableModule" parent="Items" instance=ExtResource("9_wsav8")]
+[node name="FadeIn" parent="Items" instance=ExtResource("9_wsav8")]
+position = Vector2(847, 139)
+scale = Vector2(9.51998, 1)
+
+[node name="FadeAction" type="Node" parent="Items/FadeIn"]
+script = ExtResource("10_lxerd")
+
+[node name="TriggerDialogue" parent="Items" instance=ExtResource("9_wsav8")]
 position = Vector2(183, 145)
 scale = Vector2(0.95998, 0.319995)
 TriggerMode = 1
 DisableOnInteract = true
 
-[node name="DialogueTriggerAction" parent="Items/InteractableModule" instance=ExtResource("10_5cgqg")]
+[node name="DialogueTriggerAction" parent="Items/TriggerDialogue" instance=ExtResource("10_5cgqg")]
 DialogueResource = ExtResource("11_uj4na")
 Title = "going_to_bedroom"
 
@@ -201,6 +220,7 @@ centered = false
 position = Vector2(961, 0)
 texture = ExtResource("1_o5niv")
 centered = false
+flip_h = true
 
 [node name="Firepit" type="Sprite2D" parent="Items"]
 z_index = 110
@@ -226,7 +246,7 @@ texture_scale = 0.6
 [node name="Wall+Floor" type="Node2D" parent="."]
 
 [node name="Wall-Right" parent="Wall+Floor" instance=ExtResource("7_y0s3y")]
-position = Vector2(482, 148)
+position = Vector2(933, 146)
 
 [node name="Wall-Left" parent="Wall+Floor" instance=ExtResource("7_y0s3y")]
 position = Vector2(-43, 148)
@@ -235,6 +255,6 @@ position = Vector2(-43, 148)
 position = Vector2(27, 148)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall+Floor/Floor"]
-position = Vector2(193, 2)
+position = Vector2(433.5, 2)
 shape = SubResource("RectangleShape2D_8y2g4")
 debug_color = Color(0, 0.0235294, 0.701961, 0.419608)
