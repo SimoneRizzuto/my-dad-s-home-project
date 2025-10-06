@@ -246,7 +246,7 @@ texture_scale = 0.6
 [node name="Wall+Floor" type="Node2D" parent="."]
 
 [node name="Wall-Right" parent="Wall+Floor" instance=ExtResource("7_y0s3y")]
-position = Vector2(933, 146)
+position = Vector2(931, 146)
 
 [node name="Wall-Left" parent="Wall+Floor" instance=ExtResource("7_y0s3y")]
 position = Vector2(-43, 148)

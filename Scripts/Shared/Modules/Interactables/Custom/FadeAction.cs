@@ -1,4 +1,5 @@
 using Godot;
+using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables.Custom;
@@ -9,7 +10,17 @@ public partial class FadeAction : Node, IAction
     [Export] public FadeBehaviour FadeBehavior;
     [Export] public string FadePattern = FadePatternConstants.GradientHorizontal;
     
+    // getters
+    private FadeUtil FadeUtil => GetNode<FadeUtil>("/root/FadeUtil");
+    
+    // variables
     private bool fadeHasBegun;
+    
+    public override void _Ready()
+    {
+        FadeUtil.FadeFinished += Test;
+    }
+    
     public void Action()
     {
         if (fadeHasBegun) return;
@@ -17,14 +28,12 @@ public partial class FadeAction : Node, IAction
         switch (FadeBehavior)
         {
             case FadeBehaviour.In:
-                FadeHelper.FadeIn(time: Time, pattern: FadePattern, smooth: true);
+                FadeUtil.FadeIn(time: Time, pattern: FadePattern, smooth: true);
                 break;
             case FadeBehaviour.Out:
-                FadeHelper.FadeOut(time: Time, pattern: FadePattern, smooth: true);
+                FadeUtil.FadeOut(time: Time, pattern: FadePattern, smooth: true);
                 break;
         }
-        
-        FadeHelper.OnFinished(Test);
         
         fadeHasBegun = true;
     }
