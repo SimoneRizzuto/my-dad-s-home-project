@@ -1,6 +1,7 @@
 using Godot;
+using System;
 using MyFathersHomeProject.Scripts.Camera;
-using MyFathersHomeProject.Scripts.Shared.Helpers;
+using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables.Custom;
 [GlobalClass]
@@ -9,17 +10,14 @@ public partial class FadeAction : Node, IAction
     [Export] public float Time = 5f;
     [Export] public FadeBehaviour FadeBehavior;
     [Export] public string FadePattern = FadePatternConstants.GradientHorizontal;
+    [Export] public string TransitionToUid = SceneSwitcher.Set1_LivingRoom;
+    [Export] public bool TransitionEnabled;
     
     // getters
     private FadeUtil FadeUtil => GetNode<FadeUtil>("/root/FadeUtil");
     
     // variables
     private bool fadeHasBegun;
-    
-    public override void _Ready()
-    {
-        FadeUtil.FadeFinished += Test;
-    }
     
     public void Action()
     {
@@ -35,12 +33,19 @@ public partial class FadeAction : Node, IAction
                 break;
         }
         
+        FadeUtil.FadeFinished += NavigateToScene;
+        
         fadeHasBegun = true;
     }
     
-    public void Test()
+    private void NavigateToScene()
     {
-        GD.Print("the connection worked.");
+        if (TransitionEnabled)
+        {
+            SceneSwitcher.Instance.TransitionToScene(TransitionToUid);
+        }
+        
+        FadeUtil.FadeFinished -= NavigateToScene;
     }
 }
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bqcbyp88igw8a"]
+[gd_scene load_steps=18 format=3 uid="uid://bqcbyp88igw8a"]
 
 [ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="1_7ph40"]
 [ext_resource type="Texture2D" uid="uid://wmi7oxbdvhci" path="res://Assets/Textures/Environments/SashaHallway/hallway wall start.png" id="1_txoun"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cvyko5jswa0cn" path="res://Scenes/Modules/Door/DoorModule.tscn" id="5_v4rpc"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/FadeAction.cs" id="6_1aoen"]
 [ext_resource type="PackedScene" uid="uid://dgwvdtfwm2gvj" path="res://Scenes/Modules/InteractableModule.tscn" id="6_e7btl"]
-[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/DoorNavigationAction.cs" id="7_pdbw6"]
 [ext_resource type="Texture2D" uid="uid://dya2atr272co6" path="res://Assets/Textures/StaticObjects/SashaBedroom/plant-big.png" id="8_4ipcp"]
 [ext_resource type="PackedScene" uid="uid://cehckxjxfklbj" path="res://Scenes/Modules/DialogueTriggerAction.tscn" id="8_cuy8l"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/SitOnToiletAction.cs" id="8_ekgoh"]
@@ -51,13 +50,6 @@ position = Vector2(269, 61)
 [node name="FadeOut" type="Node2D" parent="Room/Walls+Floor"]
 position = Vector2(385, 0)
 
-[node name="InteractableModule" parent="Room/Walls+Floor/FadeOut" instance=ExtResource("6_e7btl")]
-position = Vector2(-857, 52)
-
-[node name="DoorNavigationAction" type="Node" parent="Room/Walls+Floor/FadeOut/InteractableModule"]
-script = ExtResource("7_pdbw6")
-NavigateToUid = "uid://cfts6y7qvca2x"
-
 [node name="FadeOutInteractable" parent="Room/Walls+Floor/FadeOut" instance=ExtResource("6_e7btl")]
 z_index = 1000
 position = Vector2(-690, 53)
@@ -65,6 +57,8 @@ position = Vector2(-690, 53)
 [node name="FadeAction" type="Node" parent="Room/Walls+Floor/FadeOut/FadeOutInteractable"]
 script = ExtResource("6_1aoen")
 FadeBehavior = 1
+TransitionToUid = "uid://cfts6y7qvca2x"
+TransitionEnabled = true
 
 [node name="HallwayWallFadeOut" type="Sprite2D" parent="Room/Walls+Floor/FadeOut"]
 position = Vector2(-685, 0)
