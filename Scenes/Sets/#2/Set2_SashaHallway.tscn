@@ -23,7 +23,7 @@ size = Vector2(610, 4)
 [node name="Set2_SashaHallway" type="Node2D"]
 
 [node name="Oliver" parent="." instance=ExtResource("1_7ph40")]
-position = Vector2(-274, 42)
+position = Vector2(34, 63)
 LastDirection = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -48,6 +48,7 @@ position = Vector2(269, 61)
 [node name="Walls+Floor" type="Node2D" parent="Room"]
 
 [node name="FadeOut" type="Node2D" parent="Room/Walls+Floor"]
+visible = false
 position = Vector2(385, 0)
 
 [node name="FadeOutInteractable" parent="Room/Walls+Floor/FadeOut" instance=ExtResource("6_e7btl")]
