@@ -52,7 +52,7 @@ position = Vector2(385, 0)
 
 [node name="FadeOutInteractable" parent="Room/Walls+Floor/FadeOut" instance=ExtResource("6_e7btl")]
 z_index = 1000
-position = Vector2(-690, 53)
+position = Vector2(-746, 53)
 
 [node name="FadeAction" type="Node" parent="Room/Walls+Floor/FadeOut/FadeOutInteractable"]
 script = ExtResource("6_1aoen")

@@ -10,6 +10,6 @@
 position = Vector2(171, 91)
 
 [node name="Oliver" parent="." instance=ExtResource("2_gjqvs")]
-position = Vector2(849, 87)
+position = Vector2(739, 89)
 
 [node name="SashaCampfire" parent="." instance=ExtResource("1_gcxv8")]

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
@@ -12,16 +13,32 @@ public partial class FadeAction : Node, IAction
     [Export] public string FadePattern = FadePatternConstants.GradientHorizontal;
     [Export] public string TransitionToUid = SceneSwitcher.Set1_LivingRoom;
     [Export] public bool TransitionEnabled;
+    [Export] public int Delay;
     
     // getters
     private FadeUtil FadeUtil => GetNode<FadeUtil>("/root/FadeUtil");
     
     // variables
     private bool fadeHasBegun;
+    private Stopwatch delayWatch = new();
     
     public void Action()
     {
         if (fadeHasBegun) return;
+        
+        if (Delay > 0)
+        {
+            if (!delayWatch.IsRunning)
+            {
+                delayWatch.Restart();
+            }
+            
+            if (delayWatch.Elapsed.Seconds != Delay)
+            {
+                return;
+            }
+            delayWatch.Stop();
+        }
         
         switch (FadeBehavior)
         {
