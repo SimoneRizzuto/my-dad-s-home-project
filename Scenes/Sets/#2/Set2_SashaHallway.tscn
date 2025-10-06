@@ -172,6 +172,9 @@ position = Vector2(535, 63)
 Type = 5
 Locked = true
 
+[node name="DoorNavigationTrigger" parent="Room/ToiletDoor" index="0"]
+DisableOnInteract = true
+
 [node name="SitOnToiletAction" type="Node" parent="Room/ToiletDoor/DoorNavigationTrigger" index="1"]
 script = ExtResource("8_ekgoh")
 
