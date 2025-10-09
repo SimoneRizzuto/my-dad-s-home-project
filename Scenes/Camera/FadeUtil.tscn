@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddo7q7eudvnkb"]
+
+[ext_resource type="Script" path="res://Scripts/Camera/FadeUtil.cs" id="1_cq1re"]
+[ext_resource type="PackedScene" uid="uid://1576ip6htrab" path="res://Scenes/Modules/Fade/FadeWrapper.tscn" id="2_v4pwy"]
+
+[node name="FadeUtil" type="Node2D"]
+script = ExtResource("1_cq1re")
+
+[node name="FadeWrapper" parent="." instance=ExtResource("2_v4pwy")]

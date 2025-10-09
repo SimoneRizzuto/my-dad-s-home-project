@@ -14,9 +14,9 @@ namespace DialogueManagerRuntime
     [Export] public string NextAction = "ui_accept";
     [Export] public string SkipAction = "ui_cancel";
 
-    private const string DefaultThemeUid = "uid://do2u6x4b0b2tv";
-    private const string OliverThemeUid = "uid://bay2n3vjalsks";
-    private const string SashaThemeUid = "uid://b620wgsrqjwui";
+    private const string DefaultThemePath = "res://Assets/Textures/UI/speech-bubble-style.tres";
+    private const string OliverThemePath = "res://Assets/Textures/UI/speech-bubble-oliver-style.tres";
+    private const string SashaThemePath = "res://Assets/Textures/UI/speech-bubble-sasha-style.tres";
 
     Control balloon;
     //RichTextLabel characterLabel;
@@ -323,13 +323,13 @@ namespace DialogueManagerRuntime
       switch (dialogueLine.Character)
       {
         case "Sasha":
-          theme = GD.Load<StyleBoxTexture>(SashaThemeUid);
+          theme = GD.Load<StyleBoxTexture>(SashaThemePath);
           break;
         case "Oliver":
-          theme = GD.Load<StyleBoxTexture>(OliverThemeUid);
+          theme = GD.Load<StyleBoxTexture>(OliverThemePath); // uids not loading
           break;
         default:
-          theme = GD.Load<StyleBoxTexture>(DefaultThemeUid);
+          theme = GD.Load<StyleBoxTexture>(DefaultThemePath);
           break;
       }
       

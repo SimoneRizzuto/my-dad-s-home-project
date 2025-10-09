@@ -16,7 +16,7 @@
 
 [node name="Oliver" parent="." instance=ExtResource("1_8gmls")]
 z_index = 115
-position = Vector2(165, 45)
+position = Vector2(166, 45)
 
 [node name="Sasha" parent="." instance=ExtResource("2_pov0e")]
 visible = false

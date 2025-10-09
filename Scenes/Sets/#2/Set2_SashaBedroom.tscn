@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cioaaxpie1rog"]
+
+[ext_resource type="PackedScene" uid="uid://d0a6mystt74m5" path="res://Scenes/Rooms/SashaBedroom.tscn" id="1_0lddp"]
+[ext_resource type="PackedScene" uid="uid://cfrhcgnum5ctx" path="res://Scenes/Actors/Sasha.tscn" id="2_ij8ok"]
+[ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="2_pk1vq"]
+
+[node name="Set2_SashaBedroom" type="Node2D"]
+
+[node name="Sasha" parent="." instance=ExtResource("2_ij8ok")]
+position = Vector2(149, 75)
+InitialAnimation = "sasha sit right"
+
+[node name="Oliver" parent="." instance=ExtResource("2_pk1vq")]
+position = Vector2(107, 75)
+
+[node name="SashaBedroom" parent="." instance=ExtResource("1_0lddp")]

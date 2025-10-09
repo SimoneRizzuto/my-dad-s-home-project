@@ -23,13 +23,13 @@ Oliver: Sorry, I can't hear you!
 # ------------------------
 
 ~ dad_picture_interaction
-Oliver: (Her dad.)
-Oliver: (I never got to know him.)
-Oliver: (Only through stories.)
+Oliver: Her dad.
+Oliver: I never got to know him.
+Oliver: Only through stories.
+Oliver: ... Would've been nice.
 => END
 
 ~ tv_interaction
-do Oliver.SetDirection(1)
 do Oliver.LookLeft()
 
 Oliver: When did you get so good at Marco Kart?
@@ -37,8 +37,8 @@ Sasha: I’ve always been good. It was just bubbling under the surface.
 Oliver: Hey, look.
 Oliver: I don't wanna say it, but I WAS going easy on you.
 Sasha: Oh yeah? Is that why you lost four times in a row?
-Oliver: ... Yeah, totally. Mhh mhh.
-Sasha: You got me... Wow.
+Oliver: ... Shut up.
+#sasha has a huge smile
 => END
 
 ~ computer_interaction
@@ -48,7 +48,7 @@ Sasha: Oh yeah!
 #Friend gets up and walks to the computer. Merps are shown on the screen.
 
 Sasha: Look at my little merps!
-Oliver: Daaamn!
+Oliver: Woah!
 Sasha: Yeah!
 Oliver: Are they different from the ones you drew the other day?
 Sasha: Yes.
@@ -80,23 +80,23 @@ Oliver: That fits too well...
 Sasha: Hehe~
 => END
 
-~ jump_on_bed
-#maybe iterate through dialogue if you keep on doing it
-Sasha: Oliver!
+~ jump_on_bed_1
+Sasha: Stop bouncing on my bed!
 Oliver: Sorry.
-
-# version 2
-Sasha: ...
+=> END
+~ jump_on_bed_2
+Sasha: Oliver!
 Oliver: Your bed is bouncier than mine, ok?
-
-# version 3
+=> END
+~ jump_on_bed_3
 Sasha: Are you a child?
 Oliver: ... No.
 Oliver: I'm worse!
 Oliver: I'm a teen with a problem.
+
 # Oliver bounces on bed non stop until the next line
-Oliver: A cripling addiction for bouncing on beds.
-Sasha: If you break it, I'm coming to your new place to steal your bed.
+Oliver: With a crippling addiction for bouncing on beds.
+Sasha: If you break it, I'm stealing your bed.
 => END
 
 # ------------------
@@ -106,20 +106,22 @@ Sasha: If you break it, I'm coming to your new place to steal your bed.
 ~ going_to_bathroom
 #Separate Oliver from friend, by going to the toilet. The outside is a forest, separated by a door.
 
-Oliver: (This is nice.)
-Oliver: (Haven't done this for a little bit.)
+do Director.Wait(3)
+
+Oliver: This is nice.
+Oliver: Haven't done this for a little bit.
 
 do Director.Wait(3)
 
-Oliver: (I wonder what Papa is doing...)
-Oliver: (No.) 
-Oliver: (Don't think about him. This is meant to be a fun night.)
-Oliver: (A relaxing night away from...)
-Oliver: (...)
+Oliver: I wonder what Papa is doing...
+Oliver: No.
+Oliver: Don't think about him. This is meant to be a fun night.
+Oliver: A relaxing night away from...
+Oliver: ...
 
 do Director.Wait(2)
 
-Oliver: (Two weeks left, uh?) *slow text*
+Oliver: Two weeks left, uh? *slow text*
 
 do Director.Wait(2)
 #flush toilet
@@ -169,11 +171,10 @@ Oliver: True! And then you could draw your point of view, and capture the moment
 Oliver: That'd be cool.
 Sasha: Eh. I'd rather draw something else.
 Oliver: Well, I would do that... even if its a bad doodle.
-Oliver: I'd try capture the moment myself. Through MY eyes.
 
 do Director.Wait(3)
 
-Oliver: What would YOU draw?
+Oliver: What WOULD you draw?
 Sasha: ...
 
 # she looks up to the sky
@@ -182,6 +183,8 @@ do Director.Wait(3)
 
 Sasha: I've heard the stars are clearer when away from the city.
 Sasha: I think that'd be nice.
+
+do Director.ShowStars()
 
 do Oliver.PlayAnimation("look up")
 # the stars appear more shiny once that's said

@@ -1,0 +1,191 @@
+[gd_scene load_steps=18 format=3 uid="uid://bqcbyp88igw8a"]
+
+[ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="1_7ph40"]
+[ext_resource type="Texture2D" uid="uid://wmi7oxbdvhci" path="res://Assets/Textures/Environments/SashaHallway/hallway wall start.png" id="1_txoun"]
+[ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="2_2dttg"]
+[ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="2_br87p"]
+[ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="3_83xkt"]
+[ext_resource type="PackedScene" uid="uid://bipnn0lp8ls3u" path="res://Scenes/StaticObjects/HallwayWallLoop.tscn" id="4_lqpx0"]
+[ext_resource type="Texture2D" uid="uid://dsj263cckjwgu" path="res://Assets/Textures/Environments/SashaHallway/hallway wall fade out.png" id="4_w38nn"]
+[ext_resource type="PackedScene" uid="uid://cvyko5jswa0cn" path="res://Scenes/Modules/Door/DoorModule.tscn" id="5_v4rpc"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/FadeAction.cs" id="6_1aoen"]
+[ext_resource type="PackedScene" uid="uid://dgwvdtfwm2gvj" path="res://Scenes/Modules/InteractableModule.tscn" id="6_e7btl"]
+[ext_resource type="Texture2D" uid="uid://dya2atr272co6" path="res://Assets/Textures/StaticObjects/SashaBedroom/plant-big.png" id="8_4ipcp"]
+[ext_resource type="PackedScene" uid="uid://cehckxjxfklbj" path="res://Scenes/Modules/DialogueTriggerAction.tscn" id="8_cuy8l"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/SitOnToiletAction.cs" id="8_ekgoh"]
+[ext_resource type="Texture2D" uid="uid://k0bd2repv7nu" path="res://Assets/Textures/StaticObjects/SashaBedroom/book-cabinet.png" id="9_tys7r"]
+[ext_resource type="Resource" uid="uid://hqbevxyupoa2" path="res://Assets/Dialogue/2. sleepover.dialogue" id="9_xglgq"]
+[ext_resource type="Texture2D" uid="uid://o8g6nils7gw1" path="res://Assets/Textures/StaticObjects/SashaBedroom/plant-cactus.png" id="10_ifwgk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5eay"]
+size = Vector2(610, 4)
+
+[node name="Set2_SashaHallway" type="Node2D"]
+
+[node name="Oliver" parent="." instance=ExtResource("1_7ph40")]
+position = Vector2(34, 63)
+LastDirection = 2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.219608, 0.219608, 0.360784, 1)
+
+[node name="Room" type="Node2D" parent="."]
+
+[node name="Mounts" type="Node2D" parent="Room"]
+position = Vector2(192, 0)
+
+[node name="BedroomMount" type="Marker2D" parent="Room/Mounts"]
+z_index = 100
+position = Vector2(317, 63)
+
+[node name="TripodMounter" parent="Room/Mounts" node_paths=PackedStringArray("MountPosition") instance=ExtResource("2_2dttg")]
+position = Vector2(307, 60)
+MountPosition = NodePath("../BedroomMount")
+
+[node name="TripodDismounter" parent="Room/Mounts" instance=ExtResource("3_83xkt")]
+position = Vector2(269, 61)
+
+[node name="Walls+Floor" type="Node2D" parent="Room"]
+
+[node name="FadeOut" type="Node2D" parent="Room/Walls+Floor"]
+visible = false
+position = Vector2(385, 0)
+
+[node name="FadeOutInteractable" parent="Room/Walls+Floor/FadeOut" instance=ExtResource("6_e7btl")]
+z_index = 1000
+position = Vector2(-746, 53)
+
+[node name="FadeAction" type="Node" parent="Room/Walls+Floor/FadeOut/FadeOutInteractable"]
+script = ExtResource("6_1aoen")
+FadeBehavior = 1
+TransitionToUid = "uid://cfts6y7qvca2x"
+TransitionEnabled = true
+
+[node name="HallwayWallFadeOut" type="Sprite2D" parent="Room/Walls+Floor/FadeOut"]
+position = Vector2(-685, 0)
+texture = ExtResource("4_w38nn")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Floor" type="StaticBody2D" parent="Room/Walls+Floor/FadeOut/HallwayWallFadeOut"]
+position = Vector2(13, 63)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room/Walls+Floor/FadeOut/HallwayWallFadeOut/Floor"]
+position = Vector2(-103, 2)
+shape = SubResource("RectangleShape2D_e5eay")
+debug_color = Color(0, 0.0235294, 0.701961, 0.419608)
+metadata/_edit_lock_ = true
+
+[node name="HallwayWallLoop" parent="Room/Walls+Floor/FadeOut/HallwayWallFadeOut" instance=ExtResource("4_lqpx0")]
+position = Vector2(126, 0)
+metadata/_edit_lock_ = true
+
+[node name="Point" parent="Room/Walls+Floor/FadeOut/HallwayWallFadeOut/HallwayWallLoop/MiddleLight" index="0"]
+visible = false
+
+[node name="Bounce" parent="Room/Walls+Floor/FadeOut/HallwayWallFadeOut/HallwayWallLoop/MiddleLight" index="1"]
+visible = false
+
+[node name="HallwayWallLoop2" parent="Room/Walls+Floor/FadeOut/HallwayWallFadeOut" instance=ExtResource("4_lqpx0")]
+position = Vector2(310, 0)
+metadata/_edit_lock_ = true
+
+[node name="Point" parent="Room/Walls+Floor/FadeOut/HallwayWallFadeOut/HallwayWallLoop2/MiddleLight" index="0"]
+visible = false
+
+[node name="Bounce" parent="Room/Walls+Floor/FadeOut/HallwayWallFadeOut/HallwayWallLoop2/MiddleLight" index="1"]
+visible = false
+
+[node name="HallwayWallLoop" parent="Room/Walls+Floor" instance=ExtResource("4_lqpx0")]
+position = Vector2(194, 0)
+
+[node name="Point" parent="Room/Walls+Floor/HallwayWallLoop/MiddleLight" index="0"]
+visible = false
+
+[node name="Bounce" parent="Room/Walls+Floor/HallwayWallLoop/MiddleLight" index="1"]
+visible = false
+
+[node name="HallwayWallLoop" parent="Room/Walls+Floor/HallwayWallLoop" instance=ExtResource("4_lqpx0")]
+position = Vector2(194, 0)
+
+[node name="Point" parent="Room/Walls+Floor/HallwayWallLoop/HallwayWallLoop/MiddleLight" index="0"]
+visible = false
+
+[node name="Bounce" parent="Room/Walls+Floor/HallwayWallLoop/HallwayWallLoop/MiddleLight" index="1"]
+visible = false
+
+[node name="HallwayWallLoopToilet" parent="Room/Walls+Floor" instance=ExtResource("4_lqpx0")]
+position = Vector2(378, 0)
+
+[node name="MiddleLight" parent="Room/Walls+Floor/HallwayWallLoopToilet" index="1"]
+position = Vector2(140, 1)
+
+[node name="HallwayWallEnd" type="Sprite2D" parent="Room/Walls+Floor"]
+position = Vector2(569, 0)
+texture = ExtResource("1_txoun")
+centered = false
+flip_h = true
+
+[node name="Wall-Right" parent="Room/Walls+Floor/HallwayWallEnd" instance=ExtResource("2_br87p")]
+position = Vector2(13, 75)
+
+[node name="HallwayBedroom" type="Node2D" parent="Room/Walls+Floor"]
+
+[node name="Wall" parent="Room/Walls+Floor/HallwayBedroom" instance=ExtResource("4_lqpx0")]
+
+[node name="MiddleLight" parent="Room/Walls+Floor/HallwayBedroom/Wall" index="1"]
+position = Vector2(69, 1)
+
+[node name="WallStart" type="Sprite2D" parent="Room/Walls+Floor/HallwayBedroom"]
+texture = ExtResource("1_txoun")
+centered = false
+
+[node name="Wall-Left" parent="Room/Walls+Floor/HallwayBedroom/WallStart" instance=ExtResource("2_br87p")]
+position = Vector2(1, 75)
+
+[node name="BedroomDoor" parent="Room/Walls+Floor/HallwayBedroom" instance=ExtResource("5_v4rpc")]
+position = Vector2(19, 63)
+Type = 4
+
+[node name="Plant-big" type="Sprite2D" parent="Room/Walls+Floor/HallwayBedroom"]
+position = Vector2(4, 41)
+texture = ExtResource("8_4ipcp")
+centered = false
+
+[node name="Book-cabinet" type="Sprite2D" parent="Room/Walls+Floor/HallwayBedroom"]
+position = Vector2(58, 49)
+texture = ExtResource("9_tys7r")
+centered = false
+
+[node name="Plant-cactus" type="Sprite2D" parent="Room/Walls+Floor/HallwayBedroom/Book-cabinet"]
+position = Vector2(36, -12)
+texture = ExtResource("10_ifwgk")
+centered = false
+
+[node name="EmptyDoor" parent="Room/Walls+Floor/HallwayBedroom" instance=ExtResource("5_v4rpc")]
+position = Vector2(150, 63)
+Type = 4
+Locked = true
+
+[node name="ToiletDoor" parent="Room" instance=ExtResource("5_v4rpc")]
+position = Vector2(535, 63)
+Type = 5
+Locked = true
+
+[node name="DoorNavigationTrigger" parent="Room/ToiletDoor" index="0"]
+DisableOnInteract = true
+
+[node name="SitOnToiletAction" type="Node" parent="Room/ToiletDoor/DoorNavigationTrigger" index="1"]
+script = ExtResource("8_ekgoh")
+
+[node name="DialogueTriggerAction" parent="Room/ToiletDoor/DoorNavigationTrigger" index="3" instance=ExtResource("8_cuy8l")]
+DialogueResource = ExtResource("9_xglgq")
+Title = "going_to_bathroom"
+
+[editable path="Room/Walls+Floor/FadeOut/HallwayWallFadeOut/HallwayWallLoop"]
+[editable path="Room/Walls+Floor/FadeOut/HallwayWallFadeOut/HallwayWallLoop2"]
+[editable path="Room/Walls+Floor/HallwayWallLoop"]
+[editable path="Room/Walls+Floor/HallwayWallLoop/HallwayWallLoop"]
+[editable path="Room/Walls+Floor/HallwayWallLoopToilet"]
+[editable path="Room/Walls+Floor/HallwayBedroom/Wall"]
+[editable path="Room/ToiletDoor"]

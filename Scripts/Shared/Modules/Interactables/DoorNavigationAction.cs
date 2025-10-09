@@ -7,12 +7,24 @@ namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
 [GlobalClass]
 public partial class DoorNavigationAction : Node, IAction
 {
-    private DoorModule Door => GetParent().GetParent<DoorModule>();
+    [Export] public string NavigateToUid = SceneSwitcher.Set1_LivingRoom;
     
     public void Action()
     {
-        Door.Closed = false;
+        var uid = NavigateToUid;
         
-        SceneSwitcher.Instance.TransitionToScene(SceneSwitcher.Set1_LivingRoom);
+        var doorNode = GetParent().GetParent();
+        if (doorNode is DoorModule door)
+        {
+            if (door.Locked) return;
+            door.Closed = false;
+            
+            if (!string.IsNullOrEmpty(door.NavigateToUid))
+            {
+                uid = door.NavigateToUid;
+            }
+        }
+        
+        SceneSwitcher.Instance.TransitionToScene(uid);
     }
 }

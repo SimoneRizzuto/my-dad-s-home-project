@@ -1,4 +1,5 @@
 using Godot;
+using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
@@ -44,6 +45,8 @@ public partial class InteractableModule : Area2D
 	
 	public void Interact()
 	{
+		if (Oliver.Instance?.CharacterState == CharacterState.Cutscene) return;
+		
 		var children = GetChildren();
 		foreach (var child in children)
 		{
@@ -52,7 +55,7 @@ public partial class InteractableModule : Area2D
 				actionToTrigger.Action();
 			}
 		}
-
+		
 		if (DisableOnInteract)
 		{
 			Monitoring = false;
