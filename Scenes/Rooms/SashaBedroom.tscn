@@ -1,0 +1,147 @@
+[gd_scene load_steps=18 format=3 uid="uid://d0a6mystt74m5"]
+
+[ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="1_5m3ee"]
+[ext_resource type="Texture2D" uid="uid://cih7s2rohugoh" path="res://Assets/Textures/Environments/SashaBedroom/sasha-bedroom-wall.png" id="1_f6sw5"]
+[ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="2_d3vpb"]
+[ext_resource type="Texture2D" uid="uid://dldj431jboypw" path="res://Assets/Textures/StaticObjects/SashaBedroom/light-bulb-sasha-bedroom.png" id="2_js0or"]
+[ext_resource type="Texture2D" uid="uid://ci7ehikjmh65n" path="res://Assets/Textures/StaticObjects/SashaBedroom/sasha-room-door.png" id="2_lgr8v"]
+[ext_resource type="Texture2D" uid="uid://v56t5cp0lanf" path="res://Assets/Textures/StaticObjects/SashaBedroom/tv-sasha-bedroom.png" id="2_nkrq3"]
+[ext_resource type="Texture2D" uid="uid://2xdvjq3ukvr8" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_point_light.webp" id="3_fqvas"]
+[ext_resource type="Texture2D" uid="uid://ceu57vodrcy64" path="res://Assets/Textures/StaticObjects/SashaBedroom/teal-pillow.png" id="3_pwltc"]
+[ext_resource type="Texture2D" uid="uid://bgtmhnu3q6ree" path="res://Assets/Textures/StaticObjects/SashaBedroom/pizza-box-on-stool.png" id="3_r3fya"]
+[ext_resource type="Texture2D" uid="uid://cs80qied8c61p" path="res://Assets/Textures/StaticObjects/SashaBedroom/bedside-drawer-sasha.png" id="5_00h2x"]
+[ext_resource type="PackedScene" uid="uid://cgobk3l7mmbe1" path="res://Scenes/Modules/Bed/BedBounceResetter.tscn" id="8_h02hs"]
+[ext_resource type="PackedScene" uid="uid://dgwvdtfwm2gvj" path="res://Scenes/Modules/InteractableModule.tscn" id="8_utd7k"]
+[ext_resource type="PackedScene" uid="uid://cehckxjxfklbj" path="res://Scenes/Modules/DialogueTriggerAction.tscn" id="9_42c4i"]
+[ext_resource type="Resource" uid="uid://hqbevxyupoa2" path="res://Assets/Dialogue/2. sleepover.dialogue" id="10_bia8r"]
+[ext_resource type="PackedScene" uid="uid://vdqs0lk5wye3" path="res://Scenes/Modules/Bed/BedModule.tscn" id="14_utv8w"]
+[ext_resource type="Texture2D" uid="uid://b4nxqd8r8ere6" path="res://Assets/Textures/StaticObjects/SashaBedroom/desk.png" id="16_e0dqk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rlomt"]
+size = Vector2(201, 4)
+
+[node name="SashaBedroom" type="Node2D"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.219608, 0.219608, 0.360784, 1)
+
+[node name="TripodMounter" parent="." node_paths=PackedStringArray("MountPosition") instance=ExtResource("1_5m3ee")]
+position = Vector2(105, 71)
+MountPosition = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TripodMounter"]
+position = Vector2(0, 4)
+
+[node name="Wall" type="Sprite2D" parent="."]
+texture = ExtResource("1_f6sw5")
+centered = false
+
+[node name="Light-bulb-sasha-bedroom" type="Sprite2D" parent="Wall"]
+position = Vector2(102, 1)
+texture = ExtResource("2_js0or")
+centered = false
+
+[node name="Point" type="PointLight2D" parent="Wall/Light-bulb-sasha-bedroom"]
+position = Vector2(2.5, 21.5)
+scale = Vector2(1.03125, 1.03125)
+color = Color(0.901961, 0.764706, 0.509804, 1)
+energy = 1.1
+texture = ExtResource("3_fqvas")
+texture_scale = 0.13
+
+[node name="Bounce" type="PointLight2D" parent="Wall/Light-bulb-sasha-bedroom"]
+position = Vector2(2.5, 28)
+scale = Vector2(1.00781, 1)
+color = Color(0.901961, 0.764706, 0.509804, 1)
+texture = ExtResource("3_fqvas")
+texture_scale = 0.6
+
+[node name="Pizza-box-on-stool" type="Sprite2D" parent="Wall"]
+position = Vector2(124, 63)
+texture = ExtResource("3_r3fya")
+centered = false
+
+[node name="InteractableModule" parent="Wall/Pizza-box-on-stool" instance=ExtResource("8_utd7k")]
+position = Vector2(6, 5)
+scale = Vector2(0.347404, 0.67965)
+TriggerMode = 1
+DisableOnInteract = true
+
+[node name="DialogueTriggerAction" parent="Wall/Pizza-box-on-stool/InteractableModule" instance=ExtResource("9_42c4i")]
+DialogueResource = ExtResource("10_bia8r")
+Title = "pizza_carton_interaction"
+
+[node name="BedModule" parent="Wall" instance=ExtResource("14_utv8w")]
+position = Vector2(19, 62)
+Type = 1
+TriggerDialogue = true
+Dialogue = ExtResource("10_bia8r")
+
+[node name="BedBounceResetter" parent="Wall" instance=ExtResource("8_h02hs")]
+position = Vector2(72, 77)
+
+[node name="Bedside-drawer-sasha" type="Sprite2D" parent="Wall"]
+position = Vector2(3, 63)
+texture = ExtResource("5_00h2x")
+centered = false
+
+[node name="InteractableModule" parent="Wall/Bedside-drawer-sasha" instance=ExtResource("8_utd7k")]
+position = Vector2(8, 9)
+scale = Vector2(0.679999, 0.32)
+TriggerMode = 1
+
+[node name="DialogueTriggerAction" parent="Wall/Bedside-drawer-sasha/InteractableModule" instance=ExtResource("9_42c4i")]
+DialogueResource = ExtResource("10_bia8r")
+Title = "dad_picture_interaction"
+
+[node name="Tv-sasha-bedroom" type="Sprite2D" parent="Wall"]
+z_index = 110
+position = Vector2(174, 58)
+texture = ExtResource("2_nkrq3")
+centered = false
+
+[node name="InteractableModule" parent="Wall/Tv-sasha-bedroom" instance=ExtResource("8_utd7k")]
+position = Vector2(9, 14)
+scale = Vector2(0.95998, 0.319995)
+TriggerMode = 1
+DisableOnInteract = true
+
+[node name="DialogueTriggerAction" parent="Wall/Tv-sasha-bedroom/InteractableModule" instance=ExtResource("9_42c4i")]
+DialogueResource = ExtResource("10_bia8r")
+Title = "tv_interaction"
+
+[node name="Teal-pillow" type="Sprite2D" parent="Wall"]
+position = Vector2(156, 72)
+texture = ExtResource("3_pwltc")
+centered = false
+
+[node name="Teal-pillow2" type="Sprite2D" parent="Wall"]
+position = Vector2(143, 72)
+texture = ExtResource("3_pwltc")
+centered = false
+
+[node name="Sasha-room-door" type="Sprite2D" parent="Wall"]
+position = Vector2(94, 36)
+texture = ExtResource("2_lgr8v")
+centered = false
+
+[node name="Wall+Floor" type="Node2D" parent="."]
+
+[node name="Wall-Right" parent="Wall+Floor" instance=ExtResource("2_d3vpb")]
+position = Vector2(198, 75)
+
+[node name="Wall-Left" parent="Wall+Floor" instance=ExtResource("2_d3vpb")]
+position = Vector2(1, 75)
+
+[node name="Floor" type="StaticBody2D" parent="Wall+Floor"]
+position = Vector2(0, 75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall+Floor/Floor"]
+position = Vector2(99.5, 2)
+shape = SubResource("RectangleShape2D_rlomt")
+debug_color = Color(0, 0.0235294, 0.701961, 0.419608)
+
+[node name="Desk" type="Sprite2D" parent="."]
+position = Vector2(66, 54)
+texture = ExtResource("16_e0dqk")
+centered = false

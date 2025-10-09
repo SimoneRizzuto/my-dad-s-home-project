@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=3 uid="uid://vdqs0lk5wye3"]
+
+[ext_resource type="Texture2D" uid="uid://dwjbm3hnhd314" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-bed.png" id="1_r3pdq"]
+[ext_resource type="Texture2D" uid="uid://b8kodykusgjvm" path="res://Assets/Textures/StaticObjects/SashaBedroom/sasha-bed.png" id="2_2fpnv"]
+[ext_resource type="Texture2D" uid="uid://c822pyrll4whr" path="res://Assets/Textures/StaticObjects/OliverBedroom/oliver-bed-bounce.png" id="2_nqk51"]
+[ext_resource type="Texture2D" uid="uid://cb3e0him2jou0" path="res://Assets/Textures/StaticObjects/SashaBedroom/sasha-bed-bounce.png" id="4_imxcs"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Bed/BedModule.cs" id="4_wyvod"]
+[ext_resource type="PackedScene" uid="uid://1q3qlo8wd64c" path="res://Scenes/Tools/ZIndexModifier/ZIndexModifier.tscn" id="5_jnna4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1hdy"]
+atlas = ExtResource("1_r3pdq")
+region = Rect2(0, 0, 45, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm7wv"]
+atlas = ExtResource("2_nqk51")
+region = Rect2(0, 0, 45, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj32r"]
+atlas = ExtResource("2_2fpnv")
+region = Rect2(0, 0, 41, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrl7x"]
+atlas = ExtResource("4_imxcs")
+region = Rect2(0, 0, 41, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_52jho"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1hdy")
+}],
+"loop": true,
+"name": &"oliver bed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm7wv")
+}],
+"loop": true,
+"name": &"oliver bed bounce",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj32r")
+}],
+"loop": true,
+"name": &"sasha bed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrl7x")
+}],
+"loop": true,
+"name": &"sasha bed bounce",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wjeg"]
+size = Vector2(40, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5e5mm"]
+size = Vector2(36, 3)
+
+[node name="BedModule" type="AnimatedSprite2D" groups=["bed"]]
+z_index = 115
+position = Vector2(0, -13)
+sprite_frames = SubResource("SpriteFrames_52jho")
+animation = &"oliver bed"
+centered = false
+script = ExtResource("4_wyvod")
+
+[node name="ZIndexModifierInFront" parent="." instance=ExtResource("5_jnna4")]
+position = Vector2(17, 6)
+scale = Vector2(0.199999, 1)
+ZIndex = 116
+
+[node name="ZIndexModifierBehind" parent="." instance=ExtResource("5_jnna4")]
+position = Vector2(28, 6)
+scale = Vector2(0.199999, 1)
+ZIndex = 100
+
+[node name="Collision" type="StaticBody2D" parent="."]
+position = Vector2(3, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+position = Vector2(20, 3)
+shape = SubResource("RectangleShape2D_6wjeg")
+
+[node name="BounceArea" type="Area2D" parent="."]
+position = Vector2(3, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BounceArea"]
+position = Vector2(20, 0.5)
+shape = SubResource("RectangleShape2D_5e5mm")
+debug_color = Color(0.960784, 0, 0, 0.384314)

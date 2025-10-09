@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://s5admqqm1d77"]
+[gd_scene load_steps=3 format=3 uid="uid://dgwvdtfwm2gvj"]
 
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/InteractableModule.cs" id="1_biv0k"]
 

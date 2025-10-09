@@ -1,12 +1,17 @@
 using System;
 using Godot;
+using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 using MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Door;
+
+[Icon("res://Assets/Textures/StaticObjects/OliverBedroom/oliver-room-door-2.png")]
 public partial class DoorModule : Node
 {
 	[Export] public DoorType Type = DoorType.Orange;
 	[Export] public bool Closed = true;
+	[Export] public bool Locked;
+	[Export] public string NavigateToUid = SceneSwitcher.Set1_LivingRoom;
 	
 	// getters
 	private AnimatedSprite2D DoorSprite => GetNode<AnimatedSprite2D>("DoorSprite");
@@ -24,7 +29,10 @@ public partial class DoorModule : Node
 	}
 	
 	public void EnableNavigationAction(bool enable = true)
-    {
+	{
+		if (Locked) return;
+	    // implement dialogue check before navigation through
+	    
     	var doorNavigationTrigger = GetNode<InteractableModule>("DoorNavigationTrigger");
     	switch (enable)
     	{
@@ -45,6 +53,8 @@ public partial class DoorModule : Node
 			DoorType.Blue => "blue",
 			DoorType.OliverBlue => "oliver blue",
 			DoorType.Wooden => "wooden",
+			DoorType.Wooden2 => "wooden 2",
+			DoorType.WoodenBathroom => "wooden bathroom",
 			_ => "orange"
 		};
 	}
@@ -56,4 +66,6 @@ public enum DoorType
 	Blue,
 	OliverBlue,
 	Wooden,
+	Wooden2,
+	WoodenBathroom,
 }

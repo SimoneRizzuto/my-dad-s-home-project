@@ -4,6 +4,7 @@ using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Misc;
 using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Shared.Constants;
+using MyFathersHomeProject.Scripts.Shared.Modules.Bed;
 
 namespace MyFathersHomeProject.Scripts.Shared.Helpers;
 public static class GetNodeHelper
@@ -54,5 +55,17 @@ public static class GetNodeHelper
         }
         
         return plate;
+    }
+    
+    public static BedModule GetBed(SceneTree tree)
+    {
+        var bedNodes = tree.GetNodesInGroup(NodeGroup.Bed);
+        var bed = bedNodes.Cast<BedModule>().FirstOrDefault();
+        if (bed == null)
+        {
+            GD.Print($"{nameof(bed)} was null.");
+        }
+        
+        return bed;
     }
 }

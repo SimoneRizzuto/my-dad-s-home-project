@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c04vcdhv4omev" path="res://Assets/Textures/StaticObjects/LivingRoom/orange-door.png" id="1_60vnj"]
 [ext_resource type="Texture2D" uid="uid://i10d657iytts" path="res://Assets/Textures/Environments/living-room-foreground-wall.png" id="1_a5bcu"]
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="1_njjkm"]
-[ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="2_7l723"]
+[ext_resource type="PackedScene" path="res://Scenes/Camera/TripodDismounter.tscn" id="2_7l723"]
 [ext_resource type="PackedScene" uid="uid://1q3qlo8wd64c" path="res://Scenes/Tools/ZIndexModifier/ZIndexModifier.tscn" id="3_c7aby"]
 [ext_resource type="Texture2D" uid="uid://bosivm32etxdc" path="res://Assets/Textures/StaticObjects/LivingRoom/cofano-portrait.png" id="5_20dyk"]
 [ext_resource type="Texture2D" uid="uid://dlquv7ogqic57" path="res://Assets/Textures/StaticObjects/LivingRoom/mother-snow-portrait.png" id="6_d66rx"]
@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://fugm0uhvliv7" path="res://Assets/Textures/StaticObjects/LivingRoom/cabinet-dining-room.png" id="20_cmb5b"]
 [ext_resource type="Texture2D" uid="uid://2xdvjq3ukvr8" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_point_light.webp" id="21_hb6dq"]
 [ext_resource type="Texture2D" uid="uid://0igud66o8lc0" path="res://Assets/Textures/StaticObjects/LivingRoom/spin-chair.png" id="21_ic2s8"]
-[ext_resource type="PackedScene" uid="uid://s5admqqm1d77" path="res://Scenes/Modules/InteractableModule.tscn" id="23_n8li4"]
+[ext_resource type="PackedScene" path="res://Scenes/Modules/InteractableModule.tscn" id="23_n8li4"]
 [ext_resource type="Texture2D" uid="uid://beld18wyxhivs" path="res://Assets/Textures/StaticObjects/LivingRoom/kitchen-bin-open.png" id="23_okvvc"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/BinPedalAction.cs" id="25_bvb0w"]
 
