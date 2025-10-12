@@ -5,10 +5,10 @@ namespace MyFathersHomeProject.Scripts.Shared.Modules;
 [GlobalClass]
 public partial class GameSetup : Node2D
 {
-	[Export] public string UidToSetup = "uid://bur7w500m6dcn";
+	[Export] public PackedScene PackedScene;
 	
 	public override void _Process(double delta)
 	{
-		SceneSwitcher.Instance.TransitionToScene(UidToSetup);
+		SceneSwitcher.Instance.TransitionToScene(PackedScene);
 	}
 }
