@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://drtjxkow13kwr"]
 
-[ext_resource type="PackedScene" uid="uid://cioaaxpie1rog" path="res://Scenes/Sets/#2/Set2_SashaBedroom.tscn" id="2_1oeqm"]
+[ext_resource type="PackedScene" uid="uid://cioaaxpie1rog" path="res://Scenes/Sets/#2/Set2_SashaBedroom.tscn" id="1_55824"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Set2_SashaBedroom" parent="." instance=ExtResource("2_1oeqm")]
+[node name="Set2_SashaBedroom" parent="." instance=ExtResource("1_55824")]
