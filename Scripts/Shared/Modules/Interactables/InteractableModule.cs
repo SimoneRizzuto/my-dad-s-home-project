@@ -16,7 +16,8 @@ public partial class InteractableModule : Area2D
 	private bool InputInteract => Input.IsActionJustPressed(InputMapAction.Interact);
 	
 	// variables
-	private bool _inRange;
+	public bool _inRange =  false;
+	private bool OliverIntersecting = false;
 	
 	public override void _Ready()
 	{
@@ -30,10 +31,10 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				triggerInteract = _inRange;
+				triggerInteract = _inRange && OliverIntersecting;
 				break;
 			case TriggerMode.Input:
-				triggerInteract = _inRange && InputInteract;
+				triggerInteract = _inRange && InputInteract && OliverIntersecting;
 				break;
 		}
         
@@ -70,10 +71,10 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				_inRange = body.IsInGroup(NodeGroup.Oliver);
+				OliverIntersecting = body.IsInGroup(NodeGroup.Oliver);
 				break;
 			case TriggerMode.Input:
-				_inRange = true;
+				OliverIntersecting = true;
 				_interactLabel.Visible = true;
 				break;
 			case TriggerMode.CollisionEntered:
@@ -90,10 +91,10 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				if (body.IsInGroup(NodeGroup.Oliver)) _inRange = false;
+				if (body.IsInGroup(NodeGroup.Oliver)) OliverIntersecting = false;
 				break;
 			case TriggerMode.Input:
-				_inRange = false;
+				OliverIntersecting = false;
 				_interactLabel.Visible = false;
 				break;
 			case TriggerMode.CollisionExited:

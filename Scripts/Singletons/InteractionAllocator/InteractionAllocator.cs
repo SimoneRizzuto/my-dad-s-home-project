@@ -9,7 +9,13 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
 {
     
     public static InteractionAllocator Instance { get; private set; }
-    
+
+    public override void _Process(double delta)
+    {
+        AddInRangeInteractable();
+        RemoveInRangeInteractable();
+    }
+
     public override void _EnterTree()
     {
         Instance = this;
@@ -29,12 +35,14 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
     public (InteractableModule closest, List<InteractableModule> others) FindClosestInteractableModule()
     {
         var currentScene = GetMain();
+        
 
         var Oliver = GetNodeHelper.GetOliver(GetTree());
         InteractableModule closestInteractableModule = null;
         float closestDistance = float.MaxValue;
         
         List<InteractableModule> interactorModules = currentScene.GetChildrenRecursive<InteractableModule>();
+        
 
         foreach (var i in interactorModules)
         {
@@ -49,6 +57,7 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
             
         }
         
+        
         List<InteractableModule> nonCloestInteractableModules = new List<InteractableModule>(interactorModules);
         if (closestInteractableModule != null) nonCloestInteractableModules.Remove(closestInteractableModule);
 
@@ -59,15 +68,21 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
     {
         var (closest, _) = FindClosestInteractableModule();
         
-        // Add this module where though?
-
+        // Set the _inRange variable to true for the closest
+        closest._inRange = true;
+        //closest.closest = true;
 
     }
 
     public void RemoveInRangeInteractable()
     {
-        var (closest, _) = FindClosestInteractableModule();
+        var (_, nonclosest) = FindClosestInteractableModule();
         
-        //Remove this module where though?
+        // Loop through list of nonclosest and set all _inRange to False
+        foreach (var i in nonclosest)
+        {
+            i._inRange = false; 
+            //i.closest = false;
+        }
     }
 }
