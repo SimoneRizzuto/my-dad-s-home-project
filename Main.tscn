@@ -1,7 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://drtjxkow13kwr"]
 
-[ext_resource type="PackedScene" uid="uid://cioaaxpie1rog" path="res://Scenes/Sets/#2/Set2_SashaBedroom.tscn" id="1_55824"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/GameSetup.cs" id="1_2tojp"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Set2_SashaBedroom" parent="." instance=ExtResource("1_55824")]
+[node name="GameSetup" type="Node2D" parent="."]
+script = ExtResource("1_2tojp")
