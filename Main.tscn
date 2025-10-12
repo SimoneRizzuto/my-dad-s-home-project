@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://drtjxkow13kwr"]
+[gd_scene load_steps=3 format=3 uid="uid://drtjxkow13kwr"]
 
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/GameSetup.cs" id="1_2tojp"]
+[ext_resource type="PackedScene" uid="uid://d1ixwp4nsglea" path="res://Scenes/Rooms/SimoricoPresentsTitle.tscn" id="2_qom17"]
 
 [node name="Main" type="Node2D"]
 
 [node name="GameSetup" type="Node2D" parent="."]
 script = ExtResource("1_2tojp")
+PackedScene = ExtResource("2_qom17")
