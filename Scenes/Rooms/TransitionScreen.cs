@@ -7,6 +7,7 @@ public partial class TransitionScreen : CanvasLayer
 {
 	[Export] public PackedScene NextScene;
 	[Export] public string RichText = "test";
+	[Export] public double DelayInitialFade;
 	[Export] public double Buffer = 2;
 	[Export] public double FadeSpeed = 3;
 	[Export] public double FontSize = 24;
@@ -18,6 +19,7 @@ public partial class TransitionScreen : CanvasLayer
 	private readonly Stopwatch stopwatch = new();
 	private Tween tween;
 	private SceneSwitcher sceneSwitcher;
+	private bool delayFadeFinished;
 	
 	public override void _Ready()
 	{
@@ -25,11 +27,30 @@ public partial class TransitionScreen : CanvasLayer
 		RichTextLabel.Text = RichText;
 		RichTextLabel.AddThemeFontSizeOverride("font_size", 24);
 		CenterLabelOnScreen(RichTextLabel);
-		FadeInLabel();
+		
+		if (DelayInitialFade == 0)
+		{
+			FadeInLabel();
+		}
 	}
 	
 	public override void _Process(double delta)
 	{
+		if (DelayInitialFade > 0 && !delayFadeFinished)
+		{
+			if (!stopwatch.IsRunning)
+			{
+				stopwatch.Restart();
+			}
+			
+			if (stopwatch.Elapsed.TotalSeconds >= DelayInitialFade)
+			{
+				FadeInLabel();
+			}
+			
+			return;
+		}
+		
 		if (!stopwatch.IsRunning || !(stopwatch.Elapsed.TotalSeconds >= Buffer)) return;
 		stopwatch.Stop();
 		FadeOutLabel();
@@ -57,11 +78,13 @@ public partial class TransitionScreen : CanvasLayer
 		tween = GetTree().CreateTween();
 		tween.TweenProperty(RichTextLabel, "modulate:a", 1.0f, FadeSpeed);
 		tween.TweenCallback(Callable.From(OnFadeInComplete));
+		RichTextLabel.Visible = true;
 	}
 	
 	private void OnFadeInComplete()
 	{
-		stopwatch.Start();
+		stopwatch.Restart();
+		delayFadeFinished = true;
 	}
 	
 	private void CenterLabelOnScreen(Label label)

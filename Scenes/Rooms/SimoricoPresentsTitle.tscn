@@ -8,4 +8,7 @@
 [node name="TransitionScreen" parent="." instance=ExtResource("1_qxt5l")]
 NextScene = ExtResource("2_pmdk0")
 RichText = "A Game Made By: BITCH"
+DelayInitialFade = 1.5
+Buffer = 0.5
+FadeSpeed = 1.0
 FontSize = 18.0
