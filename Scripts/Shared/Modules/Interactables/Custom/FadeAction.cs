@@ -15,9 +15,6 @@ public partial class FadeAction : Node, IAction
     [Export] public bool TransitionEnabled;
     [Export] public int Delay;
     
-    // getters
-    private FadeUtil FadeUtil => GetNode<FadeUtil>("/root/FadeUtil");
-    
     // variables
     private bool fadeHasBegun;
     private Stopwatch delayWatch = new();
@@ -43,14 +40,17 @@ public partial class FadeAction : Node, IAction
         switch (FadeBehavior)
         {
             case FadeBehaviour.In:
-                FadeUtil.FadeIn(time: Time, pattern: FadePattern, smooth: true);
+                FadeUtil.Instance?.FadeIn(time: Time, pattern: FadePattern, smooth: true);
                 break;
             case FadeBehaviour.Out:
-                FadeUtil.FadeOut(time: Time, pattern: FadePattern, smooth: true);
+                FadeUtil.Instance?.FadeOut(time: Time, pattern: FadePattern, smooth: true);
                 break;
         }
         
-        FadeUtil.FadeFinished += NavigateToScene;
+        if (FadeUtil.Instance != null)
+        {
+            FadeUtil.Instance.FadeFinished += NavigateToScene;
+        }
         
         fadeHasBegun = true;
     }
@@ -62,7 +62,10 @@ public partial class FadeAction : Node, IAction
             SceneSwitcher.Instance.TransitionToScene(TransitionToUid);
         }
         
-        FadeUtil.FadeFinished -= NavigateToScene;
+        if (FadeUtil.Instance != null)
+        {
+            FadeUtil.Instance.FadeFinished -= NavigateToScene;
+        }
     }
 }
 

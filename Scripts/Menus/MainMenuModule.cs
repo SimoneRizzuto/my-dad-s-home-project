@@ -1,4 +1,5 @@
 using Godot;
+using MyFathersHomeProject.Scripts.Camera;
 
 namespace MyFathersHomeProject.Scripts.Menus;
 public partial class MainMenuModule : CanvasLayer
@@ -11,6 +12,8 @@ public partial class MainMenuModule : CanvasLayer
 	
 	public override void _Ready()
 	{
+		FadeUtil.Instance?.FadeIn(2);
+		
 		GoInside.GrabFocus();
 	}
 }
