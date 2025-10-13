@@ -22,7 +22,7 @@ text = "MY
 DAD'S
 HOME"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MainMenuContainer" type="VBoxContainer" parent="."]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -34,11 +34,11 @@ grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenuContainer"]
 layout_direction = 1
 layout_mode = 2
 
-[node name="Go Inside" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Go Inside" type="Button" parent="MainMenuContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
@@ -46,11 +46,11 @@ theme = ExtResource("1_dp5jj")
 text = "Go Inside"
 script = ExtResource("3_gafsi")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainMenuContainer"]
 layout_direction = 1
 layout_mode = 2
 
-[node name="Options" type="Button" parent="VBoxContainer/HBoxContainer2"]
+[node name="Options" type="Button" parent="MainMenuContainer/HBoxContainer2"]
 unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
@@ -58,11 +58,11 @@ theme = ExtResource("1_dp5jj")
 text = "Options"
 script = ExtResource("3_gafsi")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MainMenuContainer"]
 layout_direction = 1
 layout_mode = 2
 
-[node name="Debug" type="Button" parent="VBoxContainer/HBoxContainer3"]
+[node name="Debug" type="Button" parent="MainMenuContainer/HBoxContainer3"]
 unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
@@ -70,11 +70,11 @@ theme = ExtResource("1_dp5jj")
 text = "Debug"
 script = ExtResource("3_gafsi")
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="MainMenuContainer"]
 layout_direction = 1
 layout_mode = 2
 
-[node name="Not Now" type="Button" parent="VBoxContainer/HBoxContainer4"]
+[node name="Not Now" type="Button" parent="MainMenuContainer/HBoxContainer4"]
 unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
