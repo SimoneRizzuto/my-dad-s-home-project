@@ -21,27 +21,14 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
         Instance = this;
     }
     
-    private Node? GetMain()
-    {
-        var tree = GetTree();
-        if (tree == null)
-        {
-            GD.PrintErr("Scene tree is null. InteractionAllocator is being accessed too early.");
-            return null;
-        }
-        return tree.CurrentScene;
-    }
 
     public (InteractableModule closest, List<InteractableModule> others) FindClosestInteractableModule()
     {
-        var currentScene = GetMain();
-        
-
         var Oliver = GetNodeHelper.GetOliver(GetTree());
         InteractableModule closestInteractableModule = null;
         float closestDistance = float.MaxValue;
         
-        List<InteractableModule> interactorModules = currentScene.GetChildrenRecursive<InteractableModule>();
+        List<InteractableModule> interactorModules = GetTree().CurrentScene.GetChildrenRecursive<InteractableModule>();
         
 
         foreach (var i in interactorModules)
