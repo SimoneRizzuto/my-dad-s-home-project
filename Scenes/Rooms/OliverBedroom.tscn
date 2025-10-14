@@ -17,13 +17,13 @@
 [ext_resource type="Texture2D" uid="uid://bsibyp5p2ykg7" path="res://Assets/Textures/StaticObjects/OliverBedroom/bin.png" id="8_jflqj"]
 [ext_resource type="Texture2D" uid="uid://bvfvlnrtbrfiu" path="res://Assets/Textures/Rendering/2d_pointed_light_texture_down.png" id="9_pmsv0"]
 [ext_resource type="Texture2D" uid="uid://py0lra5cwyuo" path="res://Assets/Textures/StaticObjects/OliverBedroom/computer-chair.png" id="9_v2o21"]
-[ext_resource type="PackedScene" path="res://Scenes/Modules/InteractableModule.tscn" id="10_3d4tr"]
+[ext_resource type="PackedScene" uid="uid://dgwvdtfwm2gvj" path="res://Scenes/Modules/InteractableModule.tscn" id="10_3d4tr"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/ClothesMoveToDrawerAction.cs" id="10_bebr2"]
 [ext_resource type="Texture2D" uid="uid://cich785oov6wr" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_up_point_light.webp" id="11_epxpr"]
 [ext_resource type="Texture2D" uid="uid://b5b5t5lllkio2" path="res://Assets/Textures/StaticObjects/OliverBedroom/clothes-ball.png" id="11_s4via"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/ClothesMoveToHeadAction.cs" id="12_2pib8"]
 [ext_resource type="Texture2D" uid="uid://o0psnnkmfi2r" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_down_point_light.webp" id="12_qvimp"]
-[ext_resource type="PackedScene" path="res://Scenes/StaticObjects/FoodPlate.tscn" id="18_cruoa"]
+[ext_resource type="PackedScene" uid="uid://c4sfh3btwj0ej" path="res://Scenes/StaticObjects/FoodPlate.tscn" id="18_cruoa"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/DialogueTriggerAction.cs" id="19_x8p4j"]
 [ext_resource type="Resource" uid="uid://c4t0mo45346ew" path="res://Assets/Dialogue/1. 14 days remain.dialogue" id="20_w067e"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/TurnOffLightAction.cs" id="24_60wok"]
@@ -58,6 +58,7 @@ position = Vector2(141, 75)
 [node name="TripodMounter2" parent="MountPoint" node_paths=PackedStringArray("MountPosition") instance=ExtResource("2_piyi6")]
 position = Vector2(25, -5)
 MountPosition = NodePath("..")
+InitialMountIsSmooth = false
 
 [node name="TripodMounter" parent="MountPoint" node_paths=PackedStringArray("MountPosition") instance=ExtResource("2_piyi6")]
 position = Vector2(97, -4)
