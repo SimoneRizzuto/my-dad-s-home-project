@@ -35,7 +35,7 @@ public partial class InteractableModule : Area2D
 				triggerInteract = _inRange && oliverIntersecting;
 				break;
 			case TriggerMode.Input:
-				triggerInteract = _inRange && InputInteract && oliverIntersecting;
+				triggerInteract = _inRange && InputInteract && oliverIntersecting && closestToOliver;
 				break;
 		}
 
@@ -107,7 +107,7 @@ public partial class InteractableModule : Area2D
 
 	private void makeInputVisible()
 	{
-		if (oliverIntersecting & closestToOliver)
+		if (oliverIntersecting & closestToOliver & _inRange)
 		{
 			_interactLabel.Visible = true;
 		}
