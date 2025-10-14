@@ -77,6 +77,8 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
         ClearMain();
         SpawnSceneUid(uid);
         
+        FadeUtil.Instance?.FadeIn(0.25f, smooth: true);
+        
         CastCrew.FindExistingActors(); // make into signal???
     }
     
