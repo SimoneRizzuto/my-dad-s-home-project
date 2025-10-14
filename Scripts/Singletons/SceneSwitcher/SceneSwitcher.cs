@@ -19,6 +19,10 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     public const string Set1_OliverBedroom = "uid://cap325m8jhcqw";
     public const string Set1_LivingRoom = "uid://bggng8c6npq0v";
     
+    public const string Set2_SashaBedroom = "uid://cioaaxpie1rog";
+    public const string Set2_SashaHallway = "uid://bqcbyp88igw8a";
+    public const string Set2_SashaCampfire = "uid://cfts6y7qvca2x";
+    
     public const string TransitionScreen = "uid://ba8ajsihdkrwt";
     
     // getters
