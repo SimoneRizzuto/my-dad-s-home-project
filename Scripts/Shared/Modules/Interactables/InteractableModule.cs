@@ -6,7 +6,6 @@ using MyFathersHomeProject.Scripts.Shared.Constants;
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
 public partial class InteractableModule : Area2D
 {
-	//[Signal] public delegate void TriggeredItemEventHandler();
 	[Export] public TriggerMode TriggerMode;
 	[Export] public bool DisableOnInteract;
 	
@@ -14,7 +13,16 @@ public partial class InteractableModule : Area2D
 	private bool InputInteract => Input.IsActionJustPressed(InputMapAction.Interact);
 	
 	// variables
-	private bool _inRange;
+	public bool InRange =  false;
+	public bool ClosestToOliver = false;
+	private Label interactLabel;
+	private bool oliverIntersecting = false;
+	
+	public override void _Ready()
+	{
+		interactLabel = GetNode<Label>("./Label"); 
+		interactLabel.Visible = false;
+	}
 	
 	public override void _PhysicsProcess(double delta)
 	{
@@ -22,12 +30,14 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				triggerInteract = _inRange;
+				triggerInteract = InRange && oliverIntersecting;
 				break;
 			case TriggerMode.Input:
-				triggerInteract = _inRange && InputInteract;
+				triggerInteract = InRange && InputInteract && oliverIntersecting && ClosestToOliver;
 				break;
 		}
+
+		MakeInputVisible();
         
 		if (triggerInteract)
 		{
@@ -62,10 +72,10 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				_inRange = body.IsInGroup(NodeGroup.Oliver);
+				oliverIntersecting = body.IsInGroup(NodeGroup.Oliver);
 				break;
 			case TriggerMode.Input:
-				_inRange = true;
+				oliverIntersecting = true;
 				break;
 			case TriggerMode.CollisionEntered:
 			case TriggerMode.CollisionEnteredOrExited:
@@ -81,15 +91,27 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				if (body.IsInGroup(NodeGroup.Oliver)) _inRange = false;
+				if (body.IsInGroup(NodeGroup.Oliver)) oliverIntersecting = false;
 				break;
 			case TriggerMode.Input:
-				_inRange = false;
+				oliverIntersecting = false;
 				break;
 			case TriggerMode.CollisionExited:
 			case TriggerMode.CollisionEnteredOrExited:
 				Interact();
 				break;
+		}
+	}
+
+	private void MakeInputVisible()
+	{
+		if (oliverIntersecting & ClosestToOliver & InRange)
+		{
+			interactLabel.Visible = true;
+		}
+		else
+		{
+			interactLabel.Visible = false;
 		}
 	}
 }
