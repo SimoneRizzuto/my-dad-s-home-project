@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://brqethgaxv3tm"]
+[gd_scene load_steps=15 format=3 uid="uid://brqethgaxv3tm"]
 
-[ext_resource type="PackedScene" uid="uid://s5admqqm1d77" path="res://Scenes/Modules/InteractableModule.tscn" id="1_cp7va"]
+[ext_resource type="PackedScene" uid="uid://dgwvdtfwm2gvj" path="res://Scenes/Modules/InteractableModule.tscn" id="1_cp7va"]
 [ext_resource type="Texture2D" uid="uid://b4lgsu26f7f22" path="res://Assets/Textures/Environments/OnlineWorld1/city.png" id="1_qeykr"]
 [ext_resource type="Texture2D" uid="uid://cgbpixr77w03y" path="res://Assets/Textures/Environments/OnlineWorld1/sky.png" id="1_qxfir"]
 [ext_resource type="PackedScene" uid="uid://cehckxjxfklbj" path="res://Scenes/Modules/DialogueTriggerAction.tscn" id="2_5ndgv"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="3_vuomj"]
 [ext_resource type="Texture2D" uid="uid://mas7pba4uwc1" path="res://Assets/Textures/StaticObjects/OnlineWorld1/tree.png" id="4_1yf36"]
 [ext_resource type="Texture2D" uid="uid://bb1x5dwh8hx40" path="res://Assets/Textures/Environments/OnlineWorld1/grass front.png" id="5_1gkci"]
-[ext_resource type="Script" path="res://Scenes/Rooms/CameraOverride.cs" id="7_24w43"]
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="9_kkpjs"]
 [ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="10_2gnje"]
 [ext_resource type="PackedScene" uid="uid://cfrhcgnum5ctx" path="res://Scenes/Actors/Sasha.tscn" id="13_3vkiu"]
@@ -99,19 +98,28 @@ position = Vector2(327.75, 10)
 shape = SubResource("RectangleShape2D_cfnht")
 debug_color = Color(0, 0.0235294, 0.701961, 0.419608)
 
-[node name="CameraOverride" type="Node2D" parent="."]
-script = ExtResource("7_24w43")
-LimitLeft = 0
-LimitRight = 645
+[node name="Mounts" type="Node2D" parent="."]
 
-[node name="TripodMounter" parent="." node_paths=PackedStringArray("MountPosition") instance=ExtResource("9_kkpjs")]
+[node name="TripodDismounter2" parent="Mounts" instance=ExtResource("10_2gnje")]
+position = Vector2(190, 83)
+
+[node name="StartMounter" parent="Mounts" node_paths=PackedStringArray("MountPosition") instance=ExtResource("9_kkpjs")]
+position = Vector2(88, 84)
+scale = Vector2(8.8, 1)
+MountPosition = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="Mounts/StartMounter"]
+position = Vector2(9.54545, -1)
+scale = Vector2(2.67103, 0.331676)
+
+[node name="TreeMounter" parent="Mounts" node_paths=PackedStringArray("MountPosition") instance=ExtResource("9_kkpjs")]
 position = Vector2(399, 83)
 MountPosition = NodePath("Marker2D")
 
-[node name="Marker2D" type="Marker2D" parent="TripodMounter"]
+[node name="Marker2D" type="Marker2D" parent="Mounts/TreeMounter"]
 position = Vector2(44, 0)
 
-[node name="TripodDismounter" parent="." instance=ExtResource("10_2gnje")]
+[node name="TripodDismounter" parent="Mounts" instance=ExtResource("10_2gnje")]
 position = Vector2(358, 84)
 
 [node name="Sasha" parent="." instance=ExtResource("13_3vkiu")]
