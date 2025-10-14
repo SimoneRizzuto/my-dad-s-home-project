@@ -70,7 +70,7 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
         
         // Set the _inRange variable to true for the closest
         closest._inRange = true;
-        //closest.closest = true;
+        closest.closestToOliver = true;
 
     }
 
@@ -82,7 +82,7 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
         foreach (var i in nonclosest)
         {
             i._inRange = false; 
-            //i.closest = false;
+            i.closestToOliver = false;
         }
     }
 }

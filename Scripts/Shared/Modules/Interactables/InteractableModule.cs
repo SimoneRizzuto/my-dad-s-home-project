@@ -17,7 +17,8 @@ public partial class InteractableModule : Area2D
 	
 	// variables
 	public bool _inRange =  false;
-	private bool OliverIntersecting = false;
+	private bool oliverIntersecting = false;
+	public bool closestToOliver = false;
 	
 	public override void _Ready()
 	{
@@ -31,12 +32,14 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				triggerInteract = _inRange && OliverIntersecting;
+				triggerInteract = _inRange && oliverIntersecting;
 				break;
 			case TriggerMode.Input:
-				triggerInteract = _inRange && InputInteract && OliverIntersecting;
+				triggerInteract = _inRange && InputInteract && oliverIntersecting;
 				break;
 		}
+
+		makeInputVisible();
         
 		if (triggerInteract)
 		{
@@ -71,11 +74,10 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				OliverIntersecting = body.IsInGroup(NodeGroup.Oliver);
+				oliverIntersecting = body.IsInGroup(NodeGroup.Oliver);
 				break;
 			case TriggerMode.Input:
-				OliverIntersecting = true;
-				_interactLabel.Visible = true;
+				oliverIntersecting = true;
 				break;
 			case TriggerMode.CollisionEntered:
 			case TriggerMode.CollisionEnteredOrExited:
@@ -91,16 +93,27 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				if (body.IsInGroup(NodeGroup.Oliver)) OliverIntersecting = false;
+				if (body.IsInGroup(NodeGroup.Oliver)) oliverIntersecting = false;
 				break;
 			case TriggerMode.Input:
-				OliverIntersecting = false;
-				_interactLabel.Visible = false;
+				oliverIntersecting = false;
 				break;
 			case TriggerMode.CollisionExited:
 			case TriggerMode.CollisionEnteredOrExited:
 				Interact();
 				break;
+		}
+	}
+
+	private void makeInputVisible()
+	{
+		if (oliverIntersecting & closestToOliver)
+		{
+			_interactLabel.Visible = true;
+		}
+		else
+		{
+			_interactLabel.Visible = false;
 		}
 	}
 }
