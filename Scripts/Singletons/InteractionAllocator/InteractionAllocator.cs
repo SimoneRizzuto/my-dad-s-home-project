@@ -51,8 +51,8 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
         var (closest, _) = FindClosestInteractableModule();
         
         // Set the _inRange variable to true for the closest
-        closest._inRange = true;
-        closest.closestToOliver = true;
+        closest.InRange = true;
+        closest.ClosestToOliver = true;
     }
 
     public void RemoveInRangeInteractable()
@@ -62,8 +62,8 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
         // Loop through list of nonclosest and set all _inRange to False
         foreach (var i in nonclosest)
         {
-            i._inRange = false; 
-            i.closestToOliver = false;
+            i.InRange = false; 
+            i.ClosestToOliver = false;
         }
     }
 }

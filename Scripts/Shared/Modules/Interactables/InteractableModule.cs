@@ -6,23 +6,22 @@ using MyFathersHomeProject.Scripts.Shared.Constants;
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
 public partial class InteractableModule : Area2D
 {
-	//[Signal] public delegate void TriggeredItemEventHandler();
 	[Export] public TriggerMode TriggerMode;
 	[Export] public bool DisableOnInteract;
-	private Label _interactLabel;
 	
 	// getters
 	private bool InputInteract => Input.IsActionJustPressed(InputMapAction.Interact);
 	
 	// variables
-	public bool _inRange =  false;
+	public bool InRange =  false;
+	public bool ClosestToOliver = false;
+	private Label interactLabel;
 	private bool oliverIntersecting = false;
-	public bool closestToOliver = false;
 	
 	public override void _Ready()
 	{
-		_interactLabel = GetNode<Label>("./Label"); 
-		_interactLabel.Visible = false;
+		interactLabel = GetNode<Label>("./Label"); 
+		interactLabel.Visible = false;
 	}
 	
 	public override void _PhysicsProcess(double delta)
@@ -31,10 +30,10 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				triggerInteract = _inRange && oliverIntersecting;
+				triggerInteract = InRange && oliverIntersecting;
 				break;
 			case TriggerMode.Input:
-				triggerInteract = _inRange && InputInteract && oliverIntersecting && closestToOliver;
+				triggerInteract = InRange && InputInteract && oliverIntersecting && ClosestToOliver;
 				break;
 		}
 
@@ -106,13 +105,13 @@ public partial class InteractableModule : Area2D
 
 	private void makeInputVisible()
 	{
-		if (oliverIntersecting & closestToOliver & _inRange)
+		if (oliverIntersecting & ClosestToOliver & InRange)
 		{
-			_interactLabel.Visible = true;
+			interactLabel.Visible = true;
 		}
 		else
 		{
-			_interactLabel.Visible = false;
+			interactLabel.Visible = false;
 		}
 	}
 }
