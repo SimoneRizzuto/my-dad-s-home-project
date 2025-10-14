@@ -1,14 +1,14 @@
-using System.Collections.Generic;
 using Godot;
-using MyFathersHomeProject.Scripts.Player;
-using MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
-
-namespace MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
+using System.Collections.Generic;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
+using MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
+using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
+
+namespace MyFathersHomeProject.Scripts.Singletons.InteractionAllocator;
+
 public partial class InteractionAllocator : Node, IInteractionAllocator
 {
-    
-    public static InteractionAllocator Instance { get; private set; }
+    public static InteractionAllocator? Instance { get; private set; }
 
     public override void _Process(double delta)
     {
@@ -21,7 +21,6 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
         Instance = this;
     }
     
-
     public (InteractableModule closest, List<InteractableModule> others) FindClosestInteractableModule()
     {
         var Oliver = GetNodeHelper.GetOliver(GetTree());
@@ -30,7 +29,6 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
         
         List<InteractableModule> interactorModules = GetTree().CurrentScene.GetChildrenRecursive<InteractableModule>();
         
-
         foreach (var i in interactorModules)
         {
             float distance = Oliver.GlobalPosition.DistanceTo(i.GlobalPosition);
@@ -40,10 +38,7 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
                 closestDistance = distance;
                 closestInteractableModule = i;
             }
-            
-            
         }
-        
         
         List<InteractableModule> nonCloestInteractableModules = new List<InteractableModule>(interactorModules);
         if (closestInteractableModule != null) nonCloestInteractableModules.Remove(closestInteractableModule);
@@ -58,7 +53,6 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
         // Set the _inRange variable to true for the closest
         closest._inRange = true;
         closest.closestToOliver = true;
-
     }
 
     public void RemoveInRangeInteractable()
