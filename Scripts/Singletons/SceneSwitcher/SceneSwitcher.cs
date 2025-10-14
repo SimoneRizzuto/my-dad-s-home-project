@@ -26,7 +26,7 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     public const string TransitionScreen = "uid://ba8ajsihdkrwt";
     
     // getters
-    public static SceneSwitcher Instance { get; private set; }
+    public static SceneSwitcher? Instance { get; private set; }
 
     private PlayerCamera PlayerCamera => PlayerCamera.Instance;
     private CastCrew CastCrew => CastCrew.Instance;

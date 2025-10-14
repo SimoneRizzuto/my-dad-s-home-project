@@ -25,6 +25,6 @@ public partial class DoorNavigationAction : Node, IAction
             }
         }
         
-        SceneSwitcher.Instance.TransitionToScene(uid);
+        SceneSwitcher.Instance?.TransitionToScene(uid);
     }
 }

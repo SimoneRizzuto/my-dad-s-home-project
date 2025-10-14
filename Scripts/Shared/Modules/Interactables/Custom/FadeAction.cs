@@ -59,7 +59,7 @@ public partial class FadeAction : Node, IAction
     {
         if (TransitionEnabled)
         {
-            SceneSwitcher.Instance.TransitionToScene(TransitionToUid);
+            SceneSwitcher.Instance?.TransitionToScene(TransitionToUid);
         }
         
         if (FadeUtil.Instance != null)

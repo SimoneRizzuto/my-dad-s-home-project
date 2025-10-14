@@ -9,6 +9,6 @@ public partial class GameSetup : Node2D
 	
 	public override void _Process(double delta)
 	{
-		SceneSwitcher.Instance.TransitionToScene(PackedScene);
+		SceneSwitcher.Instance?.TransitionToScene(PackedScene);
 	}
 }

@@ -18,12 +18,10 @@ public partial class TransitionScreen : CanvasLayer
 	// variables
 	private readonly Stopwatch stopwatch = new();
 	private Tween tween;
-	private SceneSwitcher sceneSwitcher;
 	private bool delayFadeFinished;
 	
 	public override void _Ready()
 	{
-		sceneSwitcher = SceneSwitcher.Instance;
 		RichTextLabel.Text = RichText;
 		RichTextLabel.AddThemeFontSizeOverride("font_size", 24);
 		CenterLabelOnScreen(RichTextLabel);
@@ -58,7 +56,7 @@ public partial class TransitionScreen : CanvasLayer
 	
 	private void DoSceneSwitch()
 	{
-		sceneSwitcher.TransitionToScene(NextScene);
+		SceneSwitcher.Instance?.TransitionToScene(NextScene);
 	}
 	
 	private void FadeOutLabel()

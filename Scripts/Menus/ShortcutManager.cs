@@ -34,37 +34,37 @@ public partial class ShortcutManager : Node2D
 	{
 		if (Input.IsActionJustPressed(InputMapAction.GoToSet1))
 		{
-			SceneSwitcher.Instance.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
+			SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
 		}
 		
 		if (Input.IsActionJustPressed(InputMapAction.GoToSet2))
 		{
-			SceneSwitcher.Instance.TransitionToScene(SceneSwitcher.Set2_SashaBedroom);
+			SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set2_SashaBedroom);
 		}
 		
 		if (Input.IsActionJustPressed(InputMapAction.GoToSet3))
 		{
-			//SceneSwitcher.Instance.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
+			//SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
 		}
 		
 		if (Input.IsActionJustPressed(InputMapAction.GoToSet4))
 		{
-			//SceneSwitcher.Instance.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
+			//SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
 		}
 		
 		if (Input.IsActionJustPressed(InputMapAction.GoToSet5))
 		{
-			//SceneSwitcher.Instance.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
+			//SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
 		}
 		
 		if (Input.IsActionJustPressed(InputMapAction.GoToSet6))
 		{
-			//SceneSwitcher.Instance.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
+			//SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
 		}
 		
 		if (Input.IsActionJustPressed(InputMapAction.GoToSet7))
 		{
-			//SceneSwitcher.Instance.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
+			//SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
 		}
 	}
 }
