@@ -10,7 +10,6 @@ public partial class InteractableModule : Area2D
 	[Export] public TriggerMode TriggerMode;
 	[Export] public bool DisableOnInteract;
 	private Label _interactLabel;
-
 	
 	// getters
 	private bool InputInteract => Input.IsActionJustPressed(InputMapAction.Interact);
