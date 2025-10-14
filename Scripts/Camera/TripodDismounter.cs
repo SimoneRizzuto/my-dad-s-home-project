@@ -13,6 +13,7 @@ public partial class TripodDismounter : Area2D
 	{
 		if (body is Oliver)
 		{
+			PlayerCamera.Instance.ToggleSmoothing(true);
 			PlayerCamera.Instance.Dismount();
 		}
 	}
