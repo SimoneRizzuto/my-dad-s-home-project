@@ -6,7 +6,7 @@
 [node name="Set1_OnlineWorld" type="Node2D"]
 
 [node name="Oliver" parent="." instance=ExtResource("1_tgslq")]
-position = Vector2(55, 73)
+position = Vector2(55, 83)
 LastDirection = 2
 
 [node name="OnlineWorld1" parent="." instance=ExtResource("2_72yoi")]

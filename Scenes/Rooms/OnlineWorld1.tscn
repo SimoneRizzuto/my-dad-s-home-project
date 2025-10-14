@@ -107,6 +107,7 @@ position = Vector2(190, 83)
 position = Vector2(88, 84)
 scale = Vector2(8.8, 1)
 MountPosition = NodePath("Marker2D")
+InitialMountIsSmooth = false
 
 [node name="Marker2D" type="Marker2D" parent="Mounts/StartMounter"]
 position = Vector2(9.54545, -1)
