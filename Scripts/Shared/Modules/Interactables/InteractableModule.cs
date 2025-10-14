@@ -37,7 +37,7 @@ public partial class InteractableModule : Area2D
 				break;
 		}
 
-		makeInputVisible();
+		MakeInputVisible();
         
 		if (triggerInteract)
 		{
@@ -103,7 +103,7 @@ public partial class InteractableModule : Area2D
 		}
 	}
 
-	private void makeInputVisible()
+	private void MakeInputVisible()
 	{
 		if (oliverIntersecting & ClosestToOliver & InRange)
 		{
