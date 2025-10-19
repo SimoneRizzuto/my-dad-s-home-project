@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using MyFathersHomeProject.Scripts.Camera;
 
 namespace MyFathersHomeProject.Scripts.Menus;
 public partial class MenuItemButton : Button
@@ -14,10 +15,11 @@ public partial class MenuItemButton : Button
 			case ButtonAction.SwitchScene:
 				break;
 			case ButtonAction.ExitGame:
-				
-				// play fade
-				
-				GetTree().Quit();
+				if (FadeUtil.Instance != null)
+				{
+					FadeUtil.Instance.FadeOut();
+					FadeUtil.Instance.FadeFinished += () => GetTree().Quit();
+				}
 				break;
 		}
 	}
