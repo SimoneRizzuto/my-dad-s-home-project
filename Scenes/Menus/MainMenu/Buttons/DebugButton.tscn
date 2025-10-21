@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2jftd2den0d6"]
+
+[ext_resource type="Theme" uid="uid://c2yv8q7b8742i" path="res://Assets/Themes/ui-button-theme.tres" id="1_28xm3"]
+[ext_resource type="Script" path="res://Scripts/Menus/DebugButton.cs" id="2_8ypxt"]
+
+[node name="DebugButton" type="Button"]
+layout_direction = 2
+theme = ExtResource("1_28xm3")
+text = "Debug"
+alignment = 0
+script = ExtResource("2_8ypxt")
