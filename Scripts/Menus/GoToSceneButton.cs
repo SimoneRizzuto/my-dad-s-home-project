@@ -11,10 +11,10 @@ public partial class GoToSceneButton : Button
 		switch (SceneOptions)
 		{
 			case DebugSceneOptions.Set1:
-				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1_LivingRoom);
+				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
 				break;
 			case DebugSceneOptions.Set2:
-				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set2_SashaCampfire);
+				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set2_SashaBedroom);
 				break;
 			case DebugSceneOptions.Set3:
 				SceneSwitcher.Instance?.TransitionToScene("");
