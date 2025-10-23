@@ -1,28 +1,33 @@
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using Godot;
 using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Shared.Extensions;
-using MyFathersHomeProject.Scripts.Shared.Helpers;
 
 namespace MyFathersHomeProject.Scripts.Menus;
 public partial class MainMenuModule : CanvasLayer
 {
-	// getters
+	// main menu
 	private Control MainMenu => GetNode<Control>("MainMenu");
-	private Control SettingsMenu => GetNode<Control>("SettingsMenu");
-	private Control DebugMenu => GetNode<Control>("DebugMenu");
-	
 	private Button GoInsideButton => GetNode<Button>("%GoInsideButton");
+	private Button OptionsButton => GetNode<Button>("%OptionsButton");
+	private Button DebugButton => GetNode<Button>("%DebugButton");
+	private Button QuitButton => GetNode<Button>("%QuitButton");
 	
-	// variable
-	private MenuFocus CurrentFocus;
+	// settings menu
+	private Control SettingsMenu => GetNode<Control>("SettingsMenu");
+	private Button TestButton => GetNode<Button>("%TestButton");
+	
+	// debug menu
+	private Control DebugMenu => GetNode<Control>("DebugMenu");
+	private Button Set1Button => GetNode<Button>("%Set1Button");
+	
+	// variables
+	private int mainMenuButtonLastFocusIndex = 0;
 	
 	public override void _Ready()
 	{
 		MainMenu.Visible = false;
 		SettingsMenu.Visible = false;
+		DebugMenu.Visible = false;
 		
 		FadeUtil.Instance?.FadeIn(2);
 		GoToMainMenu();
@@ -30,36 +35,51 @@ public partial class MainMenuModule : CanvasLayer
 	
 	public void GoToMainMenu()
 	{
-		SettingsMenu.FadeOut(0.25d, () => Console.WriteLine("this is a test to see if it worked"));
-		//SettingsMenu.ProcessMode = ProcessModeEnum.Disabled;
-
+		SettingsMenu.FadeOut(0.25d, () => SettingsMenu.Visible = false);
+		DebugMenu.FadeOut(0.25d, () => DebugMenu.Visible = false);
+		
 		MainMenu.Visible = true;
-		MainMenu.FadeIn(0.25d, () => Console.WriteLine("this is a secondary test, just because"));
-		GoInsideButton.GrabFocus();
-
-		CurrentFocus = MenuFocus.Main;
+		MainMenuFocus();
+		MainMenu.FadeIn(0.25d);
 	}
 	
 	public void GoToSettingsMenu()
 	{
-		MainMenu.FadeOut(0.25d, () => Console.WriteLine("this is a secondary test, just because"));
-		//MainMenu.ProcessMode = ProcessModeEnum.Disabled;
+		MainMenu.FadeOut(0.25d, () => MainMenu.Visible = false);
+		DebugMenu.FadeOut(0.25d, () => DebugMenu.Visible = false);
 		
 		SettingsMenu.Visible = true;
-		SettingsMenu.FadeIn(0.25d, () => Console.WriteLine("this is a test to see if it worked"));
+		TestButton.GrabFocus();
+		SettingsMenu.FadeIn(0.25d);
 		
-		CurrentFocus = MenuFocus.Settings;
+		mainMenuButtonLastFocusIndex = 1;
 	}
 	
 	public void GoToDebugMenu()
 	{
-		CurrentFocus = MenuFocus.Debug;
+		MainMenu.FadeOut(0.25d, () => MainMenu.Visible = false);
+		SettingsMenu.FadeOut(0.25d, () => SettingsMenu.Visible = false);
+		
+		DebugMenu.Visible = true;
+		Set1Button.GrabFocus();
+		DebugMenu.FadeIn(0.25d);
+		
+		mainMenuButtonLastFocusIndex = 2;
 	}
-}
-
-public enum MenuFocus
-{
-	Main,
-	Settings,
-	Debug,
+	
+	private void MainMenuFocus()
+	{
+		switch (mainMenuButtonLastFocusIndex)
+		{
+			case 0:
+				GoInsideButton.GrabFocus();
+				break;
+			case 1:
+				OptionsButton.GrabFocus();
+				break;
+			case 2:
+				DebugButton.GrabFocus();
+				break;
+		}
+	}
 }

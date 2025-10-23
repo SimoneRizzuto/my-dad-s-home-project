@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdl83fedaibb1"]
+
+[ext_resource type="Theme" uid="uid://c2yv8q7b8742i" path="res://Assets/Themes/ui-button-theme.tres" id="1_eqn1o"]
+[ext_resource type="Script" path="res://Scripts/Menus/MenuItemButton.cs" id="2_l5at0"]
+[ext_resource type="PackedScene" uid="uid://c2jftd2den0d6" path="res://Scenes/Menus/MainMenu/Buttons/DebugButton.tscn" id="3_4b3md"]
+[ext_resource type="PackedScene" uid="uid://dya8epkgbbq1i" path="res://Scenes/Menus/MainMenu/Buttons/OptionsButton.tscn" id="3_pty8s"]
+[ext_resource type="PackedScene" uid="uid://dy5kyi42jp6jl" path="res://Scenes/Menus/MainMenu/Buttons/QuitButton.tscn" id="4_kaj8q"]
+
+[node name="MainMenu" type="VBoxContainer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 37.0
+offset_top = -4.0
+offset_right = 89.0
+offset_bottom = 72.0
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="GoInsideButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+theme = ExtResource("1_eqn1o")
+text = "Go Inside"
+alignment = 0
+script = ExtResource("2_l5at0")
+
+[node name="OptionsButton" parent="." instance=ExtResource("3_pty8s")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DebugButton" parent="." instance=ExtResource("3_4b3md")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="QuitButton" parent="." instance=ExtResource("4_kaj8q")]
+unique_name_in_owner = true
+layout_mode = 2

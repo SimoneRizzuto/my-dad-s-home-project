@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bur7w500m6dcn"]
+[gd_scene load_steps=10 format=3 uid="uid://bur7w500m6dcn"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/MainMenuModule.cs" id="1_d287u"]
 [ext_resource type="Theme" uid="uid://c2yv8q7b8742i" path="res://Assets/Themes/ui-button-theme.tres" id="1_dp5jj"]
 [ext_resource type="FontFile" uid="uid://cb0xauna5q601" path="res://Assets/Fonts/Reaper Font.ttf" id="2_og274"]
 [ext_resource type="Script" path="res://Scripts/Menus/MenuItemButton.cs" id="3_gafsi"]
+[ext_resource type="PackedScene" uid="uid://dya8epkgbbq1i" path="res://Scenes/Menus/MainMenu/Buttons/OptionsButton.tscn" id="5_i1dhv"]
 [ext_resource type="PackedScene" uid="uid://dy5kyi42jp6jl" path="res://Scenes/Menus/MainMenu/Buttons/QuitButton.tscn" id="5_s8te0"]
 [ext_resource type="PackedScene" uid="uid://c2jftd2den0d6" path="res://Scenes/Menus/MainMenu/Buttons/DebugButton.tscn" id="5_wqq4x"]
+[ext_resource type="PackedScene" uid="uid://cnfboq67kgywk" path="res://Scenes/Menus/MainMenu/Buttons/MainMenuBackButton.tscn" id="8_8mqgb"]
 
 [sub_resource type="Theme" id="Theme_4g6d5"]
 
@@ -45,14 +47,9 @@ text = "Go Inside"
 alignment = 0
 script = ExtResource("3_gafsi")
 
-[node name="OptionsButton" type="Button" parent="MainMenu"]
+[node name="OptionsButton" parent="MainMenu" instance=ExtResource("5_i1dhv")]
 unique_name_in_owner = true
-layout_direction = 2
 layout_mode = 2
-theme = ExtResource("1_dp5jj")
-text = "Options"
-alignment = 0
-script = ExtResource("3_gafsi")
 
 [node name="DebugButton" parent="MainMenu" instance=ExtResource("5_wqq4x")]
 unique_name_in_owner = true
@@ -62,22 +59,122 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="LoadGameMenu" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 109.0
+offset_top = -4.0
+offset_right = 161.0
+offset_bottom = 72.0
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="ContinueButton" type="Button" parent="LoadGameMenu"]
+layout_direction = 2
+layout_mode = 2
+theme = ExtResource("1_dp5jj")
+text = "Restart"
+alignment = 0
+
+[node name="RestartButton" type="Button" parent="LoadGameMenu"]
+layout_direction = 2
+layout_mode = 2
+theme = ExtResource("1_dp5jj")
+text = "Restart"
+alignment = 0
+
+[node name="BackButton" parent="LoadGameMenu" instance=ExtResource("8_8mqgb")]
+layout_mode = 2
+
 [node name="SettingsMenu" type="VBoxContainer" parent="."]
 visible = false
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 37.0
+offset_left = 109.0
 offset_top = -4.0
-offset_right = 89.0
+offset_right = 161.0
 offset_bottom = 72.0
 grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
 [node name="TestButton" type="Button" parent="SettingsMenu"]
+unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
 theme = ExtResource("1_dp5jj")
 text = "Test"
 alignment = 0
+
+[node name="BackButton" parent="SettingsMenu" instance=ExtResource("8_8mqgb")]
+layout_mode = 2
+
+[node name="DebugMenu" type="VBoxContainer" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 109.0
+offset_top = -4.0
+offset_right = 161.0
+offset_bottom = 72.0
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Set1Button" type="Button" parent="DebugMenu"]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+theme = ExtResource("1_dp5jj")
+text = "Go to Set 1"
+alignment = 0
+
+[node name="Set2Button" type="Button" parent="DebugMenu"]
+layout_direction = 2
+layout_mode = 2
+theme = ExtResource("1_dp5jj")
+text = "Go to Set 2
+"
+alignment = 0
+
+[node name="Set3Button" type="Button" parent="DebugMenu"]
+layout_direction = 2
+layout_mode = 2
+theme = ExtResource("1_dp5jj")
+text = "Go to Set 3"
+alignment = 0
+
+[node name="Set4Button" type="Button" parent="DebugMenu"]
+layout_direction = 2
+layout_mode = 2
+theme = ExtResource("1_dp5jj")
+text = "Go to Set 4"
+alignment = 0
+
+[node name="Set5Button" type="Button" parent="DebugMenu"]
+layout_direction = 2
+layout_mode = 2
+theme = ExtResource("1_dp5jj")
+text = "Go to Set 5"
+alignment = 0
+
+[node name="Set6Button" type="Button" parent="DebugMenu"]
+layout_direction = 2
+layout_mode = 2
+theme = ExtResource("1_dp5jj")
+text = "Go to Set 6"
+alignment = 0
+
+[node name="Set7Button" type="Button" parent="DebugMenu"]
+layout_direction = 2
+layout_mode = 2
+theme = ExtResource("1_dp5jj")
+text = "Go to Set 7"
+alignment = 0
+
+[node name="BackButton" parent="DebugMenu" instance=ExtResource("8_8mqgb")]
+layout_mode = 2
