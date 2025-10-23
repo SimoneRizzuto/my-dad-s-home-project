@@ -4,4 +4,4 @@
 
 [node name="ShortcutManager" type="Node2D"]
 script = ExtResource("1_6vbf5")
-WindowMode = 3
+WindowMode = 4
