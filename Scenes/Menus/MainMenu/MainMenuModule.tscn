@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bur7w500m6dcn"]
+[gd_scene load_steps=11 format=3 uid="uid://bur7w500m6dcn"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/MainMenuModule.cs" id="1_d287u"]
 [ext_resource type="Theme" uid="uid://c2yv8q7b8742i" path="res://Assets/Themes/ui-button-theme.tres" id="1_dp5jj"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dy5kyi42jp6jl" path="res://Scenes/Menus/MainMenu/Buttons/QuitButton.tscn" id="5_s8te0"]
 [ext_resource type="PackedScene" uid="uid://c2jftd2den0d6" path="res://Scenes/Menus/MainMenu/Buttons/DebugButton.tscn" id="5_wqq4x"]
 [ext_resource type="PackedScene" uid="uid://cnfboq67kgywk" path="res://Scenes/Menus/MainMenu/Buttons/MainMenuBackButton.tscn" id="8_8mqgb"]
+[ext_resource type="Script" path="res://Scripts/Menus/GoToSceneButton.cs" id="9_alq3x"]
 
 [sub_resource type="Theme" id="Theme_4g6d5"]
 
@@ -130,16 +131,19 @@ unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
 theme = ExtResource("1_dp5jj")
-text = "Go to Set 1"
+text = "Go to Set 1 - Living Room"
 alignment = 0
+script = ExtResource("9_alq3x")
 
 [node name="Set2Button" type="Button" parent="DebugMenu"]
 layout_direction = 2
 layout_mode = 2
 theme = ExtResource("1_dp5jj")
-text = "Go to Set 2
+text = "Go to Set 2 - Campfire
 "
 alignment = 0
+script = ExtResource("9_alq3x")
+SceneOptions = 1
 
 [node name="Set3Button" type="Button" parent="DebugMenu"]
 layout_direction = 2
@@ -147,6 +151,8 @@ layout_mode = 2
 theme = ExtResource("1_dp5jj")
 text = "Go to Set 3"
 alignment = 0
+script = ExtResource("9_alq3x")
+SceneOptions = 2
 
 [node name="Set4Button" type="Button" parent="DebugMenu"]
 layout_direction = 2
@@ -154,6 +160,8 @@ layout_mode = 2
 theme = ExtResource("1_dp5jj")
 text = "Go to Set 4"
 alignment = 0
+script = ExtResource("9_alq3x")
+SceneOptions = 3
 
 [node name="Set5Button" type="Button" parent="DebugMenu"]
 layout_direction = 2
@@ -161,6 +169,8 @@ layout_mode = 2
 theme = ExtResource("1_dp5jj")
 text = "Go to Set 5"
 alignment = 0
+script = ExtResource("9_alq3x")
+SceneOptions = 4
 
 [node name="Set6Button" type="Button" parent="DebugMenu"]
 layout_direction = 2
@@ -168,6 +178,8 @@ layout_mode = 2
 theme = ExtResource("1_dp5jj")
 text = "Go to Set 6"
 alignment = 0
+script = ExtResource("9_alq3x")
+SceneOptions = 5
 
 [node name="Set7Button" type="Button" parent="DebugMenu"]
 layout_direction = 2
@@ -175,6 +187,8 @@ layout_mode = 2
 theme = ExtResource("1_dp5jj")
 text = "Go to Set 7"
 alignment = 0
+script = ExtResource("9_alq3x")
+SceneOptions = 6
 
 [node name="BackButton" parent="DebugMenu" instance=ExtResource("8_8mqgb")]
 layout_mode = 2
