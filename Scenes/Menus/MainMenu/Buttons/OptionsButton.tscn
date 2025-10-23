@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dya8epkgbbq1i"]
+
+[ext_resource type="Theme" uid="uid://c2yv8q7b8742i" path="res://Assets/Themes/ui-button-theme.tres" id="1_dk3ii"]
+[ext_resource type="Script" path="res://Scripts/Menus/OptionsButton.cs" id="2_q7fl5"]
+
+[node name="OptionsButton" type="Button"]
+layout_direction = 2
+theme = ExtResource("1_dk3ii")
+text = "Options"
+alignment = 0
+script = ExtResource("2_q7fl5")

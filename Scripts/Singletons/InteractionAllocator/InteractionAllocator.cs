@@ -1,5 +1,6 @@
 using Godot;
 using System.Collections.Generic;
+using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 using MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
 using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
@@ -12,6 +13,9 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
 
     public override void _Process(double delta)
     {
+        var oliver = Oliver.Instance;
+        if (oliver == null) return;
+        
         AddInRangeInteractable();
         RemoveInRangeInteractable();
     }
@@ -23,7 +27,7 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
     
     public (InteractableModule closest, List<InteractableModule> others) FindClosestInteractableModule()
     {
-        var Oliver = GetNodeHelper.GetOliver(GetTree());
+        var oliver = Oliver.Instance;
         InteractableModule closestInteractableModule = null;
         float closestDistance = float.MaxValue;
         
@@ -31,7 +35,7 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
         
         foreach (var i in interactorModules)
         {
-            float distance = Oliver.GlobalPosition.DistanceTo(i.GlobalPosition);
+            float distance = oliver.GlobalPosition.DistanceTo(i.GlobalPosition);
 
             if (distance < closestDistance)
             {

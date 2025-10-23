@@ -300,6 +300,9 @@ Oliver: I'll think about it.
 
 do Director.Wait(1.5)
 
+Oliver: Ah, screw it.
+do Director.Wait(0.5)
+
 do Oliver.PlayAnimation("idle left")
 do Director.Wait(0.5)
 
