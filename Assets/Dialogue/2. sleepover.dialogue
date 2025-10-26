@@ -76,6 +76,7 @@ Oliver: Hell yeah!
 ~ pizza_carton_interaction
 
 do ShowTextureUI.ShowTexture(-40)
+do Director.Wait(1)
 
 Oliver: Hey, you got Gigi's again!
 Sasha: I wasn't lying when I said I liked it.

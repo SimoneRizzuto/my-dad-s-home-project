@@ -41,11 +41,11 @@ public partial class PlayerCamera : Camera2D
         }
     }
     
-    public void Mount(Vector2 position)
+    public void Mount(Vector2 position, int smoothingSpeed = 7)
     {
         GlobalPosition = position;
         
-        PositionSmoothingSpeed = 7;
+        PositionSmoothingSpeed = smoothingSpeed;
         isMounted = true;
     }
     
