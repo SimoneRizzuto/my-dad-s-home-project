@@ -79,6 +79,10 @@ do ShowTextureUI.ShowTexture(-40)
 do Director.Wait(1)
 
 Oliver: Hey, you got Gigi's again!
+
+do ShowTextureUI.HideTexture()
+do Director.Wait(1)
+
 Sasha: I wasn't lying when I said I liked it.
 Oliver: So what you're telling me is...
 Oliver: ...good pizza exists after all!

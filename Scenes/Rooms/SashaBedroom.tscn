@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d0a6mystt74m5"]
+[gd_scene load_steps=18 format=3 uid="uid://d0a6mystt74m5"]
 
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="1_5m3ee"]
 [ext_resource type="Texture2D" uid="uid://cih7s2rohugoh" path="res://Assets/Textures/Environments/SashaBedroom/sasha-bedroom-wall.png" id="1_f6sw5"]
@@ -16,7 +16,6 @@
 [ext_resource type="Resource" uid="uid://hqbevxyupoa2" path="res://Assets/Dialogue/2. sleepover.dialogue" id="10_bia8r"]
 [ext_resource type="PackedScene" uid="uid://vdqs0lk5wye3" path="res://Scenes/Modules/Bed/BedModule.tscn" id="14_utv8w"]
 [ext_resource type="Texture2D" uid="uid://b4nxqd8r8ere6" path="res://Assets/Textures/StaticObjects/SashaBedroom/desk.png" id="16_e0dqk"]
-[ext_resource type="PackedScene" uid="uid://huwbfgkg703x" path="res://Scenes/Modules/ShowTextureToScreen.tscn" id="17_5xyjm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rlomt"]
 size = Vector2(201, 4)
@@ -147,6 +146,3 @@ debug_color = Color(0, 0.0235294, 0.701961, 0.419608)
 position = Vector2(66, 54)
 texture = ExtResource("16_e0dqk")
 centered = false
-
-[node name="Control" parent="." instance=ExtResource("17_5xyjm")]
-visible = false
