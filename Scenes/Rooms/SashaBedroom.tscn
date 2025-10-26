@@ -146,3 +146,13 @@ debug_color = Color(0, 0.0235294, 0.701961, 0.419608)
 position = Vector2(66, 54)
 texture = ExtResource("16_e0dqk")
 centered = false
+
+[node name="InteractableModule" parent="Desk" instance=ExtResource("8_utd7k")]
+position = Vector2(15, 15)
+scale = Vector2(1.49229, 0.67965)
+TriggerMode = 1
+DisableOnInteract = true
+
+[node name="DialogueTriggerAction" parent="Desk/InteractableModule" instance=ExtResource("9_42c4i")]
+DialogueResource = ExtResource("10_bia8r")
+Title = "computer_interaction"

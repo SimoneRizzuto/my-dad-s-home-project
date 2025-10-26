@@ -1,4 +1,3 @@
-using System.Linq;
 using Godot;
 using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Shared.Extensions;
@@ -20,7 +19,7 @@ public partial class ShowTextureUIModule : CanvasLayer
 		{
 			if (item is CanvasItem canvasItem)
 			{
-				canvasItem.FadeOut(FadeSpeed);
+				canvasItem.FadeOut(0);
 			}
 		}
 	}
@@ -58,6 +57,7 @@ public partial class ShowTextureUIModule : CanvasLayer
 			if (item is CanvasItem canvasItem)
 			{
 				canvasItem.FadeIn(FadeSpeed);
+				canvasItem.Visible = true;
 			}
 		}
 	}
