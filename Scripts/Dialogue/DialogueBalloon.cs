@@ -10,14 +10,17 @@ public partial class DialogueBalloon : CanvasLayer
 {
 	[Export] public string NextAction = "ui_accept";
 	[Export] public string SkipAction = "ui_cancel";
-
+	
+	// constants
 	private const string DefaultThemePath = "res://Assets/Textures/UI/speech-bubble-style.tres";
 	private const string OliverThemePath = "res://Assets/Textures/UI/speech-bubble-oliver-style.tres";
 	private const string SashaThemePath = "res://Assets/Textures/UI/speech-bubble-sasha-style.tres";
 
+	// variables
+	private bool _splitDialogueBalloons = false;
+	
 	Control balloon;
 
-	//RichTextLabel characterLabel;
 	RichTextLabel dialogueLabel;
 	VBoxContainer responsesMenu;
 
@@ -261,21 +264,36 @@ public partial class DialogueBalloon : CanvasLayer
 		{
 			var actorTransform = GetActorTransformForCanvas(actorSpeaking);
 
-			var previousScale = Scale;
+			if (_splitDialogueBalloons)
+			{
+				switch (dialogueLine.Character)
+				{
+					case "Oliver":
+						//theme = GD.Load<StyleBoxTexture>(OliverThemePath);
+						break;
+					default:
+						//theme = GD.Load<StyleBoxTexture>(DefaultThemePath);
+						break;
+				}
+			}
+			else
+			{
+				var previousScale = Scale;
 
-			Transform = actorTransform;
-			Scale = previousScale;
+				Transform = actorTransform;
+				Scale = previousScale;
 
-			var actorDirectionOffset = GetActorDirectionOffset(actorSpeaking);
+				var actorDirectionOffset = GetActorDirectionOffset(actorSpeaking);
 
-			var xx = Scale.X;
-			var xy = actorTransform.X.Y;
-			var yx = actorTransform.Y.X;
-			var yy = Scale.Y;
-			var ox = actorTransform.Origin.X - actorDirectionOffset;
-			var oy = actorTransform.Origin.Y - HeightOffset;
+				var xx = Scale.X;
+				var xy = actorTransform.X.Y;
+				var yx = actorTransform.Y.X;
+				var yy = Scale.Y;
+				var ox = actorTransform.Origin.X - actorDirectionOffset;
+				var oy = actorTransform.Origin.Y - HeightOffset;
 
-			Transform = new Transform2D(xx, xy, yx, yy, ox, oy);
+				Transform = new Transform2D(xx, xy, yx, yy, ox, oy);
+			}
 		}
 	}
 

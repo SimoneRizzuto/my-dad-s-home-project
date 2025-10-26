@@ -74,6 +74,9 @@ Oliver: Hell yeah!
 => END
 
 ~ pizza_carton_interaction
+
+do ShowTextureUI.ShowTexture(-40)
+
 Oliver: Hey, you got Gigi's again!
 Sasha: I wasn't lying when I said I liked it.
 Oliver: So what you're telling me is...
