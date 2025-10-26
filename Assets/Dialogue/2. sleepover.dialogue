@@ -63,7 +63,7 @@ Sasha: Look at my little merps!
 #oliver looks at the screen
 
 do ShowTextureUI.SetTexture("res://Assets/Textures/StaticObjects/SashaBedroom/sasha-art.png")
-do ShowTextureUI.ShowTexture(-80)
+do ShowTextureUI.ShowTexture(-120)
 do Director.Wait(2)
 
 Oliver: Woah!
