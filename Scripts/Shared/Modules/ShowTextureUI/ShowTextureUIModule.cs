@@ -11,7 +11,8 @@ public partial class ShowTextureUIModule : CanvasLayer
 	
 	// variables
 	private bool changedPosition;
-	private Vector2? previousPosition;
+	private bool wasMounted;
+	private Vector2 previousPosition;
 	
 	public override void _Ready()
 	{
@@ -28,9 +29,10 @@ public partial class ShowTextureUIModule : CanvasLayer
 	{
 		if (xAdjustment != 0)
 		{
+			wasMounted = PlayerCamera.Instance.IsMounted;
 			previousPosition = PlayerCamera.Instance.Position;
 			
-			var newXPosition = new Vector2(previousPosition.Value.X + xAdjustment, previousPosition.Value.Y);
+			var newXPosition = new Vector2(previousPosition.X + xAdjustment, previousPosition.Y);
 			
 			PlayerCamera.Instance.ToggleSmoothing(true);
 			PlayerCamera.Instance.Mount(newXPosition, 2);
@@ -51,13 +53,13 @@ public partial class ShowTextureUIModule : CanvasLayer
 	{
 		if (changedPosition)
 		{
-			if (previousPosition != null)
+			if (wasMounted)
 			{
-				PlayerCamera.Instance.Mount(previousPosition.Value);
+				PlayerCamera.Instance.Mount(previousPosition);
 			}
 			else
 			{
-				PlayerCamera.Instance.SetPositionOnOliver();
+				PlayerCamera.Instance.Dismount();
 			}
 		}
 		

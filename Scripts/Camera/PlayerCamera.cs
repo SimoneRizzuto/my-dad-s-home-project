@@ -10,7 +10,7 @@ public partial class PlayerCamera : Camera2D
 
     private Oliver Oliver => Oliver.Instance;
 
-    private bool isMounted;
+    public bool IsMounted { get; private set; }
     
     public override void _Ready()
     {
@@ -21,7 +21,7 @@ public partial class PlayerCamera : Camera2D
     
     public override void _Process(double delta)
     {
-        if (!isMounted)
+        if (!IsMounted)
         {
             SetPositionOnOliver();
         }
@@ -46,12 +46,12 @@ public partial class PlayerCamera : Camera2D
         GlobalPosition = position;
         
         PositionSmoothingSpeed = smoothingSpeed;
-        isMounted = true;
+        IsMounted = true;
     }
     
     public void Dismount()
     {
-        isMounted = false;
+        IsMounted = false;
     }
     
     public void ToggleSmoothing(bool? enabled = null)
