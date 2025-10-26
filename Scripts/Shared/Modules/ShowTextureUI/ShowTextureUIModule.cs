@@ -25,6 +25,19 @@ public partial class ShowTextureUIModule : CanvasLayer
 		}
 	}
 	
+	public void SetTexture(string path)
+	{
+		if (FileAccess.FileExists(path))
+		{
+			var textureRect = GetNode<TextureRect>("TextureRect");
+			textureRect.Texture = GD.Load<Texture2D>(path);
+		}
+		else
+		{
+			GD.PrintErr($"Texture not found at path: {path}");
+		}
+	}
+	
 	public void ShowTexture(int xAdjustment = 0)
 	{
 		if (xAdjustment != 0)
