@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://huwbfgkg703x"]
+
+[ext_resource type="Texture2D" uid="uid://coim4we3buewe" path="res://Assets/Textures/StaticObjects/SashaBedroom/sasha-art.png" id="1_yfyoo"]
+
+[node name="Control" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.0
+offset_top = -110.5
+offset_right = 183.0
+offset_bottom = 92.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yfyoo")
+expand_mode = 1
+stretch_mode = 5
