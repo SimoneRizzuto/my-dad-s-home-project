@@ -43,21 +43,27 @@ Oliver: ... Shut up.
 
 ~ computer_interaction
 
-do Oliver.MoveToXPosition(15)
+do Oliver.MoveToXPosition(90)
 do Oliver.LookRight()
+
+# oliver stands to the side
 
 Oliver: By the way, you never got to show me your drawings.
 Sasha: Oh yeah!
 Sasha: Let me show you.
 
-do Sasha.MoveToXPosition(10)
+do Sasha.MoveToXPosition(85)
+do Oliver.LookLeft()
 
-#Friend gets up and walks to the computer. Merps are shown on the screen.
+#sasha reaches up to do something
+#she moves to the side
 
 Sasha: Look at my little merps!
 
+#oliver looks at the screen
+
 do ShowTextureUI.SetTexture("res://Assets/Textures/StaticObjects/SashaBedroom/sasha-art.png")
-do ShowTextureUI.ShowTexture(-60)
+do ShowTextureUI.ShowTexture(-80)
 do Director.Wait(2)
 
 Oliver: Woah!
