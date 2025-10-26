@@ -30,6 +30,7 @@ SceneSwitcher="*res://Scripts/Singletons/SceneSwitcher/SceneSwitcher.cs"
 SceneStates="*res://Scripts/Singletons/SceneStates/SceneStates.cs"
 InteractionAllocator="*res://Scripts/Singletons/InteractionAllocator/InteractionAllocator.cs"
 FadeUtil="*res://Scenes/Camera/FadeUtil.tscn"
+ShowTextureUI="*res://Scenes/Modules/ShowTextureUI/ShowTextureUIModule.tscn"
 
 [dialogue_manager]
 

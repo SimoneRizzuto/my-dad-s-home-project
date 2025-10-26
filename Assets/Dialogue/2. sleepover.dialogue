@@ -42,12 +42,30 @@ Oliver: ... Shut up.
 => END
 
 ~ computer_interaction
+
+do Oliver.MoveToXPosition(90)
+do Oliver.LookRight()
+
+# oliver stands to the side
+
 Oliver: By the way, you never got to show me your drawings.
 Sasha: Oh yeah!
+Sasha: Let me show you.
 
-#Friend gets up and walks to the computer. Merps are shown on the screen.
+do Sasha.MoveToXPosition(85)
+do Oliver.LookLeft()
+
+#sasha reaches up to do something
+#she moves to the side
 
 Sasha: Look at my little merps!
+
+#oliver looks at the screen
+
+do ShowTextureUI.SetTexture("res://Assets/Textures/StaticObjects/SashaBedroom/sasha-art.png")
+do ShowTextureUI.ShowTexture(-120)
+do Director.Wait(2)
+
 Oliver: Woah!
 Sasha: Yeah!
 Oliver: Are they different from the ones you drew the other day?
@@ -71,6 +89,9 @@ Sasha: Yes, cacao seeds are, but not chocolate. That’s different.
 Oliver: Then do a cacao one. That would still be cool.
 Sasha: Ok ok. I'll keep it in mind for next time.
 Oliver: Hell yeah!
+
+do ShowTextureUI.HideTexture()
+do Director.Wait(1)
 => END
 
 ~ pizza_carton_interaction
