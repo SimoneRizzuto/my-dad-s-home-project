@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgwvdtfwm2gvj"]
+[gd_scene load_steps=4 format=3 uid="uid://dgwvdtfwm2gvj"]
 
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/InteractableModule.cs" id="1_biv0k"]
+[ext_resource type="PackedScene" uid="uid://bt67obsjhqs4u" path="res://Scenes/Modules/Interactables/Indicator/InteractableIndicator.tscn" id="2_045re"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sum5w"]
 
@@ -19,6 +20,9 @@ offset_right = 20.0
 offset_bottom = -10.0
 text = "E"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InteractableIndicator" parent="." instance=ExtResource("2_045re")]
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
 [connection signal="body_exited" from="." to="." method="OnBodyExited"]
