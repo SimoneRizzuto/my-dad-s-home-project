@@ -44,7 +44,7 @@ public partial class ShortcutManager : Node2D
 		
 		if (Input.IsActionJustPressed(InputMapAction.GoToSet3))
 		{
-			//SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
+			SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set2_SashaCampfire);
 		}
 		
 		if (Input.IsActionJustPressed(InputMapAction.GoToSet4))
