@@ -164,7 +164,6 @@ scale = Vector2(9.51998, 1)
 [node name="FadeAction" type="Node" parent="Items/FadeIn"]
 script = ExtResource("10_lxerd")
 Time = 3.75
-Delay = 1
 
 [node name="TriggerDialogue" parent="Items" instance=ExtResource("9_wsav8")]
 position = Vector2(183, 145)
