@@ -1,72 +1,61 @@
 using Godot;
 using System.Collections.Generic;
+using System.Linq;
 using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 using MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
 
 namespace MyFathersHomeProject.Scripts.Singletons.InteractionAllocator;
-public partial class InteractionAllocator : Node, IInteractionAllocator
+public partial class InteractionAllocator : Node
 {
 	public static InteractionAllocator? Instance { get; private set; }
 	
-	public override void _Process(double delta)
-	{
-		var oliver = Oliver.Instance;
-		if (oliver == null) return;
-		
-		AddInRangeInteractable();
-		RemoveInRangeInteractable();
-	}
+	// variables
+	private InteractableModule closestInteractable = new();
 	
 	public override void _EnterTree()
 	{
 		Instance = this;
 	}
 	
-	public (InteractableModule closest, List<InteractableModule> others) FindClosestInteractableModule()
+	public override void _Process(double delta)
 	{
+		var allInteractables = GetTree().CurrentScene
+			.GetChildrenRecursive<InteractableModule>()
+			.Where(x => x.TriggerMode == TriggerMode.Input)
+			.ToList();
+		
+		ClearOutInRangeInteractables(allInteractables);
+		ProcessClosestInteractable(allInteractables);
+	}
+	
+	private void ProcessClosestInteractable(List<InteractableModule> interactables)
+	{
+		if (interactables.Count == 0 || Oliver.Instance == null) return;
+		
 		var oliver = Oliver.Instance;
 		var closestDistance = float.MaxValue;
-		InteractableModule? closestInteractableModule = null;
 		
-		var interactorModules = GetTree().CurrentScene
-			.GetChildrenRecursive<InteractableModule>();
-		
-		foreach (var i in interactorModules)
+		foreach (var interactable in interactables)
 		{
-			var distance = oliver.GlobalPosition.DistanceTo(i.GlobalPosition);
-			
+			var distance = oliver.GlobalPosition.DistanceTo(interactable.GlobalPosition);
 			if (distance < closestDistance)
 			{
 				closestDistance = distance;
-				closestInteractableModule = i;
+				closestInteractable = interactable;
 			}
 		}
-
-		var nonClosestInteractableModules = new List<InteractableModule>(interactorModules);
-		if (closestInteractableModule != null) nonClosestInteractableModules.Remove(closestInteractableModule);
-		
-		return (closestInteractableModule, nonClosestInteractableModules);
-	}
-	
-	public void AddInRangeInteractable()
-	{
-		var (closest, _) = FindClosestInteractableModule();
 		
 		// Set the _inRange variable to true for the closest
-		closest.InRange = true;
-		closest.ClosestToOliver = true;
+		closestInteractable.ClosestToOliver = true;
 	}
 	
-	public void RemoveInRangeInteractable()
+	private void ClearOutInRangeInteractables(List<InteractableModule> interactables)
 	{
-		var (_, nonclosest) = FindClosestInteractableModule();
-		
 		// Loop through list of nonclosest and set all _inRange to False
-		foreach (var i in nonclosest)
+		foreach (var interactableModule in interactables)
 		{
-			i.InRange = false;
-			i.ClosestToOliver = false;
+			interactableModule.ClosestToOliver = false;
 		}
 	}
 }

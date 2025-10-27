@@ -13,14 +13,14 @@ public partial class InteractableModule : Area2D
 	private bool InputInteract => Input.IsActionJustPressed(InputMapAction.Interact);
 	
 	// variables
-	public bool InRange =  false;
 	public bool ClosestToOliver = false;
+	
 	private Label interactLabel;
-	private bool oliverIntersecting = false;
+	private bool oliverIsColliding = false;
 	
 	public override void _Ready()
 	{
-		interactLabel = GetNode<Label>("./Label"); 
+		interactLabel = GetNode<Label>("./Label");
 		interactLabel.Visible = false;
 	}
 	
@@ -30,10 +30,10 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				triggerInteract = InRange && oliverIntersecting;
+				triggerInteract = oliverIsColliding;
 				break;
 			case TriggerMode.Input:
-				triggerInteract = InRange && InputInteract && oliverIntersecting && ClosestToOliver;
+				triggerInteract = InputInteract && oliverIsColliding && ClosestToOliver;
 				break;
 		}
 
@@ -72,10 +72,10 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				oliverIntersecting = body.IsInGroup(NodeGroup.Oliver);
+				oliverIsColliding = body.IsInGroup(NodeGroup.Oliver);
 				break;
 			case TriggerMode.Input:
-				oliverIntersecting = true;
+				oliverIsColliding = true;
 				break;
 			case TriggerMode.CollisionEntered:
 			case TriggerMode.CollisionEnteredOrExited:
@@ -91,10 +91,10 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				if (body.IsInGroup(NodeGroup.Oliver)) oliverIntersecting = false;
+				if (body.IsInGroup(NodeGroup.Oliver)) oliverIsColliding = false;
 				break;
 			case TriggerMode.Input:
-				oliverIntersecting = false;
+				oliverIsColliding = false;
 				break;
 			case TriggerMode.CollisionExited:
 			case TriggerMode.CollisionEnteredOrExited:
@@ -105,7 +105,7 @@ public partial class InteractableModule : Area2D
 
 	private void MakeInputVisible()
 	{
-		if (oliverIntersecting & ClosestToOliver & InRange)
+		if (oliverIsColliding & ClosestToOliver)
 		{
 			interactLabel.Visible = true;
 		}
