@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bur7w500m6dcn"]
+[gd_scene load_steps=10 format=3 uid="uid://bur7w500m6dcn"]
 
 [ext_resource type="Script" path="res://Scripts/Menus/MainMenuModule.cs" id="1_d287u"]
 [ext_resource type="Theme" uid="uid://c2yv8q7b8742i" path="res://Assets/Themes/ui-button-theme.tres" id="1_dp5jj"]
 [ext_resource type="FontFile" uid="uid://cb0xauna5q601" path="res://Assets/Fonts/Reaper Font.ttf" id="2_og274"]
-[ext_resource type="Script" path="res://Scripts/Menus/MenuItemButton.cs" id="3_gafsi"]
 [ext_resource type="PackedScene" uid="uid://dya8epkgbbq1i" path="res://Scenes/Menus/MainMenu/Buttons/OptionsButton.tscn" id="5_i1dhv"]
 [ext_resource type="PackedScene" uid="uid://dy5kyi42jp6jl" path="res://Scenes/Menus/MainMenu/Buttons/QuitButton.tscn" id="5_s8te0"]
 [ext_resource type="PackedScene" uid="uid://c2jftd2den0d6" path="res://Scenes/Menus/MainMenu/Buttons/DebugButton.tscn" id="5_wqq4x"]
@@ -46,7 +45,6 @@ layout_mode = 2
 theme = ExtResource("1_dp5jj")
 text = "Go Inside"
 alignment = 0
-script = ExtResource("3_gafsi")
 
 [node name="OptionsButton" parent="MainMenu" instance=ExtResource("5_i1dhv")]
 unique_name_in_owner = true
