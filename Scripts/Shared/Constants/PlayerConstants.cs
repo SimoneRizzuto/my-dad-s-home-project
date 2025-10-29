@@ -6,6 +6,7 @@ public static class InputMapAction
 	public const string Jump = "Jump";
 	public const string Interact = "Interact";
 	public const string FullscreenToggle = "Fullscreen Toggle";
+	public const string Pause = "Pause";
 	
 	#region debug
 
