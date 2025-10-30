@@ -11,7 +11,7 @@ public partial class InteractionAllocator : Node
 	public static InteractionAllocator? Instance { get; private set; }
 	
 	// variables
-	private InteractableModule closestInteractable = new();
+	public InteractableModule ClosestInteractable = new();
 	
 	public override void _EnterTree()
 	{
@@ -42,12 +42,12 @@ public partial class InteractionAllocator : Node
 			if (distance < closestDistance)
 			{
 				closestDistance = distance;
-				closestInteractable = interactable;
+				ClosestInteractable = interactable;
 			}
 		}
 		
 		// Set the _inRange variable to true for the closest
-		closestInteractable.ClosestToOliver = true;
+		ClosestInteractable.ClosestToOliver = true;
 	}
 	
 	private void ClearOutInRangeInteractables(List<InteractableModule> interactables)

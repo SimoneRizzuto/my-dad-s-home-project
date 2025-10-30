@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bt67obsjhqs4u"]
+[gd_scene load_steps=6 format=3 uid="uid://bt67obsjhqs4u"]
 
 [ext_resource type="Texture2D" uid="uid://b3q46rja1efjv" path="res://Assets/Textures/UI/interactable-bubble-Sheet.png" id="1_j7sel"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Indicator/InteractableIndicator.cs" id="2_k6bx4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmvj1"]
 atlas = ExtResource("1_j7sel")
@@ -25,8 +26,10 @@ animations = [{
 }]
 
 [node name="InteractableIndicator" type="AnimatedSprite2D"]
+z_index = 10
 position = Vector2(-3, -4)
 sprite_frames = SubResource("SpriteFrames_67w2q")
 autoplay = "default"
 frame_progress = 0.558484
 centered = false
+script = ExtResource("2_k6bx4")

@@ -1,6 +1,6 @@
 using Godot;
-using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Player;
+using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
@@ -13,16 +13,8 @@ public partial class InteractableModule : Area2D
 	private bool InputInteract => Input.IsActionJustPressed(InputMapAction.Interact);
 	
 	// variables
+	public bool OliverIsColliding { get; private set; }
 	public bool ClosestToOliver = false;
-	
-	private Label interactLabel;
-	private bool oliverIsColliding = false;
-	
-	public override void _Ready()
-	{
-		interactLabel = GetNode<Label>("./Label");
-		interactLabel.Visible = false;
-	}
 	
 	public override void _PhysicsProcess(double delta)
 	{
@@ -30,15 +22,13 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				triggerInteract = oliverIsColliding;
+				triggerInteract = OliverIsColliding;
 				break;
 			case TriggerMode.Input:
-				triggerInteract = InputInteract && oliverIsColliding && ClosestToOliver;
+				triggerInteract = InputInteract && OliverIsColliding && ClosestToOliver;
 				break;
 		}
-
-		MakeInputVisible();
-        
+		
 		if (triggerInteract)
 		{
 			Interact();
@@ -72,10 +62,10 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				oliverIsColliding = body.IsInGroup(NodeGroup.Oliver);
+				OliverIsColliding = body.IsInGroup(NodeGroup.Oliver);
 				break;
 			case TriggerMode.Input:
-				oliverIsColliding = true;
+				OliverIsColliding = true;
 				break;
 			case TriggerMode.CollisionEntered:
 			case TriggerMode.CollisionEnteredOrExited:
@@ -83,7 +73,7 @@ public partial class InteractableModule : Area2D
 				break;
 		}
 	}
-    
+	
 	private void OnBodyExited(Node2D body)
 	{
 		if (body is not Oliver) return;
@@ -91,27 +81,15 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				if (body.IsInGroup(NodeGroup.Oliver)) oliverIsColliding = false;
+				if (body.IsInGroup(NodeGroup.Oliver)) OliverIsColliding = false;
 				break;
 			case TriggerMode.Input:
-				oliverIsColliding = false;
+				OliverIsColliding = false;
 				break;
 			case TriggerMode.CollisionExited:
 			case TriggerMode.CollisionEnteredOrExited:
 				Interact();
 				break;
-		}
-	}
-
-	private void MakeInputVisible()
-	{
-		if (oliverIsColliding & ClosestToOliver)
-		{
-			interactLabel.Visible = true;
-		}
-		else
-		{
-			interactLabel.Visible = false;
 		}
 	}
 }
