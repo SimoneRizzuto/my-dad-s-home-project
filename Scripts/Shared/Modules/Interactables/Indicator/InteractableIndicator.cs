@@ -17,7 +17,7 @@ public partial class InteractableIndicator : AnimatedSprite2D
 
 	private void ProcessGlobalPosition()
 	{
-		if (InteractionAllocator.Instance == null) return;
+		if (InteractionAllocator.Instance?.ClosestInteractable == null) return;
 		
 		var texture = SpriteFrames.GetFrameTexture(Animation, Frame);
 		var width = texture.GetSize().X;
