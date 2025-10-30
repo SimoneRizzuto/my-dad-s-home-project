@@ -8,6 +8,7 @@ public partial class InteractableModule : Area2D
 {
 	[Export] public TriggerMode TriggerMode;
 	[Export] public bool DisableOnInteract;
+	[Export] public Vector2 IndicatorOffset;
 	
 	// getters
 	private bool InputInteract => Input.IsActionJustPressed(InputMapAction.Interact);

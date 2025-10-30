@@ -24,9 +24,11 @@ public partial class InteractableIndicator : AnimatedSprite2D
 		var center = width / 2;
 		
 		var position = InteractionAllocator.Instance.ClosestInteractable.GlobalPosition;
-		var x = position.X - center;
-		var y = position.Y - HeightAdjustment;
-		GlobalPosition = new(x, y);
+		var offset = InteractionAllocator.Instance.ClosestInteractable.IndicatorOffset;
+		
+		var x = position.X - center + offset.X;
+		var y = position.Y - HeightAdjustment + offset.Y;
+		GlobalPosition = new Vector2(x, y);
 	}
 
 	private void ProcessVisibility()
