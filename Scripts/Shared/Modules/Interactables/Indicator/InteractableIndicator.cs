@@ -31,7 +31,7 @@ public partial class InteractableIndicator : AnimatedSprite2D
 
 	private void ProcessVisibility()
 	{
-		if (InteractionAllocator.Instance == null || Oliver.Instance == null) return;
+		if (InteractionAllocator.Instance?.ClosestInteractable == null || Oliver.Instance == null) return;
 		
 		var isColliding = InteractionAllocator.Instance.ClosestInteractable.OliverIsColliding;
 		var isCutscene = Oliver.Instance.CharacterState != CharacterState.Cutscene;

@@ -11,7 +11,7 @@ public partial class InteractionAllocator : Node
 	public static InteractionAllocator? Instance { get; private set; }
 	
 	// variables
-	public InteractableModule ClosestInteractable = new();
+	public InteractableModule? ClosestInteractable = new();
 	
 	public override void _EnterTree()
 	{
@@ -31,7 +31,11 @@ public partial class InteractionAllocator : Node
 	
 	private void ProcessClosestInteractable(List<InteractableModule> interactables)
 	{
-		if (interactables.Count == 0 || Oliver.Instance == null) return;
+		if (interactables.Count == 0 || Oliver.Instance == null)
+		{
+			ClosestInteractable = null;
+			return;
+		}
 		
 		var oliver = Oliver.Instance;
 		var closestDistance = float.MaxValue;
@@ -46,8 +50,10 @@ public partial class InteractionAllocator : Node
 			}
 		}
 		
-		// Set the _inRange variable to true for the closest
-		ClosestInteractable.ClosestToOliver = true;
+		if (ClosestInteractable != null)
+		{
+			ClosestInteractable.ClosestToOliver = true;
+		}
 	}
 	
 	private void ClearOutInRangeInteractables(List<InteractableModule> interactables)
