@@ -41,7 +41,6 @@ public partial class PauseMenuModule : CanvasLayer
 		OptionsMenu.FadeOut(menuFadeDefaultTime, () => OptionsMenu.Visible = false);
 		
 		PauseMenu.Visible = true;
-		GD.Print("Visible");
 		PauseMenuFocus();
 		PauseMenu.FadeIn(menuFadeDefaultTime);
 	}

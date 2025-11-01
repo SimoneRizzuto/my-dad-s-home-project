@@ -12,10 +12,17 @@ public partial class Pause : Node
 	// menu. 
 	
 	// getters
-	private bool paused = false; 
+	private bool paused = false;
+	private PackedScene pausePackedScene;
+	private PauseMenuModule pauseMenu;
 	
 	// variables 
 	const float menuFadeInitialiseTime = 2f;
+
+	public override void _Ready()
+	{
+		pausePackedScene = GD.Load<PackedScene>("res://Scenes/Menus/PauseMenu/PauseMenuModule.tscn");
+	}
 
 	public override void _Process(double delta)
 	{
@@ -30,7 +37,10 @@ public partial class Pause : Node
 		paused = !paused;
 		GetTree().Paused = paused;
 		FadeUtil.Instance?.FadeIn(menuFadeInitialiseTime);
-		PauseMenuModule.Instance?.GoToPauseMenu();
+		pauseMenu = pausePackedScene.Instantiate<PauseMenuModule>();
+		GetTree().Root.AddChild(pauseMenu);
+		pauseMenu.CallDeferred(nameof(PauseMenuModule.GoToPauseMenu));
+
 	}
 	
 }
