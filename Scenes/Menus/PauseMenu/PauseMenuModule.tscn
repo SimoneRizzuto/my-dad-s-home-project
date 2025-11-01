@@ -1,18 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://c45jwtmjmx5jt"]
+[gd_scene load_steps=13 format=3 uid="uid://c45jwtmjmx5jt"]
 
 [ext_resource type="Theme" uid="uid://c2yv8q7b8742i" path="res://Assets/Themes/ui-button-theme.tres" id="1_ceoa4"]
 [ext_resource type="FontFile" uid="uid://cb0xauna5q601" path="res://Assets/Fonts/Reaper Font.ttf" id="1_kfdt7"]
 [ext_resource type="Script" path="res://Scripts/Menus/PauseMenuModule.cs" id="1_pljip"]
 [ext_resource type="PackedScene" uid="uid://dya8epkgbbq1i" path="res://Scenes/Menus/MainMenu/Buttons/OptionsButton.tscn" id="2_144bm"]
 [ext_resource type="PackedScene" uid="uid://c2jftd2den0d6" path="res://Scenes/Menus/MainMenu/Buttons/DebugButton.tscn" id="3_cxek6"]
+[ext_resource type="Script" path="res://Scenes/Menus/PauseMenu/LetsContinueButton.cs" id="4_n81vr"]
 [ext_resource type="PackedScene" uid="uid://dy5kyi42jp6jl" path="res://Scenes/Menus/MainMenu/Buttons/QuitButton.tscn" id="4_rjwm3"]
 [ext_resource type="Script" path="res://Scripts/Menus/GoToSceneButton.cs" id="5_8hgd8"]
 [ext_resource type="PackedScene" uid="uid://cnfboq67kgywk" path="res://Scenes/Menus/MainMenu/Buttons/MainMenuBackButton.tscn" id="6_lb3um"]
 [ext_resource type="Script" path="res://Scripts/Menus/MainMenuBackButton.cs" id="7_rb853"]
+[ext_resource type="Script" path="res://Scenes/Menus/PauseMenu/Buttons/BackButton.cs" id="10_jicun"]
 
 [sub_resource type="Theme" id="Theme_i85ry"]
 
 [node name="PauseMenuModule" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_pljip")
 
 [node name="Label" type="Label" parent="."]
@@ -35,6 +38,7 @@ offset_top = -4.0
 offset_right = 89.0
 offset_bottom = 72.0
 grow_vertical = 2
+scale = Vector2(1.00143, 0.99473)
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
@@ -45,6 +49,7 @@ layout_mode = 2
 theme = ExtResource("1_ceoa4")
 text = "Let's Continue"
 alignment = 0
+script = ExtResource("4_n81vr")
 
 [node name="OptionsButton" parent="PauseMenu" instance=ExtResource("2_144bm")]
 unique_name_in_owner = true
@@ -83,6 +88,7 @@ alignment = 0
 
 [node name="BackButton" parent="OptionsMenu" instance=ExtResource("6_lb3um")]
 layout_mode = 2
+script = ExtResource("10_jicun")
 
 [node name="DebugMenu" type="VBoxContainer" parent="."]
 visible = false
@@ -163,3 +169,4 @@ SceneOptions = 6
 
 [node name="BackButton" parent="DebugMenu" instance=ExtResource("6_lb3um")]
 layout_mode = 2
+script = ExtResource("10_jicun")

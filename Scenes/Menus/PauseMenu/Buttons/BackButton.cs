@@ -3,17 +3,13 @@ using System.Linq;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 
 namespace MyFathersHomeProject.Scripts.Menus;
-public partial class DebugButton : Button
+public partial class BackButton : Button
 {
-	private MainMenuModule? MainMenu => GetTree().CurrentScene
-		.GetChildrenRecursive<MainMenuModule>()
-		.FirstOrDefault();
 	private PauseMenuModule? PauseMenu => GetTree().Root
 		.GetChildrenRecursive<PauseMenuModule>()
 		.FirstOrDefault();
 	public override void _Pressed()
 	{
-		MainMenu?.GoToDebugMenu();
-		PauseMenu?.GoToDebugMenu();
+		PauseMenu?.GoToPauseMenu();
 	}
 }
