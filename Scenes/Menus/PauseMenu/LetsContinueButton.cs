@@ -12,8 +12,6 @@ public partial class LetsContinueButton : Button
 		.FirstOrDefault();
 	public override void _Pressed()
 	{
-		//No PauseMenuModules found in the tree, the count of pausemenumodules is 0.
-		GD.Print(GetTree().CurrentScene);
 		PauseMenu?.LetsContinueGame();
 	}
 	

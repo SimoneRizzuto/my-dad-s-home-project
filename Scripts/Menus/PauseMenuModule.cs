@@ -5,8 +5,8 @@ namespace MyFathersHomeProject.Scripts.Menus;
 
 public partial class PauseMenuModule : CanvasLayer
 {
-	public static PauseMenuModule? Instance { get; private set;}
-	
+	// label
+	private Label Label => GetNode<Label>("Label");
 	
 	// pause menu
 	private Control PauseMenu => GetNode<Control>("PauseMenu");
@@ -29,7 +29,7 @@ public partial class PauseMenuModule : CanvasLayer
 	
 	public override void _Ready()
 	{
-		Instance = this;
+		Label.Visible = false;
 		PauseMenu.Visible = false;
 		DebugMenu.Visible = false;
 		OptionsMenu.Visible = false;
@@ -40,6 +40,7 @@ public partial class PauseMenuModule : CanvasLayer
 		DebugMenu.FadeOut(menuFadeDefaultTime, () => DebugMenu.Visible = false);
 		OptionsMenu.FadeOut(menuFadeDefaultTime, () => OptionsMenu.Visible = false);
 		
+		Label.Visible = true;
 		PauseMenu.Visible = true;
 		PauseMenuFocus();
 		PauseMenu.FadeIn(menuFadeDefaultTime);
@@ -85,10 +86,10 @@ public partial class PauseMenuModule : CanvasLayer
 		OptionsMenu.FadeOut(menuFadeDefaultTime, () => OptionsMenu.Visible = false);
 		DebugMenu.FadeOut(menuFadeDefaultTime, () => DebugMenu.Visible = false);
 		
+		Label.Visible = false;
 		PauseMenu.Visible = false;
 		DebugMenu.Visible = false;
 		OptionsMenu.Visible = false;
-		Instance.Visible = false;
 		
 		GetTree().Paused = false;
 	}

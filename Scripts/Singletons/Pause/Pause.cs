@@ -22,6 +22,8 @@ public partial class Pause : Node
 	public override void _Ready()
 	{
 		pausePackedScene = GD.Load<PackedScene>("res://Scenes/Menus/PauseMenu/PauseMenuModule.tscn");
+		pauseMenu = pausePackedScene.Instantiate<PauseMenuModule>();
+		GetTree().Root.CallDeferred(Node.MethodName.AddChild, pauseMenu);
 	}
 
 	public override void _Process(double delta)
@@ -37,10 +39,7 @@ public partial class Pause : Node
 		paused = !paused;
 		GetTree().Paused = paused;
 		FadeUtil.Instance?.FadeIn(menuFadeInitialiseTime);
-		pauseMenu = pausePackedScene.Instantiate<PauseMenuModule>();
-		GetTree().Root.AddChild(pauseMenu);
 		pauseMenu.CallDeferred(nameof(PauseMenuModule.GoToPauseMenu));
-
 	}
 	
 }

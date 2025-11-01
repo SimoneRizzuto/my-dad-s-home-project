@@ -15,7 +15,7 @@
 [sub_resource type="Theme" id="Theme_i85ry"]
 
 [node name="PauseMenuModule" type="CanvasLayer"]
-process_mode = 3
+process_mode = 2
 script = ExtResource("1_pljip")
 
 [node name="Label" type="Label" parent="."]
