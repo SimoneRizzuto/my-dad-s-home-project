@@ -1,12 +1,13 @@
 using Godot;
-using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Shared.Extensions;
-using MyFathersHomeProject.Scripts.Shared.Constants;
 
 namespace MyFathersHomeProject.Scripts.Menus;
 
 public partial class PauseMenuModule : CanvasLayer
 {
+	public static PauseMenuModule? Instance { get; private set;}
+	
+	
 	// pause menu
 	private Control PauseMenu => GetNode<Control>("PauseMenu");
 	private Button LetsContinueButton => GetNode<Button>("%LetsContinueButton");
@@ -28,29 +29,33 @@ public partial class PauseMenuModule : CanvasLayer
 	
 	public override void _Ready()
 	{
+		Instance = this;
 		PauseMenu.Visible = false;
 		DebugMenu.Visible = false;
+		OptionsMenu.Visible = false;
 	}
 	
 	public void GoToPauseMenu()
 	{
 		DebugMenu.FadeOut(menuFadeDefaultTime, () => DebugMenu.Visible = false);
+		OptionsMenu.FadeOut(menuFadeDefaultTime, () => OptionsMenu.Visible = false);
 		
 		PauseMenu.Visible = true;
+		GD.Print("Visible");
 		PauseMenuFocus();
 		PauseMenu.FadeIn(menuFadeDefaultTime);
 	}
 	
-	public void GoToMainMenu()
-	{
-		OptionsMenu.FadeOut(0.25d, () => OptionsMenu.Visible = false);
-		DebugMenu.FadeOut(0.25d, () => DebugMenu.Visible = false);
-		
-		// Need to scene transition here to MainMenu
-		/*MainMenu.Visible = true;
-		MainMenuFocus();
-		MainMenu.FadeIn(0.25d);*/
-	}
+	/*public void GoToMainMenu()
+{
+	OptionsMenu.FadeOut(menuFadeDefaultTime, () => OptionsMenu.Visible = false);
+	DebugMenu.FadeOut(menuFadeDefaultTime, () => DebugMenu.Visible = false);
+
+	// Need to scene transition here to MainMenu
+	/*MainMenu.Visible = true;
+	MainMenuFocus();
+	MainMenu.FadeIn(0.25d);#1#
+}*/
 	
 	public void GoToSettingsMenu()
 	{
@@ -66,6 +71,7 @@ public partial class PauseMenuModule : CanvasLayer
 	public void GoToDebugMenu()
 	{
 		PauseMenu.FadeOut(menuFadeDefaultTime, () => PauseMenu.Visible = false);
+		OptionsMenu.FadeOut(menuFadeDefaultTime, () => OptionsMenu.Visible = false);
 		
 		DebugMenu.Visible = true;
 		Set1Button.GrabFocus();

@@ -1,4 +1,5 @@
 using Godot;
+using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Menus;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
@@ -11,20 +12,25 @@ public partial class Pause : Node
 	// menu. 
 	
 	// getters
-	private bool paused => Input.IsActionPressed(InputMapAction.Pause);
-	public static PauseMenuModule? Instance { get; private set;}
+	private bool paused = false; 
 	
 	// variables 
 	const float menuFadeInitialiseTime = 2f;
+
 	public override void _Process(double delta)
 	{
-		if (!paused)
-		{
-			return;
-			
-		}
 		
-		//FadeUtil.Instance?.FadeIn(menuFadeInitialiseTime);
-		//GoToPauseMenu();
+		if (Input.IsActionJustPressed(InputMapAction.Pause))
+		{
+			TogglePause();
+		}
 	}
+	private void TogglePause()
+	{
+		paused = !paused;
+		GetTree().Paused = paused;
+		FadeUtil.Instance?.FadeIn(menuFadeInitialiseTime);
+		PauseMenuModule.Instance?.GoToPauseMenu();
+	}
+	
 }
