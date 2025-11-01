@@ -86,12 +86,14 @@ position = Vector2(113, 46)
 texture = ExtResource("5_6wfvo")
 
 [node name="BedsideDrawer" type="Sprite2D" parent="Objects"]
+unique_name_in_owner = true
 z_index = -10
 position = Vector2(61, 52)
 texture = ExtResource("7_vxv3r")
 centered = false
 
 [node name="InteractableModule" parent="Objects/BedsideDrawer" instance=ExtResource("10_3d4tr")]
+process_mode = 4
 position = Vector2(24, 13)
 scale = Vector2(1.76641, 0.972235)
 TriggerMode = 1
@@ -243,6 +245,7 @@ centered = false
 position = Vector2(6, 12)
 scale = Vector2(0.711362, 0.965622)
 TriggerMode = 1
+IndicatorOffset = Vector2(2, 0)
 
 [node name="TurnOffLightAction" type="Node2D" parent="Objects/BedsideTable/InteractableModule"]
 script = ExtResource("24_60wok")
