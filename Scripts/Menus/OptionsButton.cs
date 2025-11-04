@@ -13,7 +13,15 @@ public partial class OptionsButton : Button
 		.FirstOrDefault();
 	public override void _Pressed()
 	{
-		MainMenu?.GoToSettingsMenu();
-		PauseMenu?.GoToSettingsMenu();
+		if (MainMenu is not null)
+		{
+			MainMenu?.GoToSettingsMenu();
+			return;
+		}
+
+		if (PauseMenu is not null)
+		{
+			PauseMenu?.GoToSettingsMenu();
+		}
 	}
 }

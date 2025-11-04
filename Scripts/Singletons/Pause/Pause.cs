@@ -12,7 +12,6 @@ public partial class Pause : Node
 	// menu. 
 	
 	// getters
-	private bool paused = false;
 	private PackedScene pausePackedScene;
 	private PauseMenuModule pauseMenu;
 	
@@ -29,17 +28,16 @@ public partial class Pause : Node
 	public override void _Process(double delta)
 	{
 		
-		if (Input.IsActionJustPressed(InputMapAction.Pause))
+		if (Input.IsActionJustPressed(InputMapAction.Pause) && (GetTree().Paused == false))
 		{
 			TogglePause();
 		}
 	}
 	private void TogglePause()
 	{
-		paused = !paused;
-		GetTree().Paused = paused;
+		GetTree().Paused = true;
 		FadeUtil.Instance?.FadeIn(menuFadeInitialiseTime);
-		pauseMenu.CallDeferred(nameof(PauseMenuModule.GoToPauseMenu));
+		pauseMenu.GoToPauseMenu();
 	}
 	
 }

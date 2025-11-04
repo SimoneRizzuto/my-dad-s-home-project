@@ -13,7 +13,18 @@ public partial class DebugButton : Button
 		.FirstOrDefault();
 	public override void _Pressed()
 	{
-		MainMenu?.GoToDebugMenu();
-		PauseMenu?.GoToDebugMenu();
+		// Are we in the main menu?
+		if (MainMenu is not null)
+		{
+			MainMenu?.GoToDebugMenu();
+			return;
+		}
+		
+		// Or are we in the pause menu
+		if (PauseMenu is not null)
+		{
+			PauseMenu?.GoToDebugMenu();
+		}
+		
 	}
 }
