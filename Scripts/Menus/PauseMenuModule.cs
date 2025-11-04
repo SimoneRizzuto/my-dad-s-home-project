@@ -44,6 +44,7 @@ public partial class PauseMenuModule : CanvasLayer
 		PauseMenu.Visible = true;
 		PauseMenuFocus();
 		PauseMenu.FadeIn(menuFadeDefaultTime);
+
 	}
 	
 	/*public void GoToMainMenu()
@@ -82,16 +83,14 @@ public partial class PauseMenuModule : CanvasLayer
 
 	public void LetsContinueGame()
 	{
-		PauseMenu.FadeOut(menuFadeDefaultTime, () => PauseMenu.Visible = false);
-		OptionsMenu.FadeOut(menuFadeDefaultTime, () => OptionsMenu.Visible = false);
-		DebugMenu.FadeOut(menuFadeDefaultTime, () => DebugMenu.Visible = false);
-		
+		GetTree().Paused = false; 
+    
 		Label.Visible = false;
 		PauseMenu.Visible = false;
 		DebugMenu.Visible = false;
 		OptionsMenu.Visible = false;
-		
-		GetTree().Paused = false;
+    
+		pauseMenuButtonLastFocusIndex = 0;
 	}
 	
 	private void PauseMenuFocus()
@@ -109,4 +108,5 @@ public partial class PauseMenuModule : CanvasLayer
 				break;
 		}
 	}
+
 }
