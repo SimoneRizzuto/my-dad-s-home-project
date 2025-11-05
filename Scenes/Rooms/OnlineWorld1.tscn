@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://brqethgaxv3tm"]
+[gd_scene load_steps=19 format=3 uid="uid://brqethgaxv3tm"]
 
 [ext_resource type="PackedScene" uid="uid://dgwvdtfwm2gvj" path="res://Scenes/Modules/InteractableModule.tscn" id="1_cp7va"]
 [ext_resource type="Texture2D" uid="uid://b4lgsu26f7f22" path="res://Assets/Textures/Environments/OnlineWorld1/city.png" id="1_qeykr"]
@@ -8,11 +8,40 @@
 [ext_resource type="Texture2D" uid="uid://kxhoqm1jw6fs" path="res://Assets/Textures/Environments/OnlineWorld1/clouds.png" id="2_hi6xt"]
 [ext_resource type="Texture2D" uid="uid://cqdpqfd4iskkt" path="res://Assets/Textures/Environments/OnlineWorld1/grass.png" id="3_o7jh8"]
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="3_vuomj"]
-[ext_resource type="Texture2D" uid="uid://mas7pba4uwc1" path="res://Assets/Textures/StaticObjects/OnlineWorld1/tree.png" id="4_1yf36"]
 [ext_resource type="Texture2D" uid="uid://bb1x5dwh8hx40" path="res://Assets/Textures/Environments/OnlineWorld1/grass front.png" id="5_1gkci"]
+[ext_resource type="Texture2D" uid="uid://b3v26fm3o6mwd" path="res://Assets/Textures/Environments/OnlineWorld1/tree-Sheet.png" id="7_rxbxc"]
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="9_kkpjs"]
-[ext_resource type="PackedScene" path="res://Scenes/Camera/TripodDismounter.tscn" id="10_2gnje"]
+[ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="10_2gnje"]
 [ext_resource type="PackedScene" uid="uid://cfrhcgnum5ctx" path="res://Scenes/Actors/Sasha.tscn" id="13_3vkiu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrtc0"]
+atlas = ExtResource("7_rxbxc")
+region = Rect2(0, 0, 177, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfq2q"]
+atlas = ExtResource("7_rxbxc")
+region = Rect2(177, 0, 177, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wq6y"]
+atlas = ExtResource("7_rxbxc")
+region = Rect2(354, 0, 177, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gktbb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrtc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfq2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wq6y")
+}],
+"loop": true,
+"name": &"tree sways",
+"speed": 4.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cfnht"]
 size = Vector2(656.5, 4)
@@ -58,9 +87,11 @@ position = Vector2(0, 36)
 texture = ExtResource("1_qeykr")
 centered = false
 
-[node name="Tree" type="Sprite2D" parent="Objects"]
+[node name="Tree" type="AnimatedSprite2D" parent="Objects"]
 position = Vector2(395, -45)
-texture = ExtResource("4_1yf36")
+sprite_frames = SubResource("SpriteFrames_gktbb")
+animation = &"tree sways"
+frame_progress = 0.79011
 centered = false
 
 [node name="GrassBack" type="Sprite2D" parent="Objects"]
