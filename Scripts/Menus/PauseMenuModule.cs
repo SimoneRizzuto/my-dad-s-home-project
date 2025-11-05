@@ -47,7 +47,7 @@ public partial class PauseMenuModule : CanvasLayer
 		PauseMenu.Visible = true;
 		PauseMenuFocus();
 		PauseMenu.FadeIn(NodeExtensions.menuFadeDefaultTime, finalVal: pauseMenuOpacity);
-
+		Label.FadeIn(NodeExtensions.menuFadeDefaultTime, finalVal: pauseMenuOpacity);
 	}
 	
 	public void GoToSettingsMenu()
