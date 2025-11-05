@@ -2,6 +2,7 @@ using Godot;
 using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Menus;
 using MyFathersHomeProject.Scripts.Shared.Constants;
+using MyFathersHomeProject.Scripts.Shared.Extensions;
 
 namespace MyFathersHomeProject.Scripts.Singletons.Pause;
 
@@ -14,9 +15,6 @@ public partial class Pause : Node
 	// getters
 	private PackedScene pausePackedScene;
 	private PauseMenuModule pauseMenu;
-	
-	// variables 
-	const float menuFadeInitialiseTime = 2f;
 
 	public override void _Ready()
 	{
@@ -36,7 +34,7 @@ public partial class Pause : Node
 	private void TogglePause()
 	{
 		GetTree().Paused = true;
-		FadeUtil.Instance?.FadeIn(menuFadeInitialiseTime);
+		FadeUtil.Instance?.FadeIn(NodeExtensions.menuFadeInitialiseTime);
 		pauseMenu.GoToPauseMenu();
 	}
 	

@@ -1,5 +1,6 @@
 using Godot;
 using System.Collections.Generic;
+using System.Linq;
 using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 using MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
@@ -25,7 +26,7 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
         Instance = this;
     }
     
-    public (InteractableModule closest, List<InteractableModule> others) FindClosestInteractableModule()
+    public (InteractableModule? closest, List<InteractableModule> others) FindClosestInteractableModule()
     {
         var oliver = Oliver.Instance;
         InteractableModule closestInteractableModule = null;
@@ -55,6 +56,7 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
         var (closest, _) = FindClosestInteractableModule();
         
         // Set the _inRange variable to true for the closest
+        if  (closest == null) return;
         closest.InRange = true;
         closest.ClosestToOliver = true;
     }
@@ -64,6 +66,7 @@ public partial class InteractionAllocator : Node, IInteractionAllocator
         var (_, nonclosest) = FindClosestInteractableModule();
         
         // Loop through list of nonclosest and set all _inRange to False
+        if (nonclosest.Count == 0) return;
         foreach (var i in nonclosest)
         {
             i.InRange = false; 

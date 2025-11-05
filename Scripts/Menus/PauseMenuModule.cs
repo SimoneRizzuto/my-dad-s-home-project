@@ -1,4 +1,5 @@
 using Godot;
+using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Shared.Extensions;
 
 namespace MyFathersHomeProject.Scripts.Menus;
@@ -25,7 +26,7 @@ public partial class PauseMenuModule : CanvasLayer
 	
 	// variables
 	private int pauseMenuButtonLastFocusIndex = 0;
-	const double menuFadeDefaultTime = 0.25d;
+	
 	
 	public override void _Ready()
 	{
@@ -37,52 +38,43 @@ public partial class PauseMenuModule : CanvasLayer
 	
 	public void GoToPauseMenu()
 	{
-		DebugMenu.FadeOut(menuFadeDefaultTime, () => DebugMenu.Visible = false);
-		OptionsMenu.FadeOut(menuFadeDefaultTime, () => OptionsMenu.Visible = false);
+		DebugMenu.FadeOut(NodeExtensions.menuFadeDefaultTime, () => DebugMenu.Visible = false);
+		OptionsMenu.FadeOut(NodeExtensions.menuFadeDefaultTime, () => OptionsMenu.Visible = false);
 		
 		Label.Visible = true;
 		PauseMenu.Visible = true;
 		PauseMenuFocus();
-		PauseMenu.FadeIn(menuFadeDefaultTime);
+		PauseMenu.FadeIn(NodeExtensions.menuFadeDefaultTime);
 
 	}
 	
-	/*public void GoToMainMenu()
-{
-	OptionsMenu.FadeOut(menuFadeDefaultTime, () => OptionsMenu.Visible = false);
-	DebugMenu.FadeOut(menuFadeDefaultTime, () => DebugMenu.Visible = false);
-
-	// Need to scene transition here to MainMenu
-	/*MainMenu.Visible = true;
-	MainMenuFocus();
-	MainMenu.FadeIn(0.25d);#1#
-}*/
-	
 	public void GoToSettingsMenu()
 	{
-		PauseMenu.FadeOut(menuFadeDefaultTime, () => PauseMenu.Visible = false);
-		DebugMenu.FadeOut(menuFadeDefaultTime, () => DebugMenu.Visible = false);
+		PauseMenu.FadeOut(NodeExtensions.menuFadeDefaultTime, () => PauseMenu.Visible = false);
+		DebugMenu.FadeOut(NodeExtensions.menuFadeDefaultTime, () => DebugMenu.Visible = false);
 		
 		OptionsMenu.Visible = true;
 		TestButton.GrabFocus();
-		OptionsMenu.FadeIn(menuFadeDefaultTime);
+		OptionsMenu.FadeIn(NodeExtensions.menuFadeDefaultTime);
 		
 		pauseMenuButtonLastFocusIndex = 1;
 	}
 	public void GoToDebugMenu()
 	{
-		PauseMenu.FadeOut(menuFadeDefaultTime, () => PauseMenu.Visible = false);
-		OptionsMenu.FadeOut(menuFadeDefaultTime, () => OptionsMenu.Visible = false);
+		PauseMenu.FadeOut(NodeExtensions.menuFadeDefaultTime, () => PauseMenu.Visible = false);
+		OptionsMenu.FadeOut(NodeExtensions.menuFadeDefaultTime, () => OptionsMenu.Visible = false);
 		
 		DebugMenu.Visible = true;
 		Set1Button.GrabFocus();
-		DebugMenu.FadeIn(menuFadeDefaultTime);
+		DebugMenu.FadeIn(NodeExtensions.menuFadeDefaultTime);
 		
 		pauseMenuButtonLastFocusIndex = 2;
 	}
 
 	public void LetsContinueGame()
 	{
+		FadeUtil.Instance?.FadeIn(NodeExtensions.menuFadeInitialiseTime);
+		
 		GetTree().Paused = false; 
     
 		Label.Visible = false;
