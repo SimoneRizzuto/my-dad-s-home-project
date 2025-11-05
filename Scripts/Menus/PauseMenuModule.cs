@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Godot;
 using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Shared.Extensions;
@@ -6,6 +7,7 @@ namespace MyFathersHomeProject.Scripts.Menus;
 
 public partial class PauseMenuModule : CanvasLayer
 {
+	[Export] private float pauseMenuOpacity = 0.6f;
 	// label
 	private Label Label => GetNode<Label>("Label");
 	
@@ -44,7 +46,7 @@ public partial class PauseMenuModule : CanvasLayer
 		Label.Visible = true;
 		PauseMenu.Visible = true;
 		PauseMenuFocus();
-		PauseMenu.FadeIn(NodeExtensions.menuFadeDefaultTime);
+		PauseMenu.FadeIn(NodeExtensions.menuFadeDefaultTime, finalVal: pauseMenuOpacity);
 
 	}
 	
@@ -55,7 +57,7 @@ public partial class PauseMenuModule : CanvasLayer
 		
 		OptionsMenu.Visible = true;
 		TestButton.GrabFocus();
-		OptionsMenu.FadeIn(NodeExtensions.menuFadeDefaultTime);
+		OptionsMenu.FadeIn(NodeExtensions.menuFadeDefaultTime, finalVal: pauseMenuOpacity);
 		
 		pauseMenuButtonLastFocusIndex = 1;
 	}
@@ -66,7 +68,7 @@ public partial class PauseMenuModule : CanvasLayer
 		
 		DebugMenu.Visible = true;
 		Set1Button.GrabFocus();
-		DebugMenu.FadeIn(NodeExtensions.menuFadeDefaultTime);
+		DebugMenu.FadeIn(NodeExtensions.menuFadeDefaultTime, finalVal: pauseMenuOpacity);
 		
 		pauseMenuButtonLastFocusIndex = 2;
 	}
@@ -74,7 +76,7 @@ public partial class PauseMenuModule : CanvasLayer
 	public void LetsContinueGame()
 	{
 		FadeUtil.Instance?.FadeIn(NodeExtensions.menuFadeInitialiseTime);
-		
+			
 		GetTree().Paused = false; 
     
 		Label.Visible = false;
