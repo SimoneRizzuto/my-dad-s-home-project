@@ -17,6 +17,7 @@ public partial class MainMenuBackButton : Button
 		if (MainMenu is not null)
 		{
 			MainMenu?.GoToMainMenu();
+			return;
 		}
 		
 		if (PauseMenu is not null)
