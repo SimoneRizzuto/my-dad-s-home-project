@@ -33,9 +33,11 @@ public partial class Pause : Node
 	}
 	private void TogglePause()
 	{
+		if (GetTree().Paused == true) return;
 		GetTree().Paused = true;
 		FadeUtil.Instance?.FadeIn(NodeExtensions.menuFadeInitialiseTime);
 		pauseMenu.GoToPauseMenu();
+
 	}
 	
 }
