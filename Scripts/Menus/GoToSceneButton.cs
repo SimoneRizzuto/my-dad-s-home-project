@@ -1,5 +1,7 @@
 using System.Linq;
 using Godot;
+using MyFathersHomeProject.Scripts.Camera;
+using MyFathersHomeProject.Scripts.Shared.Extensions;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
@@ -18,11 +20,21 @@ public partial class GoToSceneButton : Button
 		{
 			case DebugSceneOptions.Set1:
 				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
-				if (MainMenu is null){PauseMenu?.LetsContinueGame();}
+				FadeUtil.Instance?.FadeIn(NodeExtensions.menuFadeInitialiseTime);
+				if (MainMenu is null)
+				{
+					PauseMenu?.ResetPauseMenu();
+					GetTree().Paused = false; 
+				}
 				break;
 			case DebugSceneOptions.Set2:
 				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set2_SashaBedroom);
-				if (MainMenu is null){PauseMenu?.LetsContinueGame();}
+				FadeUtil.Instance?.FadeIn(NodeExtensions.menuFadeInitialiseTime);
+				if (MainMenu is null)
+				{
+					PauseMenu?.ResetPauseMenu();
+					GetTree().Paused = false; 
+				}
 				break;
 			case DebugSceneOptions.Set3:
 				SceneSwitcher.Instance?.TransitionToScene("");

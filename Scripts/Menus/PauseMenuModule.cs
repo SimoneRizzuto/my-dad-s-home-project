@@ -73,18 +73,31 @@ public partial class PauseMenuModule : CanvasLayer
 		pauseMenuButtonLastFocusIndex = 2;
 	}
 
-	public void LetsContinueGame()
+	public async void LetsContinueGame()
 	{
 		FadeUtil.Instance?.FadeIn(NodeExtensions.menuFadeInitialiseTime);
-			
-		GetTree().Paused = false; 
-    
+		
 		Label.Visible = false;
 		PauseMenu.Visible = false;
 		DebugMenu.Visible = false;
 		OptionsMenu.Visible = false;
-    
 		pauseMenuButtonLastFocusIndex = 0;
+		
+		
+		await ToSignal(GetTree().CreateTimer(NodeExtensions.menuFadeInitialiseTime * 0.8f), SceneTreeTimer.SignalName.Timeout);
+		GetTree().Paused = false; 
+		
+	}
+
+	public void ResetPauseMenu()
+	{
+		
+		Label.Visible = false;
+		PauseMenu.Visible = false;
+		DebugMenu.Visible = false;
+		OptionsMenu.Visible = false;
+		pauseMenuButtonLastFocusIndex = 0;
+		
 	}
 	
 	private void PauseMenuFocus()

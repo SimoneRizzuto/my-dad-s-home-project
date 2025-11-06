@@ -1,5 +1,7 @@
 using Godot;
 using System.Linq;
+using MyFathersHomeProject.Scripts.Camera;
+using MyFathersHomeProject.Scripts.Shared.Extensions;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
@@ -12,7 +14,7 @@ public partial class MainMenuBackButton : Button
 	private PauseMenuModule? PauseMenu => GetTree().Root
 		.GetChildrenRecursive<PauseMenuModule>()
 		.FirstOrDefault();
-	public override void _Pressed()
+	public override async void _Pressed()
 	{
 		if (MainMenu is not null)
 		{
@@ -22,7 +24,10 @@ public partial class MainMenuBackButton : Button
 		
 		if (PauseMenu is not null)
 		{
-			if (MainMenu is null){PauseMenu?.LetsContinueGame();}
+			FadeUtil.Instance?.FadeOut(NodeExtensions.menuFadeInitialiseTime);
+			if (MainMenu is null){PauseMenu?.ResetPauseMenu();}
+			await ToSignal(GetTree().CreateTimer(NodeExtensions.menuFadeInitialiseTime), SceneTreeTimer.SignalName.Timeout);
+			GetTree().Paused = false; 
 			SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.MainMenuScreen);
 		}
 	}
