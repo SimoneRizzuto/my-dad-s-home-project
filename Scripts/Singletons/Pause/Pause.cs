@@ -18,6 +18,7 @@ public partial class Pause : Node
 	private PackedScene pausePackedScene;
 	private PauseMenuModule pauseMenu;
 	private MainMenuModule? mainMenu;
+	private bool mainObservedOnce = false; 
 
 	public override void _Ready()
 	{
@@ -29,7 +30,11 @@ public partial class Pause : Node
 	public override void _Process(double delta)
 	{
 		var mainMenu = GetTree().CurrentScene.GetChildrenRecursive<MainMenuModule>().FirstOrDefault();
-		if (mainMenu != null) return;
+		if (mainMenu != null)
+		{
+			mainObservedOnce = true;
+			return;
+		}
 		
 		if (Input.IsActionJustPressed(InputMapAction.Pause) && (GetTree().Paused == false))
 		{
@@ -38,7 +43,7 @@ public partial class Pause : Node
 	}
 	private void TogglePause()
 	{
-		if (GetTree().Paused == true) return;
+		if (GetTree().Paused == true || mainObservedOnce == false) return;
 		GetTree().Paused = true;
 		FadeUtil.Instance?.FadeIn(NodeExtensions.menuFadeInitialiseTime);
 		pauseMenu.GoToPauseMenu();
