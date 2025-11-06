@@ -1,8 +1,11 @@
 using Godot;
+using System.Collections.Generic;
 
 namespace MyFathersHomeProject.Scripts.Singletons.SceneStates;
 public partial class SceneStates : Node
 {
+    public Dictionary<string, State> SetStates = new();
+    
     // dad knocks scene
     public bool ClothesPickedUp;
     public bool ClothesPutAway;
@@ -16,3 +19,9 @@ public partial class SceneStates : Node
     }
     #endregion
 }
+
+public class State
+{
+    
+}
+
