@@ -1,8 +1,10 @@
+using System.Linq;
 using Godot;
 using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Menus;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Extensions;
+using MyFathersHomeProject.Scripts.Shared.Helpers;
 
 namespace MyFathersHomeProject.Scripts.Singletons.Pause;
 
@@ -15,6 +17,7 @@ public partial class Pause : Node
 	// getters
 	private PackedScene pausePackedScene;
 	private PauseMenuModule pauseMenu;
+	private MainMenuModule? mainMenu;
 
 	public override void _Ready()
 	{
@@ -25,6 +28,8 @@ public partial class Pause : Node
 
 	public override void _Process(double delta)
 	{
+		var mainMenu = GetTree().CurrentScene.GetChildrenRecursive<MainMenuModule>().FirstOrDefault();
+		if (mainMenu != null) return;
 		
 		if (Input.IsActionJustPressed(InputMapAction.Pause) && (GetTree().Paused == false))
 		{
