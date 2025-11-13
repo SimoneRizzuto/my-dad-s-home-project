@@ -105,10 +105,12 @@ offset_right = 12.0
 offset_bottom = 12.0
 
 [node name="DialoguePointer" type="TextureRect" parent="Balloon"]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = -82.3529
-offset_top = 225.882
-offset_right = 173.647
-offset_bottom = 349.882
+offset_left = -87.0588
+offset_top = 230.588
+offset_right = 168.941
+offset_bottom = 354.588
 scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(0, 2)
 texture = ExtResource("5_m5lqj")

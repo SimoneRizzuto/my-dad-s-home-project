@@ -23,6 +23,7 @@ public partial class DialogueBalloon : CanvasLayer
 
 	RichTextLabel dialogueLabel;
 	VBoxContainer responsesMenu;
+	TextureRect  dialoguePointer;
 
 	Resource resource;
 	Array<Variant> temporaryGameStates = new Array<Variant>();
@@ -58,6 +59,7 @@ public partial class DialogueBalloon : CanvasLayer
 		//characterLabel = GetNode<RichTextLabel>("%CharacterLabel");
 		dialogueLabel = GetNode<RichTextLabel>("%DialogueLabel");
 		responsesMenu = GetNode<VBoxContainer>("%ResponsesMenu");
+		dialoguePointer = GetNode<TextureRect>("%DialoguePointer");
 
 		balloon.Hide();
 
@@ -293,6 +295,11 @@ public partial class DialogueBalloon : CanvasLayer
 				var oy = actorTransform.Origin.Y - HeightOffset;
 
 				Transform = new Transform2D(xx, xy, yx, yy, ox, oy);
+				
+				// Transform dialoguePointer
+				// Will need to know where actor is in relation to origin so can put the pointer on the right side and orient it correctly
+				// Won't scale the pointer, just interested in putting at the base of the balloon
+				// dialoguePointer
 			}
 		}
 	}
@@ -345,12 +352,15 @@ public partial class DialogueBalloon : CanvasLayer
 		{
 			case "Sasha":
 				theme = GD.Load<StyleBoxTexture>(SashaThemePath);
+				// change colour of dialoguePointer
 				break;
 			case "Oliver":
 				theme = GD.Load<StyleBoxTexture>(OliverThemePath); // uids not loading
+				// change colour of dialoguePointer
 				break;
 			default:
 				theme = GD.Load<StyleBoxTexture>(DefaultThemePath);
+				// change colour of dialoguePointer
 				break;
 		}
 
