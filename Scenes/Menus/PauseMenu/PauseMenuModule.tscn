@@ -15,10 +15,15 @@
 [sub_resource type="Theme" id="Theme_i85ry"]
 
 [node name="PauseMenuModule" type="CanvasLayer"]
-process_mode = 2
+process_mode = 3
 script = ExtResource("1_pljip")
 
-[node name="Label" type="Label" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 426.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 0.65)
+
+[node name="Label" type="Label" parent="ColorRect"]
 offset_left = 37.0
 offset_top = 20.0
 offset_right = 165.0
@@ -29,20 +34,21 @@ theme_override_fonts/font = ExtResource("1_kfdt7")
 text = "PAUSE
 MENU"
 
-[node name="PauseMenu" type="VBoxContainer" parent="."]
+[node name="PauseMenu" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 37.0
 offset_top = -4.0
-offset_right = 89.0
+offset_right = 122.0
 offset_bottom = 72.0
 grow_vertical = 2
 scale = Vector2(1.00143, 0.99473)
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="LetsContinueButton" type="Button" parent="PauseMenu"]
+[node name="LetsContinueButton" type="Button" parent="ColorRect/PauseMenu"]
 unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
@@ -51,22 +57,23 @@ text = "Let's Continue"
 alignment = 0
 script = ExtResource("4_n81vr")
 
-[node name="OptionsButton" parent="PauseMenu" instance=ExtResource("2_144bm")]
+[node name="OptionsButton" parent="ColorRect/PauseMenu" instance=ExtResource("2_144bm")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="DebugButton" parent="PauseMenu" instance=ExtResource("3_cxek6")]
+[node name="DebugButton" parent="ColorRect/PauseMenu" instance=ExtResource("3_cxek6")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="QuitButton" parent="PauseMenu" instance=ExtResource("4_rjwm3")]
+[node name="QuitButton" parent="ColorRect/PauseMenu" instance=ExtResource("4_rjwm3")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Take a Break"
 script = ExtResource("7_rb853")
 
-[node name="OptionsMenu" type="VBoxContainer" parent="."]
+[node name="OptionsMenu" type="VBoxContainer" parent="ColorRect"]
 visible = false
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -78,7 +85,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="TestButton" type="Button" parent="OptionsMenu"]
+[node name="TestButton" type="Button" parent="ColorRect/OptionsMenu"]
 unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
@@ -86,24 +93,25 @@ theme = ExtResource("1_ceoa4")
 text = "Test"
 alignment = 0
 
-[node name="BackButton" parent="OptionsMenu" instance=ExtResource("6_lb3um")]
+[node name="BackButton" parent="ColorRect/OptionsMenu" instance=ExtResource("6_lb3um")]
 layout_mode = 2
 script = ExtResource("10_jicun")
 
-[node name="DebugMenu" type="VBoxContainer" parent="."]
+[node name="DebugMenu" type="VBoxContainer" parent="ColorRect"]
 visible = false
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 109.0
-offset_top = -4.0
-offset_right = 161.0
-offset_bottom = 72.0
+offset_top = -30.0
+offset_right = 278.0
+offset_bottom = 98.0
 grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="Set1Button" type="Button" parent="DebugMenu"]
+[node name="Set1Button" type="Button" parent="ColorRect/DebugMenu"]
 unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
@@ -112,7 +120,7 @@ text = "Go to Set 1 - In my own world"
 alignment = 0
 script = ExtResource("5_8hgd8")
 
-[node name="Set2Button" type="Button" parent="DebugMenu"]
+[node name="Set2Button" type="Button" parent="ColorRect/DebugMenu"]
 layout_direction = 2
 layout_mode = 2
 theme = ExtResource("1_ceoa4")
@@ -122,7 +130,7 @@ alignment = 0
 script = ExtResource("5_8hgd8")
 SceneOptions = 1
 
-[node name="Set3Button" type="Button" parent="DebugMenu"]
+[node name="Set3Button" type="Button" parent="ColorRect/DebugMenu"]
 layout_direction = 2
 layout_mode = 2
 theme = ExtResource("1_ceoa4")
@@ -131,7 +139,7 @@ alignment = 0
 script = ExtResource("5_8hgd8")
 SceneOptions = 2
 
-[node name="Set4Button" type="Button" parent="DebugMenu"]
+[node name="Set4Button" type="Button" parent="ColorRect/DebugMenu"]
 layout_direction = 2
 layout_mode = 2
 theme = ExtResource("1_ceoa4")
@@ -140,7 +148,7 @@ alignment = 0
 script = ExtResource("5_8hgd8")
 SceneOptions = 3
 
-[node name="Set5Button" type="Button" parent="DebugMenu"]
+[node name="Set5Button" type="Button" parent="ColorRect/DebugMenu"]
 layout_direction = 2
 layout_mode = 2
 theme = ExtResource("1_ceoa4")
@@ -149,7 +157,7 @@ alignment = 0
 script = ExtResource("5_8hgd8")
 SceneOptions = 4
 
-[node name="Set6Button" type="Button" parent="DebugMenu"]
+[node name="Set6Button" type="Button" parent="ColorRect/DebugMenu"]
 layout_direction = 2
 layout_mode = 2
 theme = ExtResource("1_ceoa4")
@@ -158,7 +166,7 @@ alignment = 0
 script = ExtResource("5_8hgd8")
 SceneOptions = 5
 
-[node name="Set7Button" type="Button" parent="DebugMenu"]
+[node name="Set7Button" type="Button" parent="ColorRect/DebugMenu"]
 layout_direction = 2
 layout_mode = 2
 theme = ExtResource("1_ceoa4")
@@ -167,6 +175,6 @@ alignment = 0
 script = ExtResource("5_8hgd8")
 SceneOptions = 6
 
-[node name="BackButton" parent="DebugMenu" instance=ExtResource("6_lb3um")]
+[node name="BackButton" parent="ColorRect/DebugMenu" instance=ExtResource("6_lb3um")]
 layout_mode = 2
 script = ExtResource("10_jicun")
