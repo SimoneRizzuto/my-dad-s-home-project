@@ -33,15 +33,15 @@ public partial class PlayerCamera : Camera2D
         
         GlobalPosition = new(Oliver.Position.X, Height);
         
-        PositionSmoothingSpeed = 4;
+        PositionSmoothingSpeed = 2;
         
         if (Oliver.Velocity == Vector2.Zero)
         {
-            PositionSmoothingSpeed = 6;
+            PositionSmoothingSpeed = 4;
         }
     }
     
-    public void Mount(Vector2 position, int smoothingSpeed = 6)
+    public void Mount(Vector2 position, int smoothingSpeed = 2)
     {
         GlobalPosition = position;
         
