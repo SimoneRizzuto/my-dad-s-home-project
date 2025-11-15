@@ -178,7 +178,7 @@ position = Vector2(395, -45)
 sprite_frames = SubResource("SpriteFrames_gktbb")
 animation = &"tree sways"
 autoplay = "tree sways"
-frame_progress = 0.559585
+frame_progress = 0.0323911
 centered = false
 
 [node name="GrassBack" type="AnimatedSprite2D" parent="Objects"]
@@ -199,7 +199,7 @@ centered = false
 position = Vector2(336, 57)
 sprite_frames = SubResource("SpriteFrames_er107")
 autoplay = "default"
-frame_progress = 0.0650442
+frame_progress = 0.774249
 centered = false
 
 [node name="Wall+Floor" type="Node2D" parent="."]
