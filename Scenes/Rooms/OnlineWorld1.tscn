@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://brqethgaxv3tm"]
+[gd_scene load_steps=32 format=3 uid="uid://brqethgaxv3tm"]
 
 [ext_resource type="PackedScene" uid="uid://dgwvdtfwm2gvj" path="res://Scenes/Modules/InteractableModule.tscn" id="1_cp7va"]
 [ext_resource type="Texture2D" uid="uid://b4lgsu26f7f22" path="res://Assets/Textures/Environments/OnlineWorld1/city.png" id="1_qeykr"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b0o231ewbsslm" path="res://Assets/Textures/Environments/OnlineWorld1/grass front-Sheet.png" id="9_ttnai"]
 [ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="10_2gnje"]
 [ext_resource type="PackedScene" uid="uid://cfrhcgnum5ctx" path="res://Scenes/Actors/Sasha.tscn" id="13_3vkiu"]
+[ext_resource type="AudioStream" uid="uid://cn4ka0xrmfrtc" path="res://Assets/Audio/Sound/wind blows.ogg" id="14_76urx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vvenm"]
 atlas = ExtResource("7_rxbxc")
@@ -249,3 +250,8 @@ position = Vector2(358, 84)
 [node name="Sasha" parent="." instance=ExtResource("13_3vkiu")]
 position = Vector2(497, 83)
 InitialAnimation = "draw scribble right"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(344, 83)
+stream = ExtResource("14_76urx")
+autoplay = true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cn4ka0xrmfrtc"
+path="res://.godot/imported/wind blows.ogg-8d5a7811c4992763d0349f1e31d9cd70.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Sound/wind blows.ogg"
+dest_files=["res://.godot/imported/wind blows.ogg-8d5a7811c4992763d0349f1e31d9cd70.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
