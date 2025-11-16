@@ -259,6 +259,6 @@ position = Vector2(497, 83)
 InitialAnimation = "draw scribble right"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(344, 83)
+position = Vector2(426, 83)
 stream = ExtResource("14_76urx")
 autoplay = true
