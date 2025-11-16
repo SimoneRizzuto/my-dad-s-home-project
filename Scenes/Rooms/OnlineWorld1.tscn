@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://brqethgaxv3tm"]
+[gd_scene load_steps=33 format=3 uid="uid://brqethgaxv3tm"]
 
 [ext_resource type="PackedScene" uid="uid://dgwvdtfwm2gvj" path="res://Scenes/Modules/InteractableModule.tscn" id="1_cp7va"]
 [ext_resource type="Texture2D" uid="uid://b4lgsu26f7f22" path="res://Assets/Textures/Environments/OnlineWorld1/city.png" id="1_qeykr"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://c4t0mo45346ew" path="res://Assets/Dialogue/1. 14 days remain.dialogue" id="2_5646m"]
 [ext_resource type="Texture2D" uid="uid://kxhoqm1jw6fs" path="res://Assets/Textures/Environments/OnlineWorld1/clouds.png" id="2_hi6xt"]
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="3_vuomj"]
+[ext_resource type="Texture2D" uid="uid://dct8xqrsrtl8q" path="res://Assets/Audio/Sound/test.png" id="5_n6hcj"]
 [ext_resource type="Texture2D" uid="uid://b3v26fm3o6mwd" path="res://Assets/Textures/Environments/OnlineWorld1/tree-Sheet.png" id="7_rxbxc"]
 [ext_resource type="Texture2D" uid="uid://c87n6fv18rsoi" path="res://Assets/Textures/Environments/OnlineWorld1/grass-Sheet.png" id="8_psjh8"]
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="9_kkpjs"]
@@ -168,6 +169,12 @@ centered = false
 
 [node name="CityLayer" type="ParallaxLayer" parent="Objects/ParallaxBackground"]
 motion_scale = Vector2(0.15, 1)
+
+[node name="test" type="Sprite2D" parent="Objects/ParallaxBackground/CityLayer"]
+visible = false
+position = Vector2(166, 56)
+scale = Vector2(0.110981, 0.0892308)
+texture = ExtResource("5_n6hcj")
 
 [node name="City" type="Sprite2D" parent="Objects/ParallaxBackground/CityLayer"]
 position = Vector2(0, 36)
