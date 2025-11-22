@@ -34,7 +34,6 @@ public partial class PauseMenuModule : CanvasLayer
 	
 	// variables
 	private int pauseMenuButtonLastFocusIndex = 0;
-	private bool mainObservedOnce = false; 
 	
 	
 	public override void _Ready()
@@ -52,7 +51,6 @@ public partial class PauseMenuModule : CanvasLayer
 		var mainMenu = GetTree().CurrentScene.GetChildrenRecursive<MainMenuModule>().FirstOrDefault();
 		if (mainMenu != null)
 		{
-			mainObservedOnce = true;
 			return;
 		}
 		
@@ -63,7 +61,7 @@ public partial class PauseMenuModule : CanvasLayer
 	}
 	private void TogglePause()
 	{
-		if (GetTree().Paused == true || mainObservedOnce == false) return;
+		if (GetTree().Paused == true) return;
 		GetTree().Paused = true;
 		//FadeUtil.Instance?.FadeIn(NodeExtensions.menuFadeInitialiseTime);
 		GoToPauseMenu();
