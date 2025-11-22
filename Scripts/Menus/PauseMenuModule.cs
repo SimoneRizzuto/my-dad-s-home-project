@@ -50,10 +50,23 @@ public partial class PauseMenuModule : CanvasLayer
 	
 	public override void _Process(double delta)
 	{
-		if (GetTree().CurrentScene.GetChildren()[0].IsInGroup(("Gameplay")) == false)
+		if (GetTree().CurrentScene.Name == "Main")
 		{
-			return;
+			// Running main game as customer OR developer
+			if (GetTree().CurrentScene.GetChildren()[0].IsInGroup("Gameplay") == false)
+			{
+				return;
+			}
 		}
+		else
+		{
+			// Running individual scene as developer
+			if (GetTree().CurrentScene.IsInGroup("Gameplay") == false)
+			{
+				return;
+			}
+		}
+		
 		
 		if (Input.IsActionJustPressed(InputMapAction.Pause) && (GetTree().Paused == false))
 		{
@@ -64,6 +77,7 @@ public partial class PauseMenuModule : CanvasLayer
 	{
 		if (GetTree().Paused == true) return;
 		GetTree().Paused = true;
+		//ColorRect.FadeIn(NodeExtensions.menuFadeDefaultTime);
 		GoToPauseMenu();
 
 	}
@@ -72,7 +86,7 @@ public partial class PauseMenuModule : CanvasLayer
 	{
 		DebugMenu.FadeOut(NodeExtensions.menuFadeDefaultTime, () => DebugMenu.Visible = false);
 		OptionsMenu.FadeOut(NodeExtensions.menuFadeDefaultTime, () => OptionsMenu.Visible = false);
-
+		ColorRect.FadeIn(NodeExtensions.menuFadeDefaultTime);
 		ColorRect.Visible = true;
 		Label.Visible = true;
 		PauseMenu.Visible = true;
@@ -107,12 +121,12 @@ public partial class PauseMenuModule : CanvasLayer
 	public void LetsContinueGame()
 	{
 		// Issue with the FadeOut Signal not being  realised to finish the tween and so seeing paused screen when want to be moving
-		//ColorRect.FadeOut(NodeExtensions.menuFadeDefaultTime);
-		ColorRect.Visible = false;
-		Label.Visible = false;
-		PauseMenu.Visible = false;
-		DebugMenu.Visible = false;
-		OptionsMenu.Visible = false;
+		ColorRect.FadeOut(NodeExtensions.menuFadeDefaultTime);
+		//ColorRect.Visible = false;
+		//Label.Visible = false;
+		//PauseMenu.Visible = false;
+		//DebugMenu.Visible = false;
+		//OptionsMenu.Visible = false;
 		pauseMenuButtonLastFocusIndex = 0;
 		
 		GetTree().Paused = false; 
