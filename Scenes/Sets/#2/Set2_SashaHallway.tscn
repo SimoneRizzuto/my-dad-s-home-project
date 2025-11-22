@@ -20,7 +20,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5eay"]
 size = Vector2(610, 4)
 
-[node name="Set2_SashaHallway" type="Node2D"]
+[node name="Set2_SashaHallway" type="Node2D" groups=["Gameplay"]]
 
 [node name="Oliver" parent="." instance=ExtResource("1_7ph40")]
 position = Vector2(34, 63)

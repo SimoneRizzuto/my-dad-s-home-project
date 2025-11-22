@@ -34,6 +34,8 @@ public partial class PauseMenuModule : CanvasLayer
 	
 	// variables
 	private int pauseMenuButtonLastFocusIndex = 0;
+	private bool mainObservedOnce = false;
+	private Node scene;
 	
 	
 	public override void _Ready()
@@ -48,8 +50,7 @@ public partial class PauseMenuModule : CanvasLayer
 	
 	public override void _Process(double delta)
 	{
-		var mainMenu = GetTree().CurrentScene.GetChildrenRecursive<MainMenuModule>().FirstOrDefault();
-		if (mainMenu != null)
+		if (GetTree().CurrentScene.GetChildren()[0].IsInGroup(("Gameplay")) == false)
 		{
 			return;
 		}
@@ -63,7 +64,6 @@ public partial class PauseMenuModule : CanvasLayer
 	{
 		if (GetTree().Paused == true) return;
 		GetTree().Paused = true;
-		//FadeUtil.Instance?.FadeIn(NodeExtensions.menuFadeInitialiseTime);
 		GoToPauseMenu();
 
 	}

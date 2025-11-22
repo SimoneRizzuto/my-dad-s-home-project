@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="2_gjqvs"]
 [ext_resource type="PackedScene" uid="uid://cfrhcgnum5ctx" path="res://Scenes/Actors/Sasha.tscn" id="3_2do0h"]
 
-[node name="Set2_SashaCampfire" type="Node2D"]
+[node name="Set2_SashaCampfire" type="Node2D" groups=["Gameplay"]]
 
 [node name="Sasha" parent="." instance=ExtResource("3_2do0h")]
 position = Vector2(171, 91)
