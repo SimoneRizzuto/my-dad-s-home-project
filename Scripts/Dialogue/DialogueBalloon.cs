@@ -173,6 +173,7 @@ public partial class DialogueBalloon : CanvasLayer
 		PlaceBubbleAboveActor();
 
 		SetStyleBox();
+		SetPointerColor();
 
 		var nextAuto = false;
 
@@ -352,20 +353,39 @@ public partial class DialogueBalloon : CanvasLayer
 		{
 			case "Sasha":
 				theme = GD.Load<StyleBoxTexture>(SashaThemePath);
-				// change colour of dialoguePointer
 				break;
 			case "Oliver":
 				theme = GD.Load<StyleBoxTexture>(OliverThemePath); // uids not loading
-				// change colour of dialoguePointer
 				break;
 			default:
 				theme = GD.Load<StyleBoxTexture>(DefaultThemePath);
-				// change colour of dialoguePointer
 				break;
 		}
 
 		balloon.Theme.SetStylebox("panel", "PanelContainer", theme);
+		
 	}
+	
+	
+	private void SetPointerColor(){
+	{
+		Color colorDialoguePointer;
+		switch (dialogueLine.Character)
+		{
+			case "Sasha":
+				colorDialoguePointer = Color.Color8(190,240,252); // colour of png
+				break;
+			case "Oliver":
+				colorDialoguePointer = Color.Color8(252,247,190); // colour of png
+				break;
+			default:
+				colorDialoguePointer = Color.Color8(255,255,255);
+				break;
+		}
+		
+		dialoguePointer.Modulate = colorDialoguePointer;
+
+	}}
 
 	#endregion
 

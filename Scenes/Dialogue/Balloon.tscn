@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Theme" uid="uid://bxv00mgy46xa8" path="res://Assets/Themes/dialogue-box-theme.tres" id="2_iwnh3"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_72ixx"]
-[ext_resource type="Texture2D" uid="uid://27rqet36c3ag" path="res://Assets/Textures/UI/speech-bubble-pointer.png" id="5_m5lqj"]
+[ext_resource type="Texture2D" uid="uid://l4qo6hunr54w" path="res://Assets/Textures/UI/speech-bubble-pointer-sim.png" id="5_tlmxc"]
 
 [sub_resource type="Theme" id="Theme_v4kq1"]
 
@@ -33,10 +33,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -104.0
-offset_top = -63.0
-offset_right = 42.0
-offset_bottom = -23.0
+offset_left = -103.529
+offset_top = -63.5294
+offset_right = 42.4706
+offset_bottom = -23.5294
 grow_vertical = 0
 scale = Vector2(1.5, 1.5)
 mouse_filter = 1
@@ -104,9 +104,13 @@ layout_mode = 0
 offset_right = 12.0
 offset_bottom = 12.0
 
-[node name="DialoguePointer" type="TextureRect" parent="."]
-offset_left = -77.6471
-offset_top = -4.70588
-offset_right = -58.6471
-offset_bottom = 14.2941
-texture = ExtResource("5_m5lqj")
+[node name="DialoguePointer" type="TextureRect" parent="Balloon"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -80.0
+offset_top = 235.294
+offset_right = -66.0
+offset_bottom = 245.294
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_tlmxc")
+stretch_mode = 4
