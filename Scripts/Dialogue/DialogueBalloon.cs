@@ -1,9 +1,12 @@
 using Godot;
 using System;
 using System.Linq;
+using System.Net.Sockets;
+using System.Numerics;
 using Godot.Collections;
 using MyFathersHomeProject.Scripts.Dialogue.Actor;
 using MyFathersHomeProject.Scripts.Shared.Constants;
+using Vector2 = Godot.Vector2;
 
 namespace DialogueManagerRuntime;
 public partial class DialogueBalloon : CanvasLayer
@@ -15,6 +18,9 @@ public partial class DialogueBalloon : CanvasLayer
 	private const string DefaultThemePath = "res://Assets/Textures/UI/speech-bubble-style.tres";
 	private const string OliverThemePath = "res://Assets/Textures/UI/speech-bubble-oliver-style.tres";
 	private const string SashaThemePath = "res://Assets/Textures/UI/speech-bubble-sasha-style.tres";
+	private Vector2 panelSize;
+	private Vector2 panelStartingLocation;
+	private Vector2 initialDialoguePointerPosition;
 
 	// variables
 	private bool _splitDialogueBalloons = false;
@@ -24,11 +30,13 @@ public partial class DialogueBalloon : CanvasLayer
 	RichTextLabel dialogueLabel;
 	VBoxContainer responsesMenu;
 	TextureRect  dialoguePointer;
+	PanelContainer panel;
 
 	Resource resource;
 	Array<Variant> temporaryGameStates = new Array<Variant>();
 	bool isWaitingForInput = false;
 	bool willHideBalloon = false;
+	
 
 	DialogueLine dialogueLine;
 
@@ -60,6 +68,10 @@ public partial class DialogueBalloon : CanvasLayer
 		dialogueLabel = GetNode<RichTextLabel>("%DialogueLabel");
 		responsesMenu = GetNode<VBoxContainer>("%ResponsesMenu");
 		dialoguePointer = GetNode<TextureRect>("%DialoguePointer");
+		panel = GetNode<PanelContainer>("%Panel");
+		panelSize = panel.GetRect().Size;
+		panelStartingLocation =  panel.Position;
+		initialDialoguePointerPosition = dialoguePointer.Position;
 
 		balloon.Hide();
 
@@ -282,6 +294,8 @@ public partial class DialogueBalloon : CanvasLayer
 			else
 			{
 				var previousScale = Scale;
+				var previousPositionX = dialoguePointer.Position.X;
+				var previousPositionY = dialoguePointer.Position.Y;
 
 				Transform = actorTransform;
 				Scale = previousScale;
@@ -294,13 +308,34 @@ public partial class DialogueBalloon : CanvasLayer
 				var yy = Scale.Y;
 				var ox = actorTransform.Origin.X - actorDirectionOffset;
 				var oy = actorTransform.Origin.Y - HeightOffset;
-
+					
 				Transform = new Transform2D(xx, xy, yx, yy, ox, oy);
+
+				/*dialoguePointer.GlobalPosition = dialoguePointer.GlobalPosition with
+				{
+					X = dialoguePointerPosition.X - (actorDirectionOffset) // * Scale.X)
+				};*/
+				//var differenceInPanelPosition = (panelStartingLocation - panel.Position);
+				dialoguePointer.Position = initialDialoguePointerPosition; //+ (-1*differenceInPanelPosition);
+				if (Math.Round(panelSize.Y - panel.GetRect().Size.Y, 0) != 0)
+				{
+					dialoguePointer.Position = new Vector2(
+						dialoguePointer.Position.X,
+						dialoguePointer.Position.Y + (-1*(panelSize.Y - panel.GetRect().Size.Y) / 2) - HeightOffset // use chnge in pel size from lst chage istead
+					);
+				}
+				
+				// current issue is that if initialise o a different sized iitil blloo it breaks.
+
 				
 				// Transform dialoguePointer
 				// Will need to know where actor is in relation to origin so can put the pointer on the right side and orient it correctly
 				// Won't scale the pointer, just interested in putting at the base of the balloon
 				// dialoguePointer
+				
+				// Look at the ActorModule scene?? Not sure how to get the ew dimensions of the bubble to move the pointer
+				
+				// the blloon doesn't change position it is just expaded
 			}
 		}
 	}
