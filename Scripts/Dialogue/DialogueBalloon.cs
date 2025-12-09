@@ -69,6 +69,7 @@ public partial class DialogueBalloon : CanvasLayer
 		responsesMenu = GetNode<VBoxContainer>("%ResponsesMenu");
 		dialoguePointer = GetNode<TextureRect>("%DialoguePointer");
 		panel = GetNode<PanelContainer>("%Panel");
+		panel.Resized += () => MoveDialoguePointer();
 		panelSize = panel.GetRect().Size;
 		panelStartingLocation =  panel.Position;
 		initialDialoguePointerPosition = dialoguePointer.Position;
@@ -117,6 +118,8 @@ public partial class DialogueBalloon : CanvasLayer
 
 		DialogueManager.Mutated += OnMutated;
 	}
+
+	
 
 
 	public override void _ExitTree()
@@ -203,6 +206,7 @@ public partial class DialogueBalloon : CanvasLayer
 					break;
 			}
 		}
+		
 
 		// Set up the dialogue
 		dialogueLabel.Hide();
@@ -249,6 +253,7 @@ public partial class DialogueBalloon : CanvasLayer
 			balloon.FocusMode = Control.FocusModeEnum.All;
 			balloon.GrabFocus();
 		}
+		
 	}
 
 	#endregion
@@ -310,33 +315,28 @@ public partial class DialogueBalloon : CanvasLayer
 				var oy = actorTransform.Origin.Y - HeightOffset;
 					
 				Transform = new Transform2D(xx, xy, yx, yy, ox, oy);
-
-				/*dialoguePointer.GlobalPosition = dialoguePointer.GlobalPosition with
-				{
-					X = dialoguePointerPosition.X - (actorDirectionOffset) // * Scale.X)
-				};*/
-				//var differenceInPanelPosition = (panelStartingLocation - panel.Position);
-				dialoguePointer.Position = initialDialoguePointerPosition; //+ (-1*differenceInPanelPosition);
-				if (Math.Round(panelSize.Y - panel.GetRect().Size.Y, 0) != 0)
-				{
-					dialoguePointer.Position = new Vector2(
-						dialoguePointer.Position.X,
-						dialoguePointer.Position.Y + (-1*(panelSize.Y - panel.GetRect().Size.Y) / 2) - HeightOffset // use chnge in pel size from lst chage istead
-					);
-				}
 				
 				// current issue is that if initialise o a different sized iitil blloo it breaks.
 
-				
-				// Transform dialoguePointer
-				// Will need to know where actor is in relation to origin so can put the pointer on the right side and orient it correctly
-				// Won't scale the pointer, just interested in putting at the base of the balloon
-				// dialoguePointer
-				
-				// Look at the ActorModule scene?? Not sure how to get the ew dimensions of the bubble to move the pointer
-				
-				// the blloon doesn't change position it is just expaded
 			}
+		}
+	}
+	
+	
+	private void MoveDialoguePointer()
+	{
+		/*dialoguePointer.GlobalPosition = dialoguePointer.GlobalPosition with
+				{
+					X = dialoguePointerPosition.X - (actorDirectionOffset) // * Scale.X)
+				};*/
+		//var differenceInPanelPosition = (panelStartingLocation - panel.Position);
+		dialoguePointer.Position = initialDialoguePointerPosition; //+ (-1*differenceInPanelPosition);
+		if (Math.Round(panelSize.Y - panel.GetRect().Size.Y, 0) != 0)
+		{
+			dialoguePointer.Position = new Vector2(
+				dialoguePointer.Position.X,
+				dialoguePointer.Position.Y + (-1*(panelSize.Y - panel.GetRect().Size.Y) / 2) - HeightOffset // use chnge in pel size from lst chage istead
+			);
 		}
 	}
 
