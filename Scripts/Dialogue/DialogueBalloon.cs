@@ -260,7 +260,7 @@ public partial class DialogueBalloon : CanvasLayer
 
 	#region Custom Logic
 
-	private const int HeightOffset = 5;
+	private const int HeightOffset = 7;
 	private const int ActorDirectionOffset = 42;
 
 	private void PlaceBubbleAboveActor()
