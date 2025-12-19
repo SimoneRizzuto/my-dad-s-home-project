@@ -82,11 +82,12 @@ layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Balloon/VBoxContainer/DialoguePointerMargin"]
+[node name="DialoguePointerContainer" type="HBoxContainer" parent="Balloon/VBoxContainer/DialoguePointerMargin"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 19
 
-[node name="DialoguePointer" type="TextureRect" parent="Balloon/VBoxContainer/DialoguePointerMargin/HBoxContainer"]
+[node name="DialoguePointer" type="TextureRect" parent="Balloon/VBoxContainer/DialoguePointerMargin/DialoguePointerContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("5_tlmxc")

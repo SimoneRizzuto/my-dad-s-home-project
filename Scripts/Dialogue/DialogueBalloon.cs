@@ -18,9 +18,6 @@ public partial class DialogueBalloon : CanvasLayer
 	private const string DefaultThemePath = "res://Assets/Textures/UI/speech-bubble-style.tres";
 	private const string OliverThemePath = "res://Assets/Textures/UI/speech-bubble-oliver-style.tres";
 	private const string SashaThemePath = "res://Assets/Textures/UI/speech-bubble-sasha-style.tres";
-	private Vector2 panelSize;
-	private Vector2 panelStartingLocation;
-	private Vector2 initialDialoguePointerPosition;
 
 	// variables
 	private bool _splitDialogueBalloons = false;
@@ -29,8 +26,8 @@ public partial class DialogueBalloon : CanvasLayer
 
 	RichTextLabel dialogueLabel;
 	VBoxContainer responsesMenu;
+	HBoxContainer  dialoguePointerContainer;
 	TextureRect  dialoguePointer;
-	PanelContainer panel;
 
 	Resource resource;
 	Array<Variant> temporaryGameStates = new Array<Variant>();
@@ -64,15 +61,10 @@ public partial class DialogueBalloon : CanvasLayer
 	public override void _Ready()
 	{
 		balloon = GetNode<Control>("%Balloon");
-		//characterLabel = GetNode<RichTextLabel>("%CharacterLabel");
 		dialogueLabel = GetNode<RichTextLabel>("%DialogueLabel");
 		responsesMenu = GetNode<VBoxContainer>("%ResponsesMenu");
+		dialoguePointerContainer = GetNode<HBoxContainer>("%DialoguePointerContainer");
 		dialoguePointer = GetNode<TextureRect>("%DialoguePointer");
-		panel = GetNode<PanelContainer>("%Panel");
-		panel.Resized += () => MoveDialoguePointer();
-		panelSize = panel.GetRect().Size;
-		panelStartingLocation =  panel.Position;
-		initialDialoguePointerPosition = dialoguePointer.Position;
 
 		balloon.Hide();
 
@@ -186,6 +178,7 @@ public partial class DialogueBalloon : CanvasLayer
 		//characterLabel.Text = Tr(dialogueLine.Character, "dialogue");
 
 		PlaceBubbleAboveActor();
+		HandleDialoguePointer();
 
 		SetStyleBox();
 		SetPointerColor();
@@ -265,20 +258,7 @@ public partial class DialogueBalloon : CanvasLayer
 
 	private void PlaceBubbleAboveActor()
 	{
-		var actorModules = GetTree().GetNodesInGroup(NodeGroup.ActorModule);
-		Node2D actorSpeaking = null;
-
-		foreach (var actorModule in actorModules)
-		{
-			var actor = actorModule.GetParentOrNull<Node2D>();
-			if (actor == null) continue;
-
-			if (actor.Name == dialogueLine.Character)
-			{
-				actorSpeaking = actor;
-				break;
-			}
-		}
+		var actorSpeaking = ActorSpeaking();
 
 		if (actorSpeaking != null)
 		{
@@ -299,8 +279,6 @@ public partial class DialogueBalloon : CanvasLayer
 			else
 			{
 				var previousScale = Scale;
-				var previousPositionX = dialoguePointer.Position.X;
-				var previousPositionY = dialoguePointer.Position.Y;
 
 				Transform = actorTransform;
 				Scale = previousScale;
@@ -321,23 +299,51 @@ public partial class DialogueBalloon : CanvasLayer
 			}
 		}
 	}
-	
-	
-	private void MoveDialoguePointer()
+
+	private Node2D? ActorSpeaking()
 	{
-		/*dialoguePointer.GlobalPosition = dialoguePointer.GlobalPosition with
-				{
-					X = dialoguePointerPosition.X - (actorDirectionOffset) // * Scale.X)
-				};*/
-		//var differenceInPanelPosition = (panelStartingLocation - panel.Position);
-		dialoguePointer.Position = initialDialoguePointerPosition; //+ (-1*differenceInPanelPosition);
-		if (Math.Round(panelSize.Y - panel.GetRect().Size.Y, 0) != 0)
+		var actorModules = GetTree().GetNodesInGroup(NodeGroup.ActorModule);
+		Node2D actorSpeaking = null;
+
+		foreach (var actorModule in actorModules)
 		{
-			dialoguePointer.Position = new Vector2(
-				dialoguePointer.Position.X,
-				dialoguePointer.Position.Y + (-1*(panelSize.Y - panel.GetRect().Size.Y) / 2) - HeightOffset // use chnge in pel size from lst chage istead
-			);
+			var actor = actorModule.GetParentOrNull<Node2D>();
+			if (actor == null) continue;
+
+			if (actor.Name == dialogueLine.Character)
+			{
+				actorSpeaking = actor;
+				break;
+			}
 		}
+
+		return actorSpeaking;
+	}
+
+
+	private void HandleDialoguePointer()
+	{
+		var actorSpeaking = ActorSpeaking();
+		if (actorSpeaking != null)
+		{
+			var actorModule = actorSpeaking.GetNode<ActorModule>("ActorModule");
+
+			switch (actorModule.Character.LastDirection)
+			{
+				case Direction.Left:
+					// Place pointer to the right ad angle to the right
+					dialoguePointerContainer.Alignment = BoxContainer.AlignmentMode.End;
+					dialoguePointer.FlipH = true;
+					break;
+				case Direction.Right:
+					// Place pointer to the left ad angle to the left
+					dialoguePointerContainer.Alignment = BoxContainer.AlignmentMode.Begin;
+					dialoguePointer.FlipH = false;
+					break;
+			}
+		}
+		
+		
 	}
 
 	private static int GetActorDirectionOffset(Node2D actorSpeaking)
