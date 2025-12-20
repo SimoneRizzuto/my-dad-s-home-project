@@ -1,5 +1,7 @@
 ~ oliver_chats_online
 
+do SaveGameModule.SaveGameData("ProgressScene", 1)
+
 do Sasha.SetDirection(1)
 do Sasha.PlayAnimation("draw scribble right")
 do Director.Wait(2)
@@ -361,7 +363,7 @@ do Director.Wait(0.1)
 ~ oliver_attempts_to_leave
 
 do Papa.PlayAnimation("sit couch look right")
-
+do Papa.SetDirection(2)
 Papa: Where are you going?
 
 do Director.Wait(1)
