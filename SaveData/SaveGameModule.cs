@@ -7,7 +7,8 @@ using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 public partial class SaveGameModule : Node
 {
 	private const string SavePath = "res://SaveData//SaveData.json";
-	private void SaveGameData(string dictionaryKey, Variant newValue)
+
+	public static void SaveGameData(string dictionaryKey, Variant newValue)
 	{
 		if (dictionaryKey == "ProgressScene")
 		{
@@ -34,7 +35,7 @@ public partial class SaveGameModule : Node
 
 	}
 
-	private Dictionary LoadGameData()
+	public static Dictionary LoadGameData()
 	{
 		// Check if file exists and if not then create the data
 		if (!FileAccess.FileExists(SavePath))
@@ -63,7 +64,7 @@ public partial class SaveGameModule : Node
 			return new Dictionary();
 		}
 	}
-	private void SaveJsonData(Dictionary data)
+	private static void SaveJsonData(Dictionary data)
 	{
 		string jsonString = Json.Stringify(data, indent: "\t", sortKeys: true);
 		using var file = FileAccess.Open(SavePath, FileAccess.ModeFlags.Write);
