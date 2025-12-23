@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/DialogueTriggerAction.cs" id="8_ygcud"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/EnableWindow.cs" id="10_6glir"]
 
-[node name="Set1_OliverBedroom" type="Node2D"]
+[node name="Set1_OliverBedroom" type="Node2D" groups=["Gameplay"]]
 
 [node name="Oliver" parent="." instance=ExtResource("1_8gmls")]
 z_index = 115

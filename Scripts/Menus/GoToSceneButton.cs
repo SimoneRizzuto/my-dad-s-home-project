@@ -1,20 +1,40 @@
+using System.Linq;
 using Godot;
+using MyFathersHomeProject.Scripts.Camera;
+using MyFathersHomeProject.Scripts.Shared.Extensions;
+using MyFathersHomeProject.Scripts.Shared.Helpers;
 using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
 namespace MyFathersHomeProject.Scripts.Menus;
 public partial class GoToSceneButton : Button
 {
 	[Export] public DebugSceneOptions SceneOptions;
-	
+	private MainMenuModule? MainMenu => GetTree().CurrentScene
+		.GetChildrenRecursive<MainMenuModule>()
+		.FirstOrDefault();
+	private PauseMenuModule? PauseMenu => GetTree().Root.GetChildrenRecursive<PauseMenuModule>().FirstOrDefault();
 	public override void _Pressed()
 	{
+		
 		switch (SceneOptions)
 		{
 			case DebugSceneOptions.Set1:
 				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
+				FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
+				if (MainMenu is null)
+				{
+					PauseMenu?.ResetPauseMenu();
+					GetTree().Paused = false; 
+				}
 				break;
 			case DebugSceneOptions.Set2:
 				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set2_SashaBedroom);
+				FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
+				if (MainMenu is null)
+				{
+					PauseMenu?.ResetPauseMenu();
+					GetTree().Paused = false; 
+				}
 				break;
 			case DebugSceneOptions.Set3:
 				SceneSwitcher.Instance?.TransitionToScene("");

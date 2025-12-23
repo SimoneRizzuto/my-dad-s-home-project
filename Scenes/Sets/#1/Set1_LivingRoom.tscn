@@ -3,14 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://bh7otdjt77r8m" path="res://Scenes/Rooms/LivingRoom.tscn" id="1_e11s4"]
 [ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="1_errd4"]
 [ext_resource type="PackedScene" uid="uid://ci3t7wpbmy852" path="res://Scenes/Actors/Papa.tscn" id="2_ry5j4"]
-[ext_resource type="PackedScene" path="res://Scenes/Modules/InteractableModule.tscn" id="3_nj5l2"]
-[ext_resource type="PackedScene" path="res://Scenes/Modules/DialogueTriggerAction.tscn" id="5_7nxkw"]
+[ext_resource type="PackedScene" uid="uid://dgwvdtfwm2gvj" path="res://Scenes/Modules/InteractableModule.tscn" id="3_nj5l2"]
+[ext_resource type="PackedScene" uid="uid://cehckxjxfklbj" path="res://Scenes/Modules/DialogueTriggerAction.tscn" id="5_7nxkw"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/PapaCouchLookRightAction.cs" id="5_wtto2"]
 [ext_resource type="Resource" uid="uid://c4t0mo45346ew" path="res://Assets/Dialogue/1. 14 days remain.dialogue" id="6_04kj3"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/PapaCouchLookAheadAction.cs" id="6_w1512"]
 [ext_resource type="PackedScene" uid="uid://cvyko5jswa0cn" path="res://Scenes/Modules/Door/DoorModule.tscn" id="7_j5k16"]
 
-[node name="Set1_LivingRoom" type="Node2D"]
+[node name="Set1_LivingRoom" type="Node2D" groups=["Gameplay"]]
 
 [node name="Oliver" parent="." instance=ExtResource("1_errd4")]
 z_index = 1010

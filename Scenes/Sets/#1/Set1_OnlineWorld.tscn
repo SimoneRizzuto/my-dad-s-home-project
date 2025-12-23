@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="1_tgslq"]
 [ext_resource type="PackedScene" uid="uid://brqethgaxv3tm" path="res://Scenes/Rooms/OnlineWorld1.tscn" id="2_72yoi"]
 
-[node name="Set1_OnlineWorld" type="Node2D"]
+[node name="Set1_OnlineWorld" type="Node2D" groups=["Gameplay"]]
 
 [node name="Oliver" parent="." instance=ExtResource("1_tgslq")]
 position = Vector2(55, 83)
