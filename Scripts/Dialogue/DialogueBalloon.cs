@@ -109,7 +109,7 @@ public partial class DialogueBalloon : CanvasLayer
 
 		DialogueManager.Mutated += OnMutated;
 	}
-	
+
 
 	public override void _ExitTree()
 	{
@@ -196,7 +196,6 @@ public partial class DialogueBalloon : CanvasLayer
 					break;
 			}
 		}
-		
 
 		// Set up the dialogue
 		dialogueLabel.Hide();
@@ -243,7 +242,6 @@ public partial class DialogueBalloon : CanvasLayer
 			balloon.FocusMode = Control.FocusModeEnum.All;
 			balloon.GrabFocus();
 		}
-		
 	}
 
 	#endregion
@@ -288,11 +286,7 @@ public partial class DialogueBalloon : CanvasLayer
 				var yy = Scale.Y;
 				var ox = actorTransform.Origin.X - actorDirectionOffset;
 				var oy = actorTransform.Origin.Y - HeightOffset;
-					
 				Transform = new Transform2D(xx, xy, yx, yy, ox, oy);
-				
-				// current issue is that if initialise o a different sized iitil blloo it breaks.
-
 			}
 		}
 	}
@@ -401,9 +395,7 @@ public partial class DialogueBalloon : CanvasLayer
 		}
 
 		balloon.Theme.SetStylebox("panel", "PanelContainer", theme);
-		
 	}
-	
 	
 	private void SetPointerColor(){
 	{
@@ -422,7 +414,6 @@ public partial class DialogueBalloon : CanvasLayer
 		}
 		
 		dialoguePointer.Modulate = colorDialoguePointer;
-
 	}}
 
 	#endregion
