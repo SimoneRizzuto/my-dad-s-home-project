@@ -4,8 +4,8 @@ using System;
 namespace MyFathersHomeProject.Scripts.Shared.Extensions;
 public static class NodeExtensions
 {
-	public const float menuFadeInitialiseTime = 1.5f;
-	public const double menuFadeDefaultTime = 0.25d;
+	public const float MenuFadeInitialiseTime = 1.5f;
+	public const double MenuFadeDefaultTime = 0.25d;
 	public static void FadeIn(this CanvasItem target, double duration, Action? trigger = null, float finalVal = 1)
 	{
 		var tween = target.CreateTween();

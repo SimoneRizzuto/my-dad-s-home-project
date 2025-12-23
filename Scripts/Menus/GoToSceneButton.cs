@@ -20,7 +20,7 @@ public partial class GoToSceneButton : Button
 		{
 			case DebugSceneOptions.Set1:
 				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
-				FadeUtil.Instance?.FadeIn(NodeExtensions.menuFadeInitialiseTime);
+				FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
 				if (MainMenu is null)
 				{
 					PauseMenu?.ResetPauseMenu();
@@ -29,7 +29,7 @@ public partial class GoToSceneButton : Button
 				break;
 			case DebugSceneOptions.Set2:
 				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set2_SashaBedroom);
-				FadeUtil.Instance?.FadeIn(NodeExtensions.menuFadeInitialiseTime);
+				FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
 				if (MainMenu is null)
 				{
 					PauseMenu?.ResetPauseMenu();

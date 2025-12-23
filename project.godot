@@ -31,8 +31,8 @@ SceneStates="*res://Scripts/Singletons/SceneStates/SceneStates.cs"
 InteractionAllocator="*res://Scripts/Singletons/InteractionAllocator/InteractionAllocator.cs"
 FadeUtil="*res://Scenes/Camera/FadeUtil.tscn"
 ShowTextureUI="*res://Scenes/Modules/ShowTextureUI/ShowTextureUIModule.tscn"
-PauseMenuModule="*res://Scenes/Menus/PauseMenu/PauseMenuModule.tscn"
 InteractableIndicator="*res://Scenes/Modules/Interactables/Indicator/InteractableIndicator.tscn"
+PauseMenuModule="*res://Scenes/Menus/PauseMenu/PauseMenuModule.tscn"
 
 [dialogue_manager]
 

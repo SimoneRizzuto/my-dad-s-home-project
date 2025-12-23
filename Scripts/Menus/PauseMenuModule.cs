@@ -6,7 +6,6 @@ using MyFathersHomeProject.Scripts.Shared.Extensions;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 
 namespace MyFathersHomeProject.Scripts.Menus;
-
 public partial class PauseMenuModule : CanvasLayer
 {
 	[Export] private float pauseMenuOpacity = 0.65f;
@@ -37,7 +36,6 @@ public partial class PauseMenuModule : CanvasLayer
 	private bool mainObservedOnce = false;
 	private Node scene;
 	
-	
 	public override void _Ready()
 	{
 		ProcessMode = ProcessModeEnum.Always;
@@ -67,70 +65,81 @@ public partial class PauseMenuModule : CanvasLayer
 			}
 		}
 		
-		
-		if (Input.IsActionJustPressed(InputMapAction.Pause) && (GetTree().Paused == false))
+		if (Input.IsActionJustPressed(InputMapAction.Pause))
 		{
 			TogglePause();
 		}
 	}
 	private void TogglePause()
 	{
-		if (GetTree().Paused == true) return;
-		GetTree().Paused = true;
-		//ColorRect.FadeIn(NodeExtensions.menuFadeDefaultTime);
-		GoToPauseMenu();
-
+		GetTree().Paused = !GetTree().Paused;
+		
+		if (GetTree().Paused)
+		{
+			GoToPauseMenu();
+		}
+		else
+		{
+			LetsContinueGame();
+		}
 	}
 	
 	public void GoToPauseMenu()
 	{
-		DebugMenu.FadeOut(NodeExtensions.menuFadeDefaultTime, () => DebugMenu.Visible = false);
-		OptionsMenu.FadeOut(NodeExtensions.menuFadeDefaultTime, () => OptionsMenu.Visible = false);
-		ColorRect.FadeIn(NodeExtensions.menuFadeDefaultTime);
+		LetsContinueButton.Disabled = false;
+		OptionsButton.Disabled = false;
+		DebugButton.Disabled = false;
+		QuitButton.Disabled = false;
+		
+		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = GetTree().Paused);
+		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = GetTree().Paused);
+		
+		ColorRect.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 		ColorRect.Visible = true;
+		
 		Label.Visible = true;
 		PauseMenu.Visible = true;
 		PauseMenuFocus();
-		PauseMenu.FadeIn(NodeExtensions.menuFadeDefaultTime);
-		Label.FadeIn(NodeExtensions.menuFadeDefaultTime);
+		PauseMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
+		
+		Label.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 	}
 	
 	public void GoToSettingsMenu()
 	{
-		PauseMenu.FadeOut(NodeExtensions.menuFadeDefaultTime, () => PauseMenu.Visible = false);
-		DebugMenu.FadeOut(NodeExtensions.menuFadeDefaultTime, () => DebugMenu.Visible = false);
+		PauseMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => PauseMenu.Visible = false);
+		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
 		
 		OptionsMenu.Visible = true;
 		TestButton.GrabFocus();
-		OptionsMenu.FadeIn(NodeExtensions.menuFadeDefaultTime);
+		OptionsMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 		
 		pauseMenuButtonLastFocusIndex = 1;
 	}
 	public void GoToDebugMenu()
 	{
-		PauseMenu.FadeOut(NodeExtensions.menuFadeDefaultTime, () => PauseMenu.Visible = false);
-		OptionsMenu.FadeOut(NodeExtensions.menuFadeDefaultTime, () => OptionsMenu.Visible = false);
+		PauseMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => PauseMenu.Visible = false);
+		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
 		
 		DebugMenu.Visible = true;
 		Set1Button.GrabFocus();
-		DebugMenu.FadeIn(NodeExtensions.menuFadeDefaultTime);
+		DebugMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 		
 		pauseMenuButtonLastFocusIndex = 2;
 	}
 
 	public void LetsContinueGame()
 	{
-		// Issue with the FadeOut Signal not being  realised to finish the tween and so seeing paused screen when want to be moving
-		ColorRect.FadeOut(NodeExtensions.menuFadeDefaultTime);
-		//ColorRect.Visible = false;
-		//Label.Visible = false;
-		//PauseMenu.Visible = false;
-		//DebugMenu.Visible = false;
-		//OptionsMenu.Visible = false;
+		ColorRect.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => ColorRect.Visible = GetTree().Paused);
+		
+		LetsContinueButton.Disabled = true;
+		OptionsButton.Disabled = true;
+		DebugButton.Disabled = true;
+		QuitButton.Disabled = true;
+		
 		pauseMenuButtonLastFocusIndex = 0;
 		
-		GetTree().Paused = false; 
-		
+		GetTree().Paused = false;
 	}
 
 	public void ResetPauseMenu()
@@ -141,7 +150,6 @@ public partial class PauseMenuModule : CanvasLayer
 		DebugMenu.Visible = false;
 		OptionsMenu.Visible = false;
 		pauseMenuButtonLastFocusIndex = 0;
-		
 	}
 	
 	private void PauseMenuFocus()
@@ -159,5 +167,4 @@ public partial class PauseMenuModule : CanvasLayer
 				break;
 		}
 	}
-
 }

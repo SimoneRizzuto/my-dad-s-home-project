@@ -16,6 +16,7 @@ Button/colors/font_hover_color = Color(0.988235, 0.87451, 0, 1)
 Button/colors/font_pressed_color = Color(0.988235, 0.87451, 0, 1)
 Button/font_sizes/font_size = 12
 Button/fonts/font = ExtResource("1_03rri")
+Button/styles/disabled = SubResource("StyleBoxEmpty_0de2h")
 Button/styles/focus = SubResource("StyleBoxEmpty_0de2h")
 Button/styles/hover = SubResource("StyleBoxEmpty_62klu")
 Button/styles/normal = SubResource("StyleBoxEmpty_06v30")

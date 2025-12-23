@@ -24,9 +24,9 @@ public partial class MainMenuBackButton : Button
 		
 		if (PauseMenu is not null)
 		{
-			FadeUtil.Instance?.FadeOut(NodeExtensions.menuFadeInitialiseTime);
+			FadeUtil.Instance?.FadeOut(NodeExtensions.MenuFadeInitialiseTime);
 			if (MainMenu is null){PauseMenu?.ResetPauseMenu();}
-			await ToSignal(GetTree().CreateTimer(NodeExtensions.menuFadeInitialiseTime), SceneTreeTimer.SignalName.Timeout);
+			await ToSignal(GetTree().CreateTimer(NodeExtensions.MenuFadeInitialiseTime), SceneTreeTimer.SignalName.Timeout);
 			GetTree().Paused = false; 
 			SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.MainMenuScreen);
 		}

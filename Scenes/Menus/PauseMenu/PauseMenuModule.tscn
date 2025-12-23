@@ -24,6 +24,7 @@ offset_bottom = 240.0
 color = Color(0, 0, 0, 0.65)
 
 [node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
 offset_left = 37.0
 offset_top = 20.0
 offset_right = 165.0
@@ -31,8 +32,7 @@ offset_bottom = 73.0
 theme = SubResource("Theme_i85ry")
 theme_override_constants/line_spacing = -5
 theme_override_fonts/font = ExtResource("1_kfdt7")
-text = "PAUSE
-MENU"
+text = "PAUSED"
 
 [node name="PauseMenu" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 1
