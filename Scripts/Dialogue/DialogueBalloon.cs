@@ -60,6 +60,7 @@ public partial class DialogueBalloon : CanvasLayer
 	public override void _Ready()
 	{
 		balloon = GetNode<Control>("%Balloon");
+		//characterLabel = GetNode<RichTextLabel>("%CharacterLabel");
 		dialogueLabel = GetNode<RichTextLabel>("%DialogueLabel");
 		responsesMenu = GetNode<VBoxContainer>("%ResponsesMenu");
 		dialoguePointerContainer = GetNode<HBoxContainer>("%DialoguePointerContainer");
