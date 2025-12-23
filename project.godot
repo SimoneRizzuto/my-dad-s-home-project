@@ -32,6 +32,7 @@ InteractionAllocator="*res://Scripts/Singletons/InteractionAllocator/Interaction
 FadeUtil="*res://Scenes/Camera/FadeUtil.tscn"
 ShowTextureUI="*res://Scenes/Modules/ShowTextureUI/ShowTextureUIModule.tscn"
 PauseMenuModule="*res://Scenes/Menus/PauseMenu/PauseMenuModule.tscn"
+InteractableIndicator="*res://Scenes/Modules/Interactables/Indicator/InteractableIndicator.tscn"
 
 [dialogue_manager]
 

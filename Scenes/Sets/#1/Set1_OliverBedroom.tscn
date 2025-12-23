@@ -20,7 +20,7 @@ position = Vector2(166, 45)
 
 [node name="Sasha" parent="." instance=ExtResource("2_pov0e")]
 visible = false
-position = Vector2(160, 41)
+position = Vector2(158, 41)
 InitialAnimation = "idle right"
 
 [node name="OliverBedroom" parent="." instance=ExtResource("2_8xlvl")]

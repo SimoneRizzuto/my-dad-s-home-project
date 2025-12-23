@@ -1,6 +1,6 @@
 using Godot;
-using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Player;
+using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
@@ -13,16 +13,8 @@ public partial class InteractableModule : Area2D
 	private bool InputInteract => Input.IsActionJustPressed(InputMapAction.Interact);
 	
 	// variables
-	public bool InRange =  false;
+	public bool OliverIsColliding { get; private set; }
 	public bool ClosestToOliver = false;
-	private Label interactLabel;
-	private bool oliverIntersecting = false;
-	
-	public override void _Ready()
-	{
-		interactLabel = GetNode<Label>("./Label"); 
-		interactLabel.Visible = false;
-	}
 	
 	public override void _PhysicsProcess(double delta)
 	{
@@ -30,15 +22,13 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				triggerInteract = InRange && oliverIntersecting;
+				triggerInteract = OliverIsColliding;
 				break;
 			case TriggerMode.Input:
-				triggerInteract = InRange && InputInteract && oliverIntersecting && ClosestToOliver;
+				triggerInteract = InputInteract && OliverIsColliding && ClosestToOliver;
 				break;
 		}
-
-		MakeInputVisible();
-        
+		
 		if (triggerInteract)
 		{
 			Interact();
@@ -72,10 +62,10 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				oliverIntersecting = body.IsInGroup(NodeGroup.Oliver);
+				OliverIsColliding = body.IsInGroup(NodeGroup.Oliver);
 				break;
 			case TriggerMode.Input:
-				oliverIntersecting = true;
+				OliverIsColliding = true;
 				break;
 			case TriggerMode.CollisionEntered:
 			case TriggerMode.CollisionEnteredOrExited:
@@ -83,7 +73,7 @@ public partial class InteractableModule : Area2D
 				break;
 		}
 	}
-    
+	
 	private void OnBodyExited(Node2D body)
 	{
 		if (body is not Oliver) return;
@@ -91,27 +81,15 @@ public partial class InteractableModule : Area2D
 		switch (TriggerMode)
 		{
 			case TriggerMode.Collision:
-				if (body.IsInGroup(NodeGroup.Oliver)) oliverIntersecting = false;
+				if (body.IsInGroup(NodeGroup.Oliver)) OliverIsColliding = false;
 				break;
 			case TriggerMode.Input:
-				oliverIntersecting = false;
+				OliverIsColliding = false;
 				break;
 			case TriggerMode.CollisionExited:
 			case TriggerMode.CollisionEnteredOrExited:
 				Interact();
 				break;
-		}
-	}
-
-	private void MakeInputVisible()
-	{
-		if (oliverIntersecting & ClosestToOliver & InRange)
-		{
-			interactLabel.Visible = true;
-		}
-		else
-		{
-			interactLabel.Visible = false;
 		}
 	}
 }

@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://v56t5cp0lanf" path="res://Assets/Textures/StaticObjects/SashaBedroom/tv-sasha-bedroom.png" id="8_hbiku"]
 [ext_resource type="Texture2D" uid="uid://bhecwfix68y27" path="res://Assets/Textures/StaticObjects/SashaCampfire/painting-canvas.png" id="9_a23ou"]
 [ext_resource type="PackedScene" uid="uid://dgwvdtfwm2gvj" path="res://Scenes/Modules/InteractableModule.tscn" id="9_wsav8"]
-[ext_resource type="PackedScene" uid="uid://cehckxjxfklbj" path="res://Scenes/Modules/DialogueTriggerAction.tscn" id="10_5cgqg"]
+[ext_resource type="PackedScene" uid="uid://3j3aonll5qm3" path="res://Scenes/Modules/DialogueTriggerAction.tscn" id="10_5cgqg"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/FadeAction.cs" id="10_lxerd"]
 [ext_resource type="Texture2D" uid="uid://bk1ay43316v4y" path="res://Assets/Textures/StaticObjects/SashaCampfire/chill-area.png" id="10_nuf7p"]
 [ext_resource type="Resource" uid="uid://hqbevxyupoa2" path="res://Assets/Dialogue/2. sleepover.dialogue" id="11_uj4na"]
@@ -164,7 +164,6 @@ scale = Vector2(9.51998, 1)
 [node name="FadeAction" type="Node" parent="Items/FadeIn"]
 script = ExtResource("10_lxerd")
 Time = 3.75
-Delay = 1
 
 [node name="TriggerDialogue" parent="Items" instance=ExtResource("9_wsav8")]
 position = Vector2(183, 145)

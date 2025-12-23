@@ -4,6 +4,7 @@ using System.Linq;
 using Godot.Collections;
 using MyFathersHomeProject.Scripts.Dialogue.Actor;
 using MyFathersHomeProject.Scripts.Shared.Constants;
+using Vector2 = Godot.Vector2;
 
 namespace DialogueManagerRuntime;
 public partial class DialogueBalloon : CanvasLayer
@@ -23,6 +24,8 @@ public partial class DialogueBalloon : CanvasLayer
 
 	RichTextLabel dialogueLabel;
 	VBoxContainer responsesMenu;
+	HBoxContainer  dialoguePointerContainer;
+	TextureRect  dialoguePointer;
 
 	Resource resource;
 	Array<Variant> temporaryGameStates = new Array<Variant>();
@@ -58,6 +61,8 @@ public partial class DialogueBalloon : CanvasLayer
 		//characterLabel = GetNode<RichTextLabel>("%CharacterLabel");
 		dialogueLabel = GetNode<RichTextLabel>("%DialogueLabel");
 		responsesMenu = GetNode<VBoxContainer>("%ResponsesMenu");
+		dialoguePointerContainer = GetNode<HBoxContainer>("%DialoguePointerContainer");
+		dialoguePointer = GetNode<TextureRect>("%DialoguePointer");
 
 		balloon.Hide();
 
@@ -169,8 +174,10 @@ public partial class DialogueBalloon : CanvasLayer
 		//characterLabel.Text = Tr(dialogueLine.Character, "dialogue");
 
 		PlaceBubbleAboveActor();
+		HandleDialoguePointer();
 
 		SetStyleBox();
+		SetPointerColor();
 
 		var nextAuto = false;
 
@@ -240,25 +247,12 @@ public partial class DialogueBalloon : CanvasLayer
 
 	#region Custom Logic
 
-	private const int HeightOffset = 5;
+	private const int HeightOffset = 7;
 	private const int ActorDirectionOffset = 42;
 
 	private void PlaceBubbleAboveActor()
 	{
-		var actorModules = GetTree().GetNodesInGroup(NodeGroup.ActorModule);
-		Node2D actorSpeaking = null;
-
-		foreach (var actorModule in actorModules)
-		{
-			var actor = actorModule.GetParentOrNull<Node2D>();
-			if (actor == null) continue;
-
-			if (actor.Name == dialogueLine.Character)
-			{
-				actorSpeaking = actor;
-				break;
-			}
-		}
+		var actorSpeaking = ActorSpeaking();
 
 		if (actorSpeaking != null)
 		{
@@ -295,6 +289,52 @@ public partial class DialogueBalloon : CanvasLayer
 				Transform = new Transform2D(xx, xy, yx, yy, ox, oy);
 			}
 		}
+	}
+
+	private Node2D? ActorSpeaking()
+	{
+		var actorModules = GetTree().GetNodesInGroup(NodeGroup.ActorModule);
+		Node2D actorSpeaking = null;
+
+		foreach (var actorModule in actorModules)
+		{
+			var actor = actorModule.GetParentOrNull<Node2D>();
+			if (actor == null) continue;
+
+			if (actor.Name == dialogueLine.Character)
+			{
+				actorSpeaking = actor;
+				break;
+			}
+		}
+
+		return actorSpeaking;
+	}
+
+
+	private void HandleDialoguePointer()
+	{
+		var actorSpeaking = ActorSpeaking();
+		if (actorSpeaking != null)
+		{
+			var actorModule = actorSpeaking.GetNode<ActorModule>("ActorModule");
+
+			switch (actorModule.Character.LastDirection)
+			{
+				case Direction.Left:
+					// Place pointer to the right ad angle to the right
+					dialoguePointerContainer.Alignment = BoxContainer.AlignmentMode.End;
+					dialoguePointer.FlipH = true;
+					break;
+				case Direction.Right:
+					// Place pointer to the left ad angle to the left
+					dialoguePointerContainer.Alignment = BoxContainer.AlignmentMode.Begin;
+					dialoguePointer.FlipH = false;
+					break;
+			}
+		}
+		
+		
 	}
 
 	private static int GetActorDirectionOffset(Node2D actorSpeaking)
@@ -356,6 +396,25 @@ public partial class DialogueBalloon : CanvasLayer
 
 		balloon.Theme.SetStylebox("panel", "PanelContainer", theme);
 	}
+	
+	private void SetPointerColor(){
+	{
+		Color colorDialoguePointer;
+		switch (dialogueLine.Character)
+		{
+			case "Sasha":
+				colorDialoguePointer = Color.Color8(190,240,252); // colour of png
+				break;
+			case "Oliver":
+				colorDialoguePointer = Color.Color8(252,247,190); // colour of png
+				break;
+			default:
+				colorDialoguePointer = Color.Color8(255,255,255);
+				break;
+		}
+		
+		dialoguePointer.Modulate = colorDialoguePointer;
+	}}
 
 	#endregion
 

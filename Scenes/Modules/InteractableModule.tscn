@@ -11,14 +11,5 @@ script = ExtResource("1_biv0k")
 shape = SubResource("RectangleShape2D_sum5w")
 debug_color = Color(0.701961, 0, 0, 0.419608)
 
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_left = -20.0
-offset_top = -33.0
-offset_right = 20.0
-offset_bottom = -10.0
-text = "E"
-horizontal_alignment = 1
-
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
 [connection signal="body_exited" from="." to="." method="OnBodyExited"]
