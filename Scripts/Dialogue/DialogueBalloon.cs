@@ -33,7 +33,6 @@ public partial class DialogueBalloon : CanvasLayer
 	Array<Variant> temporaryGameStates = new Array<Variant>();
 	bool isWaitingForInput = false;
 	bool willHideBalloon = false;
-	
 
 	DialogueLine dialogueLine;
 
@@ -110,9 +109,7 @@ public partial class DialogueBalloon : CanvasLayer
 
 		DialogueManager.Mutated += OnMutated;
 	}
-
 	
-
 
 	public override void _ExitTree()
 	{
