@@ -286,6 +286,7 @@ public partial class DialogueBalloon : CanvasLayer
 				var yy = Scale.Y;
 				var ox = actorTransform.Origin.X - actorDirectionOffset;
 				var oy = actorTransform.Origin.Y - HeightOffset;
+
 				Transform = new Transform2D(xx, xy, yx, yy, ox, oy);
 			}
 		}
