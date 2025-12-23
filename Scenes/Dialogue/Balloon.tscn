@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Theme" uid="uid://bxv00mgy46xa8" path="res://Assets/Themes/dialogue-box-theme.tres" id="2_iwnh3"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="3_72ixx"]
-[ext_resource type="Texture2D" uid="uid://l4qo6hunr54w" path="res://Assets/Textures/UI/speech-bubble-pointer-sim.png" id="5_tlmxc"]
+[ext_resource type="Texture2D" uid="uid://27rqet36c3ag" path="res://Assets/Textures/UI/speech-bubble-pointer.png" id="5_tlmxc"]
 
 [sub_resource type="Theme" id="Theme_v4kq1"]
 

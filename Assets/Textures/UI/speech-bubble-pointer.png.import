@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://27rqet36c3ag"
-path="res://.godot/imported/speech-bubble-pointer.png-7b91e89f63f5acd18d317a6619f2267f.ctex"
+uid="uid://l4qo6hunr54w"
+path="res://.godot/imported/speech-bubble-pointer-sim.png-3f31c0231ff967c0b3bb775072dac716.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/UI/speech-bubble-pointer.png"
-dest_files=["res://.godot/imported/speech-bubble-pointer.png-7b91e89f63f5acd18d317a6619f2267f.ctex"]
+source_file="res://Assets/Textures/UI/speech-bubble-pointer-sim.png"
+dest_files=["res://.godot/imported/speech-bubble-pointer-sim.png-3f31c0231ff967c0b3bb775072dac716.ctex"]
 
 [params]
 
