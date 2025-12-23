@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://b5b5t5lllkio2" path="res://Assets/Textures/StaticObjects/OliverBedroom/clothes-ball.png" id="11_s4via"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/ClothesMoveToHeadAction.cs" id="12_2pib8"]
 [ext_resource type="Texture2D" uid="uid://o0psnnkmfi2r" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_down_point_light.webp" id="12_qvimp"]
-[ext_resource type="PackedScene" uid="uid://c4sfh3btwj0ej" path="res://Scenes/StaticObjects/FoodPlate.tscn" id="18_cruoa"]
+[ext_resource type="PackedScene" path="res://Scenes/StaticObjects/FoodPlate.tscn" id="18_cruoa"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/DialogueTriggerAction.cs" id="19_x8p4j"]
 [ext_resource type="Resource" uid="uid://c4t0mo45346ew" path="res://Assets/Dialogue/1. 14 days remain.dialogue" id="20_w067e"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/TurnOffLightAction.cs" id="24_60wok"]
@@ -86,12 +86,14 @@ position = Vector2(113, 46)
 texture = ExtResource("5_6wfvo")
 
 [node name="BedsideDrawer" type="Sprite2D" parent="Objects"]
+unique_name_in_owner = true
 z_index = -10
 position = Vector2(61, 52)
 texture = ExtResource("7_vxv3r")
 centered = false
 
 [node name="InteractableModule" parent="Objects/BedsideDrawer" instance=ExtResource("10_3d4tr")]
+process_mode = 4
 position = Vector2(24, 13)
 scale = Vector2(1.76641, 0.972235)
 TriggerMode = 1
@@ -197,6 +199,7 @@ centered = false
 position = Vector2(-7, 3)
 scale = Vector2(0.236828, 0.908157)
 TriggerMode = 1
+IndicatorOffset = Vector2(10, 5)
 
 [node name="TurnOffLightAction" type="Node2D" parent="Objects/Lamp/InteractableModule"]
 script = ExtResource("24_60wok")
@@ -242,6 +245,7 @@ centered = false
 position = Vector2(6, 12)
 scale = Vector2(0.711362, 0.965622)
 TriggerMode = 1
+IndicatorOffset = Vector2(2, 0)
 
 [node name="TurnOffLightAction" type="Node2D" parent="Objects/BedsideTable/InteractableModule"]
 script = ExtResource("24_60wok")
