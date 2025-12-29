@@ -113,7 +113,6 @@ alignment = 0
 layout_mode = 2
 
 [node name="DebugMenu" type="VBoxContainer" parent="."]
-visible = false
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -188,6 +187,16 @@ text = "Go to Set 7"
 alignment = 0
 script = ExtResource("9_alq3x")
 SceneOptions = 6
+
+[node name="Teaser1Button" type="Button" parent="DebugMenu"]
+layout_direction = 2
+layout_mode = 2
+theme = ExtResource("1_dp5jj")
+text = "Go to Teaser 1
+"
+alignment = 0
+script = ExtResource("9_alq3x")
+SceneOptions = 7
 
 [node name="BackButton" parent="DebugMenu" instance=ExtResource("8_8mqgb")]
 layout_mode = 2
