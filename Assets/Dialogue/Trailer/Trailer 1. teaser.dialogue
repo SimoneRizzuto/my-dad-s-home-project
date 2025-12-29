@@ -3,12 +3,18 @@
 do Director.Wait(2)
 
 Oliver: [speed=0.5]It's been hard to sleep lately.
+
+do Director.Wait(1.5)
+
 Sasha: [speed=0.5]Why's that?
+
+do Director.Wait(0.75)
+
 Oliver: ...
 
 do Director.Wait(2)
 
-Sasha: [speed=0.5]Did you want to talk about it?
+Sasha: [speed=0.25]Did you want to talk about it?
 
 do Director.Wait(2)
 
