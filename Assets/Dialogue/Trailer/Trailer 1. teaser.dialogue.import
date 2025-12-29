@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://jgj7nwooolll"
+path="res://.godot/imported/Trailer 1. teaser.dialogue-c246fdad23a83a966bc4df2f01cc008b.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/Trailer/Trailer 1. teaser.dialogue"
+dest_files=["res://.godot/imported/Trailer 1. teaser.dialogue-c246fdad23a83a966bc4df2f01cc008b.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,37 @@
+~ teaser_1
+
+do Director.Wait(2)
+
+Oliver: It's been hard to sleep lately.
+Sasha: Yeah?
+Oliver: ...
+
+do Director.Wait(2)
+
+Sasha: Did you want to talk about it?
+
+do Director.Wait(3)
+
+Oliver: It's-
+Oliver: ... It's hard to.
+
+do Director.Wait(2)
+
+Sasha: Take your time.
+Sasha: I can wait as long as you need.
+
+do Director.Wait(3)
+
+
+
+# spawn the online world, have Oliver walk over to the tree, where he is alone. He walks over to the tree, and sits.
+# piano motif starts
+# show the bedroom, with the door knocking
+
+# show title.
+
+#do SceneSwitcher.Spawn_DadKnocksScene()
+
+#do SceneSwitcher.Spawn_DadKnocksScene()
+
+=> END
