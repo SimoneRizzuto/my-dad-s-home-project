@@ -2,25 +2,22 @@
 
 do Director.Wait(2)
 
-Oliver: It's been hard to sleep lately.
-Sasha: Yeah?
+Oliver: [speed=0.5]It's been hard to sleep lately.
+Sasha: [speed=0.5]Why's that?
 Oliver: ...
 
 do Director.Wait(2)
 
-Sasha: Did you want to talk about it?
-
-do Director.Wait(3)
-
-Oliver: It's-
-Oliver: ... It's hard to.
+Sasha: [speed=0.5]Did you want to talk about it?
 
 do Director.Wait(2)
 
-Sasha: Take your time.
-Sasha: I can wait as long as you need.
+Oliver: [speed=0.25]It's-
+Oliver: [speed=0.25]It's just.
+Oliver: [speed=0.25]... It's hard.
+Oliver: [speed=0.25]Y'know?
 
-do Director.Wait(3)
+do Director.Wait(2)
 
 
 

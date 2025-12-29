@@ -1,25 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkuhvhpu1l473"]
+[gd_scene load_steps=7 format=3 uid="uid://bkuhvhpu1l473"]
 
 [ext_resource type="Script" path="res://Scripts/Misc/Teaser1_BlackScreen.cs" id="1_1ol7w"]
 [ext_resource type="Resource" uid="uid://jgj7nwooolll" path="res://Assets/Dialogue/Trailer/Trailer 1. teaser.dialogue" id="2_rvkb0"]
 [ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="3_nsx20"]
 [ext_resource type="PackedScene" uid="uid://cfrhcgnum5ctx" path="res://Scenes/Actors/Sasha.tscn" id="4_s7fhk"]
+[ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="5_skdxx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nkv8k"]
 size = Vector2(426, 13)
 
 [node name="Teaser1_BlackScreen" type="Node2D"]
+position = Vector2(0, -1)
 script = ExtResource("1_1ol7w")
 DialogueResource = ExtResource("2_rvkb0")
 
+[node name="TripodMounter" parent="." node_paths=PackedStringArray("MountPosition") instance=ExtResource("5_skdxx")]
+z_index = -10
+position = Vector2(217, 64)
+scale = Vector2(28.5954, 1.10309)
+MountPosition = NodePath("../Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(213, 55)
+
 [node name="Oliver" parent="." instance=ExtResource("3_nsx20")]
-position = Vector2(165, 86)
+visible = false
+position = Vector2(202, 52)
 
 [node name="Sasha" parent="." instance=ExtResource("4_s7fhk")]
-position = Vector2(264, 87)
+visible = false
+position = Vector2(223, 52)
+LastDirection = 2
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(-34, 90)
+position = Vector2(-34, 55)
 collision_layer = 15
 collision_mask = 15
 

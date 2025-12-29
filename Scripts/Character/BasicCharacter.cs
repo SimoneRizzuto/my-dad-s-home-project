@@ -7,6 +7,7 @@ public partial class BasicCharacter : CharacterBody2D, ICharacter
 {
     [Export] public string InitialAnimation = "";
     [Export] public bool IsHoldingPlate;
+    [Export] public Direction LastDirection { get; set; }
     
     // getters
     private int Gravity => ProjectSettings.GetSetting("physics/2d/default_gravity").ToString().ToInt();
@@ -34,7 +35,6 @@ public partial class BasicCharacter : CharacterBody2D, ICharacter
     
     #region interface implementations
     public CharacterState CharacterState { get; set; }
-    public Direction LastDirection { get; set; }
     public bool IsJumping => !IsOnFloor();
 
     public void Move(float direction)
