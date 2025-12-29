@@ -15,7 +15,7 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     public const string FourteenDaysRemain = "uid://c4t0mo45346ew";
     
     // sets
-    public const string Teaser1 = "uid://bkuhvhpu1l473";
+    public const string Teaser1BlackScreen = "uid://bkuhvhpu1l473";
     
     public const string Set1_OnlineWorld = "uid://cjd6v6afkjbn0";
     public const string Set1_OliverBedroom = "uid://cap325m8jhcqw";

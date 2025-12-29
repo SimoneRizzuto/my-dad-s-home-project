@@ -52,7 +52,7 @@ public partial class GoToSceneButton : Button
 				SceneSwitcher.Instance?.TransitionToScene("");
 				break;
 			case DebugSceneOptions.Teaser1:
-				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Teaser1);
+				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Teaser1BlackScreen);
 				FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
 				if (MainMenu is null)
 				{

@@ -19,7 +19,7 @@ Oliver: [speed=0.25]Y'know?
 
 do Director.Wait(2)
 
-
+do SceneSwitcher.Spawn_Teaser1OnlineWorldScene()
 
 # spawn the online world, have Oliver walk over to the tree, where he is alone. He walks over to the tree, and sits.
 # piano motif starts
