@@ -20,8 +20,7 @@ do Director.Wait(2)
 
 Oliver: [speed=0.25]It's-
 Oliver: [speed=0.25]It's just.
-Oliver: [speed=0.25]... It's hard to.
-Oliver: [speed=0.25]Y'know?
+Oliver: [speed=0.25]...
 
 do Director.Wait(2)
 
@@ -39,15 +38,16 @@ do SceneSwitcher.Spawn_Teaser1OnlineWorldScene()
 
 ~ tree_scene
 
-do Director.Wait(2.5)
+#do Director.Wait(2.5)
 
 # Oliver walks toward tree, and sits down as well
 do Oliver.MoveRight(15)
 do Sasha.PlayAnimation("draw look left")
 do Oliver.MoveToXPosition(469)
+do Director.Wait(0.5)
 do Oliver.PlayAnimation("idle left")
 do Oliver.SetDirection(-1)
-do Director.Wait(0.5)
+do Director.Wait(1)
 do Oliver.PlayAnimation("sit left")
 do Director.Wait(0.5)
 
