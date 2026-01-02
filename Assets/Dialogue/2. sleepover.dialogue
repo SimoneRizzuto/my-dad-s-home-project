@@ -2,8 +2,6 @@
 #Friend and Oliver are in a bedroom together, playing video games while huddled next to each other.
 #Someone wins, and then Oliver gets up to walk around the room. There are things to interact with.
 
-do Sasha.SetDirection(1)
-
 Oliver: NO WAY!
 Sasha: YES!
 Sasha: Woo!
@@ -194,7 +192,7 @@ Oliver: I don't know. I haven't done many things.
 Oliver: They make it look really fun in movies.
 Oliver: Surely, it's just as fun in real life.
 Sasha: I'm sure it is.
-Oliver: When we're older, we should definitely go camping with the gang.
+Oliver: When we're older, we should definitely go camping with everyone else.
 Oliver: It would be really fun to be out there, gathering wood for a fire, cooking dinner in it.
 Sasha: As long as I can bring my sketchbook, I'm happy.
 Oliver: True! And then you could draw your point of view, and capture the moment.
@@ -234,13 +232,12 @@ do Director.Wait(2)
 
 Oliver: Ok, I promise.
 Sasha: To?
-Oliver: I promise to go sometime.
+Oliver: I promise to.
 Sasha: Oliver...
-Oliver: I-
 
 do Oliver.PlayAnimation("look up")
 
-Oliver: *small text* I promise to try.
+Oliver: *small text* I promise to try and visit sometime.
 Sasha: Good.
 
 do Director.Wait(6)

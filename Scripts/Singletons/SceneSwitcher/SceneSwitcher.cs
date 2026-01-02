@@ -16,6 +16,7 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     
     // sets
     public const string Teaser1BlackScreen = "uid://bkuhvhpu1l473";
+    public const string Teaser1OnlineWorld = "uid://ccvfjngolov5e";
     
     public const string Set1_OnlineWorld = "uid://cjd6v6afkjbn0";
     public const string Set1_OliverBedroom = "uid://cap325m8jhcqw";
@@ -71,6 +72,14 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
 
         DialogueDirector.Instance.FinishCutscene(resource);
         DialogueDirector.Instance.TriggerCutscene(resource, title);
+    }
+    
+    public void Spawn_Teaser1OnlineWorldScene()
+    {
+        TransitionToScene(Teaser1OnlineWorld);
+        
+        PlayerCamera.Dismount();
+        DialogueDirector.Instance.FinishCutscene(new());
     }
     
     #endregion

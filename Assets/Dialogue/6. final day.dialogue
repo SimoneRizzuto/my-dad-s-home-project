@@ -58,7 +58,6 @@ Papa: Please.
 Papa: Why did you sit next to me that night?
 Papa: If you we're so scared of me, why didn't you hide away?
 Oliver: ...
-Oliver: I don't know. *slow text*
 Papa: ...
 Papa: It doesn't matter.
 Papa: We're here now.
@@ -84,8 +83,8 @@ do Director.Wait(3)
 
 Papa: After everything...
 Papa: Don't be surprised...
-Papa: If one day, you find me.
-Papa: Dead on the kitchen floor. *slow text*
+Papa: If one day...
+Papa: You find me dead on the kitchen floor. *slow text*
 
 # oliver takes a step backwards
 
