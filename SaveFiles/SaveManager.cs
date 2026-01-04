@@ -26,7 +26,7 @@ public partial class SaveManager : Node
 		}
 
 		using var file = FileAccess.Open(SavePath, FileAccess.ModeFlags.Read);
-		string jsonData = file.GetAsText();
+		var jsonData = file.GetAsText();
 		var parseResult = Json.ParseString(jsonData);
 
 		var gameData = (Dictionary)parseResult;
