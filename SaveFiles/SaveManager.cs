@@ -10,7 +10,7 @@ public partial class SaveManager : Node
 
 	public static void SaveGameData(SaveFiles.SaveData saveData)
 	{
-		string jsonSaveDataString = JsonSerializer.Serialize(saveData);
+		var jsonSaveDataString = JsonSerializer.Serialize(saveData);
 		using var file = FileAccess.Open(SavePath, FileAccess.ModeFlags.Write);
 		file.StoreString(jsonSaveDataString);
 		file.Close();
@@ -41,7 +41,7 @@ public partial class SaveManager : Node
 					saveData.SceneIndex = (int)kvp.Value;
 					break;
 				case "SceneUID":
-					saveData.SceneUID = (string)kvp.Value;
+					saveData.SceneUid = (string)kvp.Value;
 					break;
 				case "SceneNames":
 					saveData.SceneNames = (Godot.Collections.Array<string>)kvp.Value;
