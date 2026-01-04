@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Godot;
 using Godot.Collections;
 using System.Text.Json;
@@ -9,14 +8,12 @@ public partial class SaveManager : Node
 {
 	private const string SavePath = "res://SaveFiles//SaveData.json";
 
-	public static void SaveGameData(SaveFiles.SaveData  saveData)
+	public static void SaveGameData(SaveFiles.SaveData saveData)
 	{
-
 		string jsonSaveDataString = JsonSerializer.Serialize(saveData);
 		using var file = FileAccess.Open(SavePath, FileAccess.ModeFlags.Write);
 		file.StoreString(jsonSaveDataString);
 		file.Close();
-
 	}
 
 	public static SaveData? LoadGameData()
@@ -27,14 +24,14 @@ public partial class SaveManager : Node
 			GD.PrintErr("Save file not found.");
 			return null;
 		}
-		
+
 		using var file = FileAccess.Open(SavePath, FileAccess.ModeFlags.Read);
 		string jsonData = file.GetAsText();
 		var parseResult = Json.ParseString(jsonData);
 
 		var gameData = (Dictionary)parseResult;
-		// loop through keys in Dictionry and update properties of a new SaveData object
 
+		// Loop through keys in Dictionary and update properties of a new SaveData object
 		var saveData = new SaveData();
 		foreach (var kvp in gameData)
 		{
@@ -51,7 +48,7 @@ public partial class SaveManager : Node
 					break;
 			}
 		}
-		
+
 		return saveData;
 	}
 }

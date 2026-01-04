@@ -32,7 +32,7 @@ InteractionAllocator="*res://Scripts/Singletons/InteractionAllocator/Interaction
 FadeUtil="*res://Scenes/Camera/FadeUtil.tscn"
 ShowTextureUI="*res://Scenes/Modules/ShowTextureUI/ShowTextureUIModule.tscn"
 InteractableIndicator="*res://Scenes/Modules/Interactables/Indicator/InteractableIndicator.tscn"
-SaveGameModule="*res://SaveData/SaveGameModule.cs"
+SaveManager="*res://SaveFiles/SaveManager.cs"
 
 [dialogue_manager]
 
