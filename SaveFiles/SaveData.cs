@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-
-
 namespace MyFathersHomeProject.SaveFiles;
 
 public class SaveData
