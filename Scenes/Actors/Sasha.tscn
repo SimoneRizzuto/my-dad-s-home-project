@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cfrhcgnum5ctx"]
+[gd_scene load_steps=30 format=3 uid="uid://cfrhcgnum5ctx"]
 
 [ext_resource type="Script" path="res://Scripts/Character/Actors/Sasha.cs" id="1_euxa3"]
 [ext_resource type="Texture2D" uid="uid://dwbu4vfd35r47" path="res://Assets/Textures/Sasha/sasha idle left-Sheet.png" id="2_2p2j2"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dq0bo22y3ja1v" path="res://Assets/Textures/Sasha/sasha draw wave left-Sheet.png" id="6_qxr03"]
 [ext_resource type="Texture2D" uid="uid://bgsw5g2wlminy" path="res://Assets/Textures/Sasha/sasha idle right-Sheet.png" id="7_8kmy0"]
 [ext_resource type="Texture2D" uid="uid://drxavc7uvvc2p" path="res://Assets/Textures/Sasha/sasha sit right-Sheet.png" id="9_65m4p"]
+[ext_resource type="AudioStream" uid="uid://dlemll3n8x5v2" path="res://Assets/Audio/Sound/speak sound effect.ogg" id="10_d3grx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_egfdo"]
 size = Vector2(6, 18)
@@ -182,5 +183,9 @@ one_way_collision = true
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_5lq05")
 animation = &"sit right"
+
+[node name="SpeakSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_d3grx")
+pitch_scale = 1.2
 
 [node name="ActorModule" parent="." instance=ExtResource("3_foa8s")]

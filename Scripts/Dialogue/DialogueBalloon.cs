@@ -397,7 +397,7 @@ public partial class DialogueBalloon : CanvasLayer
 		balloon.Theme.SetStylebox("panel", "PanelContainer", theme);
 	}
 	
-	private void SetPointerColor(){
+	private void SetPointerColor()
 	{
 		Color colorDialoguePointer;
 		switch (dialogueLine.Character)
@@ -414,7 +414,18 @@ public partial class DialogueBalloon : CanvasLayer
 		}
 		
 		dialoguePointer.Modulate = colorDialoguePointer;
-	}}
+	}
+	
+	// custom signals
+	private void OnDialogueLabelSpoke(string letter, int letterIndex, float speed)
+	{
+		var actorSpeaking = ActorSpeaking();
+		if (actorSpeaking == null) return;
+		
+		var actorModule = actorSpeaking.GetNode<ActorModule>("ActorModule");
+		actorModule?.SpeakSound.Play();
+	}
+	
 
 	#endregion
 

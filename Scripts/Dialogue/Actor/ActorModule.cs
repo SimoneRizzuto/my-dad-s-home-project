@@ -10,8 +10,9 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
     public CharacterBody2D CharacterBody => GetParentOrNull<CharacterBody2D>();
     public AnimatedSprite2D MainSprite => GetParent().GetNode<AnimatedSprite2D>($"{nameof(MainSprite)}");
     public CollisionShape2D MainShape => GetParent().GetNode<CollisionShape2D>($"{nameof(MainShape)}");
+    public AudioStreamPlayer SpeakSound => GetParent().GetNode<AudioStreamPlayer>($"{nameof(SpeakSound)}");
     public ICharacter Character => (ICharacter)CharacterBody;
-    
+
     public void SetCharacterState(CharacterState state)
     {
         Character.CharacterState = state;
