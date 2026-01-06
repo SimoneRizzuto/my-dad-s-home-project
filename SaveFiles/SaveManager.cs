@@ -1,5 +1,5 @@
+using System;
 using Godot;
-using Godot.Collections;
 using System.Text.Json;
 
 namespace MyFathersHomeProject.SaveFiles;
@@ -27,28 +27,16 @@ public partial class SaveManager : Node
 
 		using var file = FileAccess.Open(SavePath, FileAccess.ModeFlags.Read);
 		var jsonData = file.GetAsText();
-		var parseResult = Json.ParseString(jsonData);
-
-		var gameData = (Dictionary)parseResult;
-
-		// Loop through keys in Dictionary and update properties of a new SaveData object
-		var saveData = new SaveData();
-		foreach (var kvp in gameData)
+		SaveData? deserializedData = null;
+		try
 		{
-			switch ((string)kvp.Key)
-			{
-				case "SceneIndex":
-					saveData.SceneIndex = (int)kvp.Value;
-					break;
-				case "SceneUID":
-					saveData.SceneUid = (string)kvp.Value;
-					break;
-				case "SceneNames":
-					saveData.SceneNames = (Godot.Collections.Array<string>)kvp.Value;
-					break;
-			}
+			deserializedData = JsonSerializer.Deserialize<SaveData>(jsonData);
+		}
+		catch (Exception ex)
+		{
+			GD.PrintErr($"Deserialization failed for {nameof(SaveData)}: {ex.Message}");
 		}
 
-		return saveData;
+		return deserializedData;
 	}
 }
