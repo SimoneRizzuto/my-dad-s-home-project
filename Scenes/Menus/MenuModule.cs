@@ -33,7 +33,7 @@ public partial class MenuModule : CanvasLayer
 	private Button Set1Button => GetNode<Button>("%Set1Button");
 
 	// variables
-	private int pauseMenuButtonLastFocusIndex = 0;
+	private int menuButtonLastFocusIndex = 0;
 	private bool mainObservedOnce = false;
 	
 	private enum MenuMode
@@ -41,10 +41,12 @@ public partial class MenuModule : CanvasLayer
 		Main,
 		Pause
 	}
+	private MenuMode menuMode;
 
 	public override void _Ready()
 	{
 		ProcessMode = ProcessModeEnum.Always;
+		menuMode = MenuMode.Main;
 		ColorRect.Visible = false;
 		PauseLabel.Visible = false;
 		MainLabel.Visible = false;
@@ -72,7 +74,7 @@ public partial class MenuModule : CanvasLayer
 			}
 		}
 
-		if (Input.IsActionJustPressed(InputMapAction.Pause))
+		if (Input.IsActionJustPressed(InputMapAction.Pause) & (menuMode == MenuMode.Pause))
 		{
 			TogglePause();
 		}
@@ -90,6 +92,20 @@ public partial class MenuModule : CanvasLayer
 		{
 			LetsContinueGame();
 		}
+	}
+	
+	public void GoToMainMenu()
+	{
+		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
+		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
+		
+		Menu.Visible = true;
+		GoInsideButton.Visible = true;
+		QuitButton.Visible = true;
+		PauseQuitButton.Visible = false;
+		LetsContinueButton.Visible = false;
+		MainMenuFocus();
+		Menu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 	}
 
 	public void GoToPauseMenu()
@@ -122,7 +138,7 @@ public partial class MenuModule : CanvasLayer
 		TestButton.GrabFocus();
 		OptionsMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 
-		pauseMenuButtonLastFocusIndex = 1;
+		menuButtonLastFocusIndex = 1;
 	}
 
 	public void GoToDebugMenu()
@@ -134,7 +150,7 @@ public partial class MenuModule : CanvasLayer
 		Set1Button.GrabFocus();
 		DebugMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 
-		pauseMenuButtonLastFocusIndex = 2;
+		menuButtonLastFocusIndex = 2;
 	}
 
 	public void LetsContinueGame()
@@ -146,7 +162,7 @@ public partial class MenuModule : CanvasLayer
 		DebugButton.Disabled = true;
 		QuitButton.Disabled = true;
 
-		pauseMenuButtonLastFocusIndex = 0;
+		menuButtonLastFocusIndex = 0;
 
 		GetTree().Paused = false;
 	}
@@ -158,12 +174,28 @@ public partial class MenuModule : CanvasLayer
 		Menu.Visible = false;
 		DebugMenu.Visible = false;
 		OptionsMenu.Visible = false;
-		pauseMenuButtonLastFocusIndex = 0;
+		menuButtonLastFocusIndex = 0;
+	}
+	
+	private void MainMenuFocus()
+	{
+		switch (menuButtonLastFocusIndex)
+		{
+			case 0:
+				GoInsideButton.GrabFocus();
+				break;
+			case 1:
+				OptionsButton.GrabFocus();
+				break;
+			case 2:
+				DebugButton.GrabFocus();
+				break;
+		}
 	}
 
 	private void PauseMenuFocus()
 	{
-		switch (pauseMenuButtonLastFocusIndex)
+		switch (menuButtonLastFocusIndex)
 		{
 			case 0:
 				LetsContinueButton.GrabFocus();
