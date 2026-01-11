@@ -18,11 +18,9 @@ public partial class MenuModule : CanvasLayer
 	// pause menu
 	private Control Menu => GetNode<Control>("./ColorRect/Menu");
 	private Button LetsContinueButton => GetNode<Button>("%LetsContinueButton");
-	private Button GoInsideButton => GetNode<Button>("%GoInsideButton");
 	private Button OptionsButton => GetNode<Button>("%OptionsButton");
 	private Button DebugButton => GetNode<Button>("%DebugButton");
 	private Button QuitButton => GetNode<Button>("%QuitButton");
-	private Button PauseQuitButton => GetNode<Button>("%PauseQuitButton");
 
 	// settings menu
 	private Control OptionsMenu => GetNode<Control>("./ColorRect/OptionsMenu");
@@ -36,17 +34,17 @@ public partial class MenuModule : CanvasLayer
 	private int menuButtonLastFocusIndex = 0;
 	private bool mainObservedOnce = false;
 	
-	private enum MenuMode
+	public enum MenuMode
 	{
 		Main,
 		Pause
 	}
-	private MenuMode menuMode;
+	public MenuMode menuMode;
 
 	public override void _Ready()
 	{
 		ProcessMode = ProcessModeEnum.Always;
-		menuMode = MenuMode.Main;
+		menuMode = MenuMode.Pause; // For now just to test. Should be Main
 		ColorRect.Visible = false;
 		PauseLabel.Visible = false;
 		MainLabel.Visible = false;
@@ -96,13 +94,15 @@ public partial class MenuModule : CanvasLayer
 	
 	public void GoToMainMenu()
 	{
+		// Pause
+		LetsContinueButton.Disabled = true;
+		LetsContinueButton.Visible = false;
+		
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
 		
 		Menu.Visible = true;
-		GoInsideButton.Visible = true;
 		QuitButton.Visible = true;
-		PauseQuitButton.Visible = false;
 		LetsContinueButton.Visible = false;
 		MainMenuFocus();
 		Menu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
@@ -114,7 +114,7 @@ public partial class MenuModule : CanvasLayer
 		OptionsButton.Disabled = false;
 		DebugButton.Disabled = false;
 		QuitButton.Disabled = false;
-
+		
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = GetTree().Paused);
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = GetTree().Paused);
 
@@ -131,6 +131,7 @@ public partial class MenuModule : CanvasLayer
 
 	public void GoToSettingsMenu()
 	{
+		SetBackgroundTransparency();
 		Menu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => Menu.Visible = false);
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
 
@@ -143,6 +144,7 @@ public partial class MenuModule : CanvasLayer
 
 	public void GoToDebugMenu()
 	{
+		SetBackgroundTransparency();
 		Menu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => Menu.Visible = false);
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
 
@@ -151,6 +153,18 @@ public partial class MenuModule : CanvasLayer
 		DebugMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 
 		menuButtonLastFocusIndex = 2;
+	}
+
+	private void SetBackgroundTransparency()
+	{
+		if (menuMode == MenuMode.Main)
+		{
+			ColorRect.Color = new Color(0, 0, 0, a:0);
+		}
+		else
+		{
+			ColorRect.Color = new Color(0, 0, 0, a:pauseMenuOpacity);
+		}
 	}
 
 	public void LetsContinueGame()
@@ -182,7 +196,7 @@ public partial class MenuModule : CanvasLayer
 		switch (menuButtonLastFocusIndex)
 		{
 			case 0:
-				GoInsideButton.GrabFocus();
+				LetsContinueButton.GrabFocus();
 				break;
 			case 1:
 				OptionsButton.GrabFocus();

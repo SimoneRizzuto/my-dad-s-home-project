@@ -7,12 +7,21 @@ namespace MyFathersHomeProject.Scenes.Menus.PauseMenu;
 
 public partial class LetsContinueButton : Button
 {
-	private PauseMenuModule? PauseMenu => GetTree().Root
-		.GetChildrenRecursive<PauseMenuModule>()
+	private MenuModule? Menu => GetTree().Root
+		.GetChildrenRecursive<MenuModule>()
 		.FirstOrDefault();
 	public override void _Pressed()
 	{
-		PauseMenu?.LetsContinueGame();
+		if ((Menu?.menuMode == MenuModule.MenuMode.Pause))
+		{
+			Text = "Let's Continue";	
+			Menu?.LetsContinueGame();
+		}
+		else
+		{
+			Text = "Go Inside";
+		}
+		
 	}
 	
 }

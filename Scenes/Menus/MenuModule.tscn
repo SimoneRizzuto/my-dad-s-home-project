@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cq53k4akw02sg"]
+[gd_scene load_steps=13 format=3 uid="uid://cq53k4akw02sg"]
 
 [ext_resource type="FontFile" uid="uid://cb0xauna5q601" path="res://Assets/Fonts/Reaper Font.ttf" id="1_3n054"]
 [ext_resource type="Script" path="res://Scenes/Menus/MenuModule.cs" id="1_b4uhw"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://dya8epkgbbq1i" path="res://Scenes/Menus/MainMenu/Buttons/OptionsButton.tscn" id="4_hq8qe"]
 [ext_resource type="PackedScene" uid="uid://c2jftd2den0d6" path="res://Scenes/Menus/MainMenu/Buttons/DebugButton.tscn" id="5_r0faw"]
 [ext_resource type="PackedScene" uid="uid://dy5kyi42jp6jl" path="res://Scenes/Menus/MainMenu/Buttons/QuitButton.tscn" id="6_kq6vb"]
-[ext_resource type="Script" path="res://Scripts/Menus/MainMenuBackButton.cs" id="7_b746x"]
 [ext_resource type="PackedScene" uid="uid://cnfboq67kgywk" path="res://Scenes/Menus/MainMenu/Buttons/MainMenuBackButton.tscn" id="8_osmq6"]
 [ext_resource type="Script" path="res://Scenes/Menus/PauseMenu/Buttons/BackButton.cs" id="9_c16w8"]
 [ext_resource type="Script" path="res://Scripts/Menus/GoToSceneButton.cs" id="10_kf0rm"]
@@ -63,17 +62,8 @@ scale = Vector2(1.00143, 0.99473)
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="GoInsideButton" type="Button" parent="ColorRect/Menu"]
-unique_name_in_owner = true
-layout_direction = 2
-layout_mode = 2
-theme = ExtResource("2_cuk7j")
-text = "Go Inside"
-alignment = 0
-
 [node name="LetsContinueButton" type="Button" parent="ColorRect/Menu"]
 unique_name_in_owner = true
-visible = false
 layout_direction = 2
 layout_mode = 2
 theme = ExtResource("2_cuk7j")
@@ -88,13 +78,6 @@ layout_mode = 2
 [node name="DebugButton" parent="ColorRect/Menu" instance=ExtResource("5_r0faw")]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="PauseQuitButton" parent="ColorRect/Menu" instance=ExtResource("6_kq6vb")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-text = "Take a Break"
-script = ExtResource("7_b746x")
 
 [node name="QuitButton" parent="ColorRect/Menu" instance=ExtResource("6_kq6vb")]
 unique_name_in_owner = true
