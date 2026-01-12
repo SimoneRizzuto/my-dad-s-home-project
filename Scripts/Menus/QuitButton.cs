@@ -9,25 +9,28 @@ namespace MyFathersHomeProject.Scripts.Menus;
 public partial class QuitButton : Button
 {
 
-	private MenuModule? Menu => GetTree().CurrentScene
+	private MenuModule? Menu => GetTree().Root
 		.GetChildrenRecursive<MenuModule>()
 		.FirstOrDefault();
 
 	public override async void _Pressed()
 	{
-		if (Menu?.menuMode == MenuModule.MenuMode.Pause)
+		if (Menu?.menuMode == MenuModule.MenuMode.PauseMenu)
 		{
-			Text = "Take a Break";
+			if (Menu == null) return;
 			FadeUtil.Instance?.FadeOut(NodeExtensions.MenuFadeInitialiseTime);
-			if (Menu is null){Menu?.ResetPauseMenu();}
+			Menu.ResetPauseMenu();
 			await ToSignal(GetTree().CreateTimer(NodeExtensions.MenuFadeInitialiseTime), SceneTreeTimer.SignalName.Timeout);
-			GetTree().Paused = false; 
-			SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.MainMenuScreen);
+			GetTree().Paused = false;
+			Menu.menuMode = MenuModule.MenuMode.MainMenu;
+			Menu?.GoToMainMenu();
+
+			//SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.MainMenuScreen);
 			
 		}
 		else
 		{
-			Text = "Not Now";
+			
 			if (FadeUtil.Instance != null)
 			{
 				FadeUtil.Instance.FadeOut();

@@ -5,11 +5,19 @@ using MyFathersHomeProject.Scripts.Shared.Helpers;
 namespace MyFathersHomeProject.Scripts.Menus;
 public partial class BackButton : Button
 {
-	private PauseMenuModule? PauseMenu => GetTree().Root
-		.GetChildrenRecursive<PauseMenuModule>()
+	private MenuModule? Menu => GetTree().Root
+		.GetChildrenRecursive<MenuModule>()
 		.FirstOrDefault();
 	public override void _Pressed()
 	{
-		PauseMenu?.GoToPauseMenu();
+		if (Menu?.menuMode == MenuModule.MenuMode.PauseMenu)
+		{
+			Menu?.GoToPauseMenu();
+		}
+		else
+		{
+			Menu?.GoToMainMenu();
+		}
+		
 	}
 }

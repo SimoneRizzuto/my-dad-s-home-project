@@ -5,7 +5,7 @@ using MyFathersHomeProject.Scripts.Shared.Helpers;
 namespace MyFathersHomeProject.Scripts.Menus;
 public partial class DebugButton : Button
 {
-	private MenuModule? Menu => GetTree().CurrentScene
+	private MenuModule? Menu => GetTree().Root
 		.GetChildrenRecursive<MenuModule>()
 		.FirstOrDefault();
 

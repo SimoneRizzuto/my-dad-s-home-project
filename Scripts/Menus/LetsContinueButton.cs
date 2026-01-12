@@ -12,14 +12,14 @@ public partial class LetsContinueButton : Button
 		.FirstOrDefault();
 	public override void _Pressed()
 	{
-		if ((Menu?.menuMode == MenuModule.MenuMode.Pause))
+		if ((Menu?.menuMode == MenuModule.MenuMode.PauseMenu))
 		{
-			Text = "Let's Continue";	
+			
 			Menu?.LetsContinueGame();
 		}
 		else
 		{
-			Text = "Go Inside";
+			GD.Print("Some logic for go inside");
 		}
 		
 	}

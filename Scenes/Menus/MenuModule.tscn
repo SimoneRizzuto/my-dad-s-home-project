@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=3 uid="uid://cq53k4akw02sg"]
 
 [ext_resource type="FontFile" uid="uid://cb0xauna5q601" path="res://Assets/Fonts/Reaper Font.ttf" id="1_3n054"]
-[ext_resource type="Script" path="res://Scenes/Menus/MenuModule.cs" id="1_b4uhw"]
+[ext_resource type="Script" path="res://Scripts/Menus/MenuModule.cs" id="1_b4uhw"]
 [ext_resource type="Theme" uid="uid://c2yv8q7b8742i" path="res://Assets/Themes/ui-button-theme.tres" id="2_cuk7j"]
-[ext_resource type="Script" path="res://Scenes/Menus/PauseMenu/LetsContinueButton.cs" id="3_jhru4"]
+[ext_resource type="Script" path="res://Scripts/Menus/LetsContinueButton.cs" id="3_jhru4"]
 [ext_resource type="PackedScene" uid="uid://dya8epkgbbq1i" path="res://Scenes/Menus/MainMenu/Buttons/OptionsButton.tscn" id="4_hq8qe"]
 [ext_resource type="PackedScene" uid="uid://c2jftd2den0d6" path="res://Scenes/Menus/MainMenu/Buttons/DebugButton.tscn" id="5_r0faw"]
 [ext_resource type="PackedScene" uid="uid://dy5kyi42jp6jl" path="res://Scenes/Menus/MainMenu/Buttons/QuitButton.tscn" id="6_kq6vb"]
 [ext_resource type="PackedScene" uid="uid://cnfboq67kgywk" path="res://Scenes/Menus/MainMenu/Buttons/MainMenuBackButton.tscn" id="8_osmq6"]
-[ext_resource type="Script" path="res://Scenes/Menus/PauseMenu/Buttons/BackButton.cs" id="9_c16w8"]
+[ext_resource type="Script" path="res://Scripts/Menus/BackButton.cs" id="9_c16w8"]
 [ext_resource type="Script" path="res://Scripts/Menus/GoToSceneButton.cs" id="10_kf0rm"]
 
 [sub_resource type="Theme" id="Theme_tp6t0"]

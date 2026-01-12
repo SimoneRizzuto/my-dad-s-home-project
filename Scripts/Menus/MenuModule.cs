@@ -36,15 +36,15 @@ public partial class MenuModule : CanvasLayer
 	
 	public enum MenuMode
 	{
-		Main,
-		Pause
+		MainMenu,
+		PauseMenu
 	}
 	public MenuMode menuMode;
 
 	public override void _Ready()
 	{
 		ProcessMode = ProcessModeEnum.Always;
-		menuMode = MenuMode.Pause; // For now just to test. Should be Main
+		menuMode = MenuMode.PauseMenu; // For now just to test. Should be Main
 		ColorRect.Visible = false;
 		PauseLabel.Visible = false;
 		MainLabel.Visible = false;
@@ -55,7 +55,7 @@ public partial class MenuModule : CanvasLayer
 
 	public override void _Process(double delta)
 	{
-		if (GetTree().CurrentScene.Name == "Main")
+		/*if (GetTree().CurrentScene.Name == "Main")
 		{
 			// Running main game as customer OR developer
 			if (GetTree().CurrentScene.GetChildren()[0].IsInGroup("Gameplay") == false)
@@ -70,9 +70,15 @@ public partial class MenuModule : CanvasLayer
 			{
 				return;
 			}
-		}
+		}*/
 
-		if (Input.IsActionJustPressed(InputMapAction.Pause) & (menuMode == MenuMode.Pause))
+		/*if (menuMode == MenuMode.MainMenu)
+		{
+			GoToMainMenu();
+			return;
+		}*/	
+
+		if (Input.IsActionJustPressed(InputMapAction.Pause) & (menuMode == MenuMode.PauseMenu))
 		{
 			TogglePause();
 		}
@@ -95,25 +101,30 @@ public partial class MenuModule : CanvasLayer
 	public void GoToMainMenu()
 	{
 		// Pause
-		LetsContinueButton.Disabled = true;
-		LetsContinueButton.Visible = false;
+		SetBackgroundTransparency();
+		QuitButton.Text = "Not Now";
+		LetsContinueButton.Text = "Go Inside";
 		
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
 		
 		Menu.Visible = true;
 		QuitButton.Visible = true;
-		LetsContinueButton.Visible = false;
-		MainMenuFocus();
+		LetsContinueButton.Visible = true;
+		MenuFocus();
 		Menu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 	}
 
 	public void GoToPauseMenu()
 	{
+		SetBackgroundTransparency();
+		QuitButton.Text = "Take a Break";
+		LetsContinueButton.Text = "Let's Continue";	
 		LetsContinueButton.Disabled = false;
 		OptionsButton.Disabled = false;
 		DebugButton.Disabled = false;
 		QuitButton.Disabled = false;
+		
 		
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = GetTree().Paused);
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = GetTree().Paused);
@@ -123,7 +134,8 @@ public partial class MenuModule : CanvasLayer
 
 		PauseLabel.Visible = true;
 		Menu.Visible = true;
-		PauseMenuFocus();
+		LetsContinueButton.Visible = true;
+		MenuFocus();
 		Menu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 
 		PauseLabel.FadeIn(NodeExtensions.MenuFadeDefaultTime);
@@ -157,7 +169,7 @@ public partial class MenuModule : CanvasLayer
 
 	private void SetBackgroundTransparency()
 	{
-		if (menuMode == MenuMode.Main)
+		if (menuMode == MenuMode.MainMenu)
 		{
 			ColorRect.Color = new Color(0, 0, 0, a:0);
 		}
@@ -191,23 +203,8 @@ public partial class MenuModule : CanvasLayer
 		menuButtonLastFocusIndex = 0;
 	}
 	
-	private void MainMenuFocus()
-	{
-		switch (menuButtonLastFocusIndex)
-		{
-			case 0:
-				LetsContinueButton.GrabFocus();
-				break;
-			case 1:
-				OptionsButton.GrabFocus();
-				break;
-			case 2:
-				DebugButton.GrabFocus();
-				break;
-		}
-	}
 
-	private void PauseMenuFocus()
+	private void MenuFocus()
 	{
 		switch (menuButtonLastFocusIndex)
 		{
