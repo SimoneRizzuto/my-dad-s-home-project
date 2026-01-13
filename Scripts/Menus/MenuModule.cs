@@ -108,11 +108,13 @@ public partial class MenuModule : CanvasLayer
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
 		
+		MainLabel.Visible = true;
 		Menu.Visible = true;
 		QuitButton.Visible = true;
 		LetsContinueButton.Visible = true;
 		MenuFocus();
 		Menu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
+		MainLabel.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 	}
 
 	public void GoToPauseMenu()
