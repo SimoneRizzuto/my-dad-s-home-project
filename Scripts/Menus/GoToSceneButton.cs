@@ -9,10 +9,10 @@ namespace MyFathersHomeProject.Scripts.Menus;
 public partial class GoToSceneButton : Button
 {
 	[Export] public DebugSceneOptions SceneOptions;
-	private MainMenuModule? MainMenu => GetTree().CurrentScene
-		.GetChildrenRecursive<MainMenuModule>()
+	private MenuModule? Menu => GetTree().Root
+		.GetChildrenRecursive<MenuModule>()
 		.FirstOrDefault();
-	private PauseMenuModule? PauseMenu => GetTree().Root.GetChildrenRecursive<PauseMenuModule>().FirstOrDefault();
+	
 	public override void _Pressed()
 	{
 		
@@ -21,18 +21,18 @@ public partial class GoToSceneButton : Button
 			case DebugSceneOptions.Set1:
 				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
 				FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
-				if (MainMenu is null)
+				if (Menu?.menuMode == MenuModule.MenuMode.PauseMenu)
 				{
-					PauseMenu?.ResetPauseMenu();
+					Menu?.ResetPauseMenu();
 					GetTree().Paused = false; 
 				}
 				break;
 			case DebugSceneOptions.Set2:
 				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set2_SashaBedroom);
 				FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
-				if (MainMenu is null)
+				if (Menu?.menuMode == MenuModule.MenuMode.PauseMenu)
 				{
-					PauseMenu?.ResetPauseMenu();
+					Menu?.ResetPauseMenu();
 					GetTree().Paused = false; 
 				}
 				break;
