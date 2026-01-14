@@ -100,6 +100,7 @@ public partial class MenuModule : CanvasLayer
 	
 	public void GoToMainMenu()
 	{
+		// menuMode = MenuMode.MainMenu;
 		// Pause
 		SetBackgroundTransparency();
 		QuitButton.Text = "Not Now";
@@ -173,7 +174,7 @@ public partial class MenuModule : CanvasLayer
 	{
 		if (menuMode == MenuMode.MainMenu)
 		{
-			ColorRect.Color = new Color(0, 0, 0, a:0);
+			ColorRect.Color = new Color(0, 0, 0, a:1);
 		}
 		else
 		{
@@ -197,9 +198,22 @@ public partial class MenuModule : CanvasLayer
 
 	public void ResetPauseMenu()
 	{
+		menuMode = MenuMode.PauseMenu;
 		ColorRect.Visible = false;
 		PauseLabel.Visible = false;
+		MainLabel.Visible = false;
 		Menu.Visible = false;
+		DebugMenu.Visible = false;
+		OptionsMenu.Visible = false;
+		menuButtonLastFocusIndex = 0;
+	}
+	public void ResetMainMenu()
+	{
+		menuMode = MenuMode.MainMenu;
+		ColorRect.Visible = true;
+		MainLabel.Visible = true;
+		PauseLabel.Visible = false;
+		Menu.Visible = true;
 		DebugMenu.Visible = false;
 		OptionsMenu.Visible = false;
 		menuButtonLastFocusIndex = 0;

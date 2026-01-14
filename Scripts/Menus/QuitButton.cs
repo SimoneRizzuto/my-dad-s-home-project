@@ -17,12 +17,12 @@ public partial class QuitButton : Button
 	{
 		if (Menu?.menuMode == MenuModule.MenuMode.PauseMenu)
 		{
-			if (Menu == null) return;
+			//if (Menu == null) return;
 			FadeUtil.Instance?.FadeOut(NodeExtensions.MenuFadeInitialiseTime);
-			Menu.ResetPauseMenu();
 			await ToSignal(GetTree().CreateTimer(NodeExtensions.MenuFadeInitialiseTime), SceneTreeTimer.SignalName.Timeout);
-			GetTree().Paused = false;
-			Menu.menuMode = MenuModule.MenuMode.MainMenu;
+			
+			Menu?.ResetMainMenu();
+			//GetTree().Paused = false;
 			Menu?.GoToMainMenu();
 
 			//SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.MainMenuScreen);
