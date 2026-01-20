@@ -1,5 +1,6 @@
 using Godot;
 using System.Linq;
+using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 
 namespace MyFathersHomeProject.Scripts.Menus;
@@ -10,7 +11,7 @@ public partial class BackButton : Button
 		.FirstOrDefault();
 	public override void _Pressed()
 	{
-		if (Menu?.menuMode == MenuModule.MenuMode.PauseMenu)
+		if (Menu?.MenuMode == MenuMode.PauseMenu)
 		{
 			Menu?.GoToPauseMenu();
 		}

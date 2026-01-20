@@ -25,3 +25,9 @@ public static class ZIndexLayers
     public const int MinLayer = -4096;
     public const int MaxLayer = 4096;
 }
+
+public enum MenuMode
+{
+    MainMenu,
+    PauseMenu
+}

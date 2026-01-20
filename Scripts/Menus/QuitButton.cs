@@ -1,8 +1,10 @@
 using System.Linq;
 using Godot;
 using MyFathersHomeProject.Scripts.Camera;
+using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Extensions;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
+using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
 namespace MyFathersHomeProject.Scripts.Menus;
 
@@ -14,16 +16,17 @@ public partial class QuitButton : Button
 
 	public override async void _Pressed()
 	{
-		switch (Menu?.menuMode)
+		switch (Menu?.MenuMode)
 		{
-			case MenuModule.MenuMode.PauseMenu:
+			case MenuMode.PauseMenu:
 				if (FadeUtil.Instance != null)
 				{
 					FadeUtil.Instance.FadeOut(NodeExtensions.MenuFadeInitialiseTime);
 					FadeUtil.Instance.FadeFinished += ReturnToMainMenu;
 				}
+
 				break;
-			case MenuModule.MenuMode.MainMenu:
+			case MenuMode.MainMenu:
 				if (FadeUtil.Instance != null)
 				{
 					FadeUtil.Instance.FadeOut();
@@ -36,12 +39,9 @@ public partial class QuitButton : Button
 
 	private void ReturnToMainMenu()
 	{
-		
-		Menu?.ResetMainMenu();
-		Menu?.GoToMainMenu();
+		SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.MainMenuTrigger);
 		if (FadeUtil.Instance != null)
 		{
-			FadeUtil.Instance.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
 			FadeUtil.Instance.FadeFinished -= ReturnToMainMenu;
 		}
 	}

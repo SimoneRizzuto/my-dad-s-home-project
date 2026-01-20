@@ -1,4 +1,5 @@
 using Godot;
+using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Extensions;
 
@@ -34,18 +35,13 @@ public partial class MenuModule : CanvasLayer
 	private int menuButtonLastFocusIndex = 0;
 	private bool mainObservedOnce = false;
 
-	public enum MenuMode
-	{
-		MainMenu,
-		PauseMenu
-	}
-
-	public MenuMode menuMode;
+	public MenuMode MenuMode;
 
 	public override void _Ready()
 	{
+		FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
 		ProcessMode = ProcessModeEnum.Always;
-		menuMode = MenuMode.PauseMenu; // For now just to test. Should be Main
+		MenuMode = MenuMode.MainMenu; 
 		ColorRect.Visible = false;
 		PauseLabel.Visible = false;
 		MainLabel.Visible = false;
@@ -56,30 +52,7 @@ public partial class MenuModule : CanvasLayer
 
 	public override void _Process(double delta)
 	{
-		/*if (GetTree().CurrentScene.Name == "Main")
-		{
-			// Running main game as customer OR developer
-			if (GetTree().CurrentScene.GetChildren()[0].IsInGroup("Gameplay") == false)
-			{
-				return;
-			}
-		}
-		else
-		{
-			// Running individual scene as developer
-			if (GetTree().CurrentScene.IsInGroup("Gameplay") == false)
-			{
-				return;
-			}
-		}*/
-
-		/*if (menuMode == MenuMode.MainMenu)
-		{
-			GoToMainMenu();
-			return;
-		}*/
-
-		if (Input.IsActionJustPressed(InputMapAction.Pause) & (menuMode == MenuMode.PauseMenu))
+		if (Input.IsActionJustPressed(InputMapAction.Pause) & (MenuMode == MenuMode.PauseMenu))
 		{
 			TogglePause();
 		}
@@ -173,7 +146,7 @@ public partial class MenuModule : CanvasLayer
 
 	private void SetBackgroundTransparency()
 	{
-		if (menuMode == MenuMode.MainMenu)
+		if (MenuMode == MenuMode.MainMenu)
 		{
 			ColorRect.Color = new Color(0, 0, 0, a: 1);
 		}
@@ -199,7 +172,7 @@ public partial class MenuModule : CanvasLayer
 
 	public void ResetPauseMenu()
 	{
-		menuMode = MenuMode.PauseMenu;
+		MenuMode = MenuMode.PauseMenu;
 		ColorRect.Visible = false;
 		PauseLabel.Visible = false;
 		MainLabel.Visible = false;
@@ -211,7 +184,7 @@ public partial class MenuModule : CanvasLayer
 
 	public void ResetMainMenu()
 	{
-		menuMode = MenuMode.MainMenu;
+		MenuMode = MenuMode.MainMenu;
 		ColorRect.Visible = true;
 		MainLabel.Visible = true;
 		PauseLabel.Visible = false;
