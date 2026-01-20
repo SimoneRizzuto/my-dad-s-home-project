@@ -21,20 +21,14 @@ public partial class GoToSceneButton : Button
 			case DebugSceneOptions.Set1:
 				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
 				FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
-				if (Menu?.menuMode == MenuModule.MenuMode.PauseMenu)
-				{
-					Menu?.ResetPauseMenu();
-					GetTree().Paused = false; 
-				}
+				Menu?.ResetPauseMenu();
+				GetTree().Paused = false; 
 				break;
 			case DebugSceneOptions.Set2:
 				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set2_SashaBedroom);
 				FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
-				if (Menu?.menuMode == MenuModule.MenuMode.PauseMenu)
-				{
-					Menu?.ResetPauseMenu();
-					GetTree().Paused = false; 
-				}
+				Menu?.ResetPauseMenu();
+				GetTree().Paused = false; 
 				break;
 			case DebugSceneOptions.Set3:
 				SceneSwitcher.Instance?.TransitionToScene("");

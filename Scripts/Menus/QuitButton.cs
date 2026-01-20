@@ -18,8 +18,8 @@ public partial class QuitButton : Button
 		if (Menu?.menuMode == MenuModule.MenuMode.PauseMenu)
 		{
 			//if (Menu == null) return;
-			FadeUtil.Instance?.FadeOut(NodeExtensions.MenuFadeInitialiseTime);
-			await ToSignal(GetTree().CreateTimer(NodeExtensions.MenuFadeInitialiseTime), SceneTreeTimer.SignalName.Timeout);
+			//FadeUtil.Instance?.FadeOut(NodeExtensions.MenuFadeInitialiseTime);
+			//await ToSignal(GetTree().CreateTimer(NodeExtensions.MenuFadeInitialiseTime), SceneTreeTimer.SignalName.Timeout);
 			
 			Menu?.ResetMainMenu();
 			//GetTree().Paused = false;
