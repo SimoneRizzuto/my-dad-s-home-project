@@ -218,6 +218,7 @@ public partial class MenuModule : CanvasLayer
 		Menu.Visible = true;
 		DebugMenu.Visible = false;
 		OptionsMenu.Visible = false;
+		Visible = true;
 		menuButtonLastFocusIndex = 0;
 	}
 

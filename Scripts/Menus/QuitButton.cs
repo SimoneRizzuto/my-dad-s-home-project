@@ -5,29 +5,44 @@ using MyFathersHomeProject.Scripts.Shared.Extensions;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 
 namespace MyFathersHomeProject.Scripts.Menus;
+
 public partial class QuitButton : Button
 {
 	private MenuModule? Menu => GetTree().Root
 		.GetChildrenRecursive<MenuModule>()
 		.FirstOrDefault();
+
 	public override async void _Pressed()
 	{
-		if (Menu?.menuMode == MenuModule.MenuMode.PauseMenu)
+		switch (Menu?.menuMode)
 		{
-			//if (Menu == null) return;
-			//FadeUtil.Instance?.FadeOut(NodeExtensions.MenuFadeInitialiseTime);
-			//await ToSignal(GetTree().CreateTimer(NodeExtensions.MenuFadeInitialiseTime), SceneTreeTimer.SignalName.Timeout);
-			
-			Menu?.ResetMainMenu();
-			Menu?.GoToMainMenu();
+			case MenuModule.MenuMode.PauseMenu:
+				if (FadeUtil.Instance != null)
+				{
+					FadeUtil.Instance.FadeOut(NodeExtensions.MenuFadeInitialiseTime);
+					FadeUtil.Instance.FadeFinished += ReturnToMainMenu;
+				}
+				break;
+			case MenuModule.MenuMode.MainMenu:
+				if (FadeUtil.Instance != null)
+				{
+					FadeUtil.Instance.FadeOut();
+					FadeUtil.Instance.FadeFinished += () => GetTree().Quit();
+				}
+
+				break;
 		}
-		else
+	}
+
+	private void ReturnToMainMenu()
+	{
+		
+		Menu?.ResetMainMenu();
+		Menu?.GoToMainMenu();
+		if (FadeUtil.Instance != null)
 		{
-			if (FadeUtil.Instance != null)
-			{
-				FadeUtil.Instance.FadeOut();
-				FadeUtil.Instance.FadeFinished += () => GetTree().Quit();
-			}
+			FadeUtil.Instance.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
+			FadeUtil.Instance.FadeFinished -= ReturnToMainMenu;
 		}
 	}
 }
