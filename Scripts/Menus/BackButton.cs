@@ -18,6 +18,5 @@ public partial class BackButton : Button
 		{
 			Menu?.GoToMainMenu();
 		}
-		
 	}
 }

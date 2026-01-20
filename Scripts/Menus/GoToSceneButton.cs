@@ -12,10 +12,8 @@ public partial class GoToSceneButton : Button
 	private MenuModule? Menu => GetTree().Root
 		.GetChildrenRecursive<MenuModule>()
 		.FirstOrDefault();
-	
 	public override void _Pressed()
 	{
-		
 		switch (SceneOptions)
 		{
 			case DebugSceneOptions.Set1:

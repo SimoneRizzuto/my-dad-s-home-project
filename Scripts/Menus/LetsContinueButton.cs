@@ -14,14 +14,11 @@ public partial class LetsContinueButton : Button
 	{
 		if ((Menu?.menuMode == MenuModule.MenuMode.PauseMenu))
 		{
-			
 			Menu?.LetsContinueGame();
 		}
 		else
 		{
 			GD.Print("Some logic for go inside");
 		}
-		
 	}
-	
 }

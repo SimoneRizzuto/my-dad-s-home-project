@@ -33,12 +33,13 @@ public partial class MenuModule : CanvasLayer
 	// variables
 	private int menuButtonLastFocusIndex = 0;
 	private bool mainObservedOnce = false;
-	
+
 	public enum MenuMode
 	{
 		MainMenu,
 		PauseMenu
 	}
+
 	public MenuMode menuMode;
 
 	public override void _Ready()
@@ -76,7 +77,7 @@ public partial class MenuModule : CanvasLayer
 		{
 			GoToMainMenu();
 			return;
-		}*/	
+		}*/
 
 		if (Input.IsActionJustPressed(InputMapAction.Pause) & (menuMode == MenuMode.PauseMenu))
 		{
@@ -97,7 +98,7 @@ public partial class MenuModule : CanvasLayer
 			LetsContinueGame();
 		}
 	}
-	
+
 	public void GoToMainMenu()
 	{
 		// menuMode = MenuMode.MainMenu;
@@ -105,10 +106,10 @@ public partial class MenuModule : CanvasLayer
 		SetBackgroundTransparency();
 		QuitButton.Text = "Not Now";
 		LetsContinueButton.Text = "Go Inside";
-		
+
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
-		
+
 		MainLabel.Visible = true;
 		Menu.Visible = true;
 		QuitButton.Visible = true;
@@ -122,13 +123,13 @@ public partial class MenuModule : CanvasLayer
 	{
 		SetBackgroundTransparency();
 		QuitButton.Text = "Take a Break";
-		LetsContinueButton.Text = "Let's Continue";	
+		LetsContinueButton.Text = "Let's Continue";
 		LetsContinueButton.Disabled = false;
 		OptionsButton.Disabled = false;
 		DebugButton.Disabled = false;
 		QuitButton.Disabled = false;
-		
-		
+
+
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = GetTree().Paused);
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = GetTree().Paused);
 
@@ -174,11 +175,11 @@ public partial class MenuModule : CanvasLayer
 	{
 		if (menuMode == MenuMode.MainMenu)
 		{
-			ColorRect.Color = new Color(0, 0, 0, a:1);
+			ColorRect.Color = new Color(0, 0, 0, a: 1);
 		}
 		else
 		{
-			ColorRect.Color = new Color(0, 0, 0, a:pauseMenuOpacity);
+			ColorRect.Color = new Color(0, 0, 0, a: pauseMenuOpacity);
 		}
 	}
 
@@ -207,6 +208,7 @@ public partial class MenuModule : CanvasLayer
 		OptionsMenu.Visible = false;
 		menuButtonLastFocusIndex = 0;
 	}
+
 	public void ResetMainMenu()
 	{
 		menuMode = MenuMode.MainMenu;
@@ -218,7 +220,6 @@ public partial class MenuModule : CanvasLayer
 		OptionsMenu.Visible = false;
 		menuButtonLastFocusIndex = 0;
 	}
-	
 
 	private void MenuFocus()
 	{
