@@ -44,7 +44,7 @@ public partial class ShortcutManager : Node2D
 			SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
 			if (Menu != null)
 			{
-				Menu.MenuMode = MenuMode.PauseMenu;
+				Menu.ResetPauseMenu();
 			}
 		}
 
@@ -53,7 +53,7 @@ public partial class ShortcutManager : Node2D
 			SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1_OliverBedroom);
 			if (Menu != null)
 			{
-				Menu.MenuMode = MenuMode.PauseMenu;
+				Menu.ResetPauseMenu();
 			}
 		}
 
@@ -62,7 +62,7 @@ public partial class ShortcutManager : Node2D
 			SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set2_SashaBedroom);
 			if (Menu != null)
 			{
-				Menu.MenuMode = MenuMode.PauseMenu;
+				Menu.ResetPauseMenu();
 			}
 		}
 
@@ -71,7 +71,7 @@ public partial class ShortcutManager : Node2D
 			SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set2_SashaCampfire);
 			if (Menu != null)
 			{
-				Menu.MenuMode = MenuMode.PauseMenu;
+				Menu.ResetPauseMenu();
 			}
 		}
 
