@@ -16,6 +16,7 @@
 [sub_resource type="Theme" id="Theme_tro8l"]
 
 [node name="MenuModule" type="CanvasLayer"]
+layer = 3
 script = ExtResource("1_b4uhw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
