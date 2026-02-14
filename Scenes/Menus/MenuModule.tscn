@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cq53k4akw02sg"]
+[gd_scene load_steps=14 format=3 uid="uid://cq53k4akw02sg"]
 
 [ext_resource type="FontFile" uid="uid://cb0xauna5q601" path="res://Assets/Fonts/Reaper Font.ttf" id="1_3n054"]
 [ext_resource type="Script" path="res://Scripts/Menus/MenuModule.cs" id="1_b4uhw"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dya8epkgbbq1i" path="res://Scenes/Menus/MainMenu/Buttons/OptionsButton.tscn" id="4_hq8qe"]
 [ext_resource type="PackedScene" uid="uid://c2jftd2den0d6" path="res://Scenes/Menus/MainMenu/Buttons/DebugButton.tscn" id="5_r0faw"]
 [ext_resource type="PackedScene" uid="uid://dy5kyi42jp6jl" path="res://Scenes/Menus/MainMenu/Buttons/QuitButton.tscn" id="6_kq6vb"]
+[ext_resource type="PackedScene" uid="uid://bd6swl2c7kvux" path="res://Scenes/Menus/MainMenu/Buttons/ExitButton.tscn" id="7_0q4kn"]
 [ext_resource type="PackedScene" uid="uid://cnfboq67kgywk" path="res://Scenes/Menus/MainMenu/Buttons/MainMenuBackButton.tscn" id="8_osmq6"]
 [ext_resource type="Script" path="res://Scripts/Menus/BackButton.cs" id="9_c16w8"]
 [ext_resource type="Script" path="res://Scripts/Menus/GoToSceneButton.cs" id="10_kf0rm"]
@@ -67,7 +68,7 @@ theme_override_constants/separation = 0
 unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
-focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_top = NodePath("../../QuitMenu/QuitButton")
 focus_neighbor_bottom = NodePath("../OptionsButton")
 theme = ExtResource("2_cuk7j")
 text = "Let's Continue"
@@ -82,11 +83,9 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="QuitButton" parent="ColorRect/Menu" instance=ExtResource("6_kq6vb")]
+[node name="ExitButton" parent="ColorRect/Menu" instance=ExtResource("7_0q4kn")]
 unique_name_in_owner = true
 layout_mode = 2
-focus_neighbor_top = NodePath("../DebugButton")
-focus_neighbor_bottom = NodePath("../LetsContinueButton")
 
 [node name="LoadGameMenu" type="VBoxContainer" parent="ColorRect"]
 visible = false
@@ -226,4 +225,37 @@ SceneOptions = 6
 
 [node name="BackButton" parent="ColorRect/DebugMenu" instance=ExtResource("8_osmq6")]
 layout_mode = 2
+script = ExtResource("9_c16w8")
+
+[node name="QuitMenu" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 2
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 109.0
+offset_top = -25.0
+offset_right = 214.0
+offset_bottom = 51.0
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="CofirmationLabel" type="Label" parent="ColorRect/QuitMenu"]
+layout_mode = 2
+theme = SubResource("Theme_tp6t0")
+theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("1_3n054")
+theme_override_font_sizes/font_size = 15
+text = "Are you sure?"
+
+[node name="QuitButton" parent="ColorRect/QuitMenu" instance=ExtResource("6_kq6vb")]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../BackButton")
+focus_neighbor_bottom = NodePath("../BackButton")
+text = "I'm sure"
+
+[node name="BackButton" parent="ColorRect/QuitMenu" instance=ExtResource("8_osmq6")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
 script = ExtResource("9_c16w8")

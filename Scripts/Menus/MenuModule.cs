@@ -21,7 +21,8 @@ public partial class MenuModule : CanvasLayer
 	private Button LetsContinueButton => GetNode<Button>("%LetsContinueButton");
 	private Button OptionsButton => GetNode<Button>("%OptionsButton");
 	private Button DebugButton => GetNode<Button>("%DebugButton");
-	private Button QuitButton => GetNode<Button>("%QuitButton");
+	private Button ExitButton => GetNode<Button>("%ExitButton");
+	
 
 	// settings menu
 	private Control OptionsMenu => GetNode<Control>("./ColorRect/OptionsMenu");
@@ -30,6 +31,12 @@ public partial class MenuModule : CanvasLayer
 	// debug menu
 	private Control DebugMenu => GetNode<Control>("./ColorRect/DebugMenu");
 	private Button Set1Button => GetNode<Button>("%Set1Button");
+	
+	// quit menu
+	private Control QuitMenu => GetNode<Control>("./ColorRect/QuitMenu");
+	private Control QuitBackButton => GetNode<Control>("./ColorRect/QuitMenu/BackButton");
+	private Button QuitButton => GetNode<Button>("%QuitButton");
+	
 
 	// variables
 	private int menuButtonLastFocusIndex = 0;
@@ -48,6 +55,7 @@ public partial class MenuModule : CanvasLayer
 		Menu.Visible = false;
 		DebugMenu.Visible = false;
 		OptionsMenu.Visible = false;
+		QuitMenu.Visible = false;
 	}
 
 	public override void _Process(double delta)
@@ -74,18 +82,17 @@ public partial class MenuModule : CanvasLayer
 
 	public void GoToMainMenu()
 	{
-		// menuMode = MenuMode.MainMenu;
-		// Pause
 		SetBackgroundTransparency();
-		QuitButton.Text = "Not Now";
+		ExitButton.Text = "Not Now";
 		LetsContinueButton.Text = "Go Inside";
 
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
+		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
 
 		MainLabel.Visible = true;
 		Menu.Visible = true;
-		QuitButton.Visible = true;
+		ExitButton.Visible = true;
 		LetsContinueButton.Visible = true;
 		MenuFocus();
 		Menu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
@@ -95,16 +102,17 @@ public partial class MenuModule : CanvasLayer
 	public void GoToPauseMenu()
 	{
 		SetBackgroundTransparency();
-		QuitButton.Text = "Take a Break";
+		ExitButton.Text = "Take a Break";
 		LetsContinueButton.Text = "Let's Continue";
 		LetsContinueButton.Disabled = false;
 		OptionsButton.Disabled = false;
 		DebugButton.Disabled = false;
-		QuitButton.Disabled = false;
+		ExitButton.Disabled = false;
 
 
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = GetTree().Paused);
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = GetTree().Paused);
+		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
 
 		ColorRect.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 		ColorRect.Visible = true;
@@ -123,6 +131,7 @@ public partial class MenuModule : CanvasLayer
 		SetBackgroundTransparency();
 		Menu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => Menu.Visible = false);
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
+		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
 
 		OptionsMenu.Visible = true;
 		TestButton.GrabFocus();
@@ -136,6 +145,7 @@ public partial class MenuModule : CanvasLayer
 		SetBackgroundTransparency();
 		Menu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => Menu.Visible = false);
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
+		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
 
 		DebugMenu.Visible = true;
 		Set1Button.GrabFocus();
@@ -144,6 +154,20 @@ public partial class MenuModule : CanvasLayer
 		menuButtonLastFocusIndex = 2;
 	}
 
+	public void GoToQuitMenu()
+	{
+		SetBackgroundTransparency();
+		Menu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => Menu.Visible = false);
+		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
+		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
+
+		QuitMenu.Visible = true;
+		QuitBackButton.GrabFocus();
+		QuitMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
+
+		menuButtonLastFocusIndex = 3;
+	}
+	
 	private void SetBackgroundTransparency()
 	{
 		if (MenuMode == MenuMode.MainMenu)
@@ -163,7 +187,7 @@ public partial class MenuModule : CanvasLayer
 		LetsContinueButton.Disabled = true;
 		OptionsButton.Disabled = true;
 		DebugButton.Disabled = true;
-		QuitButton.Disabled = true;
+		ExitButton.Disabled = true;
 
 		menuButtonLastFocusIndex = 0;
 
@@ -179,6 +203,7 @@ public partial class MenuModule : CanvasLayer
 		Menu.Visible = false;
 		DebugMenu.Visible = false;
 		OptionsMenu.Visible = false;
+		QuitMenu.Visible = false;
 		menuButtonLastFocusIndex = 0;
 	}
 
@@ -191,6 +216,7 @@ public partial class MenuModule : CanvasLayer
 		Menu.Visible = true;
 		DebugMenu.Visible = false;
 		OptionsMenu.Visible = false;
+		QuitMenu.Visible = false;
 		Visible = true;
 		menuButtonLastFocusIndex = 0;
 	}
@@ -207,6 +233,9 @@ public partial class MenuModule : CanvasLayer
 				break;
 			case 2:
 				DebugButton.GrabFocus();
+				break;
+			case 3:
+				QuitButton.GrabFocus();
 				break;
 		}
 	}
