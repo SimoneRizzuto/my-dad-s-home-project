@@ -90,6 +90,10 @@ public partial class MenuModule : CanvasLayer
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
 		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
 
+		VBoxContainerButtonToggle(OptionsMenu, true);
+		VBoxContainerButtonToggle(DebugMenu, true);
+		VBoxContainerButtonToggle(QuitMenu, true);
+
 		MainLabel.Visible = true;
 		Menu.Visible = true;
 		ExitButton.Visible = true;
@@ -98,6 +102,8 @@ public partial class MenuModule : CanvasLayer
 		Menu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 		MainLabel.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 	}
+
+	
 
 	public void GoToPauseMenu()
 	{
@@ -113,6 +119,10 @@ public partial class MenuModule : CanvasLayer
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = GetTree().Paused);
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = GetTree().Paused);
 		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
+		
+		VBoxContainerButtonToggle(OptionsMenu, true);
+		VBoxContainerButtonToggle(DebugMenu, true);
+		VBoxContainerButtonToggle(QuitMenu, true);
 
 		ColorRect.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 		ColorRect.Visible = true;
@@ -128,6 +138,7 @@ public partial class MenuModule : CanvasLayer
 
 	public void GoToSettingsMenu()
 	{
+		VBoxContainerButtonToggle(OptionsMenu, false);
 		SetBackgroundTransparency();
 		Menu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => Menu.Visible = false);
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
@@ -142,6 +153,7 @@ public partial class MenuModule : CanvasLayer
 
 	public void GoToDebugMenu()
 	{
+		VBoxContainerButtonToggle(DebugMenu, false);
 		SetBackgroundTransparency();
 		Menu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => Menu.Visible = false);
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
@@ -156,6 +168,7 @@ public partial class MenuModule : CanvasLayer
 
 	public void GoToQuitMenu()
 	{
+		VBoxContainerButtonToggle(QuitMenu, false);
 		SetBackgroundTransparency();
 		Menu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => Menu.Visible = false);
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
@@ -237,6 +250,17 @@ public partial class MenuModule : CanvasLayer
 			case 3:
 				QuitButton.GrabFocus();
 				break;
+		}
+	}
+	
+	private void VBoxContainerButtonToggle(Control vBoxMenu, bool toggle)
+	{
+		foreach (Node child in vBoxMenu.GetChildren())
+		{
+			if (child is Button button)
+			{
+				button.Disabled = toggle;
+			}
 		}
 	}
 }
