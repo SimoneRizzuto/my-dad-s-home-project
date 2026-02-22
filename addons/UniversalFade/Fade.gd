@@ -74,7 +74,7 @@ static func _create_fader(color: Color, pattern: String, reverse: bool, smooth: 
 	var fader = load("res://addons/UniversalFade/Fade.tscn").instantiate()
 	fader._prepare_fade(color, texture, reverse, smooth, _get_scene_tree_root().get_meta(&"__crossfade__", false))
 	_get_scene_tree_root().set_meta(&"__current_fade__", fader)
-	_get_scene_tree_root().add_child.call_deferred(fader)
+	_get_scene_tree_root().add_child.call_deferred(fader) # SIM: Dom added call_deferred(fader), most likely to fix a fading issue. Line used to be "...add_child(fader)". Revert if causing issues.
 	return fader
 
 static func _get_scene_tree_root() -> Viewport:
