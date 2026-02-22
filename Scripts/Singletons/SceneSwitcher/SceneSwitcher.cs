@@ -11,6 +11,8 @@ namespace MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 public partial class SceneSwitcher : Node, ISceneSwitcher
 {
     // CONSTS
+    //  menu
+    public const string MainMenuTrigger = "uid://yu3ix06eh24e";
     // dialogue resources
     public const string FourteenDaysRemain = "uid://c4t0mo45346ew";
     

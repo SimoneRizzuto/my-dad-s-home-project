@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1ixwp4nsglea"]
 
 [ext_resource type="PackedScene" uid="uid://ba8ajsihdkrwt" path="res://Scenes/Rooms/TransitionScreen.tscn" id="1_qxt5l"]
-[ext_resource type="PackedScene" uid="uid://bur7w500m6dcn" path="res://Scenes/Menus/MainMenu/MainMenuModule.tscn" id="2_pmdk0"]
+[ext_resource type="PackedScene" uid="uid://yu3ix06eh24e" path="res://Scenes/Menus/MainMenuTrigger.tscn" id="2_0gb8g"]
 
 [node name="SimoricoPresentsTitle" type="Node2D"]
 
 [node name="TransitionScreen" parent="." instance=ExtResource("1_qxt5l")]
-NextScene = ExtResource("2_pmdk0")
+NextScene = ExtResource("2_0gb8g")
 RichText = "A Game Made By: BITCH"
 DelayInitialFade = 1.5
 Buffer = 0.5

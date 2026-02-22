@@ -1,23 +1,18 @@
-using Godot;
 using System.Linq;
+using Godot;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 
 namespace MyFathersHomeProject.Scripts.Menus;
-public partial class DebugButton : Button
+
+public partial class MainMenuTrigger : Node
 {
 	private MenuModule? Menu => GetTree().Root
 		.GetChildrenRecursive<MenuModule>()
 		.FirstOrDefault();
-
-	public override void _Pressed()
+	public override void _Ready()
 	{
-		// Are we in the main menu?
-		if (Menu is not null)
-		{
-			Menu?.GoToDebugMenu();
-
-		}
 		
-		
+		Menu?.ResetMainMenu();
+		Menu?.GoToMainMenu();
 	}
 }

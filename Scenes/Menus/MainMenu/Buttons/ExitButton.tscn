@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd6swl2c7kvux"]
+
+[ext_resource type="Theme" uid="uid://c2yv8q7b8742i" path="res://Assets/Themes/ui-button-theme.tres" id="1_vesxr"]
+[ext_resource type="Script" path="res://Scripts/Menus/ExitButton.cs" id="2_vlhf4"]
+
+[node name="ExitButton" type="Button"]
+layout_direction = 2
+theme = ExtResource("1_vesxr")
+text = "Not Now"
+alignment = 0
+script = ExtResource("2_vlhf4")

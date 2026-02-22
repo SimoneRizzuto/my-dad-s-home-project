@@ -1,22 +1,48 @@
+using System.Linq;
 using Godot;
 using MyFathersHomeProject.Scripts.Camera;
+using MyFathersHomeProject.Scripts.Shared.Constants;
+using MyFathersHomeProject.Scripts.Shared.Extensions;
+using MyFathersHomeProject.Scripts.Shared.Helpers;
+using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
 namespace MyFathersHomeProject.Scripts.Menus;
+
 public partial class QuitButton : Button
 {
-	[Export] public string ButtonText = "Not Now";
+	private MenuModule? Menu => GetTree().Root
+		.GetChildrenRecursive<MenuModule>()
+		.FirstOrDefault();
 
-	public override void _Ready()
+	public override async void _Pressed()
 	{
-		Text = ButtonText;
+		switch (Menu?.MenuMode)
+		{
+			case MenuMode.PauseMenu:
+				if (FadeUtil.Instance != null)
+				{
+					FadeUtil.Instance.FadeOut(NodeExtensions.MenuFadeInitialiseTime);
+					FadeUtil.Instance.FadeFinished += ReturnToMainMenu;
+				}
+
+				break;
+			case MenuMode.MainMenu:
+				if (FadeUtil.Instance != null)
+				{
+					FadeUtil.Instance.FadeOut();
+					FadeUtil.Instance.FadeFinished += () => GetTree().Quit();
+				}
+
+				break;
+		}
 	}
 
-	public override void _Pressed()
+	private void ReturnToMainMenu()
 	{
+		SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.MainMenuTrigger);
 		if (FadeUtil.Instance != null)
 		{
-			FadeUtil.Instance.FadeOut();
-			FadeUtil.Instance.FadeFinished += () => GetTree().Quit();
+			FadeUtil.Instance.FadeFinished -= ReturnToMainMenu;
 		}
 	}
 }

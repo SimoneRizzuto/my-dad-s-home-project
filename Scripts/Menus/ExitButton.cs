@@ -1,9 +1,9 @@
 using Godot;
 using System.Linq;
+using MyFathersHomeProject.Scripts.Menus;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 
-namespace MyFathersHomeProject.Scripts.Menus;
-public partial class DebugButton : Button
+public partial class ExitButton : Button
 {
 	private MenuModule? Menu => GetTree().Root
 		.GetChildrenRecursive<MenuModule>()
@@ -11,13 +11,9 @@ public partial class DebugButton : Button
 
 	public override void _Pressed()
 	{
-		// Are we in the main menu?
 		if (Menu is not null)
 		{
-			Menu?.GoToDebugMenu();
-
+			Menu?.GoToQuitMenu();
 		}
-		
-		
 	}
 }

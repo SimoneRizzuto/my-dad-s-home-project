@@ -1,23 +1,23 @@
 using Godot;
 using System.Linq;
+using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 
 namespace MyFathersHomeProject.Scripts.Menus;
-public partial class DebugButton : Button
+public partial class BackButton : Button
 {
 	private MenuModule? Menu => GetTree().Root
 		.GetChildrenRecursive<MenuModule>()
 		.FirstOrDefault();
-
 	public override void _Pressed()
 	{
-		// Are we in the main menu?
-		if (Menu is not null)
+		if (Menu?.MenuMode == MenuMode.PauseMenu)
 		{
-			Menu?.GoToDebugMenu();
-
+			Menu?.GoToPauseMenu();
 		}
-		
-		
+		else
+		{
+			Menu?.GoToMainMenu();
+		}
 	}
 }
