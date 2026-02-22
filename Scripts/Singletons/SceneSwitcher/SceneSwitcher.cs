@@ -15,6 +15,9 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     public const string FourteenDaysRemain = "uid://c4t0mo45346ew";
     
     // sets
+    public const string Teaser1BlackScreen = "uid://bkuhvhpu1l473";
+    public const string Teaser1OnlineWorld = "uid://ccvfjngolov5e";
+    
     public const string Set1_OnlineWorld = "uid://cjd6v6afkjbn0";
     public const string Set1_OliverBedroom = "uid://cap325m8jhcqw";
     public const string Set1_LivingRoom = "uid://dia4bv2gyg0y0";
@@ -69,6 +72,14 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
 
         DialogueDirector.Instance.FinishCutscene(resource);
         DialogueDirector.Instance.TriggerCutscene(resource, title);
+    }
+    
+    public void Spawn_Teaser1OnlineWorldScene()
+    {
+        TransitionToScene(Teaser1OnlineWorld);
+        
+        PlayerCamera.Dismount();
+        DialogueDirector.Instance.FinishCutscene(new());
     }
     
     #endregion

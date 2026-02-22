@@ -1,0 +1,59 @@
+~ teaser_1
+
+do Director.Wait(2)
+
+Oliver: [speed=0.5]It's been hard to sleep lately.
+
+do Director.Wait(1.5)
+
+Sasha: [speed=0.5]Why's that?
+
+do Director.Wait(0.75)
+
+Oliver: ...
+
+do Director.Wait(2)
+
+Sasha: [speed=0.25]Did you want to talk about it?
+
+do Director.Wait(2)
+
+Oliver: [speed=0.25]It's-
+Oliver: [speed=0.25]It's just.
+Oliver: [speed=0.25]...
+
+do Director.Wait(2)
+
+do SceneSwitcher.Spawn_Teaser1OnlineWorldScene()
+
+# spawn the online world, have Oliver walk over to the tree, where he is alone. He walks over to the tree, and sits.
+# piano motif starts
+# show the bedroom, with the door knocking
+
+# show title.
+
+#do SceneSwitcher.Spawn_DadKnocksScene()
+
+=> END
+
+~ tree_scene
+
+#do Director.Wait(2.5)
+
+# Oliver walks toward tree, and sits down as well
+do Oliver.MoveRight(15)
+do Sasha.PlayAnimation("draw look left")
+do Oliver.MoveToXPosition(469)
+do Director.Wait(0.5)
+do Oliver.PlayAnimation("idle left")
+do Oliver.SetDirection(-1)
+do Director.Wait(1)
+do Oliver.PlayAnimation("sit left")
+do Director.Wait(0.5)
+
+do Director.Wait(10)
+
+do Director.ToggleCameraSmoothing(false)
+do SceneSwitcher.Spawn_DadKnocksScene()
+
+=> END

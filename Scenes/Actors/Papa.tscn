@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://ci3t7wpbmy852"]
+[gd_scene load_steps=46 format=3 uid="uid://ci3t7wpbmy852"]
 
 [ext_resource type="Texture2D" uid="uid://cdkf25wwndaih" path="res://Assets/Textures/Papa/papa idle left-Sheet.png" id="1_8skv1"]
 [ext_resource type="Script" path="res://Scripts/Character/Actors/Papa.cs" id="1_c15we"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://d35obwqxbgx11" path="res://Assets/Textures/Papa/papa sit couch right look right-Sheet.png" id="7_mt2u8"]
 [ext_resource type="Texture2D" uid="uid://dq6b48urahcuv" path="res://Assets/Textures/Papa/papa sit couch right-Sheet.png" id="8_13bms"]
 [ext_resource type="Texture2D" uid="uid://jmqchphyq8r4" path="res://Assets/Textures/Papa/papa walk right plate-Sheet.png" id="9_8hlr0"]
+[ext_resource type="AudioStream" uid="uid://dlemll3n8x5v2" path="res://Assets/Audio/Sound/speak sound effect.ogg" id="13_upe8f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxvwp"]
 size = Vector2(6, 33)
@@ -293,5 +294,9 @@ position = Vector2(-24, -48)
 sprite_frames = SubResource("SpriteFrames_egf5v")
 animation = &"idle left"
 centered = false
+
+[node name="SpeakSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_upe8f")
+pitch_scale = 0.5
 
 [node name="ActorModule" parent="." instance=ExtResource("1_dcdts")]

@@ -1,6 +1,9 @@
 # multiple days have passed, where Oliver walks past his dad on the couch
 # each day, multiple boxes are packed, with less furniture around
 
+# one day, there is a day where Oliver needs to walk past his dad, in the fridge.
+# he wants to say something, but he doesn't know what to say
+
 # on the final day, everything is packed
 # oliver walks into the house from school
 
@@ -58,7 +61,6 @@ Papa: Please.
 Papa: Why did you sit next to me that night?
 Papa: If you we're so scared of me, why didn't you hide away?
 Oliver: ...
-Oliver: I don't know. *slow text*
 Papa: ...
 Papa: It doesn't matter.
 Papa: We're here now.
@@ -84,8 +86,8 @@ do Director.Wait(3)
 
 Papa: After everything...
 Papa: Don't be surprised...
-Papa: If one day, you find me.
-Papa: Dead on the kitchen floor. *slow text*
+Papa: If one day...
+Papa: You find me dead on the kitchen floor. *slow text*
 
 # oliver takes a step backwards
 

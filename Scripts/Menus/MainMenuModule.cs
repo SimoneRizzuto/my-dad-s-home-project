@@ -1,4 +1,6 @@
 using Godot;
+using System.Linq;
+using System.Collections.Generic;
 using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Shared.Extensions;
 
@@ -20,14 +22,22 @@ public partial class MainMenuModule : CanvasLayer
 	private Control DebugMenu => GetNode<Control>("DebugMenu");
 	private Button Set1Button => GetNode<Button>("%Set1Button");
 	
+	// audio
+	private AudioStreamPlayer MenuNavigate_Neutral => GetNode<AudioStreamPlayer>("%MenuNavigate_Neutral");
+	
 	// variables
 	private int mainMenuButtonLastFocusIndex = 0;
+	private readonly List<Button> subscribedButtons = new();
+	private Control lastFocusedControl;
+	private bool suppressNextFocusSound;
 	
 	public override void _Ready()
 	{
 		MainMenu.Visible = false;
 		SettingsMenu.Visible = false;
 		DebugMenu.Visible = false;
+		
+		SubscribeAllButtons();
 		
 		FadeUtil.Instance?.FadeIn(2);
 		GoToMainMenu();
@@ -49,7 +59,7 @@ public partial class MainMenuModule : CanvasLayer
 		DebugMenu.FadeOut(0.25d, () => DebugMenu.Visible = false);
 		
 		SettingsMenu.Visible = true;
-		TestButton.GrabFocus();
+		GrabFocusSilently(TestButton);
 		SettingsMenu.FadeIn(0.25d);
 		
 		mainMenuButtonLastFocusIndex = 1;
@@ -61,7 +71,7 @@ public partial class MainMenuModule : CanvasLayer
 		SettingsMenu.FadeOut(0.25d, () => SettingsMenu.Visible = false);
 		
 		DebugMenu.Visible = true;
-		Set1Button.GrabFocus();
+		GrabFocusSilently(Set1Button);
 		DebugMenu.FadeIn(0.25d);
 		
 		mainMenuButtonLastFocusIndex = 2;
@@ -72,14 +82,68 @@ public partial class MainMenuModule : CanvasLayer
 		switch (mainMenuButtonLastFocusIndex)
 		{
 			case 0:
-				GoInsideButton.GrabFocus();
+				GrabFocusSilently(GoInsideButton);
 				break;
 			case 1:
-				OptionsButton.GrabFocus();
+				GrabFocusSilently(OptionsButton);
 				break;
 			case 2:
-				DebugButton.GrabFocus();
+				GrabFocusSilently(DebugButton);
 				break;
+		}
+	}
+	
+	private void SubscribeAllButtons()
+	{
+		foreach (var node in GetAllChildrenRecursive(this))
+		{
+			if (node is Button button)
+			{
+				button.FocusEntered += OnButtonFocusEntered;
+				subscribedButtons.Add(button);
+			}
+		}
+	}
+	
+	private void UnsubscribeAllButtons()
+	{
+		foreach (var button in subscribedButtons.Where(IsInstanceValid))
+		{
+			button.FocusEntered -= OnButtonFocusEntered;
+		}
+		
+		subscribedButtons.Clear();
+	}
+	
+	private void OnButtonFocusEntered()
+	{
+		if (suppressNextFocusSound)
+		{
+			suppressNextFocusSound = false;
+			return;
+		}
+		
+		var focus = GetViewport().GuiGetFocusOwner();
+		if (focus == null || focus == lastFocusedControl) return;
+		
+		lastFocusedControl = focus;
+		MenuNavigate_Neutral.Play();
+	}
+	
+	private void GrabFocusSilently(Control control)
+	{
+		suppressNextFocusSound = true;
+		control.GrabFocus();
+	}
+	
+	private IEnumerable<Node> GetAllChildrenRecursive(Node root)
+	{
+		foreach (var child in root.GetChildren())
+		{
+			yield return child;
+			
+			foreach (var grandChild in GetAllChildrenRecursive(child))
+				yield return grandChild;
 		}
 	}
 }

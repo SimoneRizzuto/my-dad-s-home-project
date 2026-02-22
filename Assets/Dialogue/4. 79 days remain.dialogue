@@ -230,12 +230,12 @@ Papa: SHE CHEATED ON ME!
 Papa: You should be on MY SIDE!
 Oliver: I DON'T CARE!!!
 
-do Director.Wait(5)
+do Director.Wait(8)
 
 Papa: *slow text* When you get older.
 Papa: *slow text* You'll look back at what you're saying.
 Papa: *slow text* And realise.
-Papa: *slow text* How awful you are.
+Papa: *slow text* How awful this is.
 Papa: *slow text* But today...
 Papa: *slow text* She's won.
 Papa: ...

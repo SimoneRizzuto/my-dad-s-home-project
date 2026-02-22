@@ -1,8 +1,9 @@
-[gd_scene load_steps=59 format=3 uid="uid://bggt6ckifdcow"]
+[gd_scene load_steps=60 format=3 uid="uid://bggt6ckifdcow"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Oliver.cs" id="1_vpp82"]
 [ext_resource type="Texture2D" uid="uid://c1ua5poece8o6" path="res://Assets/Textures/Oliver/oliver eating food.png" id="2_aidie"]
 [ext_resource type="Texture2D" uid="uid://dps0vqk0017i6" path="res://Assets/Textures/Oliver/oliver idle left bag animation-Sheet.png" id="2_jxa6b"]
+[ext_resource type="AudioStream" uid="uid://dlemll3n8x5v2" path="res://Assets/Audio/Sound/speak sound effect.ogg" id="2_offib"]
 [ext_resource type="Texture2D" uid="uid://neuih0v2hab3" path="res://Assets/Textures/Oliver/oliver idle left animation-Sheet.png" id="2_pf0me"]
 [ext_resource type="Texture2D" uid="uid://g80bywd3sshx" path="res://Assets/Textures/Oliver/oliver flings hand up.png" id="3_8qvcp"]
 [ext_resource type="Texture2D" uid="uid://dccyo17gqxuw2" path="res://Assets/Textures/Oliver/oliver idle right bag animation-Sheet.png" id="3_exx5k"]
@@ -384,5 +385,9 @@ one_way_collision = true
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_aqi8e")
 animation = &"idle left"
+
+[node name="SpeakSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_offib")
+pitch_scale = 0.9
 
 [node name="ActorModule" parent="." instance=ExtResource("8_knplv")]

@@ -26,6 +26,7 @@ animations = [{
 }]
 
 [node name="InteractableIndicator" type="AnimatedSprite2D"]
+visible = false
 z_index = 1000
 position = Vector2(-3, -4)
 sprite_frames = SubResource("SpriteFrames_67w2q")

@@ -51,6 +51,15 @@ public partial class GoToSceneButton : Button
 			case DebugSceneOptions.Set7:
 				SceneSwitcher.Instance?.TransitionToScene("");
 				break;
+			case DebugSceneOptions.Teaser1:
+				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Teaser1BlackScreen);
+				FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
+				if (MainMenu is null)
+				{
+					PauseMenu?.ResetPauseMenu();
+					GetTree().Paused = false;
+				}
+				break;
 		}
 	}
 }
@@ -64,4 +73,5 @@ public enum DebugSceneOptions
 	Set5,
 	Set6,
 	Set7,
+	Teaser1,
 }

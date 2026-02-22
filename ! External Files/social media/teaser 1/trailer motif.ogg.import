@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dyjnv31hn52ph"
+path="res://.godot/imported/trailer motif.ogg-56dbf16006e6162bb7de815293dd63a2.oggvorbisstr"
+
+[deps]
+
+source_file="res://! External Files/social media/teaser 1/trailer motif.ogg"
+dest_files=["res://.godot/imported/trailer motif.ogg-56dbf16006e6162bb7de815293dd63a2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

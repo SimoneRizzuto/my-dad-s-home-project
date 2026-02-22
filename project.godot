@@ -160,7 +160,7 @@ Interact={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Assets/Dialogue/test-dialogue.dialogue", "res://Assets/Dialogue/1. 14 days remain.dialogue", "res://Assets/Dialogue/2. sleepover.dialogue", "res://Assets/Dialogue/5. i cant sleep.dialogue", "res://Assets/Dialogue/6. final day.dialogue", "res://Assets/Dialogue/3. 84 days remain.dialogue", "res://Assets/Dialogue/4. 79 days remain.dialogue", "res://Assets/Dialogue/Drafts/1. 14 days remain (old).dialogue", "res://Assets/Dialogue/Drafts/4. 79 days remain (old).dialogue", "res://Assets/Dialogue/Drafts/5. i cant sleep (old).dialogue")
+locale/translations_pot_files=PackedStringArray("res://Assets/Dialogue/test-dialogue.dialogue", "res://Assets/Dialogue/1. 14 days remain.dialogue", "res://Assets/Dialogue/2. sleepover.dialogue", "res://Assets/Dialogue/5. i cant sleep.dialogue", "res://Assets/Dialogue/6. final day.dialogue", "res://Assets/Dialogue/3. 84 days remain.dialogue", "res://Assets/Dialogue/4. 79 days remain.dialogue", "res://Assets/Dialogue/Drafts/1. 14 days remain (old).dialogue", "res://Assets/Dialogue/Drafts/4. 79 days remain (old).dialogue", "res://Assets/Dialogue/Drafts/5. i cant sleep (old).dialogue", "res://Assets/Dialogue/Trailer/Trailer 1. teaser.dialogue")
 
 [physics]
 

@@ -41,8 +41,7 @@ do Director.Wait(2)
 
 Oliver: ...
 Oliver: It's been hard to sleep lately.
-Oliver: Too much on my mind.
-Sasha: Yeah.
+Sasha: Yeah?
 Oliver: ...
 
 do Director.Wait(2)
