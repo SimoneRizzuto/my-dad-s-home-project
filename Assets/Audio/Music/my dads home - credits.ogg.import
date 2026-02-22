@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://w06ne313y6nn"
+path="res://.godot/imported/my dads home - credits.ogg-6914260f7fdff47b0875836cd13ac718.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/my dads home - credits.ogg"
+dest_files=["res://.godot/imported/my dads home - credits.ogg-6914260f7fdff47b0875836cd13ac718.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

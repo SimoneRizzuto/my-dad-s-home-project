@@ -51,7 +51,7 @@ do Director.Wait(1)
 do Oliver.PlayAnimation("sit left")
 do Director.Wait(0.5)
 
-do Director.Wait(3)
+do Director.Wait(10)
 
 do Director.ToggleCameraSmoothing(false)
 do SceneSwitcher.Spawn_DadKnocksScene()

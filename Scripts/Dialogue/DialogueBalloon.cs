@@ -423,7 +423,10 @@ public partial class DialogueBalloon : CanvasLayer
 		if (actorSpeaking == null) return;
 		
 		var actorModule = actorSpeaking.GetNode<ActorModule>("ActorModule");
-		actorModule?.SpeakSound.Play();
+		if (actorModule?.SpeakSound.Playing != true)
+		{
+			actorModule?.SpeakSound.Play();
+		}
 	}
 	
 
