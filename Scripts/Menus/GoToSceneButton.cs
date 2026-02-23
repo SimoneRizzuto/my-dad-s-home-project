@@ -18,38 +18,44 @@ public partial class GoToSceneButton : Button
 		{
 			case DebugSceneOptions.Set1:
 				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1_OnlineWorld);
-				FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
-				Menu?.ResetPauseMenu();
-				GetTree().Paused = false; 
+				ResetPauseMenu();
 				break;
 			case DebugSceneOptions.Set2:
 				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set2_SashaBedroom);
-				FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
-				Menu?.ResetPauseMenu();
-				GetTree().Paused = false; 
+				ResetPauseMenu();
 				break;
 			case DebugSceneOptions.Set3:
-				SceneSwitcher.Instance?.TransitionToScene("");
+				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set2_SashaCampfire);
+				ResetPauseMenu();
 				break;
 			case DebugSceneOptions.Set4:
 				SceneSwitcher.Instance?.TransitionToScene("");
+				//ResetPauseMenu();
 				break;
 			case DebugSceneOptions.Set5:
 				SceneSwitcher.Instance?.TransitionToScene("");
+				//ResetPauseMenu();
 				break;
 			case DebugSceneOptions.Set6:
 				SceneSwitcher.Instance?.TransitionToScene("");
+				//ResetPauseMenu();
 				break;
 			case DebugSceneOptions.Set7:
 				SceneSwitcher.Instance?.TransitionToScene("");
+				//ResetPauseMenu();
 				break;
 			case DebugSceneOptions.Teaser1:
 				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Teaser1BlackScreen);
-				FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
-				Menu?.ResetPauseMenu();
-				GetTree().Paused = false;
+				ResetPauseMenu();
 				break;
 		}
+	}
+
+	private void ResetPauseMenu()
+	{
+		FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
+		Menu?.ResetPauseMenu();
+		GetTree().Paused = false;
 	}
 }
 
