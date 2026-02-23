@@ -46,11 +46,8 @@ public partial class GoToSceneButton : Button
 			case DebugSceneOptions.Teaser1:
 				SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Teaser1BlackScreen);
 				FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
-				if (MainMenu is null)
-				{
-					PauseMenu?.ResetPauseMenu();
-					GetTree().Paused = false;
-				}
+				Menu?.ResetPauseMenu();
+				GetTree().Paused = false;
 				break;
 		}
 	}
