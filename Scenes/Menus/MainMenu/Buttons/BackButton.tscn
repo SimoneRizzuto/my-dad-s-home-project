@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnfboq67kgywk"]
+[gd_scene load_steps=3 format=3 uid="uid://deympix12togv"]
 
 [ext_resource type="Theme" uid="uid://c2yv8q7b8742i" path="res://Assets/Themes/ui-button-theme.tres" id="1_msnwo"]
-[ext_resource type="Script" path="res://Scripts/Menus/MainMenuBackButton.cs" id="2_pxb38"]
+[ext_resource type="Script" path="res://Scripts/Menus/BackButton.cs" id="2_ce4vf"]
 
 [node name="BackButton" type="Button"]
 layout_direction = 2
 theme = ExtResource("1_msnwo")
 text = "Back"
 alignment = 0
-script = ExtResource("2_pxb38")
+script = ExtResource("2_ce4vf")
