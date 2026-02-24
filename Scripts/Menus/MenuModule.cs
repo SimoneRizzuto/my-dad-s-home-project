@@ -92,8 +92,7 @@ public partial class MenuModule : CanvasLayer
 		VBoxContainerButtonToggle(OptionsMenu, true);
 		VBoxContainerButtonToggle(DebugMenu, true);
 		VBoxContainerButtonToggle(QuitMenu, true);
-
-		FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
+		
 		MainLabel.Visible = true;
 		Menu.Visible = true;
 		ExitButton.Visible = true;

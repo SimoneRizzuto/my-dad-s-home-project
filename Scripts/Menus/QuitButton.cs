@@ -21,7 +21,7 @@ public partial class QuitButton : Button
 			case MenuMode.PauseMenu:
 				if (FadeUtil.Instance != null)
 				{
-					FadeUtil.Instance.FadeOut(NodeExtensions.MenuFadeInitialiseTime);
+					FadeUtil.Instance.FadeOut();
 					FadeUtil.Instance.FadeFinished += ReturnToMainMenu;
 				}
 
