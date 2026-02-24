@@ -87,12 +87,16 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     #endregion
     
     #region functionality
-    public void TransitionToScene(string uid)
+
+    public void TransitionToScene(string uid, bool triggerFade = true)
     {
         ClearMain();
         SpawnSceneUid(uid);
         
-        FadeUtil.Instance?.FadeIn(0.25f, smooth: true);
+        if (triggerFade)
+        {
+            FadeUtil.Instance?.FadeIn(0.25f, smooth: true);
+        }
         
         CastCrew.FindExistingActors(); // make into signal???
     }
@@ -142,13 +146,13 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     
     private void ClearMain()
     {
-        
         var allChildren = GetMain()?.GetChildren();
-        if (allChildren != null)
-            foreach (var child in allChildren)
-            {
-                child.QueueFree();
-            }
+        if (allChildren == null) return;
+        
+        foreach (var child in allChildren)
+        {
+            child.QueueFree();
+        }
     }
     #endregion
 }

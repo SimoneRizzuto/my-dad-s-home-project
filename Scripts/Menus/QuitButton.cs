@@ -29,7 +29,7 @@ public partial class QuitButton : Button
 			case MenuMode.MainMenu:
 				if (FadeUtil.Instance != null)
 				{
-					FadeUtil.Instance.FadeOut();
+					FadeUtil.Instance.FadeOut(NodeExtensions.MenuFadeInitialiseTime);
 					FadeUtil.Instance.FadeFinished += () => GetTree().Quit();
 				}
 
@@ -39,7 +39,7 @@ public partial class QuitButton : Button
 
 	private void ReturnToMainMenu()
 	{
-		SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.MainMenuTrigger);
+		SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.MainMenuTrigger, false);
 		if (FadeUtil.Instance != null)
 		{
 			FadeUtil.Instance.FadeFinished -= ReturnToMainMenu;

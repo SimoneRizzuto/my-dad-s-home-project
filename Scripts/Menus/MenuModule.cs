@@ -46,9 +46,8 @@ public partial class MenuModule : CanvasLayer
 
 	public override void _Ready()
 	{
-		FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
 		ProcessMode = ProcessModeEnum.Always;
-		MenuMode = MenuMode.MainMenu; 
+		MenuMode = MenuMode.MainMenu;
 		ColorRect.Visible = false;
 		PauseLabel.Visible = false;
 		MainLabel.Visible = false;
@@ -94,6 +93,7 @@ public partial class MenuModule : CanvasLayer
 		VBoxContainerButtonToggle(DebugMenu, true);
 		VBoxContainerButtonToggle(QuitMenu, true);
 
+		FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
 		MainLabel.Visible = true;
 		Menu.Visible = true;
 		ExitButton.Visible = true;
@@ -222,6 +222,8 @@ public partial class MenuModule : CanvasLayer
 
 	public void ResetMainMenu()
 	{
+		FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
+		
 		MenuMode = MenuMode.MainMenu;
 		ColorRect.Visible = true;
 		MainLabel.Visible = true;
@@ -231,6 +233,7 @@ public partial class MenuModule : CanvasLayer
 		OptionsMenu.Visible = false;
 		QuitMenu.Visible = false;
 		Visible = true;
+		
 		menuButtonLastFocusIndex = 0;
 	}
 
