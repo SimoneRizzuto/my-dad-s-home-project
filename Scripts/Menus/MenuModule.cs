@@ -1,4 +1,6 @@
 using Godot;
+using System.Linq;
+using System.Collections.Generic;
 using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Extensions;
@@ -37,8 +39,14 @@ public partial class MenuModule : CanvasLayer
 	private Control QuitBackButton => GetNode<Control>("./ColorRect/QuitMenu/BackButton");
 	private Button QuitButton => GetNode<Button>("%QuitButton");
 	
-
+	// audio
+	private AudioStreamPlayer MenuNavigate_Neutral => GetNode<AudioStreamPlayer>("%MenuNavigate_Neutral");
+	
 	// variables
+	private readonly List<Button> subscribedButtons = new();
+	private Control lastFocusedControl;
+	private int mainMenuButtonLastFocusIndex = 0;
+	private bool suppressNextFocusSound;
 	private int menuButtonLastFocusIndex = 0;
 	private bool mainObservedOnce = false;
 
@@ -48,6 +56,7 @@ public partial class MenuModule : CanvasLayer
 	{
 		ProcessMode = ProcessModeEnum.Always;
 		MenuMode = MenuMode.MainMenu;
+		
 		ColorRect.Visible = false;
 		PauseLabel.Visible = false;
 		MainLabel.Visible = false;
@@ -55,6 +64,8 @@ public partial class MenuModule : CanvasLayer
 		DebugMenu.Visible = false;
 		OptionsMenu.Visible = false;
 		QuitMenu.Visible = false;
+		
+		SubscribeAllButtons();
 	}
 
 	public override void _Process(double delta)
@@ -144,7 +155,7 @@ public partial class MenuModule : CanvasLayer
 		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
 
 		OptionsMenu.Visible = true;
-		TestButton.GrabFocus();
+		GrabFocusSilently(TestButton);
 		OptionsMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 
 		menuButtonLastFocusIndex = 1;
@@ -159,7 +170,7 @@ public partial class MenuModule : CanvasLayer
 		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
 
 		DebugMenu.Visible = true;
-		Set1Button.GrabFocus();
+		GrabFocusSilently(Set1Button);
 		DebugMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 
 		menuButtonLastFocusIndex = 2;
@@ -174,7 +185,7 @@ public partial class MenuModule : CanvasLayer
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
 
 		QuitMenu.Visible = true;
-		QuitBackButton.GrabFocus();
+		GrabFocusSilently(QuitBackButton);
 		QuitMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 
 		menuButtonLastFocusIndex = 3;
@@ -241,16 +252,16 @@ public partial class MenuModule : CanvasLayer
 		switch (menuButtonLastFocusIndex)
 		{
 			case 0:
-				LetsContinueButton.GrabFocus();
+				GrabFocusSilently(LetsContinueButton);
 				break;
 			case 1:
-				OptionsButton.GrabFocus();
+				GrabFocusSilently(OptionsButton);
 				break;
 			case 2:
-				DebugButton.GrabFocus();
+				GrabFocusSilently(DebugButton);
 				break;
 			case 3:
-				QuitButton.GrabFocus();
+				GrabFocusSilently(QuitButton);
 				break;
 		}
 	}
@@ -263,6 +274,60 @@ public partial class MenuModule : CanvasLayer
 			{
 				button.Disabled = toggle;
 			}
+		}
+	}
+	
+	private void SubscribeAllButtons()
+	{
+		foreach (var node in GetAllChildrenRecursive(this))
+		{
+			if (node is Button button)
+			{
+				button.FocusEntered += OnButtonFocusEntered;
+				subscribedButtons.Add(button);
+			}
+		}
+	}
+	
+	private void UnsubscribeAllButtons()
+	{
+		foreach (var button in subscribedButtons.Where(IsInstanceValid))
+		{
+			button.FocusEntered -= OnButtonFocusEntered;
+		}
+		
+		subscribedButtons.Clear();
+	}
+	
+	private void OnButtonFocusEntered()
+	{
+		if (suppressNextFocusSound)
+		{
+			suppressNextFocusSound = false;
+			return;
+		}
+		
+		var focus = GetViewport().GuiGetFocusOwner();
+		if (focus == null || focus == lastFocusedControl) return;
+		
+		lastFocusedControl = focus;
+		MenuNavigate_Neutral.Play();
+	}
+	
+	private void GrabFocusSilently(Control control)
+	{
+		suppressNextFocusSound = true;
+		control.GrabFocus();
+	}
+	
+	private IEnumerable<Node> GetAllChildrenRecursive(Node root)
+	{
+		foreach (var child in root.GetChildren())
+		{
+			yield return child;
+			
+			foreach (var grandChild in GetAllChildrenRecursive(child))
+				yield return grandChild;
 		}
 	}
 }
