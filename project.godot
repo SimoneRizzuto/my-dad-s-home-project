@@ -33,6 +33,7 @@ FadeUtil="*res://Scenes/Camera/FadeUtil.tscn"
 ShowTextureUI="*res://Scenes/Modules/ShowTextureUI/ShowTextureUIModule.tscn"
 InteractableIndicator="*res://Scenes/Modules/Interactables/Indicator/InteractableIndicator.tscn"
 MenuModule="*res://Scenes/Menus/MenuModule.tscn"
+FadeAutoload="*res://addons/UniversalFade/Fade.gd"
 
 [dialogue_manager]
 
