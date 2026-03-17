@@ -6,7 +6,7 @@ public partial class Compression  : ColorRect
 {
 	private ShaderMaterial? _material;
 
-	[Export] public float Steps = 30f;
+	[Export] public float Steps = 50f;
 
 	public override void _Ready()
 	{
