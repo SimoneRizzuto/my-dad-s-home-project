@@ -6,8 +6,6 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uvfue"]
 shader = ExtResource("1_adsie")
 shader_parameter/steps = 6.0
-shader_parameter/noise_strength = 0.04
-shader_parameter/noise_scale = 800.0
 
 [node name="VisualComprssion" type="CanvasLayer"]
 
@@ -20,4 +18,3 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_aq4vy")
-Steps = 30.0
