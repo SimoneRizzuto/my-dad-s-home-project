@@ -118,7 +118,31 @@ public partial class DialogueBalloon : CanvasLayer
 
 	public override void _UnhandledInput(InputEvent @event)
 	{
-		// Only the balloon is allowed to handle input while it's showing
+		if (!balloon.Visible)
+			return;
+
+		bool mouseClicked = @event is InputEventMouseButton mouse &&
+		                    mouse.ButtonIndex == MouseButton.Left &&
+		                    mouse.Pressed;
+
+		bool skipPressed = @event.IsActionPressed(SkipAction);
+		bool nextPressed = @event.IsActionPressed(NextAction);
+
+		if ((bool)dialogueLabel.Get("is_typing"))
+		{
+			if (mouseClicked || skipPressed)
+			{
+				dialogueLabel.Call("skip_typing");
+			}
+		}
+		else if (isWaitingForInput && dialogueLine.Responses.Count == 0)
+		{
+			if (mouseClicked || nextPressed)
+			{
+				Next(dialogueLine.NextId);
+			}
+		}
+		
 		GetViewport().SetInputAsHandled();
 	}
 
