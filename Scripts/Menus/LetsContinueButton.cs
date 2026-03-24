@@ -17,7 +17,7 @@ public partial class LetsContinueButton : Button
 		{
 			Menu?.LetsContinueGame();
 		}
-		else if  ((Menu?.MenuMode == MenuMode.PauseMenu))
+		else if  ((Menu?.MenuMode == MenuMode.MainMenu))
 		{
 			if (MenuModule.previousSaveData)
 			{
