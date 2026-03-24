@@ -17,9 +17,12 @@ public partial class LetsContinueButton : Button
 		{
 			Menu?.LetsContinueGame();
 		}
-		else
+		else if  ((Menu?.MenuMode == MenuMode.PauseMenu))
 		{
-			GD.Print("Some logic for go inside");
+			if (MenuModule.previousSaveData)
+			{
+				Menu?.GoToLoadMenu();
+			}
 		}
 	}
 }

@@ -1,6 +1,7 @@
 using Godot;
 using System.Linq;
 using System.Collections.Generic;
+using MyFathersHomeProject.SaveFiles;
 using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Extensions;
@@ -25,6 +26,9 @@ public partial class MenuModule : CanvasLayer
 	private Button DebugButton => GetNode<Button>("%DebugButton");
 	private Button ExitButton => GetNode<Button>("%ExitButton");
 	
+	// load menu
+	private Control LoadGameMenu => GetNode<Control>("./ColorRect/LoadGameMenu");
+	private Button NewGameButton => GetNode<Button>("%NewGameButton");
 
 	// settings menu
 	private Control OptionsMenu => GetNode<Control>("./ColorRect/OptionsMenu");
@@ -49,11 +53,19 @@ public partial class MenuModule : CanvasLayer
 	private bool suppressNextFocusSound;
 	private int menuButtonLastFocusIndex = 0;
 	private bool mainObservedOnce = false;
+	public static bool previousSaveData =  false;
 
 	public MenuMode MenuMode;
 
 	public override void _Ready()
 	{
+		// Check if save file 
+		var saveData = SaveManager.LoadGameData();
+		if (saveData != null)
+		{
+			previousSaveData = true;
+		}
+		
 		ProcessMode = ProcessModeEnum.Always;
 		MenuMode = MenuMode.MainMenu;
 		
@@ -61,6 +73,7 @@ public partial class MenuModule : CanvasLayer
 		PauseLabel.Visible = false;
 		MainLabel.Visible = false;
 		Menu.Visible = false;
+		LoadGameMenu.Visible = false;
 		DebugMenu.Visible = false;
 		OptionsMenu.Visible = false;
 		QuitMenu.Visible = false;
@@ -96,10 +109,12 @@ public partial class MenuModule : CanvasLayer
 		ExitButton.Text = "Not Now";
 		LetsContinueButton.Text = "Go Inside";
 
+		LoadGameMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => LoadGameMenu.Visible = false);
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
 		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
 
+		VBoxContainerButtonToggle(LoadGameMenu, true);
 		VBoxContainerButtonToggle(OptionsMenu, true);
 		VBoxContainerButtonToggle(DebugMenu, true);
 		VBoxContainerButtonToggle(QuitMenu, true);
@@ -125,11 +140,12 @@ public partial class MenuModule : CanvasLayer
 		DebugButton.Disabled = false;
 		ExitButton.Disabled = false;
 
-
+		LoadGameMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => LoadGameMenu.Visible = GetTree().Paused);
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = GetTree().Paused);
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = GetTree().Paused);
 		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
 		
+		VBoxContainerButtonToggle(LoadGameMenu, true);
 		VBoxContainerButtonToggle(OptionsMenu, true);
 		VBoxContainerButtonToggle(DebugMenu, true);
 		VBoxContainerButtonToggle(QuitMenu, true);
@@ -146,11 +162,28 @@ public partial class MenuModule : CanvasLayer
 		PauseLabel.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 	}
 
+	public void GoToLoadMenu()
+	{
+		VBoxContainerButtonToggle(LoadGameMenu, false);
+		SetBackgroundTransparency();
+		Menu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => Menu.Visible = false);
+		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
+		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
+		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
+
+		LoadGameMenu.Visible = true;
+		GrabFocusSilently(NewGameButton);
+		LoadGameMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
+
+		menuButtonLastFocusIndex = 0;
+	}
+
 	public void GoToSettingsMenu()
 	{
 		VBoxContainerButtonToggle(OptionsMenu, false);
 		SetBackgroundTransparency();
 		Menu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => Menu.Visible = false);
+		LoadGameMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => LoadGameMenu.Visible = false);
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
 		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
 
@@ -166,6 +199,7 @@ public partial class MenuModule : CanvasLayer
 		VBoxContainerButtonToggle(DebugMenu, false);
 		SetBackgroundTransparency();
 		Menu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => Menu.Visible = false);
+		LoadGameMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => LoadGameMenu.Visible = false);
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
 		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
 
@@ -181,6 +215,7 @@ public partial class MenuModule : CanvasLayer
 		VBoxContainerButtonToggle(QuitMenu, false);
 		SetBackgroundTransparency();
 		Menu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => Menu.Visible = false);
+		LoadGameMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => LoadGameMenu.Visible = false);
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
 
@@ -224,6 +259,7 @@ public partial class MenuModule : CanvasLayer
 		PauseLabel.Visible = false;
 		MainLabel.Visible = false;
 		Menu.Visible = false;
+		LoadGameMenu.Visible = false;
 		DebugMenu.Visible = false;
 		OptionsMenu.Visible = false;
 		QuitMenu.Visible = false;
@@ -239,6 +275,7 @@ public partial class MenuModule : CanvasLayer
 		MainLabel.Visible = true;
 		PauseLabel.Visible = false;
 		Menu.Visible = true;
+		LoadGameMenu.Visible = false;
 		DebugMenu.Visible = false;
 		OptionsMenu.Visible = false;
 		QuitMenu.Visible = false;

@@ -33,35 +33,33 @@ public partial class TransitionScreen : CanvasLayer
 			FadeInLabel();
 		}
 
-		if (SetId > 0)
+		if (SetId <= 0) return;
+		// Save Data
+		switch (SetId)
 		{
-			// Save Data
-			switch (SetId)
-			{
-				case 1:
-					SaveManager.SaveGameData(1);
-					break;
-				case 2:
-					SaveManager.SaveGameData(2);
-					break;
-				case 3:
-					SaveManager.SaveGameData(3);
-					break;
-				case 4:
-					SaveManager.SaveGameData(4);
-					break;
-				case 5:
-					SaveManager.SaveGameData(5);
-					break;
-				case 6:
-					SaveManager.SaveGameData(6);
-					break;
-				case 7:
-					SaveManager.SaveGameData(7);
-					break;
-			}
+			case 1:
+				SaveManager.SaveGameData(1);
+				break;
+			case 2:
+				SaveManager.SaveGameData(2);
+				break;
+			case 3:
+				SaveManager.SaveGameData(3);
+				break;
+			case 4:
+				SaveManager.SaveGameData(4);
+				break;
+			case 5:
+				SaveManager.SaveGameData(5);
+				break;
+			case 6:
+				SaveManager.SaveGameData(6);
+				break;
+			case 7:
+				SaveManager.SaveGameData(7);
+				break;
 		}
-		
+
 	}
 	
 	public override void _Process(double delta)

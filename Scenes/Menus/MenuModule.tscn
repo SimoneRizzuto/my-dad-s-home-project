@@ -108,18 +108,20 @@ grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="ContinueButton" type="Button" parent="ColorRect/LoadGameMenu"]
+[node name="NewGameButton" type="Button" parent="ColorRect/LoadGameMenu"]
+unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
 theme = ExtResource("2_cuk7j")
-text = "Restart"
+text = "New Save"
 alignment = 0
 
-[node name="RestartButton" type="Button" parent="ColorRect/LoadGameMenu"]
+[node name="LoadGameButton" type="Button" parent="ColorRect/LoadGameMenu"]
+unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
 theme = ExtResource("2_cuk7j")
-text = "Restart"
+text = "Load Save"
 alignment = 0
 
 [node name="BackButton" parent="ColorRect/LoadGameMenu" instance=ExtResource("8_7a0mv")]
