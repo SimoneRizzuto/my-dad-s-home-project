@@ -6,11 +6,11 @@ namespace MyFathersHomeProject.SaveFiles;
 
 public partial class SaveManager : Node
 {
-	private const string SavePath = "res://SaveFiles//SaveData.json";
+	private const string SavePath = "user://SaveData.json";
 
-	public static void SaveGameData(SaveFiles.SaveData saveData)
+	public static void SaveGameData(int setId)
 	{
-		var jsonSaveDataString = JsonSerializer.Serialize(saveData);
+		var jsonSaveDataString = JsonSerializer.Serialize(new SaveData(setId));
 		using var file = FileAccess.Open(SavePath, FileAccess.ModeFlags.Write);
 		file.StoreString(jsonSaveDataString);
 		file.Close();
@@ -31,6 +31,8 @@ public partial class SaveManager : Node
 		try
 		{
 			deserializedData = JsonSerializer.Deserialize<SaveData>(jsonData);
+			
+			// load a scene
 		}
 		catch (Exception ex)
 		{

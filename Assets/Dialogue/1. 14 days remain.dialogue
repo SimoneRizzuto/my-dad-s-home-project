@@ -1,7 +1,5 @@
 ~ oliver_chats_online
 
-do SaveGameModule.SaveGameData("ProgressScene", 1)
-
 do Sasha.SetDirection(1)
 do Sasha.PlayAnimation("draw scribble right")
 do Director.Wait(2)
