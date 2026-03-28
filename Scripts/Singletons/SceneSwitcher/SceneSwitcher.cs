@@ -30,6 +30,14 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     
     public const string TransitionScreen = "uid://ba8ajsihdkrwt";
     
+    // transition scenes
+     public const string Set1TransitionScene = "uid://b2iy0q8t82xo0";
+     public const string Set2TransitionScene = "uid://cw2qkt3pdk0hs";
+     public const string Set3TransitionScene = "uid://ddgf2nnj6r3bv";
+     public const string Set4TransitionScene = "uid://bhifkwplawbvv";
+     public const string Set5TransitionScene = "uid://dyfgytarpoa17";
+     public const string Set6TransitionScene = "uid://de4cycnfg0ns0";
+    
     // getters
     public static SceneSwitcher? Instance { get; private set; }
 
