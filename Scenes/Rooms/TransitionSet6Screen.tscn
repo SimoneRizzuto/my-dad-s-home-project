@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://de4cycnfg0ns0"]
+
+[ext_resource type="PackedScene" uid="uid://ba8ajsihdkrwt" path="res://Scenes/Rooms/TransitionScreen.tscn" id="1_dpcsp"]
+
+[node name="TransitionSet1Screen" type="Node2D"]
+
+[node name="TransitionScreen" parent="." instance=ExtResource("1_dpcsp")]
+RichText = "Final Day"
+DelayInitialFade = 1.5
+Buffer = 0.5
+FadeSpeed = 1.0
+FontSize = 18.0
+SetId = 6

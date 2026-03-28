@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw2qkt3pdk0hs"]
+
+[ext_resource type="PackedScene" uid="uid://ba8ajsihdkrwt" path="res://Scenes/Rooms/TransitionScreen.tscn" id="1_s0yhg"]
+[ext_resource type="PackedScene" uid="uid://cioaaxpie1rog" path="res://Scenes/Sets/#2/Set2_SashaBedroom.tscn" id="2_3eh23"]
+
+[node name="TransitionSet1Screen" type="Node2D"]
+
+[node name="TransitionScreen" parent="." instance=ExtResource("1_s0yhg")]
+NextScene = ExtResource("2_3eh23")
+RichText = "Sleepover"
+DelayInitialFade = 1.5
+Buffer = 0.5
+FadeSpeed = 1.0
+FontSize = 18.0
+SetId = 2
