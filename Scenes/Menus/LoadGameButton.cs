@@ -23,9 +23,6 @@ public partial class LoadGameButton : Button
 				// Should never reach this code
 				throw new NotImplementedException();
 			case MenuMode.MainMenu:
-				// Reset / Hide Menu
-				ResetPauseMenu();
-				
 				// Get current scene
 				var saveData = SaveManager.LoadGameData();
 				var sceneNumber = saveData?.SetId;
@@ -52,22 +49,15 @@ public partial class LoadGameButton : Button
 						SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set6TransitionScene);
 						break;
 				}
-				
-				
-
+				// Reset / Hide Menu
+				Menu?.ResetPauseMenu();
+				GetTree().Paused = false;
 				break;
 			case null:
 				throw new NotImplementedException();
 			default:
 				throw new ArgumentOutOfRangeException();
 		}
-	}
-	
-	private void ResetPauseMenu()
-	{
-		FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
-		Menu?.ResetPauseMenu();
-		GetTree().Paused = false;
 	}
 
 }
