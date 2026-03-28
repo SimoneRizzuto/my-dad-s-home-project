@@ -298,7 +298,7 @@ public partial class MenuModule : CanvasLayer
 				GrabFocusSilently(DebugButton);
 				break;
 			case 3:
-				GrabFocusSilently(QuitButton);
+				GrabFocusSilently(ExitButton);
 				break;
 		}
 	}
