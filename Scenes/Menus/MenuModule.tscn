@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cq53k4akw02sg"]
+[gd_scene load_steps=16 format=3 uid="uid://cq53k4akw02sg"]
 
 [ext_resource type="FontFile" uid="uid://cb0xauna5q601" path="res://Assets/Fonts/Reaper Font.ttf" id="1_3n054"]
 [ext_resource type="Script" path="res://Scripts/Menus/MenuModule.cs" id="1_b4uhw"]
@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://dya8epkgbbq1i" path="res://Scenes/Menus/MainMenu/Buttons/OptionsButton.tscn" id="4_hq8qe"]
 [ext_resource type="PackedScene" uid="uid://c2jftd2den0d6" path="res://Scenes/Menus/MainMenu/Buttons/DebugButton.tscn" id="5_r0faw"]
 [ext_resource type="PackedScene" uid="uid://dy5kyi42jp6jl" path="res://Scenes/Menus/MainMenu/Buttons/QuitButton.tscn" id="6_kq6vb"]
-[ext_resource type="PackedScene" uid="uid://bd6swl2c7kvux" path="res://Scenes/Menus/MainMenu/Buttons/ExitButton.tscn" id="7_0q4kn"]
-[ext_resource type="PackedScene" uid="uid://deympix12togv" path="res://Scenes/Menus/MainMenu/Buttons/BackButton.tscn" id="8_7a0mv"]
+[ext_resource type="PackedScene" path="res://Scenes/Menus/MainMenu/Buttons/ExitButton.tscn" id="7_0q4kn"]
+[ext_resource type="PackedScene" path="res://Scenes/Menus/MainMenu/Buttons/BackButton.tscn" id="8_7a0mv"]
+[ext_resource type="Script" path="res://Scenes/Menus/NewGameButton.cs" id="9_kjkfx"]
+[ext_resource type="Script" path="res://Scenes/Menus/LoadGameButton.cs" id="9_u6s1e"]
 [ext_resource type="Script" path="res://Scripts/Menus/GoToSceneButton.cs" id="10_kf0rm"]
 
 [sub_resource type="Theme" id="Theme_tp6t0"]
@@ -115,6 +117,7 @@ layout_mode = 2
 theme = ExtResource("2_cuk7j")
 text = "New Save"
 alignment = 0
+script = ExtResource("9_kjkfx")
 
 [node name="LoadGameButton" type="Button" parent="ColorRect/LoadGameMenu"]
 unique_name_in_owner = true
@@ -123,6 +126,7 @@ layout_mode = 2
 theme = ExtResource("2_cuk7j")
 text = "Load Save"
 alignment = 0
+script = ExtResource("9_u6s1e")
 
 [node name="BackButton" parent="ColorRect/LoadGameMenu" instance=ExtResource("8_7a0mv")]
 layout_mode = 2
