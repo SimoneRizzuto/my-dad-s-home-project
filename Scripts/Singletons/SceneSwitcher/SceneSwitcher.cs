@@ -107,10 +107,15 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
         CastCrew.FindExistingActors(); // make into signal???
     }
     
-    public void TransitionToScene(PackedScene scene)
+    public void TransitionToScene(PackedScene scene, bool triggerFade = true)
     {
         ClearMain();
         SpawnScenePacked(scene);
+        
+        if (triggerFade)
+        {
+            FadeUtil.Instance?.FadeIn(0.25f, smooth: true);
+        }
         
         CastCrew.FindExistingActors(); // make into signal???
     }
