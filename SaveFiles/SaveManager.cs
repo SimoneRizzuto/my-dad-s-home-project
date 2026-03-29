@@ -31,7 +31,9 @@ public partial class SaveManager : Node
 		try
 		{
 			deserializedData = JsonSerializer.Deserialize<SaveData>(jsonData);
-			
+			// var timeSinceSave = TimeSinceSave();
+			var saveTime = ModifiedTime();
+			if (deserializedData != null) deserializedData.SaveTime = saveTime;
 			// load a scene
 		}
 		catch (Exception ex)
@@ -41,4 +43,31 @@ public partial class SaveManager : Node
 
 		return deserializedData;
 	}
+
+	private static string ModifiedTime()
+	{
+		var timezone = TimeZoneInfo.Local;
+		DateTimeOffset utcTime = DateTimeOffset.FromUnixTimeSeconds((long)FileAccess.GetModifiedTime(SavePath));
+		DateTime saveTime = TimeZoneInfo.ConvertTime(utcTime, timezone).DateTime;
+		
+		return saveTime.ToString();
+		
+	}
+
+	/*private static string TimeSinceSave()
+	{
+		var modifiedTime = FileAccess.GetModifiedTime(SavePath);
+		var currentTime = (ulong)Math.Round(Time.GetUnixTimeFromSystem());
+		var timeSinceSave = (currentTime - modifiedTime); // secs
+
+		var hours = timeSinceSave / 3600;
+		var minutes = (timeSinceSave % 3600) / 60;
+		var seconds = timeSinceSave % 60;
+		
+		var timeSinceSaveString = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
+		
+		
+		
+		return timeSinceSaveString;
+	}*/
 }

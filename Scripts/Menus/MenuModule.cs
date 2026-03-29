@@ -29,6 +29,7 @@ public partial class MenuModule : CanvasLayer
 	// load menu
 	private Control LoadGameMenu => GetNode<Control>("./ColorRect/LoadGameMenu");
 	private Button NewGameButton => GetNode<Button>("%NewGameButton");
+	private Button LoadGameButton => GetNode<Button>("%LoadGameButton");
 
 	// settings menu
 	private Control OptionsMenu => GetNode<Control>("./ColorRect/OptionsMenu");
@@ -54,13 +55,14 @@ public partial class MenuModule : CanvasLayer
 	private int menuButtonLastFocusIndex = 0;
 	private bool mainObservedOnce = false;
 	public static bool previousSaveData =  false;
+	private SaveData? saveData;
 
 	public MenuMode MenuMode;
 
 	public override void _Ready()
 	{
 		// Check if save file 
-		var saveData = SaveManager.LoadGameData();
+		saveData = SaveManager.LoadGameData();
 		if (saveData != null)
 		{
 			previousSaveData = true;
@@ -171,6 +173,7 @@ public partial class MenuModule : CanvasLayer
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
 		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
 
+		if (saveData != null) LoadGameButton.Text = $"Load Game (Last Saved {saveData.SaveTime})";
 		LoadGameMenu.Visible = true;
 		GrabFocusSilently(NewGameButton);
 		LoadGameMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
