@@ -47,9 +47,10 @@ public partial class SaveManager : Node
 	private static string? ModifiedTime()
 	{
 		var timezone = TimeZoneInfo.Local;
-		DateTimeOffset utcTime = DateTimeOffset.FromUnixTimeSeconds((long)FileAccess.GetModifiedTime(SavePath));
-		DateTime saveTime = TimeZoneInfo.ConvertTime(utcTime, timezone).DateTime;
+		var utcTime = DateTimeOffset.FromUnixTimeSeconds((long)FileAccess.GetModifiedTime(SavePath));
+		var saveTime = TimeZoneInfo.ConvertTime(utcTime, timezone).DateTime;
+		var saveTimeString = saveTime.ToString();
 
-		return saveTime.ToString();
+		return saveTimeString;
 	}
 }
