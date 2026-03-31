@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2iy0q8t82xo0"]
 
-[ext_resource type="PackedScene" uid="uid://ba8ajsihdkrwt" path="res://Scenes/Rooms/TransitionScreen.tscn" id="1_mgov3"]
+[ext_resource type="PackedScene" uid="uid://ba8ajsihdkrwt" path="res://Scenes/Rooms/TransitionSets/TransitionScreen.tscn" id="1_mgov3"]
 [ext_resource type="PackedScene" uid="uid://cjd6v6afkjbn0" path="res://Scenes/Sets/#1/Set1_OnlineWorld.tscn" id="2_olhbd"]
 
 [node name="TransitionSet1Screen" type="Node2D"]

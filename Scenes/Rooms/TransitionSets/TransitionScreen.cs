@@ -1,9 +1,9 @@
-using Godot;
 using System.Diagnostics;
+using Godot;
 using MyFathersHomeProject.SaveFiles;
 using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
-namespace MyFathersHomeProject.Scenes.Rooms;
+namespace MyFathersHomeProject.Scenes.Rooms.TransitionSets;
 public partial class TransitionScreen : CanvasLayer
 {
 	[Export] public PackedScene NextScene;

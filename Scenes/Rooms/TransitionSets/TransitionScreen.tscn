@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ba8ajsihdkrwt"]
 
-[ext_resource type="Script" path="res://Scenes/Rooms/TransitionScreen.cs" id="1_7wetk"]
+[ext_resource type="Script" path="res://Scenes/Rooms/TransitionSets/TransitionScreen.cs" id="1_7wetk"]
 [ext_resource type="FontFile" uid="uid://cb0xauna5q601" path="res://Assets/Fonts/Reaper Font.ttf" id="2_mol6r"]
 
 [node name="TransitionScreen" type="CanvasLayer"]
