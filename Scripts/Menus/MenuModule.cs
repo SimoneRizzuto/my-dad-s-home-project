@@ -25,7 +25,7 @@ public partial class MenuModule : CanvasLayer
 	private Button OptionsButton => GetNode<Button>("%OptionsButton");
 	private Button DebugButton => GetNode<Button>("%DebugButton");
 	private Button ExitButton => GetNode<Button>("%ExitButton");
-	
+
 	// load menu
 	private Control LoadGameMenu => GetNode<Control>("./ColorRect/LoadGameMenu");
 	private Button NewGameButton => GetNode<Button>("%NewGameButton");
@@ -38,15 +38,15 @@ public partial class MenuModule : CanvasLayer
 	// debug menu
 	private Control DebugMenu => GetNode<Control>("./ColorRect/DebugMenu");
 	private Button Set1Button => GetNode<Button>("%Set1Button");
-	
+
 	// quit menu
 	private Control QuitMenu => GetNode<Control>("./ColorRect/QuitMenu");
 	private Control QuitBackButton => GetNode<Control>("./ColorRect/QuitMenu/BackButton");
 	private Button QuitButton => GetNode<Button>("%QuitButton");
-	
+
 	// audio
 	private AudioStreamPlayer MenuNavigate_Neutral => GetNode<AudioStreamPlayer>("%MenuNavigate_Neutral");
-	
+
 	// variables
 	private readonly List<Button> subscribedButtons = new();
 	private Control lastFocusedControl;
@@ -54,7 +54,7 @@ public partial class MenuModule : CanvasLayer
 	private bool suppressNextFocusSound;
 	private int menuButtonLastFocusIndex = 0;
 	private bool mainObservedOnce = false;
-	public static bool previousSaveData =  false;
+	public static bool previousSaveData = false;
 	private SaveData? saveData;
 
 	public MenuMode MenuMode;
@@ -67,10 +67,10 @@ public partial class MenuModule : CanvasLayer
 		{
 			previousSaveData = true;
 		}
-		
+
 		ProcessMode = ProcessModeEnum.Always;
 		MenuMode = MenuMode.MainMenu;
-		
+
 		ColorRect.Visible = false;
 		PauseLabel.Visible = false;
 		MainLabel.Visible = false;
@@ -79,7 +79,7 @@ public partial class MenuModule : CanvasLayer
 		DebugMenu.Visible = false;
 		OptionsMenu.Visible = false;
 		QuitMenu.Visible = false;
-		
+
 		SubscribeAllButtons();
 	}
 
@@ -120,7 +120,7 @@ public partial class MenuModule : CanvasLayer
 		VBoxContainerButtonToggle(OptionsMenu, true);
 		VBoxContainerButtonToggle(DebugMenu, true);
 		VBoxContainerButtonToggle(QuitMenu, true);
-		
+
 		MainLabel.Visible = true;
 		Menu.Visible = true;
 		ExitButton.Visible = true;
@@ -130,7 +130,6 @@ public partial class MenuModule : CanvasLayer
 		MainLabel.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 	}
 
-	
 
 	public void GoToPauseMenu()
 	{
@@ -146,7 +145,7 @@ public partial class MenuModule : CanvasLayer
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = GetTree().Paused);
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = GetTree().Paused);
 		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
-		
+
 		VBoxContainerButtonToggle(LoadGameMenu, true);
 		VBoxContainerButtonToggle(OptionsMenu, true);
 		VBoxContainerButtonToggle(DebugMenu, true);
@@ -173,7 +172,7 @@ public partial class MenuModule : CanvasLayer
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
 		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
 
-		if (saveData != null) LoadGameButton.Text = $"Load Game (Last Saved {saveData.SaveTime})";
+		if (saveData != null) LoadGameButton.Text = $"- {saveData.SaveTime}";
 		LoadGameMenu.Visible = true;
 		GrabFocusSilently(NewGameButton);
 		LoadGameMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
@@ -228,7 +227,7 @@ public partial class MenuModule : CanvasLayer
 
 		menuButtonLastFocusIndex = 3;
 	}
-	
+
 	private void SetBackgroundTransparency()
 	{
 		if (MenuMode == MenuMode.MainMenu)
@@ -272,7 +271,7 @@ public partial class MenuModule : CanvasLayer
 	public void ResetMainMenu()
 	{
 		FadeUtil.Instance?.FadeIn(NodeExtensions.MenuFadeInitialiseTime);
-		
+
 		MenuMode = MenuMode.MainMenu;
 		ColorRect.Visible = true;
 		MainLabel.Visible = true;
@@ -283,7 +282,7 @@ public partial class MenuModule : CanvasLayer
 		OptionsMenu.Visible = false;
 		QuitMenu.Visible = false;
 		Visible = true;
-		
+
 		menuButtonLastFocusIndex = 0;
 	}
 
@@ -305,7 +304,7 @@ public partial class MenuModule : CanvasLayer
 				break;
 		}
 	}
-	
+
 	private void VBoxContainerButtonToggle(Control vBoxMenu, bool toggle)
 	{
 		foreach (Node child in vBoxMenu.GetChildren())
@@ -316,7 +315,7 @@ public partial class MenuModule : CanvasLayer
 			}
 		}
 	}
-	
+
 	private void SubscribeAllButtons()
 	{
 		foreach (var node in GetAllChildrenRecursive(this))
@@ -328,17 +327,17 @@ public partial class MenuModule : CanvasLayer
 			}
 		}
 	}
-	
+
 	private void UnsubscribeAllButtons()
 	{
 		foreach (var button in subscribedButtons.Where(IsInstanceValid))
 		{
 			button.FocusEntered -= OnButtonFocusEntered;
 		}
-		
+
 		subscribedButtons.Clear();
 	}
-	
+
 	private void OnButtonFocusEntered()
 	{
 		if (suppressNextFocusSound)
@@ -346,26 +345,26 @@ public partial class MenuModule : CanvasLayer
 			suppressNextFocusSound = false;
 			return;
 		}
-		
+
 		var focus = GetViewport().GuiGetFocusOwner();
 		if (focus == null || focus == lastFocusedControl) return;
-		
+
 		lastFocusedControl = focus;
 		MenuNavigate_Neutral.Play();
 	}
-	
+
 	private void GrabFocusSilently(Control control)
 	{
 		suppressNextFocusSound = true;
 		control.GrabFocus();
 	}
-	
+
 	private IEnumerable<Node> GetAllChildrenRecursive(Node root)
 	{
 		foreach (var child in root.GetChildren())
 		{
 			yield return child;
-			
+
 			foreach (var grandChild in GetAllChildrenRecursive(child))
 				yield return grandChild;
 		}
