@@ -1,4 +1,5 @@
 namespace MyFathersHomeProject.SaveFiles;
+
 public class SaveData
 {
 	public SaveData(int setId)
@@ -7,7 +8,7 @@ public class SaveData
 		SaveTime = null;
 	}
 
-	public string SaveTime { get; set; } = null;
+	public string? SaveTime { get; set; } = null;
 
 	public int SetId { get; set; } = 0;
 }

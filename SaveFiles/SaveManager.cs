@@ -44,7 +44,7 @@ public partial class SaveManager : Node
 		return deserializedData;
 	}
 
-	private static string ModifiedTime()
+	private static string? ModifiedTime()
 	{
 		var timezone = TimeZoneInfo.Local;
 		DateTimeOffset utcTime = DateTimeOffset.FromUnixTimeSeconds((long)FileAccess.GetModifiedTime(SavePath));
