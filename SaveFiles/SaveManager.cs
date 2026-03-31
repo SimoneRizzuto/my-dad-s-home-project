@@ -18,7 +18,6 @@ public partial class SaveManager : Node
 
 	public static SaveData? LoadGameData()
 	{
-		// Check if file exists and if not then create the data
 		if (!FileAccess.FileExists(SavePath))
 		{
 			GD.PrintErr("Save file not found.");
@@ -31,10 +30,8 @@ public partial class SaveManager : Node
 		try
 		{
 			deserializedData = JsonSerializer.Deserialize<SaveData>(jsonData);
-			// var timeSinceSave = TimeSinceSave();
 			var saveTime = ModifiedTime();
 			if (deserializedData != null) deserializedData.SaveTime = saveTime;
-			// load a scene
 		}
 		catch (Exception ex)
 		{
