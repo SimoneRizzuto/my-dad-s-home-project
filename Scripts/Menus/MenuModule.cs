@@ -165,14 +165,17 @@ public partial class MenuModule : CanvasLayer
 
 	public void GoToLoadMenu()
 	{
+		// Reload for latest change
+		saveData = SaveManager.LoadGameData();
+		if (saveData != null) LoadGameButton.Text = $"Load Game - {saveData.SaveTime}";
+		
 		VBoxContainerButtonToggle(LoadGameMenu, false);
 		SetBackgroundTransparency();
 		Menu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => Menu.Visible = false);
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
 		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
-
-		if (saveData != null) LoadGameButton.Text = $"- {saveData.SaveTime}";
+		
 		LoadGameMenu.Visible = true;
 		GrabFocusSilently(NewGameButton);
 		LoadGameMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
