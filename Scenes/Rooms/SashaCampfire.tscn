@@ -1,10 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://b7p00ye3x46qt"]
+[gd_scene load_steps=28 format=3 uid="uid://b7p00ye3x46qt"]
 
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="1_b0ggq"]
 [ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="1_gbvlr"]
 [ext_resource type="Texture2D" uid="uid://lte6pr231s1x" path="res://Assets/Textures/Environments/SashaCampfire/grass-front.png" id="1_o5niv"]
 [ext_resource type="Texture2D" uid="uid://d4msgtmn2ilt4" path="res://Assets/Textures/Environments/SashaCampfire/sky.png" id="1_s5wl1"]
-[ext_resource type="Texture2D" uid="uid://txllfybwrk5w" path="res://Assets/Textures/StaticObjects/SashaCampfire/firepit.png" id="2_g6ecg"]
 [ext_resource type="Texture2D" uid="uid://bh0pmjs0jo00r" path="res://Assets/Textures/Environments/SashaCampfire/grass-back.png" id="3_766uj"]
 [ext_resource type="Texture2D" uid="uid://2xdvjq3ukvr8" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_point_light.webp" id="3_pa21d"]
 [ext_resource type="Texture2D" uid="uid://d24r5htxq10he" path="res://Assets/Textures/Environments/SashaCampfire/moon.png" id="3_x718n"]
@@ -21,6 +20,43 @@
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/FadeAction.cs" id="10_lxerd"]
 [ext_resource type="Texture2D" uid="uid://bk1ay43316v4y" path="res://Assets/Textures/StaticObjects/SashaCampfire/chill-area.png" id="10_nuf7p"]
 [ext_resource type="Resource" uid="uid://hqbevxyupoa2" path="res://Assets/Dialogue/2. sleepover.dialogue" id="11_uj4na"]
+[ext_resource type="Texture2D" uid="uid://i77nc36mmg2p" path="res://Assets/Textures/StaticObjects/SashaCampfire/firepit-Sheet.png" id="19_a7eny"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1wn7"]
+atlas = ExtResource("19_a7eny")
+region = Rect2(0, 0, 34, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reyvt"]
+atlas = ExtResource("19_a7eny")
+region = Rect2(34, 0, 34, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2snmb"]
+atlas = ExtResource("19_a7eny")
+region = Rect2(68, 0, 34, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pn3y"]
+atlas = ExtResource("19_a7eny")
+region = Rect2(102, 0, 34, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7xvpe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1wn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_reyvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2snmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pn3y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y2g4"]
 size = Vector2(1003, 4)
@@ -223,17 +259,22 @@ texture = ExtResource("1_o5niv")
 centered = false
 flip_h = true
 
-[node name="Firepit" type="Sprite2D" parent="Items"]
+[node name="Firepit" type="AnimatedSprite2D" parent="Items"]
+light_mask = 3
+visibility_layer = 3
 z_index = 110
 position = Vector2(110, 130)
-texture = ExtResource("2_g6ecg")
+sprite_frames = SubResource("SpriteFrames_7xvpe")
+autoplay = "default"
+frame_progress = 0.676137
 centered = false
 
 [node name="Point" type="PointLight2D" parent="Items/Firepit"]
-position = Vector2(17, 28.3412)
-scale = Vector2(0.393325, 0.381084)
+position = Vector2(18, 28)
+scale = Vector2(0.714317, 0.606088)
 color = Color(0.901961, 0.764706, 0.509804, 1)
-energy = 1.1
+energy = 0.8
+range_z_min = 110
 texture = ExtResource("3_pa21d")
 texture_scale = 0.13
 
