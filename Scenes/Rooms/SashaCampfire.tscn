@@ -266,7 +266,7 @@ z_index = 110
 position = Vector2(110, 130)
 sprite_frames = SubResource("SpriteFrames_7xvpe")
 autoplay = "default"
-frame_progress = 0.676137
+frame_progress = 0.265332
 centered = false
 
 [node name="Point" type="PointLight2D" parent="Items/Firepit"]
