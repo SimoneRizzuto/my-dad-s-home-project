@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cq53k4akw02sg"]
+[gd_scene load_steps=16 format=3 uid="uid://cq53k4akw02sg"]
 
 [ext_resource type="FontFile" uid="uid://cb0xauna5q601" path="res://Assets/Fonts/Reaper Font.ttf" id="1_3n054"]
 [ext_resource type="Script" path="res://Scripts/Menus/MenuModule.cs" id="1_b4uhw"]
@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://dya8epkgbbq1i" path="res://Scenes/Menus/MainMenu/Buttons/OptionsButton.tscn" id="4_hq8qe"]
 [ext_resource type="PackedScene" uid="uid://c2jftd2den0d6" path="res://Scenes/Menus/MainMenu/Buttons/DebugButton.tscn" id="5_r0faw"]
 [ext_resource type="PackedScene" uid="uid://dy5kyi42jp6jl" path="res://Scenes/Menus/MainMenu/Buttons/QuitButton.tscn" id="6_kq6vb"]
-[ext_resource type="PackedScene" uid="uid://bd6swl2c7kvux" path="res://Scenes/Menus/MainMenu/Buttons/ExitButton.tscn" id="7_0q4kn"]
-[ext_resource type="PackedScene" uid="uid://deympix12togv" path="res://Scenes/Menus/MainMenu/Buttons/BackButton.tscn" id="8_7a0mv"]
+[ext_resource type="PackedScene" path="res://Scenes/Menus/MainMenu/Buttons/ExitButton.tscn" id="7_0q4kn"]
+[ext_resource type="PackedScene" path="res://Scenes/Menus/MainMenu/Buttons/BackButton.tscn" id="8_7a0mv"]
+[ext_resource type="Script" path="res://Scenes/Menus/NewGameButton.cs" id="9_kjkfx"]
+[ext_resource type="Script" path="res://Scenes/Menus/LoadGameButton.cs" id="9_u6s1e"]
 [ext_resource type="Script" path="res://Scripts/Menus/GoToSceneButton.cs" id="10_kf0rm"]
 
 [sub_resource type="Theme" id="Theme_tp6t0"]
@@ -75,7 +77,7 @@ theme_override_constants/separation = 0
 unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
-focus_neighbor_top = NodePath("../../QuitMenu/QuitButton")
+focus_neighbor_top = NodePath("../ExitButton")
 focus_neighbor_bottom = NodePath("../OptionsButton")
 theme = ExtResource("2_cuk7j")
 text = "Let's Continue"
@@ -93,9 +95,10 @@ layout_mode = 2
 [node name="ExitButton" parent="ColorRect/Menu" instance=ExtResource("7_0q4kn")]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../DebugButton")
+focus_neighbor_bottom = NodePath("../LetsContinueButton")
 
 [node name="LoadGameMenu" type="VBoxContainer" parent="ColorRect"]
-visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -108,25 +111,32 @@ grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="ContinueButton" type="Button" parent="ColorRect/LoadGameMenu"]
+[node name="NewGameButton" type="Button" parent="ColorRect/LoadGameMenu"]
+unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
+focus_neighbor_top = NodePath("../BackButton")
+focus_neighbor_bottom = NodePath("../LoadGameButton")
 theme = ExtResource("2_cuk7j")
-text = "Restart"
+text = "New Game"
 alignment = 0
+script = ExtResource("9_kjkfx")
 
-[node name="RestartButton" type="Button" parent="ColorRect/LoadGameMenu"]
+[node name="LoadGameButton" type="Button" parent="ColorRect/LoadGameMenu"]
+unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
 theme = ExtResource("2_cuk7j")
-text = "Restart"
+text = "Load Game"
 alignment = 0
+script = ExtResource("9_u6s1e")
 
 [node name="BackButton" parent="ColorRect/LoadGameMenu" instance=ExtResource("8_7a0mv")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../LoadGameButton")
+focus_neighbor_bottom = NodePath("../NewGameButton")
 
 [node name="OptionsMenu" type="VBoxContainer" parent="ColorRect"]
-visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -143,12 +153,14 @@ theme_override_constants/separation = 0
 unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
+focus_neighbor_top = NodePath("../BackButton")
 theme = ExtResource("2_cuk7j")
 text = "Test"
 alignment = 0
 
 [node name="BackButton" parent="ColorRect/OptionsMenu" instance=ExtResource("8_7a0mv")]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../TestButton")
 
 [node name="DebugMenu" type="VBoxContainer" parent="ColorRect"]
 visible = false
@@ -168,6 +180,7 @@ theme_override_constants/separation = 0
 unique_name_in_owner = true
 layout_direction = 2
 layout_mode = 2
+focus_neighbor_top = NodePath("../BackButton")
 theme = ExtResource("2_cuk7j")
 text = "Go to Set 1 - In my own world"
 alignment = 0
@@ -230,6 +243,7 @@ SceneOptions = 6
 
 [node name="BackButton" parent="ColorRect/DebugMenu" instance=ExtResource("8_7a0mv")]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../Set1Button")
 
 [node name="QuitMenu" type="VBoxContainer" parent="ColorRect"]
 visible = false
@@ -247,7 +261,9 @@ theme_override_constants/separation = 0
 [node name="QuitButton" parent="ColorRect/QuitMenu" instance=ExtResource("6_kq6vb")]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../BackButton")
 text = "Confirm"
 
 [node name="BackButton" parent="ColorRect/QuitMenu" instance=ExtResource("8_7a0mv")]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../QuitButton")
