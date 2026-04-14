@@ -8,8 +8,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1.0
-offset_bottom = -1.0
+offset_right = -238.0
+offset_bottom = -128.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sor0d")
@@ -19,12 +19,12 @@ layout_mode = 0
 offset_top = -1.0
 offset_right = 424.0
 offset_bottom = 238.0
-color = Color(0, 0, 0, 0.172549)
+color = Color(0, 0, 0, 0)
 
 [node name="CreditsContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 425.0
-offset_bottom = 313.0
+offset_right = 240.0
+offset_bottom = 153.0
 
 [node name="Label" type="Label" parent="CreditsContainer"]
 layout_mode = 2
@@ -40,9 +40,11 @@ text = "
 
 
 
+
+
 The End
 
-Made by Simorico"
+A Game by Simorico"
 horizontal_alignment = 1
 vertical_alignment = 2
 
