@@ -24,17 +24,13 @@ color = Color(0, 0, 0, 0)
 [node name="CreditsContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_right = 240.0
-offset_bottom = 153.0
+offset_bottom = 286.0
 
 [node name="Label" type="Label" parent="CreditsContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ptomn")
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 26
 text = "
-
-
-
-
 
 
 

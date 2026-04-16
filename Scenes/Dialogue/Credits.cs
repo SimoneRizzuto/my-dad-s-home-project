@@ -5,7 +5,7 @@ using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
 public partial class Credits : Control
 {
-	[Export] public float ScrollSpeed = 15f;
+	[Export] public float ScrollSpeed = 60f;
 
 	private VBoxContainer CreditsContainer = new();
 	
