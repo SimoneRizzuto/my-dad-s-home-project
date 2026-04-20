@@ -24,7 +24,7 @@ color = Color(0, 0, 0, 0)
 [node name="CreditsContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_right = 240.0
-offset_bottom = 286.0
+offset_bottom = 386.0
 
 [node name="Label" type="Label" parent="CreditsContainer"]
 layout_mode = 2
