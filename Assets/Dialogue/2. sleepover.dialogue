@@ -1,21 +1,36 @@
 ~ initial_scene
 #Friend and Oliver are in a bedroom together, playing video games while huddled next to each other.
 #Someone wins, and then Oliver gets up to walk around the room. There are things to interact with.
-do Oliver.PlayAnimation("sit right controller")
+
+do Sasha.SetDirection(1)
 do Sasha.PlayAnimation("sit right controller")
+do Oliver.PlayAnimation("sit right controller")
 do Director.Wait(5)
 
+
 Oliver: NO WAY!
+do Oliver.PlayAnimation("sit right controller fling")
+do Director.Wait(1)
 Sasha: YES!
+do Sasha.PlayAnimation("sit right arm pump")
 Sasha: Woo!
+
+
+do Sasha.PlayAnimation("sit right")
 Oliver: That was SO UNLUCKY!
+
 Sasha: Hey, what I can I say? They call me the drift queen!
+
+do Oliver.PlayAnimation("sit right look left")
 Oliver: No one says that...
 
-do Director.Wait(3)
+do Director.Wait(2)
 
+do Oliver.PlayAnimation("idle right")
+do Director.Wait(0.5)
 Oliver: Ok, it's bathroom time!
 Sasha: Don’t fall in.
+do Oliver.PlayAnimation("idle left")
 Oliver: Hey, that’s my line!
 Sasha: You literally stole that from Sahara.
 Oliver: Sorry, I can't hear you!

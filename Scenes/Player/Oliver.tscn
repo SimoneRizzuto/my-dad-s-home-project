@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://bggt6ckifdcow"]
+[gd_scene load_steps=71 format=3 uid="uid://bggt6ckifdcow"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Oliver.cs" id="1_vpp82"]
 [ext_resource type="Texture2D" uid="uid://c1ua5poece8o6" path="res://Assets/Textures/Oliver/oliver eating food.png" id="2_aidie"]
@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://b1lyl2vhckydp" path="res://Assets/Textures/Oliver/oliver walk left animation-Sheet.png" id="12_b1hxr"]
 [ext_resource type="Texture2D" uid="uid://k5dwussq5w24" path="res://Assets/Textures/Oliver/oliver sit right controller-Sheet.png" id="14_27jme"]
 [ext_resource type="Texture2D" uid="uid://gcir4qhd67go" path="res://Assets/Textures/Oliver/oliver walk right animation-Sheet.png" id="14_wa1k2"]
+[ext_resource type="Texture2D" uid="uid://bsp86xtq5vdyx" path="res://Assets/Textures/Oliver/oliver sit right controller fling-Sheet.png" id="15_urnai"]
+[ext_resource type="Texture2D" uid="uid://dguix8lv473ue" path="res://Assets/Textures/Oliver/oliver sit right look left-Sheet.png" id="16_ten6k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3paqx"]
 size = Vector2(8, 18)
@@ -119,6 +121,30 @@ region = Rect2(32, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_cpiaj"]
 atlas = ExtResource("14_27jme")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ipva"]
+atlas = ExtResource("15_urnai")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h145c"]
+atlas = ExtResource("15_urnai")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsgu2"]
+atlas = ExtResource("15_urnai")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjc6h"]
+atlas = ExtResource("15_urnai")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixekd"]
+atlas = ExtResource("16_ten6k")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kim2t"]
+atlas = ExtResource("16_ten6k")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f03mq"]
 atlas = ExtResource("12_b1hxr")
@@ -325,6 +351,34 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_6ipva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h145c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsgu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjc6h")
+}],
+"loop": false,
+"name": &"sit right controller fling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 7.0,
+"texture": SubResource("AtlasTexture_ixekd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kim2t")
+}],
+"loop": true,
+"name": &"sit right look left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_f03mq")
 }, {
 "duration": 1.0,
@@ -404,7 +458,7 @@ one_way_collision = true
 [node name="MainSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_aqi8e")
-animation = &"idle left"
+animation = &"sit right look left"
 
 [node name="SpeakSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_offib")

@@ -26,12 +26,12 @@ size = Vector2(201, 4)
 color = Color(0.219608, 0.219608, 0.360784, 1)
 
 [node name="TripodMounter" parent="." node_paths=PackedStringArray("MountPosition") instance=ExtResource("1_5m3ee")]
-position = Vector2(105, 71)
+position = Vector2(161, 71)
 MountPosition = NodePath("Marker2D")
 InitialMountIsSmooth = false
 
 [node name="Marker2D" type="Marker2D" parent="TripodMounter"]
-position = Vector2(0, 4)
+position = Vector2(-55, 4)
 
 [node name="Wall" type="Sprite2D" parent="."]
 texture = ExtResource("1_f6sw5")
