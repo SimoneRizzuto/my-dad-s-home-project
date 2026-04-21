@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cfrhcgnum5ctx"]
+[gd_scene load_steps=33 format=3 uid="uid://cfrhcgnum5ctx"]
 
 [ext_resource type="Script" path="res://Scripts/Character/Actors/Sasha.cs" id="1_euxa3"]
 [ext_resource type="Texture2D" uid="uid://dwbu4vfd35r47" path="res://Assets/Textures/Sasha/sasha idle left-Sheet.png" id="2_2p2j2"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dq0bo22y3ja1v" path="res://Assets/Textures/Sasha/sasha draw wave left-Sheet.png" id="6_qxr03"]
 [ext_resource type="Texture2D" uid="uid://bgsw5g2wlminy" path="res://Assets/Textures/Sasha/sasha idle right-Sheet.png" id="7_8kmy0"]
 [ext_resource type="Texture2D" uid="uid://drxavc7uvvc2p" path="res://Assets/Textures/Sasha/sasha sit right-Sheet.png" id="9_65m4p"]
+[ext_resource type="Texture2D" uid="uid://8kmw650mdacq" path="res://Assets/Textures/Sasha/sasha sit right controller-Sheet.png" id="10_0gwd3"]
 [ext_resource type="AudioStream" uid="uid://dlemll3n8x5v2" path="res://Assets/Audio/Sound/speak sound effect.ogg" id="10_d3grx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_egfdo"]
@@ -77,6 +78,14 @@ region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_deovs"]
 atlas = ExtResource("9_65m4p")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8lnx"]
+atlas = ExtResource("10_0gwd3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdlsw"]
+atlas = ExtResource("10_0gwd3")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5lq05"]
@@ -168,6 +177,17 @@ animations = [{
 "loop": true,
 "name": &"sit right",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_v8lnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdlsw")
+}],
+"loop": true,
+"name": &"sit right controller",
+"speed": 5.0
 }]
 
 [node name="Sasha" type="CharacterBody2D"]
@@ -183,6 +203,7 @@ one_way_collision = true
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_5lq05")
 animation = &"sit right"
+frame_progress = 0.66024
 
 [node name="SpeakSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_d3grx")

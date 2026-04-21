@@ -116,6 +116,14 @@ position = Vector2(156, 72)
 texture = ExtResource("3_pwltc")
 centered = false
 
+[node name="InteractableModule" parent="Wall/Teal-pillow" instance=ExtResource("8_utd7k")]
+position = Vector2(6, 0)
+DisableOnInteract = true
+
+[node name="DialogueTriggerAction" parent="Wall/Teal-pillow/InteractableModule" instance=ExtResource("9_42c4i")]
+DialogueResource = ExtResource("10_bia8r")
+Title = "initial_scene"
+
 [node name="Teal-pillow2" type="Sprite2D" parent="Wall"]
 position = Vector2(143, 72)
 texture = ExtResource("3_pwltc")

@@ -1,6 +1,9 @@
 ~ initial_scene
 #Friend and Oliver are in a bedroom together, playing video games while huddled next to each other.
 #Someone wins, and then Oliver gets up to walk around the room. There are things to interact with.
+do Oliver.PlayAnimation("sit right controller")
+do Sasha.PlayAnimation("sit right controller")
+do Director.Wait(5)
 
 Oliver: NO WAY!
 Sasha: YES!
