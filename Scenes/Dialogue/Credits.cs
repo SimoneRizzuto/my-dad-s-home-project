@@ -4,7 +4,7 @@ using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
 namespace MyFathersHomeProject.Scenes.Dialogue;
 
-public partial class Credits : Control
+public partial class Credits : CanvasLayer
 {
 	[Export] public float ScrollSpeed = 60f;
 

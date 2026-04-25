@@ -3,27 +3,18 @@
 [ext_resource type="Script" path="res://Scenes/Dialogue/Credits.cs" id="1_sor0d"]
 [ext_resource type="FontFile" uid="uid://cb0xauna5q601" path="res://Assets/Fonts/Reaper Font.ttf" id="2_ptomn"]
 
-[node name="Credits" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -238.0
-offset_bottom = -128.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Credits" type="CanvasLayer"]
 script = ExtResource("1_sor0d")
 
 [node name="Background" type="ColorRect" parent="."]
-layout_mode = 0
 offset_top = -1.0
 offset_right = 424.0
 offset_bottom = 238.0
 color = Color(0, 0, 0, 0)
 
 [node name="CreditsContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 240.0
+offset_left = 94.0
+offset_right = 334.0
 offset_bottom = 386.0
 
 [node name="Label" type="Label" parent="CreditsContainer"]

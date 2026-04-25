@@ -29,6 +29,7 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     public const string Set2_SashaCampfire = "uid://cfts6y7qvca2x";
     
     public const string TransitionScreen = "uid://ba8ajsihdkrwt";
+    public const string Credits = "uid://c2h5t7kk203wr";
     
     // getters
     public static SceneSwitcher? Instance { get; private set; }
