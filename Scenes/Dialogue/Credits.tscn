@@ -5,6 +5,7 @@
 
 [node name="Credits" type="CanvasLayer"]
 script = ExtResource("1_sor0d")
+ScrollSpeed = 30.0
 
 [node name="Background" type="ColorRect" parent="."]
 offset_top = -1.0
