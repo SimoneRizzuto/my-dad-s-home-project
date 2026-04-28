@@ -1,14 +1,13 @@
+using Godot;
 using System;
 using System.Linq;
-using Godot;
 using MyFathersHomeProject.SaveFiles;
-using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Menus;
-using MyFathersHomeProject.Scripts.Shared.Constants;
-using MyFathersHomeProject.Scripts.Shared.Extensions;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
+using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
+namespace MyFathersHomeProject.Scenes.Menus;
 public partial class LoadGameButton : Button
 {
 	private MenuModule? Menu => GetTree().Root

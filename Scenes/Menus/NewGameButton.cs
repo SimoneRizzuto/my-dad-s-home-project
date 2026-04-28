@@ -2,10 +2,11 @@ using Godot;
 using System;
 using System.Linq;
 using MyFathersHomeProject.Scripts.Menus;
-using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
+using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
+namespace MyFathersHomeProject.Scenes.Menus;
 public partial class NewGameButton : Button
 {
 	private MenuModule? Menu => GetTree().Root
@@ -30,4 +31,3 @@ public partial class NewGameButton : Button
 	}
 
 }
-
