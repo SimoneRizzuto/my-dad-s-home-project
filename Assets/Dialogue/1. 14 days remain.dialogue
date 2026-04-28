@@ -329,8 +329,7 @@ Oliver: Yeah!
 Sasha: Did you just gulp your food down in one go?
 Oliver: Maybe.
 Sasha: You shouldn't do that, you know.
-Oliver: Well, I just did.
-Sasha: Let me know when you're outside.
+Sasha: Well, let me know when you're outside.
 Oliver: Yup, see ya soon.
 
 do Director.Wait(0.75)

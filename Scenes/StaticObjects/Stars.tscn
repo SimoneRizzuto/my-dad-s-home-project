@@ -1,40 +1,104 @@
-[gd_scene load_steps=7 format=3 uid="uid://hfxvip0br2fg"]
+[gd_scene load_steps=16 format=3 uid="uid://hfxvip0br2fg"]
 
 [ext_resource type="Texture2D" uid="uid://dtih4sxias4v1" path="res://Assets/Textures/Environments/SashaCampfire/stars-Sheet.png" id="1_eetyt"]
 [ext_resource type="Script" path="res://Scripts/Misc/Stars.cs" id="2_d72eh"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uq5if"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcjfb"]
 atlas = ExtResource("1_eetyt")
 region = Rect2(0, 0, 448, 95)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_warct"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lrgb"]
 atlas = ExtResource("1_eetyt")
 region = Rect2(448, 0, 448, 95)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cpwsh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc4wm"]
 atlas = ExtResource("1_eetyt")
 region = Rect2(896, 0, 448, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtn1q"]
+atlas = ExtResource("1_eetyt")
+region = Rect2(1344, 0, 448, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4y0yt"]
+atlas = ExtResource("1_eetyt")
+region = Rect2(1792, 0, 448, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia4qg"]
+atlas = ExtResource("1_eetyt")
+region = Rect2(2240, 0, 448, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8y4po"]
+atlas = ExtResource("1_eetyt")
+region = Rect2(2688, 0, 448, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxjfb"]
+atlas = ExtResource("1_eetyt")
+region = Rect2(3136, 0, 448, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy2dt"]
+atlas = ExtResource("1_eetyt")
+region = Rect2(3584, 0, 448, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxcww"]
+atlas = ExtResource("1_eetyt")
+region = Rect2(4032, 0, 448, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvasx"]
+atlas = ExtResource("1_eetyt")
+region = Rect2(4480, 0, 448, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xc4l3"]
+atlas = ExtResource("1_eetyt")
+region = Rect2(4928, 0, 448, 95)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_13adm"]
 animations = [{
 "frames": [{
-"duration": 1.5,
-"texture": SubResource("AtlasTexture_uq5if")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcjfb")
 }, {
-"duration": 3.0,
-"texture": SubResource("AtlasTexture_warct")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lrgb")
 }, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_cpwsh")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc4wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtn1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4y0yt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ia4qg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8y4po")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxjfb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy2dt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxcww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvasx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xc4l3")
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 2.0
 }]
 
 [node name="Stars" type="AnimatedSprite2D" groups=["stars"]]
 modulate = Color(1, 1, 1, 0)
 sprite_frames = SubResource("SpriteFrames_13adm")
+autoplay = "default"
 frame_progress = 0.36284
 centered = false
 script = ExtResource("2_d72eh")
