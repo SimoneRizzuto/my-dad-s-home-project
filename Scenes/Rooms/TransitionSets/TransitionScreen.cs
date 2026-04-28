@@ -1,8 +1,9 @@
-using Godot;
 using System.Diagnostics;
+using Godot;
+using MyFathersHomeProject.SaveFiles;
 using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
-namespace MyFathersHomeProject.Scenes.Rooms;
+namespace MyFathersHomeProject.Scenes.Rooms.TransitionSets;
 public partial class TransitionScreen : CanvasLayer
 {
 	[Export] public PackedScene NextScene;
@@ -11,6 +12,7 @@ public partial class TransitionScreen : CanvasLayer
 	[Export] public double Buffer = 2;
 	[Export] public double FadeSpeed = 3;
 	[Export] public double FontSize = 24;
+	[Export] public int SetId = 0;
 	
 	// getters
 	private Label RichTextLabel => GetNode<Label>("Label");
@@ -30,6 +32,34 @@ public partial class TransitionScreen : CanvasLayer
 		{
 			FadeInLabel();
 		}
+
+		if (SetId <= 0) return;
+		// Save Data
+		switch (SetId)
+		{
+			case 1:
+				SaveManager.SaveGameData(1);
+				break;
+			case 2:
+				SaveManager.SaveGameData(2);
+				break;
+			case 3:
+				SaveManager.SaveGameData(3);
+				break;
+			case 4:
+				SaveManager.SaveGameData(4);
+				break;
+			case 5:
+				SaveManager.SaveGameData(5);
+				break;
+			case 6:
+				SaveManager.SaveGameData(6);
+				break;
+			case 7:
+				SaveManager.SaveGameData(7);
+				break;
+		}
+
 	}
 	
 	public override void _Process(double delta)

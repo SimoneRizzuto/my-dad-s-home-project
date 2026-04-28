@@ -1,9 +1,6 @@
-using System.Linq;
 using Godot;
-using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Extensions;
-using MyFathersHomeProject.Scripts.Shared.Helpers;
 
 namespace MyFathersHomeProject.Scripts.Menus;
 public partial class PauseMenuModule : CanvasLayer

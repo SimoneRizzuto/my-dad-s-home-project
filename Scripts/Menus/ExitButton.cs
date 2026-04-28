@@ -1,8 +1,8 @@
 using Godot;
 using System.Linq;
-using MyFathersHomeProject.Scripts.Menus;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 
+namespace MyFathersHomeProject.Scripts.Menus;
 public partial class ExitButton : Button
 {
 	private MenuModule? Menu => GetTree().Root

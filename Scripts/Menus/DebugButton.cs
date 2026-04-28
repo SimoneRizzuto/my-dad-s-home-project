@@ -17,7 +17,5 @@ public partial class DebugButton : Button
 			Menu?.GoToDebugMenu();
 
 		}
-		
-		
 	}
 }

@@ -1,10 +1,9 @@
-using System.Linq;
 using Godot;
-using MyFathersHomeProject.Scripts.Menus;
+using System.Linq;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 
-namespace MyFathersHomeProject.Scenes.Menus.PauseMenu;
+namespace MyFathersHomeProject.Scripts.Menus;
 
 public partial class LetsContinueButton : Button
 {
@@ -13,13 +12,13 @@ public partial class LetsContinueButton : Button
 		.FirstOrDefault();
 	public override void _Pressed()
 	{
-		if ((Menu?.MenuMode == MenuMode.PauseMenu))
+		if (Menu?.MenuMode == MenuMode.PauseMenu)
 		{
 			Menu?.LetsContinueGame();
 		}
-		else
+		else if  (Menu?.MenuMode == MenuMode.MainMenu)
 		{
-			GD.Print("Some logic for go inside");
+			Menu?.GoInsideTrigger();
 		}
 	}
 }

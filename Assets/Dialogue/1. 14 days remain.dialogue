@@ -360,7 +360,7 @@ do Director.Wait(0.1)
 ~ oliver_attempts_to_leave
 
 do Papa.PlayAnimation("sit couch look right")
-
+do Papa.SetDirection(2)
 Papa: Where are you going?
 
 do Director.Wait(1)
