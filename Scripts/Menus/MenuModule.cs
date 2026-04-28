@@ -5,6 +5,7 @@ using MyFathersHomeProject.SaveFiles;
 using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Extensions;
+using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
 namespace MyFathersHomeProject.Scripts.Menus;
 
@@ -63,10 +64,7 @@ public partial class MenuModule : CanvasLayer
 	{
 		// Check if save file 
 		saveData = SaveManager.LoadGameData();
-		if (saveData != null)
-		{
-			previousSaveData = true;
-		}
+		previousSaveData = saveData != null;
 
 		ProcessMode = ProcessModeEnum.Always;
 		MenuMode = MenuMode.MainMenu;
@@ -116,10 +114,10 @@ public partial class MenuModule : CanvasLayer
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
 		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
 
-		VBoxContainerButtonToggle(LoadGameMenu, true);
-		VBoxContainerButtonToggle(OptionsMenu, true);
-		VBoxContainerButtonToggle(DebugMenu, true);
-		VBoxContainerButtonToggle(QuitMenu, true);
+		SetChildButtonsDisabled(LoadGameMenu, true);
+		SetChildButtonsDisabled(OptionsMenu, true);
+		SetChildButtonsDisabled(DebugMenu, true);
+		SetChildButtonsDisabled(QuitMenu, true);
 
 		MainLabel.Visible = true;
 		Menu.Visible = true;
@@ -146,10 +144,10 @@ public partial class MenuModule : CanvasLayer
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = GetTree().Paused);
 		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
 
-		VBoxContainerButtonToggle(LoadGameMenu, true);
-		VBoxContainerButtonToggle(OptionsMenu, true);
-		VBoxContainerButtonToggle(DebugMenu, true);
-		VBoxContainerButtonToggle(QuitMenu, true);
+		SetChildButtonsDisabled(LoadGameMenu, true);
+		SetChildButtonsDisabled(OptionsMenu, true);
+		SetChildButtonsDisabled(DebugMenu, true);
+		SetChildButtonsDisabled(QuitMenu, true);
 
 		ColorRect.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 		ColorRect.Visible = true;
@@ -163,13 +161,22 @@ public partial class MenuModule : CanvasLayer
 		PauseLabel.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 	}
 
-	public void GoToLoadMenu()
+	public void GoInsideTrigger()
 	{
 		// Reload for latest change
 		saveData = SaveManager.LoadGameData();
-		if (saveData != null) LoadGameButton.Text = $"Load Game - {saveData.SaveTime}";
+		if (saveData != null)
+		{
+			LoadGameButton.Text = $"Load Game - {saveData.SaveTime}";
+		}
+		else
+		{
+			SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1TransitionScene);
+			GetTree().Paused = false;
+			ResetPauseMenu();
+		}
 		
-		VBoxContainerButtonToggle(LoadGameMenu, false);
+		SetChildButtonsDisabled(LoadGameMenu, false);
 		SetBackgroundTransparency();
 		Menu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => Menu.Visible = false);
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
@@ -185,7 +192,7 @@ public partial class MenuModule : CanvasLayer
 
 	public void GoToSettingsMenu()
 	{
-		VBoxContainerButtonToggle(OptionsMenu, false);
+		SetChildButtonsDisabled(OptionsMenu, false);
 		SetBackgroundTransparency();
 		Menu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => Menu.Visible = false);
 		LoadGameMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => LoadGameMenu.Visible = false);
@@ -201,7 +208,7 @@ public partial class MenuModule : CanvasLayer
 
 	public void GoToDebugMenu()
 	{
-		VBoxContainerButtonToggle(DebugMenu, false);
+		SetChildButtonsDisabled(DebugMenu, false);
 		SetBackgroundTransparency();
 		Menu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => Menu.Visible = false);
 		LoadGameMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => LoadGameMenu.Visible = false);
@@ -217,7 +224,7 @@ public partial class MenuModule : CanvasLayer
 
 	public void GoToQuitMenu()
 	{
-		VBoxContainerButtonToggle(QuitMenu, false);
+		SetChildButtonsDisabled(QuitMenu, false);
 		SetBackgroundTransparency();
 		Menu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => Menu.Visible = false);
 		LoadGameMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => LoadGameMenu.Visible = false);
@@ -308,7 +315,7 @@ public partial class MenuModule : CanvasLayer
 		}
 	}
 
-	private void VBoxContainerButtonToggle(Control vBoxMenu, bool toggle)
+	private void SetChildButtonsDisabled(Control vBoxMenu, bool toggle)
 	{
 		foreach (Node child in vBoxMenu.GetChildren())
 		{
