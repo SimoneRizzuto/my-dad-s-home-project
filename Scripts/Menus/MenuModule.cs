@@ -12,6 +12,9 @@ namespace MyFathersHomeProject.Scripts.Menus;
 public partial class MenuModule : CanvasLayer
 {
 	[Export] private float pauseMenuOpacity = 0.65f;
+	
+	// animation
+	private AnimatedSprite2D BubbleSprite => GetNode<AnimatedSprite2D>("./ColorRect/BubbleSprite");
 
 	// color rect
 	private ColorRect ColorRect => GetNode<ColorRect>("ColorRect");
@@ -79,6 +82,7 @@ public partial class MenuModule : CanvasLayer
 		QuitMenu.Visible = false;
 
 		SubscribeAllButtons();
+
 	}
 
 	public override void _Process(double delta)
@@ -333,6 +337,7 @@ public partial class MenuModule : CanvasLayer
 			if (node is Button button)
 			{
 				button.FocusEntered += OnButtonFocusEntered;
+				button.FocusEntered += () => MoveSelector(button);
 				subscribedButtons.Add(button);
 			}
 		}
@@ -379,4 +384,17 @@ public partial class MenuModule : CanvasLayer
 				yield return grandChild;
 		}
 	}
+	
+	#region Animation
+	private void MoveSelector(Button button)
+	{
+		BubbleSprite.Visible = true;
+		BubbleSprite.Play();
+
+		BubbleSprite.GlobalPosition = new Vector2(
+			button.GlobalPosition.X - 7,
+			button.GlobalPosition.Y + button.Size.Y / 2
+		);
+	}
+	#endregion
 }

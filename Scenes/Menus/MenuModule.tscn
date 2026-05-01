@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cq53k4akw02sg"]
+[gd_scene load_steps=20 format=3 uid="uid://cq53k4akw02sg"]
 
 [ext_resource type="FontFile" uid="uid://cb0xauna5q601" path="res://Assets/Fonts/Reaper Font.ttf" id="1_3n054"]
 [ext_resource type="Script" path="res://Scripts/Menus/MenuModule.cs" id="1_b4uhw"]
@@ -8,15 +8,38 @@
 [ext_resource type="PackedScene" uid="uid://dya8epkgbbq1i" path="res://Scenes/Menus/MainMenu/Buttons/OptionsButton.tscn" id="4_hq8qe"]
 [ext_resource type="PackedScene" uid="uid://c2jftd2den0d6" path="res://Scenes/Menus/MainMenu/Buttons/DebugButton.tscn" id="5_r0faw"]
 [ext_resource type="PackedScene" uid="uid://dy5kyi42jp6jl" path="res://Scenes/Menus/MainMenu/Buttons/QuitButton.tscn" id="6_kq6vb"]
-[ext_resource type="PackedScene" uid="uid://bd6swl2c7kvux" path="res://Scenes/Menus/MainMenu/Buttons/ExitButton.tscn" id="7_0q4kn"]
-[ext_resource type="PackedScene" uid="uid://deympix12togv" path="res://Scenes/Menus/MainMenu/Buttons/BackButton.tscn" id="8_7a0mv"]
+[ext_resource type="PackedScene" path="res://Scenes/Menus/MainMenu/Buttons/ExitButton.tscn" id="7_0q4kn"]
+[ext_resource type="PackedScene" path="res://Scenes/Menus/MainMenu/Buttons/BackButton.tscn" id="8_7a0mv"]
 [ext_resource type="Script" path="res://Scenes/Menus/NewGameButton.cs" id="9_kjkfx"]
 [ext_resource type="Script" path="res://Scenes/Menus/LoadGameButton.cs" id="9_u6s1e"]
 [ext_resource type="Script" path="res://Scripts/Menus/GoToSceneButton.cs" id="10_kf0rm"]
+[ext_resource type="Texture2D" uid="uid://b3q46rja1efjv" path="res://Assets/Textures/UI/interactable-bubble-Sheet.png" id="14_nph6t"]
 
 [sub_resource type="Theme" id="Theme_tp6t0"]
 
 [sub_resource type="Theme" id="Theme_tro8l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvwnn"]
+atlas = ExtResource("14_nph6t")
+region = Rect2(0, 0, 6, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y8cf"]
+atlas = ExtResource("14_nph6t")
+region = Rect2(6, 0, 6, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3grj7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvwnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y8cf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MenuModule" type="CanvasLayer"]
 layer = 3
@@ -29,7 +52,6 @@ unique_name_in_owner = true
 stream = ExtResource("2_02h0o")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 offset_right = 426.0
 offset_bottom = 240.0
 color = Color(0, 0, 0, 0.65098)
@@ -99,6 +121,7 @@ focus_neighbor_top = NodePath("../DebugButton")
 focus_neighbor_bottom = NodePath("../LetsContinueButton")
 
 [node name="LoadGameMenu" type="VBoxContainer" parent="ColorRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -137,6 +160,7 @@ focus_neighbor_top = NodePath("../LoadGameButton")
 focus_neighbor_bottom = NodePath("../NewGameButton")
 
 [node name="OptionsMenu" type="VBoxContainer" parent="ColorRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -267,3 +291,7 @@ text = "Confirm"
 [node name="BackButton" parent="ColorRect/QuitMenu" instance=ExtResource("8_7a0mv")]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../QuitButton")
+
+[node name="BubbleSprite" type="AnimatedSprite2D" parent="ColorRect"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_3grj7")
