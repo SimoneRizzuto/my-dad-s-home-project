@@ -67,6 +67,7 @@ do Oliver.LookRight()
 # oliver stands to the side
 
 Oliver: By the way, you never got to show me your drawings.
+do Sasha.PlayAnimation("sit right look left")
 Sasha: Oh yeah!
 Sasha: Let me show you.
 
@@ -109,6 +110,9 @@ Sasha: Ok ok. I'll keep it in mind for next time.
 Oliver: Hell yeah!
 
 do ShowTextureUI.HideTexture()
+do Sasha.MoveToXPosition(149)
+do Sasha.PlayAnimation("sit right")
+
 do Director.Wait(1)
 => END
 
