@@ -114,6 +114,8 @@ do Director.Wait(1)
 
 ~ pizza_carton_interaction
 Oliver: Hey, you got Gigi's again!
+do Sasha.PlayAnimation("sit right look left")
+
 Sasha: I wasn't lying when I said I liked it.
 Oliver: So what you're telling me is...
 Oliver: ...good pizza exists after all!
@@ -124,17 +126,23 @@ Sasha: Ok, Olive Boy.
 Oliver: Hey!
 Oliver: That fits too well...
 Sasha: Hehe~
+do Sasha.PlayAnimation("sit right")
 => END
 
 ~ jump_on_bed_1
+do Sasha.PlayAnimation("sit right look left")
 Sasha: Stop bouncing on my bed!
 Oliver: Sorry.
+do Sasha.PlayAnimation("sit right")
 => END
 ~ jump_on_bed_2
+do Sasha.PlayAnimation("sit right look left")
 Sasha: Oliver!
 Oliver: Your bed is bouncier than mine, ok?
+do Sasha.PlayAnimation("sit right")
 => END
 ~ jump_on_bed_3
+do Sasha.PlayAnimation("idle left")
 Sasha: Are you a child?
 Oliver: ... No.
 Oliver: I'm worse!
@@ -142,6 +150,7 @@ Oliver: I'm a teen with a problem.
 
 # Oliver bounces on bed non stop until the next line
 Oliver: With a crippling addiction for bouncing on beds.
+do Sasha.PlayAnimation("sit right")
 Sasha: If you break it, I'm stealing your bed.
 => END
 
