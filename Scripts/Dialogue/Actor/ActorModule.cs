@@ -77,6 +77,15 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
         dialogueDirectionToPlay = DialogueDirection.Nothing;
     }
     
+    public async Task PlayAnimationAsync(string animationString)
+    {
+        Character.Move(0);
+        Character.PlayAnimation(animationString);
+    
+        MainSprite.AnimationFinished += OnAnimationFinished;
+        await SetupActionTask(DialogueDirection.PlayAnimation);
+    }
+    
     public void SetDirection(int direction)
     {
         if (direction < 0) Character.SetDirection(Direction.Left);
@@ -181,5 +190,14 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
         }
     }
     
+    #endregion
+    
+    #region events
+    private void OnAnimationFinished()
+    {
+        MainSprite.AnimationFinished -= OnAnimationFinished;
+        dialogueDirectionToPlay = DialogueDirection.Idle;
+        ActionGiven.TrySetResult();
+    }
     #endregion
 }
