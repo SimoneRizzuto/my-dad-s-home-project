@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cfrhcgnum5ctx"]
+[gd_scene load_steps=54 format=3 uid="uid://cfrhcgnum5ctx"]
 
 [ext_resource type="Script" path="res://Scripts/Character/Actors/Sasha.cs" id="1_euxa3"]
 [ext_resource type="Texture2D" uid="uid://dwbu4vfd35r47" path="res://Assets/Textures/Sasha/sasha idle left-Sheet.png" id="2_2p2j2"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dq0bo22y3ja1v" path="res://Assets/Textures/Sasha/sasha draw wave left-Sheet.png" id="6_qxr03"]
 [ext_resource type="Texture2D" uid="uid://bgsw5g2wlminy" path="res://Assets/Textures/Sasha/sasha idle right-Sheet.png" id="7_8kmy0"]
 [ext_resource type="Texture2D" uid="uid://drxavc7uvvc2p" path="res://Assets/Textures/Sasha/sasha sit right-Sheet.png" id="9_65m4p"]
+[ext_resource type="Texture2D" uid="uid://cseqeod05yv2g" path="res://Assets/Textures/Sasha/sasha interact back-Sheet.png" id="9_w1ig3"]
 [ext_resource type="Texture2D" uid="uid://8kmw650mdacq" path="res://Assets/Textures/Sasha/sasha sit right controller-Sheet.png" id="10_0gwd3"]
 [ext_resource type="AudioStream" uid="uid://dlemll3n8x5v2" path="res://Assets/Audio/Sound/speak sound effect.ogg" id="10_d3grx"]
 [ext_resource type="Texture2D" uid="uid://bx8uaaf3wq0gi" path="res://Assets/Textures/Sasha/sasha sit right arm pump-Sheet.png" id="10_do2uq"]
@@ -75,6 +76,18 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_352ue"]
 atlas = ExtResource("7_8kmy0")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hn86"]
+atlas = ExtResource("9_w1ig3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibr71"]
+atlas = ExtResource("9_w1ig3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wydp"]
+atlas = ExtResource("9_w1ig3")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xysml"]
 atlas = ExtResource("9_65m4p")
@@ -222,6 +235,20 @@ animations = [{
 "loop": true,
 "name": &"idle right",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hn86")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_ibr71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wydp")
+}],
+"loop": false,
+"name": &"interact back",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 16.0,

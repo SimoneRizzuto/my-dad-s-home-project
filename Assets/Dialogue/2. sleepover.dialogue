@@ -71,8 +71,11 @@ do Sasha.PlayAnimation("sit right look left")
 Sasha: Oh yeah!
 Sasha: Let me show you.
 
-do Sasha.MoveToXPosition(85)
+do Sasha.MoveToXPosition(75)
 do Oliver.LookLeft()
+do Sasha.PlayAnimationAsync("interact back")
+do Sasha.MoveToXPosition(70)
+do Sasha.LookRight()
 
 #sasha reaches up to do something
 #she moves to the side
