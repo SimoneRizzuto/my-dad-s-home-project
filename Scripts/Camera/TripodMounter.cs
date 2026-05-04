@@ -7,7 +7,7 @@ public partial class TripodMounter : Area2D
 	[Export] public Marker2D MountPosition;
 	[Export] public bool InitialMountIsSmooth = true;
 
-	private bool initialMountDone;
+	private bool _initialMountDone;
 	
 	public override void _Ready()
 	{
@@ -18,9 +18,9 @@ public partial class TripodMounter : Area2D
 	{
 		if (body is Oliver)
 		{
-			PlayerCamera.Instance.ToggleSmoothing(InitialMountIsSmooth || initialMountDone);
+			PlayerCamera.Instance.ToggleSmoothing(InitialMountIsSmooth || _initialMountDone);
 			PlayerCamera.Instance.Mount(new(MountPosition.GlobalPosition.X, PlayerCamera.Height));
-			initialMountDone = true;
+			_initialMountDone = true;
 		}
 	}
 }

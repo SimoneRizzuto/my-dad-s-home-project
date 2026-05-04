@@ -48,6 +48,7 @@ position = Vector2(269, 61)
 
 [node name="TripodDismounter2" parent="Room/Mounts" instance=ExtResource("3_83xkt")]
 position = Vector2(-159, 53)
+InitialDismountIsSmooth = false
 
 [node name="Walls+Floor" type="Node2D" parent="Room"]
 
@@ -139,6 +140,13 @@ position = Vector2(13, 75)
 
 [node name="MiddleLight" parent="Room/Walls+Floor/HallwayBedroom/Wall" index="1"]
 position = Vector2(69, 1)
+metadata/_edit_lock_ = true
+
+[node name="Point" parent="Room/Walls+Floor/HallwayBedroom/Wall/MiddleLight" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="Bounce" parent="Room/Walls+Floor/HallwayBedroom/Wall/MiddleLight" index="1"]
+metadata/_edit_lock_ = true
 
 [node name="WallStart" type="Sprite2D" parent="Room/Walls+Floor/HallwayBedroom"]
 texture = ExtResource("1_txoun")

@@ -6,9 +6,10 @@ namespace MyFathersHomeProject.Scripts.Camera;
 public partial class TripodDismounter : Area2D, IDisposable
 {
 	[Export] public float DismountDelay = 0.2f;
-	[Export] public bool SmoothDismount;
+	[Export] public bool InitialDismountIsSmooth = true;
 
 	private SceneTreeTimer? _dismountTimer;
+	private bool _initialMountDone;
 
 	public override void _Ready()
 	{
@@ -19,11 +20,13 @@ public partial class TripodDismounter : Area2D, IDisposable
 	{
 		if (body is Oliver)
 		{
-			PlayerCamera.Instance.ToggleSmoothing(SmoothDismount);
+			PlayerCamera.Instance.ToggleSmoothing(InitialDismountIsSmooth || _initialMountDone);
 			PlayerCamera.Instance.Dismount();
 
 			_dismountTimer = GetTree().CreateTimer(DismountDelay);
 			_dismountTimer.Timeout += OnDismountDelayFinished;
+
+			_initialMountDone = true;
 		}
 	}
 
