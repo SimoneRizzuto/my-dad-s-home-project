@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bqcbyp88igw8a"]
+[gd_scene load_steps=18 format=3 uid="uid://bqcbyp88igw8a"]
 
 [ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="1_7ph40"]
 [ext_resource type="Texture2D" uid="uid://wmi7oxbdvhci" path="res://Assets/Textures/Environments/SashaHallway/hallway wall start.png" id="1_txoun"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://k0bd2repv7nu" path="res://Assets/Textures/StaticObjects/SashaBedroom/book-cabinet.png" id="9_tys7r"]
 [ext_resource type="Resource" uid="uid://hqbevxyupoa2" path="res://Assets/Dialogue/2. sleepover.dialogue" id="9_xglgq"]
 [ext_resource type="Texture2D" uid="uid://o8g6nils7gw1" path="res://Assets/Textures/StaticObjects/SashaBedroom/plant-cactus.png" id="10_ifwgk"]
-[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/DoorNavigationAction.cs" id="11_t3d1c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5eay"]
 size = Vector2(610, 4)
@@ -148,14 +147,6 @@ position = Vector2(1, 75)
 [node name="BedroomDoor" parent="Room/Walls+Floor/HallwayBedroom" instance=ExtResource("5_v4rpc")]
 position = Vector2(19, 63)
 Type = 4
-
-[node name="DoorNavigationTrigger2" parent="Room/Walls+Floor/HallwayBedroom/BedroomDoor" instance=ExtResource("6_e7btl")]
-position = Vector2(14, -11)
-scale = Vector2(0.6, 1)
-TriggerMode = 1
-
-[node name="DoorNavigationAction" type="Node" parent="Room/Walls+Floor/HallwayBedroom/BedroomDoor/DoorNavigationTrigger2"]
-script = ExtResource("11_t3d1c")
 NavigateToUid = "uid://cioaaxpie1rog"
 
 [node name="Plant-big" type="Sprite2D" parent="Room/Walls+Floor/HallwayBedroom"]
