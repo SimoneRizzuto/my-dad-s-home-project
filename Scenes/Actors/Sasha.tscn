@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://cfrhcgnum5ctx"]
+[gd_scene load_steps=56 format=3 uid="uid://cfrhcgnum5ctx"]
 
 [ext_resource type="Script" path="res://Scripts/Character/Actors/Sasha.cs" id="1_euxa3"]
 [ext_resource type="Texture2D" uid="uid://dwbu4vfd35r47" path="res://Assets/Textures/Sasha/sasha idle left-Sheet.png" id="2_2p2j2"]
@@ -89,12 +89,12 @@ region = Rect2(32, 0, 32, 32)
 atlas = ExtResource("9_w1ig3")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mwdm7"]
-atlas = ExtResource("10_pfni6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehm4s"]
+atlas = ExtResource("9_w1ig3")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qcb1r"]
-atlas = ExtResource("10_pfni6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcmlc"]
+atlas = ExtResource("9_w1ig3")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xysml"]
@@ -259,13 +259,16 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehm4s")
+}, {
 "duration": 10.0,
-"texture": SubResource("AtlasTexture_mwdm7")
+"texture": SubResource("AtlasTexture_qcmlc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qcb1r")
+"texture": SubResource("AtlasTexture_ehm4s")
 }],
-"loop": true,
+"loop": false,
 "name": &"show off right",
 "speed": 4.0
 }, {
