@@ -51,10 +51,11 @@ Oliver: ... Would've been nice.
 do Oliver.LookLeft()
 
 Oliver: When did you get so good at Marco Kart?
-Sasha: I've always been good. It was just bubbling under the surface.
+Sasha: I've always been good.
+Sasha: It was just bubbling under the surface.
 Oliver: Hey, look.
 Oliver: I don't wanna say it, but I WAS going easy on you.
-Sasha: Oh yeah? Is that why you lost four times in a row?
+Sasha: Is that why you lost four times in a row?
 Oliver: ... Shut up.
 #sasha has a huge smile
 => END
@@ -106,7 +107,7 @@ Sasha: Yeah!
 Oliver: Wait!
 Oliver: I just thought of one.
 Oliver: You should make a chocolate one.
-Sasha: Uh? But it doesn't fit what I have in mind for them. 
+Sasha: Uh? But it doesn't fit the theme. 
 Sasha: They're meant to be plant based.
 Oliver: Cacao is technically a seed from a plant.
 Sasha: Yes, cacao seeds are, but not chocolate. That's different.
@@ -122,6 +123,7 @@ do Director.Wait(1)
 => END
 
 ~ pizza_carton_interaction
+do Oliver.LookRight()
 Oliver: Hey, you got Gigi's again!
 do Sasha.PlayAnimation("sit right look left")
 
@@ -130,7 +132,7 @@ Oliver: So what you're telling me is...
 Oliver: ...good pizza exists after all!
 Sasha: I never said I didn't like pizza.
 Sasha: It just isn't my first option.
-Oliver: ... And yet clearly, you got Gigi's one time over something else.
+Oliver: ... And yet, you got Gigi's one time over something else.
 Sasha: Ok, Olive Boy.
 Oliver: Hey!
 Oliver: That fits too well...
@@ -153,14 +155,16 @@ do Sasha.PlayAnimation("sit right")
 ~ jump_on_bed_3
 do Sasha.PlayAnimation("idle left")
 Sasha: Are you a child?
+do Oliver.LookRight()
 Oliver: ... No.
 Oliver: I'm worse!
 Oliver: I'm a teen with a problem.
 
-# Oliver bounces on bed non stop until the next line
+do Oliver.StartJumpLoop()
 Oliver: With a crippling addiction for bouncing on beds.
 do Sasha.PlayAnimation("sit right")
 Sasha: If you break it, I'm stealing your bed.
+do Oliver.StopJumpLoop()
 => END
 
 # ------------------
