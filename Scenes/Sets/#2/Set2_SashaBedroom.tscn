@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cioaaxpie1rog"]
+[gd_scene load_steps=6 format=3 uid="uid://cioaaxpie1rog"]
 
 [ext_resource type="PackedScene" uid="uid://d0a6mystt74m5" path="res://Scenes/Rooms/SashaBedroom.tscn" id="1_0lddp"]
 [ext_resource type="PackedScene" uid="uid://cfrhcgnum5ctx" path="res://Scenes/Actors/Sasha.tscn" id="2_ij8ok"]
 [ext_resource type="PackedScene" uid="uid://bggt6ckifdcow" path="res://Scenes/Player/Oliver.tscn" id="2_pk1vq"]
+[ext_resource type="PackedScene" uid="uid://dgwvdtfwm2gvj" path="res://Scenes/Modules/InteractableModule.tscn" id="4_23ai6"]
+[ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/DoorNavigationAction.cs" id="5_kqpu4"]
 
 [node name="Set2_SashaBedroom" type="Node2D" groups=["Gameplay"]]
 
@@ -14,3 +16,12 @@ InitialAnimation = "sasha sit right"
 position = Vector2(161, 75)
 
 [node name="SashaBedroom" parent="." instance=ExtResource("1_0lddp")]
+
+[node name="DoorNavigationTrigger" parent="SashaBedroom" instance=ExtResource("4_23ai6")]
+position = Vector2(105, 65)
+scale = Vector2(0.6, 1)
+TriggerMode = 1
+
+[node name="DoorNavigationAction" type="Node" parent="SashaBedroom/DoorNavigationTrigger"]
+script = ExtResource("5_kqpu4")
+NavigateToUid = "uid://bqcbyp88igw8a"
