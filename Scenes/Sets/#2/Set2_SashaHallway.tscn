@@ -35,16 +35,19 @@ color = Color(0.219608, 0.219608, 0.360784, 1)
 [node name="Mounts" type="Node2D" parent="Room"]
 position = Vector2(192, 0)
 
-[node name="BedroomMount" type="Marker2D" parent="Room/Mounts"]
+[node name="BathroomMount" type="Marker2D" parent="Room/Mounts"]
 z_index = 100
 position = Vector2(317, 63)
 
 [node name="TripodMounter" parent="Room/Mounts" node_paths=PackedStringArray("MountPosition") instance=ExtResource("2_2dttg")]
 position = Vector2(307, 60)
-MountPosition = NodePath("../BedroomMount")
+MountPosition = NodePath("../BathroomMount")
 
 [node name="TripodDismounter" parent="Room/Mounts" instance=ExtResource("3_83xkt")]
 position = Vector2(269, 61)
+
+[node name="TripodDismounter2" parent="Room/Mounts" instance=ExtResource("3_83xkt")]
+position = Vector2(-159, 53)
 
 [node name="Walls+Floor" type="Node2D" parent="Room"]
 

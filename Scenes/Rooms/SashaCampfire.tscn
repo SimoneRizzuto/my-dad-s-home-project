@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=3 uid="uid://b7p00ye3x46qt"]
 
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="1_b0ggq"]
-[ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="1_gbvlr"]
+[ext_resource type="PackedScene" path="res://Scenes/Camera/TripodDismounter.tscn" id="1_gbvlr"]
 [ext_resource type="Texture2D" uid="uid://lte6pr231s1x" path="res://Assets/Textures/Environments/SashaCampfire/grass-front.png" id="1_o5niv"]
 [ext_resource type="Texture2D" uid="uid://d4msgtmn2ilt4" path="res://Assets/Textures/Environments/SashaCampfire/sky.png" id="1_s5wl1"]
 [ext_resource type="Texture2D" uid="uid://bh0pmjs0jo00r" path="res://Assets/Textures/Environments/SashaCampfire/grass-back.png" id="3_766uj"]
