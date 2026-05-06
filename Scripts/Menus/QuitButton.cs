@@ -1,9 +1,10 @@
-using System.Linq;
 using Godot;
+using System.Linq;
 using MyFathersHomeProject.Scripts.Camera;
+using MyFathersHomeProject.Scripts.Shared.Helpers;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Extensions;
-using MyFathersHomeProject.Scripts.Shared.Helpers;
+using MyFathersHomeProject.Scripts.Singletons.SceneStates;
 using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
 namespace MyFathersHomeProject.Scripts.Menus;
@@ -30,7 +31,7 @@ public partial class QuitButton : Button
 				if (FadeUtil.Instance != null)
 				{
 					FadeUtil.Instance.FadeOut(NodeExtensions.MenuFadeInitialiseTime);
-					FadeUtil.Instance.FadeFinished += () => GetTree().Quit();
+					FadeUtil.Instance.FadeFinished += TriggerQuitGame;
 				}
 
 				break;
@@ -39,10 +40,22 @@ public partial class QuitButton : Button
 
 	private void ReturnToMainMenu()
 	{
+		SceneStates.Instance.ClearInteracted();
+
 		SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.MainMenuTrigger, false);
 		if (FadeUtil.Instance != null)
 		{
 			FadeUtil.Instance.FadeFinished -= ReturnToMainMenu;
 		}
+	}
+
+	private void TriggerQuitGame()
+	{
+		SceneStates.Instance.ClearInteracted();
+		if (FadeUtil.Instance != null)
+		{
+			FadeUtil.Instance.FadeFinished -= TriggerQuitGame;
+		}
+		GetTree().Quit();
 	}
 }
