@@ -26,6 +26,8 @@ public partial class DoorModule : Node
 	public override void _Process(double delta)
 	{
 		DoorSprite.Play(DoorSpriteToPlay);
+
+		DisableInteractableIfLocked();
 	}
 	
 	public void EnableNavigationAction(bool enable = true)
@@ -57,6 +59,12 @@ public partial class DoorModule : Node
 			DoorType.WoodenBathroom => "wooden bathroom",
 			_ => "orange"
 		};
+	}
+
+	private void DisableInteractableIfLocked()
+	{
+		if (!Locked) return;
+		GetChild<InteractableModule>(0).ProcessMode = ProcessModeEnum.Disabled;
 	}
 }
 
