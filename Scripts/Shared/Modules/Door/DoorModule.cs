@@ -12,41 +12,41 @@ public partial class DoorModule : Node
 	[Export] public bool Closed = true;
 	[Export] public bool Locked;
 	[Export] public string NavigateToUid = SceneSwitcher.Set1_LivingRoom;
-	
+
 	// getters
 	private AnimatedSprite2D DoorSprite => GetNode<AnimatedSprite2D>("DoorSprite");
 	private string DoorOpenStateString => Closed ? "closed" : "open";
 	private string DoorSpriteToPlay => $"{GetDoorSpriteString(Type)} {DoorOpenStateString}";
-	
+
 	public override void _EnterTree()
 	{
 		DoorSprite.Play(DoorSpriteToPlay);
 	}
-	
+
 	public override void _Process(double delta)
 	{
 		DoorSprite.Play(DoorSpriteToPlay);
 
 		DisableInteractableIfLocked();
 	}
-	
+
 	public void EnableNavigationAction(bool enable = true)
 	{
 		if (Locked) return;
-	    // implement dialogue check before navigation through
-	    
-    	var doorNavigationTrigger = GetNode<InteractableModule>("DoorNavigationTrigger");
-    	switch (enable)
-    	{
-    		case true:
-    			doorNavigationTrigger.ProcessMode = ProcessModeEnum.Inherit;
-    			break;
-    		case false:
-    			doorNavigationTrigger.ProcessMode = ProcessModeEnum.Disabled;
-    			break;
-    	}
-    }
-	
+		// implement dialogue check before navigation through
+
+		var doorNavigationTrigger = GetNode<InteractableModule>("DoorNavigationTrigger");
+		switch (enable)
+		{
+			case true:
+				doorNavigationTrigger.ProcessMode = ProcessModeEnum.Inherit;
+				break;
+			case false:
+				doorNavigationTrigger.ProcessMode = ProcessModeEnum.Disabled;
+				break;
+		}
+	}
+
 	private string GetDoorSpriteString(DoorType type)
 	{
 		return type switch
