@@ -2,6 +2,7 @@ using Godot;
 using MyFathersHomeProject.Scripts.Player;
 using MyFathersHomeProject.Scripts.Character;
 using MyFathersHomeProject.Scripts.Shared.Constants;
+using MyFathersHomeProject.Scripts.Singletons.SceneStates;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
 public partial class InteractableModule : Area2D
@@ -16,6 +17,12 @@ public partial class InteractableModule : Area2D
 	// variables
 	public bool OliverIsColliding { get; private set; }
 	public bool ClosestToOliver = false;
+	
+	public override void _Ready()
+	{
+		if (!DisableOnInteract) return;
+		Monitoring = !SceneStates.Instance.HasInteracted(GetPath());
+	}
 	
 	public override void _PhysicsProcess(double delta)
 	{
@@ -51,6 +58,7 @@ public partial class InteractableModule : Area2D
 		
 		if (DisableOnInteract)
 		{
+			SceneStates.Instance.MarkInteracted(GetPath());
 			Monitoring = false;
 		}
 	}

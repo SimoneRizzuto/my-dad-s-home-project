@@ -18,6 +18,15 @@ public partial class SceneStates : Node
         Instance = this;
     }
     #endregion
+    
+    /// <summary>
+    /// Holds what items have been interacted with between scenes. This is so double interactions do not occur.
+    /// </summary>
+    private readonly HashSet<NodePath> interactedItems = new();
+
+    public void MarkInteracted(NodePath path) => interactedItems.Add(path);
+    public bool HasInteracted(NodePath path) => interactedItems.Contains(path);
+
 }
 
 public class State
