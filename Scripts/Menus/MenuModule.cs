@@ -326,6 +326,9 @@ public partial class MenuModule : CanvasLayer
 			if (child is Button button)
 			{
 				button.Disabled = toggle;
+				
+				button.FocusMode = toggle ? Control.FocusModeEnum.None : Control.FocusModeEnum.All;
+
 			}
 		}
 	}
@@ -371,7 +374,7 @@ public partial class MenuModule : CanvasLayer
 	private void GrabFocusSilently(Control control)
 	{
 		suppressNextFocusSound = true;
-		control.GrabFocus();
+		control.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
 	private IEnumerable<Node> GetAllChildrenRecursive(Node root)
