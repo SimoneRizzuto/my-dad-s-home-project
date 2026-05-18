@@ -35,6 +35,7 @@ InteractableIndicator="*res://Scenes/Modules/Interactables/Indicator/Interactabl
 SaveManager="*res://SaveFiles/SaveManager.cs"
 MenuModule="*res://Scenes/Menus/MenuModule.tscn"
 FadeAutoload="*res://addons/UniversalFade/Fade.gd"
+CreditsManager="*res://Scenes/Dialogue/CreditsManager.tscn"
 
 [dialogue_manager]
 

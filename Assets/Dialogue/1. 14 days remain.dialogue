@@ -153,8 +153,8 @@ do Papa.SetDirection(1)
 do Oliver.SetDirection(1)
 do Director.Wait(1.25)
 
-Papa: Why didn’t you answer after the first time?
-Oliver: I guess I didn’t hear it.
+Papa: Why didn't you answer after the first time?
+Oliver: I guess I didn't hear it.
 
 do Director.Wait(2)
 #do Papa.PlayAnimation()
@@ -203,7 +203,7 @@ else
 	
 	Papa: This mess...
 
-Papa: I shouldn’t even have to say anything.
+Papa: I shouldn't even have to say anything.
 Oliver: ...
 
 #The dad turns to Oliver.
@@ -213,7 +213,7 @@ Papa: ARE you going to say anything?
 if (SceneStates.ClothesPutAway)
 	Oliver: ...
 else
-	Oliver: I’ll clean it later...
+	Oliver: I'll clean it later...
 
 #He walks toward the door.
 
@@ -223,7 +223,7 @@ do Papa.MoveToXPosition(235)
 do Oliver.LookRight()
 do Director.Wait(1)
 
-#Oliver’s heart is still heard beating again.
+#Oliver's heart is still heard beating again.
 
 do Papa.SetVisibility(false)
 

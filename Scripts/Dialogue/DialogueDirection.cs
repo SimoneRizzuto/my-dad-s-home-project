@@ -6,4 +6,5 @@ public enum DialogueDirection
     Move,
     Jump,
     MoveToPosition,
+    PlayAnimation,
 }

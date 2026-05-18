@@ -29,9 +29,9 @@ do Director.Wait(2)
 do Oliver.PlayAnimation("idle right")
 do Director.Wait(0.5)
 Oliver: Ok, it's bathroom time!
-Sasha: Don’t fall in.
+Sasha: Don't fall in.
 do Oliver.PlayAnimation("idle left")
-Oliver: Hey, that’s my line!
+Oliver: Hey, that's my line!
 Sasha: You literally stole that from Sahara.
 Oliver: Sorry, I can't hear you!
 => END
@@ -51,10 +51,11 @@ Oliver: ... Would've been nice.
 do Oliver.LookLeft()
 
 Oliver: When did you get so good at Marco Kart?
-Sasha: I’ve always been good. It was just bubbling under the surface.
+Sasha: I've always been good.
+Sasha: It was just bubbling under the surface.
 Oliver: Hey, look.
 Oliver: I don't wanna say it, but I WAS going easy on you.
-Sasha: Oh yeah? Is that why you lost four times in a row?
+Sasha: Is that why you lost four times in a row?
 Oliver: ... Shut up.
 #sasha has a huge smile
 => END
@@ -67,11 +68,16 @@ do Oliver.LookRight()
 # oliver stands to the side
 
 Oliver: By the way, you never got to show me your drawings.
+do Sasha.PlayAnimation("sit right look left")
 Sasha: Oh yeah!
 Sasha: Let me show you.
 
-do Sasha.MoveToXPosition(85)
+do Sasha.MoveToXPosition(75)
 do Oliver.LookLeft()
+do Sasha.PlayAnimationAsync("interact back")
+do Sasha.MoveToXPosition(70)
+do Director.Wait(2)
+do Sasha.PlayAnimation("show off right")
 
 #sasha reaches up to do something
 #she moves to the side
@@ -87,11 +93,12 @@ do Director.Wait(2)
 Oliver: Woah!
 Sasha: Yeah!
 Oliver: Are they different from the ones you drew the other day?
+do Sasha.PlayAnimation("idle right")
 Sasha: Yes.
 Sasha: Well, some are.
-Sasha: The one on the right is the same reoccurring one. She’s called Potato.
+Sasha: The one on the right is the same reoccurring one. She's called Potato.
 Sasha: The other ones are just little guys I doodled.
-Sasha: It’s been difficult to think of different kinds of merps, so I keep on resorting to the same plants.
+Sasha: It's been difficult to think of different kinds of merps, so I keep on resorting to the same plants.
 Oliver: A potato with a flower?
 Sasha: Yeah! Potatoes can grow flowers.
 Sasha: You didn't know that?
@@ -100,49 +107,64 @@ Sasha: Yeah!
 Oliver: Wait!
 Oliver: I just thought of one.
 Oliver: You should make a chocolate one.
-Sasha: Uh? But it doesn’t fit what I have in mind for them. 
-Sasha: They’re meant to be plant based.
+Sasha: Uh? But it doesn't fit the theme. 
+Sasha: They're meant to be plant based.
 Oliver: Cacao is technically a seed from a plant.
-Sasha: Yes, cacao seeds are, but not chocolate. That’s different.
+Sasha: Yes, cacao seeds are, but not chocolate. That's different.
 Oliver: Then do a cacao one. That would still be cool.
 Sasha: Ok ok. I'll keep it in mind for next time.
 Oliver: Hell yeah!
 
 do ShowTextureUI.HideTexture()
+do Sasha.MoveToXPosition(149)
+do Sasha.PlayAnimation("sit right")
+
 do Director.Wait(1)
 => END
 
 ~ pizza_carton_interaction
+do Oliver.LookRight()
 Oliver: Hey, you got Gigi's again!
+do Sasha.PlayAnimation("sit right look left")
+
 Sasha: I wasn't lying when I said I liked it.
 Oliver: So what you're telling me is...
 Oliver: ...good pizza exists after all!
 Sasha: I never said I didn't like pizza.
 Sasha: It just isn't my first option.
-Oliver: ... And yet clearly, you got Gigi's one time over something else.
+Oliver: ... And yet, you got Gigi's one time over something else.
 Sasha: Ok, Olive Boy.
 Oliver: Hey!
 Oliver: That fits too well...
 Sasha: Hehe~
+do Sasha.PlayAnimation("sit right")
 => END
 
 ~ jump_on_bed_1
+do Sasha.PlayAnimation("sit right look left")
 Sasha: Stop bouncing on my bed!
 Oliver: Sorry.
+do Sasha.PlayAnimation("sit right")
 => END
 ~ jump_on_bed_2
+do Sasha.PlayAnimation("sit right look left")
 Sasha: Oliver!
 Oliver: Your bed is bouncier than mine, ok?
+do Sasha.PlayAnimation("sit right")
 => END
 ~ jump_on_bed_3
+do Sasha.PlayAnimation("idle left")
 Sasha: Are you a child?
+do Oliver.LookRight()
 Oliver: ... No.
 Oliver: I'm worse!
 Oliver: I'm a teen with a problem.
 
-# Oliver bounces on bed non stop until the next line
+do Oliver.StartJumpLoop()
 Oliver: With a crippling addiction for bouncing on beds.
+do Sasha.PlayAnimation("sit right")
 Sasha: If you break it, I'm stealing your bed.
+do Oliver.StopJumpLoop()
 => END
 
 # ------------------

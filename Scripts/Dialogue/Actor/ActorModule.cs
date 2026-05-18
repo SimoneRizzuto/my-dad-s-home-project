@@ -7,6 +7,7 @@ using MyFathersHomeProject.Scripts.Shared.Constants;
 namespace MyFathersHomeProject.Scripts.Dialogue.Actor;
 public partial class ActorModule : Node2D, IAsyncDialogueVariables
 {
+    // getters
     public CharacterBody2D CharacterBody => GetParentOrNull<CharacterBody2D>();
     public AnimatedSprite2D MainSprite => GetParent().GetNode<AnimatedSprite2D>($"{nameof(MainSprite)}");
     public CollisionShape2D MainShape => GetParent().GetNode<CollisionShape2D>($"{nameof(MainShape)}");
@@ -23,6 +24,7 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
     private int unitsToMove;
     private int targetXToMoveTo;
     private int initialXPosition;
+    private bool _isLoopingJump;
 
     public async Task Idle()
     {
@@ -77,6 +79,15 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
         dialogueDirectionToPlay = DialogueDirection.Nothing;
     }
     
+    public async Task PlayAnimationAsync(string animationString)
+    {
+        Character.Move(0);
+        Character.PlayAnimation(animationString);
+    
+        MainSprite.AnimationFinished += OnAnimationFinished;
+        await SetupActionTask(DialogueDirection.PlayAnimation);
+    }
+    
     public void SetDirection(int direction)
     {
         if (direction < 0) Character.SetDirection(Direction.Left);
@@ -91,6 +102,16 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
     public void SetHoldingPlate(bool isHolding)
     {
         Character.SetHoldingPlate(isHolding);
+    }
+    
+    public void StartJumpLoop()
+    {
+        _isLoopingJump = true;
+    }
+
+    public void StopJumpLoop()
+    {
+        _isLoopingJump = false;
     }
     
     #endregion
@@ -115,6 +136,11 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
     public override void _PhysicsProcess(double delta)
     {
         if (Character.CharacterState != CharacterState.Cutscene) return;
+        
+        if (_isLoopingJump && !Character.IsJumping)
+        {
+            Character.Jump();
+        }
         
         switch (dialogueDirectionToPlay)
         {
@@ -181,5 +207,14 @@ public partial class ActorModule : Node2D, IAsyncDialogueVariables
         }
     }
     
+    #endregion
+    
+    #region events
+    private void OnAnimationFinished()
+    {
+        MainSprite.AnimationFinished -= OnAnimationFinished;
+        dialogueDirectionToPlay = DialogueDirection.Idle;
+        ActionGiven.TrySetResult();
+    }
     #endregion
 }
