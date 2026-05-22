@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using Godot;
 using MyFathersHomeProject.SaveFiles;
@@ -6,6 +7,8 @@ using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 namespace MyFathersHomeProject.Scenes.Rooms.TransitionSets;
 public partial class TransitionScreen : CanvasLayer
 {
+	[Export(PropertyHint.Enum,"Typewriter,Fade")]
+	public string TransitionEffect = "Typewriter";
 	[Export] public PackedScene NextScene;
 	[Export] public string RichText = "test";
 	[Export] public double DelayInitialFade;
@@ -16,22 +19,36 @@ public partial class TransitionScreen : CanvasLayer
 	
 	// getters
 	private Label RichTextLabel => GetNode<Label>("Label");
+	private AnimationPlayer TypewriterAnimation => GetNode<AnimationPlayer>("TypewriterAnimation");
+	private AudioStreamPlayer TypewriterSound => GetNode<AudioStreamPlayer>("TypewriterSound");
 	
 	// variables
 	private readonly Stopwatch stopwatch = new();
 	private Tween tween;
 	private bool delayFadeFinished;
+	private int visibleCharacters = 0;
 	
 	public override void _Ready()
 	{
+		TypewriterAnimation.AnimationFinished += OnAnimationFinished;
 		RichTextLabel.Text = RichText;
 		RichTextLabel.AddThemeFontSizeOverride("font_size", 24);
 		CenterLabelOnScreen(RichTextLabel);
-		
-		if (DelayInitialFade == 0)
+
+		switch (TransitionEffect)
 		{
-			FadeInLabel();
+			case "Typewriter":
+				TypewriterAnimation.Play("typewriter");
+				break;
+			case "Fade":
+				if (DelayInitialFade == 0)
+				{
+					FadeInLabel();
+				}
+				break;
 		}
+		
+		
 
 		if (SetId <= 0) return;
 		// Save Data
@@ -61,27 +78,53 @@ public partial class TransitionScreen : CanvasLayer
 		}
 
 	}
-	
+
+	private void OnAnimationFinished(StringName animname)
+	{
+		switch (animname)
+		{
+			case "typewriter":
+				FadeOutLabel();
+				break;
+			default:
+				throw new NotImplementedException();
+		}
+	}
+
 	public override void _Process(double delta)
 	{
-		if (DelayInitialFade > 0 && !delayFadeFinished)
+		switch (TransitionEffect)
 		{
-			if (!stopwatch.IsRunning)
-			{
-				stopwatch.Restart();
-			}
+			case "Typewriter":
+				if (visibleCharacters != RichTextLabel.VisibleCharacters)
+				{
+					visibleCharacters = RichTextLabel.VisibleCharacters;
+					TypewriterSound.Play();
+				}
+				break;
+			case "Fade":
+				if (DelayInitialFade > 0 && !delayFadeFinished)
+				{
+					if (!stopwatch.IsRunning)
+					{
+						stopwatch.Restart();
+					}
 			
-			if (stopwatch.Elapsed.TotalSeconds >= DelayInitialFade)
-			{
-				FadeInLabel();
-			}
+					if (stopwatch.Elapsed.TotalSeconds >= DelayInitialFade)
+					{
+				
+						FadeInLabel();
+					}
 			
-			return;
+					return;
+				}
+		
+				if (!stopwatch.IsRunning || !(stopwatch.Elapsed.TotalSeconds >= Buffer)) return;
+				stopwatch.Stop();
+				FadeOutLabel();
+				break;
 		}
 		
-		if (!stopwatch.IsRunning || !(stopwatch.Elapsed.TotalSeconds >= Buffer)) return;
-		stopwatch.Stop();
-		FadeOutLabel();
 	}
 	
 	private void DoSceneSwitch()
