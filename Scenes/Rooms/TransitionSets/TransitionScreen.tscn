@@ -43,6 +43,7 @@ _data = {
 
 [node name="TransitionScreen" type="CanvasLayer"]
 script = ExtResource("1_7wetk")
+TypewriterSoundEffect = true
 RichText = "Test"
 
 [node name="Label" type="Label" parent="."]
