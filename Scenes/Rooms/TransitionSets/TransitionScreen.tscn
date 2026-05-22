@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ba8ajsihdkrwt"]
+[gd_scene load_steps=6 format=3 uid="uid://ba8ajsihdkrwt"]
 
 [ext_resource type="Script" path="res://Scenes/Rooms/TransitionSets/TransitionScreen.cs" id="1_7wetk"]
 [ext_resource type="FontFile" uid="uid://cb0xauna5q601" path="res://Assets/Fonts/Reaper Font.ttf" id="2_mol6r"]
@@ -20,30 +20,13 @@ tracks/0/keys = {
 "values": [0.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_kvnf1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rsoaw"]
 _data = {
-"RESET": SubResource("Animation_kvnf1"),
 "typewriter": SubResource("Animation_0gv1n")
 }
 
 [node name="TransitionScreen" type="CanvasLayer"]
 script = ExtResource("1_7wetk")
-TypewriterSoundEffect = true
 RichText = "Test"
 
 [node name="Label" type="Label" parent="."]
