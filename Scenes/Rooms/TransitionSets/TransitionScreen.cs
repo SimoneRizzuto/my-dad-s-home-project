@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using Godot;
 using MyFathersHomeProject.SaveFiles;
@@ -35,15 +34,13 @@ public partial class TransitionScreen : CanvasLayer
 
 	// variables
 	private Tween tween;
-	private bool delayFadeFinished;
-	private int visibleCharacters = 0;
 
 	public override void _Ready()
 	{
 		RichTextLabel.Text = RichText;
 		RichTextLabel.AddThemeFontSizeOverride("font_size", 24);
 		CenterLabelOnScreen(RichTextLabel);
-		
+
 		_ = RunSequence();
 
 		if (SetId <= 0) return;
@@ -131,10 +128,10 @@ public partial class TransitionScreen : CanvasLayer
 
 	private void PlayTypewriterSound()
 	{
-		if (!TypewriterSoundEffect || TypewriterSound == null)
+		if (!TypewriterSoundEffect)
 			return;
 
-		// restart the sound for each character
+		// Restart the sound for each character
 		TypewriterSound.Stop();
 		TypewriterSound.Play();
 	}
@@ -144,18 +141,6 @@ public partial class TransitionScreen : CanvasLayer
 		Color c = RichTextLabel.Modulate;
 		c.A = alpha;
 		RichTextLabel.Modulate = c;
-	}
-
-	private void OnAnimationFinished(StringName animname)
-	{
-		switch (animname)
-		{
-			case "typewriter":
-				FadeOutLabel();
-				break;
-			default:
-				throw new NotImplementedException();
-		}
 	}
 
 
@@ -171,7 +156,7 @@ public partial class TransitionScreen : CanvasLayer
 		tween.TweenCallback(Callable.From(DoSceneSwitch));
 	}
 
-	private async void FadeInLabel()
+	private void FadeInLabel()
 	{
 		// Ensure label starts fully transparent
 		var color = RichTextLabel.Modulate;
@@ -180,7 +165,7 @@ public partial class TransitionScreen : CanvasLayer
 
 		tween = GetTree().CreateTween();
 		tween.TweenProperty(RichTextLabel, "modulate:a", 1.0f, FadeSpeed);
-		await ToSignal(tween, Tween.SignalName.Finished);
+		ToSignal(tween, Tween.SignalName.Finished);
 		RichTextLabel.Visible = true;
 	}
 
