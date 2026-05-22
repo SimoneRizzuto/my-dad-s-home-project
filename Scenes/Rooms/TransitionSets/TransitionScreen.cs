@@ -9,6 +9,7 @@ public partial class TransitionScreen : CanvasLayer
 {
 	[Export(PropertyHint.Enum,"Typewriter,Fade")]
 	public string TransitionEffect = "Typewriter";
+	[Export] public bool TypewriterSoundEffect = true;
 	[Export] public PackedScene NextScene;
 	[Export] public string RichText = "test";
 	[Export] public double DelayInitialFade;
@@ -96,10 +97,13 @@ public partial class TransitionScreen : CanvasLayer
 		switch (TransitionEffect)
 		{
 			case "Typewriter":
-				if (visibleCharacters != RichTextLabel.VisibleCharacters)
+				if (TypewriterSoundEffect)
 				{
-					visibleCharacters = RichTextLabel.VisibleCharacters;
-					TypewriterSound.Play();
+					if (visibleCharacters != RichTextLabel.VisibleCharacters)
+					{
+						visibleCharacters = RichTextLabel.VisibleCharacters;
+						TypewriterSound.Play();
+					}
 				}
 				break;
 			case "Fade":
