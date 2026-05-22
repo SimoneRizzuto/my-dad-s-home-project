@@ -1,55 +1,50 @@
 using System;
-using System.Diagnostics;
+using System.Threading.Tasks;
 using Godot;
 using MyFathersHomeProject.SaveFiles;
 using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
 namespace MyFathersHomeProject.Scenes.Rooms.TransitionSets;
+
 public partial class TransitionScreen : CanvasLayer
 {
-	[Export(PropertyHint.Enum,"Typewriter,Fade")]
-	public string TransitionEffect = "Typewriter";
+	public enum TextMode
+	{
+		Fade,
+		Typewriter
+	}
+
+	[Export] public TextMode Mode = TextMode.Typewriter;
 	[Export] public bool TypewriterSoundEffect = true;
+	[Export] public float TypeSpeed = 0.1f;
+	[Export] public float VisibleTime = 2.0f;
+	[Export] public double FadeInDelay;
+	[Export] public float FadeOutDelay;
+
 	[Export] public PackedScene NextScene;
 	[Export] public string RichText = "test";
-	[Export] public double DelayInitialFade;
 	[Export] public double Buffer = 2;
 	[Export] public double FadeSpeed = 3;
 	[Export] public double FontSize = 24;
 	[Export] public int SetId = 0;
-	
+
 	// getters
 	private Label RichTextLabel => GetNode<Label>("Label");
 	private AnimationPlayer TypewriterAnimation => GetNode<AnimationPlayer>("TypewriterAnimation");
 	private AudioStreamPlayer TypewriterSound => GetNode<AudioStreamPlayer>("TypewriterSound");
-	
+
 	// variables
-	private readonly Stopwatch stopwatch = new();
 	private Tween tween;
 	private bool delayFadeFinished;
 	private int visibleCharacters = 0;
-	
+
 	public override void _Ready()
 	{
-		TypewriterAnimation.AnimationFinished += OnAnimationFinished;
 		RichTextLabel.Text = RichText;
 		RichTextLabel.AddThemeFontSizeOverride("font_size", 24);
 		CenterLabelOnScreen(RichTextLabel);
-
-		switch (TransitionEffect)
-		{
-			case "Typewriter":
-				TypewriterAnimation.Play("typewriter");
-				break;
-			case "Fade":
-				if (DelayInitialFade == 0)
-				{
-					FadeInLabel();
-				}
-				break;
-		}
 		
-		
+		_ = RunSequence();
 
 		if (SetId <= 0) return;
 		// Save Data
@@ -77,7 +72,78 @@ public partial class TransitionScreen : CanvasLayer
 				SaveManager.SaveGameData(7);
 				break;
 		}
+	}
 
+	private async Task RunSequence()
+	{
+		switch (Mode)
+		{
+			case TextMode.Fade:
+				await RunFadeSequence();
+				break;
+
+			case TextMode.Typewriter:
+				await RunTypewriterSequence();
+				break;
+		}
+	}
+
+	private async Task RunFadeSequence()
+	{
+		RichTextLabel.VisibleCharacters = -1;
+		SetLabelAlpha(0f);
+
+		await Wait(FadeInDelay);
+
+		FadeInLabel();
+
+		await Wait(VisibleTime);
+		await Wait(FadeOutDelay);
+
+		FadeOutLabel();
+	}
+
+	private async Task RunTypewriterSequence()
+	{
+		SetLabelAlpha(1f);
+		RichTextLabel.VisibleCharacters = 0;
+
+		int length = RichTextLabel.Text.Length;
+
+		for (int i = 0; i < length; i++)
+		{
+			RichTextLabel.VisibleCharacters++;
+
+			PlayTypewriterSound();
+
+			await Wait(TypeSpeed);
+		}
+
+		await Wait(VisibleTime);
+
+		FadeOutLabel();
+	}
+
+	private async Task Wait(double seconds)
+	{
+		await ToSignal(GetTree().CreateTimer(seconds), SceneTreeTimer.SignalName.Timeout);
+	}
+
+	private void PlayTypewriterSound()
+	{
+		if (!TypewriterSoundEffect || TypewriterSound == null)
+			return;
+
+		// restart the sound for each character
+		TypewriterSound.Stop();
+		TypewriterSound.Play();
+	}
+
+	private void SetLabelAlpha(float alpha)
+	{
+		Color c = RichTextLabel.Modulate;
+		c.A = alpha;
+		RichTextLabel.Modulate = c;
 	}
 
 	private void OnAnimationFinished(StringName animname)
@@ -92,76 +158,32 @@ public partial class TransitionScreen : CanvasLayer
 		}
 	}
 
-	public override void _Process(double delta)
-	{
-		switch (TransitionEffect)
-		{
-			case "Typewriter":
-				if (TypewriterSoundEffect)
-				{
-					if (visibleCharacters != RichTextLabel.VisibleCharacters)
-					{
-						visibleCharacters = RichTextLabel.VisibleCharacters;
-						TypewriterSound.Play();
-					}
-				}
-				break;
-			case "Fade":
-				if (DelayInitialFade > 0 && !delayFadeFinished)
-				{
-					if (!stopwatch.IsRunning)
-					{
-						stopwatch.Restart();
-					}
-			
-					if (stopwatch.Elapsed.TotalSeconds >= DelayInitialFade)
-					{
-				
-						FadeInLabel();
-					}
-			
-					return;
-				}
-		
-				if (!stopwatch.IsRunning || !(stopwatch.Elapsed.TotalSeconds >= Buffer)) return;
-				stopwatch.Stop();
-				FadeOutLabel();
-				break;
-		}
-		
-	}
-	
+
 	private void DoSceneSwitch()
 	{
 		SceneSwitcher.Instance?.TransitionToScene(NextScene);
 	}
-	
+
 	private void FadeOutLabel()
 	{
 		tween = GetTree().CreateTween();
 		tween.TweenProperty(RichTextLabel, "modulate:a", 0.0f, FadeSpeed);
 		tween.TweenCallback(Callable.From(DoSceneSwitch));
 	}
-	
-	private void FadeInLabel()
+
+	private async void FadeInLabel()
 	{
 		// Ensure label starts fully transparent
 		var color = RichTextLabel.Modulate;
 		color.A = 0.0f;
 		RichTextLabel.Modulate = color;
-		
+
 		tween = GetTree().CreateTween();
 		tween.TweenProperty(RichTextLabel, "modulate:a", 1.0f, FadeSpeed);
-		tween.TweenCallback(Callable.From(OnFadeInComplete));
+		await ToSignal(tween, Tween.SignalName.Finished);
 		RichTextLabel.Visible = true;
 	}
-	
-	private void OnFadeInComplete()
-	{
-		stopwatch.Restart();
-		delayFadeFinished = true;
-	}
-	
+
 	private void CenterLabelOnScreen(Label label)
 	{
 		// This is done in the engine but for some reason not the same results
