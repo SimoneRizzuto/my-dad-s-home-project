@@ -6,9 +6,9 @@
 [node name="SimoricoPresentsTitle" type="Node2D"]
 
 [node name="TransitionScreen" parent="." instance=ExtResource("1_qxt5l")]
+Mode = 0
 NextScene = ExtResource("2_0gb8g")
 RichText = "A Game Made By: BITCH"
-DelayInitialFade = 1.5
 Buffer = 0.5
 FadeSpeed = 1.0
 FontSize = 18.0
