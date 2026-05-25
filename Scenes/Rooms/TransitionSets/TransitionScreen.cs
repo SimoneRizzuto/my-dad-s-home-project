@@ -9,8 +9,8 @@ public partial class TransitionScreen : CanvasLayer
 {
 	public enum TextMode
 	{
-		Fade,
-		Typewriter
+		Typewriter = 0,
+		Fade = 1,
 	}
 
 	[Export] public TextMode Mode = TextMode.Typewriter;
