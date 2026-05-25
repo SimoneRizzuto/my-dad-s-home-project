@@ -27,6 +27,7 @@ visible_ratio = 0.0
 
 [node name="TypewriterSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_d7mi4")
+pitch_scale = 0.5
 
 [node name="TypewriterAnimation" type="AnimationPlayer" parent="."]
 libraries = {
