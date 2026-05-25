@@ -16,7 +16,7 @@ public partial class Oliver : CharacterBody2D, ICharacter
     // getters
     private int Gravity => ProjectSettings.GetSetting("physics/2d/default_gravity").ToString().ToInt();
     private int JumpVelocity => -125;
-    private bool JumpInputted => Input.IsActionPressed(InputMapAction.Jump);
+    private bool JumpInputted => Input.IsActionJustPressed(InputMapAction.Jump);
     public bool IsJumping => !IsOnFloor();
     private AnimatedSprite2D MainSprite => GetNode<AnimatedSprite2D>($"{nameof(MainSprite)}");
     private string LastDirectionString => Enum.GetName(LastDirection)?.ToLower();

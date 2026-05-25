@@ -230,8 +230,14 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
     
     public void FinishCutscene(Resource dialogueResource)
     {
-        _inCutscene = false;
+        _ = FinishCutsceneAsync(dialogueResource);
+    }
+    
+    private async Task FinishCutsceneAsync(Resource dialogueResource)
+    {
+        await ToSignal(GetTree().CreateTimer(0.1), SceneTreeTimer.SignalName.Timeout);
         
+        _inCutscene = false;
         SetActorsCharacterState(CharacterState.Gameplay);
     }
     
