@@ -6,7 +6,6 @@
 
 [node name="TransitionScreen" parent="." instance=ExtResource("1_dpcsp")]
 RichText = "1 day remains..."
-DelayInitialFade = 1.5
 Buffer = 0.5
 FadeSpeed = 1.0
 FontSize = 18.0
