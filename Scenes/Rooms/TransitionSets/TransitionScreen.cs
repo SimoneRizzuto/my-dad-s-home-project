@@ -44,7 +44,7 @@ public partial class TransitionScreen : CanvasLayer
 		_ = RunSequence();
 
 		if (SetId <= 0) return;
-		// Save Data
+		
 		switch (SetId)
 		{
 			case 1:
@@ -158,7 +158,6 @@ public partial class TransitionScreen : CanvasLayer
 
 	private void FadeInLabel()
 	{
-		// Ensure label starts fully transparent
 		var color = RichTextLabel.Modulate;
 		color.A = 0.0f;
 		RichTextLabel.Modulate = color;
