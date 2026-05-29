@@ -1,11 +1,11 @@
 [gd_scene load_steps=16 format=3 uid="uid://cq53k4akw02sg"]
 
-[ext_resource type="FontFile" uid="uid://cb0xauna5q601" path="res://Assets/Fonts/Reaper Font.ttf" id="1_3n054"]
 [ext_resource type="Script" path="res://Scripts/Menus/MenuModule.cs" id="1_b4uhw"]
 [ext_resource type="AudioStream" uid="uid://ckkjxqvfedhp2" path="res://Assets/Audio/Sound/Menu/menu navigate sound.ogg" id="2_02h0o"]
 [ext_resource type="Theme" uid="uid://c2yv8q7b8742i" path="res://Assets/Themes/ui-button-theme.tres" id="2_cuk7j"]
 [ext_resource type="Script" path="res://Scripts/Menus/LetsContinueButton.cs" id="3_jhru4"]
 [ext_resource type="Texture2D" uid="uid://cgn1otpl0tkds" path="res://Assets/Textures/Logos/my dad's home logo white text.png" id="3_vq074"]
+[ext_resource type="FontFile" uid="uid://ckgc6svy8g521" path="res://Assets/Fonts/Quando-Regular.ttf" id="4_ai6oh"]
 [ext_resource type="PackedScene" uid="uid://dya8epkgbbq1i" path="res://Scenes/Menus/MainMenu/Buttons/OptionsButton.tscn" id="4_hq8qe"]
 [ext_resource type="PackedScene" uid="uid://c2jftd2den0d6" path="res://Scenes/Menus/MainMenu/Buttons/DebugButton.tscn" id="5_r0faw"]
 [ext_resource type="PackedScene" uid="uid://dy5kyi42jp6jl" path="res://Scenes/Menus/MainMenu/Buttons/QuitButton.tscn" id="6_kq6vb"]
@@ -28,11 +28,12 @@ unique_name_in_owner = true
 stream = ExtResource("2_02h0o")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_right = 426.0
 offset_bottom = 240.0
 color = Color(0, 0, 0, 0.65098)
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+[node name="GameTitle" type="TextureRect" parent="ColorRect"]
 offset_left = 25.0
 offset_top = 15.0
 offset_right = 512.0
@@ -49,7 +50,7 @@ offset_right = 165.0
 offset_bottom = 73.0
 theme = SubResource("Theme_tro8l")
 theme_override_constants/line_spacing = -5
-theme_override_fonts/font = ExtResource("1_3n054")
+theme_override_fonts/font = ExtResource("4_ai6oh")
 text = "PAUSED"
 
 [node name="Menu" type="VBoxContainer" parent="ColorRect"]
@@ -58,9 +59,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 37.0
-offset_top = -4.0
+offset_top = -5.0
 offset_right = 122.0
-offset_bottom = 60.0
+offset_bottom = 59.0
 grow_vertical = 2
 scale = Vector2(1.00143, 0.99473)
 size_flags_horizontal = 3
