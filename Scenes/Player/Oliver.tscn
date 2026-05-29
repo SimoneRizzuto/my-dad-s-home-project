@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://bggt6ckifdcow"]
+[gd_scene load_steps=75 format=3 uid="uid://bggt6ckifdcow"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Oliver.cs" id="1_vpp82"]
 [ext_resource type="Texture2D" uid="uid://c1ua5poece8o6" path="res://Assets/Textures/Oliver/oliver eating food.png" id="2_aidie"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cemnuys6w3rjr" path="res://Scenes/Dialogue/Actor/ActorModule.tscn" id="8_knplv"]
 [ext_resource type="Texture2D" uid="uid://b1lyl2vhckydp" path="res://Assets/Textures/Oliver/oliver walk left animation-Sheet.png" id="12_b1hxr"]
 [ext_resource type="Texture2D" uid="uid://k5dwussq5w24" path="res://Assets/Textures/Oliver/oliver sit right controller-Sheet.png" id="14_27jme"]
+[ext_resource type="Texture2D" uid="uid://ds2lnd0uudfwk" path="res://Assets/Textures/Oliver/oliver sit right-Sheet.png" id="14_sgii4"]
 [ext_resource type="Texture2D" uid="uid://gcir4qhd67go" path="res://Assets/Textures/Oliver/oliver walk right animation-Sheet.png" id="14_wa1k2"]
 [ext_resource type="Texture2D" uid="uid://bsp86xtq5vdyx" path="res://Assets/Textures/Oliver/oliver sit right controller fling-Sheet.png" id="15_urnai"]
 [ext_resource type="Texture2D" uid="uid://dguix8lv473ue" path="res://Assets/Textures/Oliver/oliver sit right look left-Sheet.png" id="16_ten6k"]
@@ -106,12 +107,24 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("6_sylhh")
 region = Rect2(32, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_plvbn"]
+atlas = ExtResource("6_sylhh")
+region = Rect2(32, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_psn0x"]
 atlas = ExtResource("7_w0q4s")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcq78"]
 atlas = ExtResource("7_w0q4s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gy3a"]
+atlas = ExtResource("14_sgii4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt6kb"]
+atlas = ExtResource("14_sgii4")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t31qp"]
@@ -328,6 +341,14 @@ animations = [{
 "speed": 8.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plvbn")
+}],
+"loop": true,
+"name": &"sit left eyes closed",
+"speed": 8.0
+}, {
+"frames": [{
 "duration": 16.0,
 "texture": SubResource("AtlasTexture_psn0x")
 }, {
@@ -336,6 +357,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"sit left look right",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 16.0,
+"texture": SubResource("AtlasTexture_4gy3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt6kb")
+}],
+"loop": true,
+"name": &"sit right",
 "speed": 8.0
 }, {
 "frames": [{

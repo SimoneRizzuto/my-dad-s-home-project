@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://cfrhcgnum5ctx"]
+[gd_scene load_steps=64 format=3 uid="uid://cfrhcgnum5ctx"]
 
 [ext_resource type="Script" path="res://Scripts/Character/Actors/Sasha.cs" id="1_euxa3"]
 [ext_resource type="Texture2D" uid="uid://dwbu4vfd35r47" path="res://Assets/Textures/Sasha/sasha idle left-Sheet.png" id="2_2p2j2"]
@@ -9,15 +9,17 @@
 [ext_resource type="Texture2D" uid="uid://bh7ka68xm0lny" path="res://Assets/Textures/Sasha/sasha draw right look right-Sheet.png" id="4_tvyxc"]
 [ext_resource type="Texture2D" uid="uid://dq0bo22y3ja1v" path="res://Assets/Textures/Sasha/sasha draw wave left-Sheet.png" id="6_qxr03"]
 [ext_resource type="Texture2D" uid="uid://bgsw5g2wlminy" path="res://Assets/Textures/Sasha/sasha idle right-Sheet.png" id="7_8kmy0"]
-[ext_resource type="Texture2D" uid="uid://drxavc7uvvc2p" path="res://Assets/Textures/Sasha/sasha sit right-Sheet.png" id="9_65m4p"]
 [ext_resource type="Texture2D" uid="uid://cseqeod05yv2g" path="res://Assets/Textures/Sasha/sasha interact back-Sheet.png" id="9_w1ig3"]
 [ext_resource type="Texture2D" uid="uid://8kmw650mdacq" path="res://Assets/Textures/Sasha/sasha sit right controller-Sheet.png" id="10_0gwd3"]
 [ext_resource type="AudioStream" uid="uid://dlemll3n8x5v2" path="res://Assets/Audio/Sound/speak sound effect.ogg" id="10_d3grx"]
 [ext_resource type="Texture2D" uid="uid://bx8uaaf3wq0gi" path="res://Assets/Textures/Sasha/sasha sit right arm pump-Sheet.png" id="10_do2uq"]
 [ext_resource type="Texture2D" uid="uid://b6abbiac1viis" path="res://Assets/Textures/Sasha/sasha show off right-Sheet.png" id="10_nsba6"]
-[ext_resource type="Texture2D" uid="uid://brmo5gygjwnus" path="res://Assets/Textures/Sasha/sasha sit right look left-Sheet.png" id="12_iqxab"]
+[ext_resource type="Texture2D" uid="uid://b4o8fi1emxp3" path="res://Assets/Textures/Sasha/sit right-Sheet.png" id="11_hhbdy"]
+[ext_resource type="Texture2D" uid="uid://dph56b0epunwe" path="res://Assets/Textures/Sasha/sasha sit right cushion-Sheet.png" id="13_5w4cq"]
 [ext_resource type="Texture2D" uid="uid://d0ppwy3w47ueu" path="res://Assets/Textures/Sasha/sasha walk left-Sheet.png" id="13_hi53m"]
 [ext_resource type="Texture2D" uid="uid://bn1uditefe3ea" path="res://Assets/Textures/Sasha/sasha walk right-Sheet.png" id="14_qmymp"]
+[ext_resource type="Texture2D" uid="uid://cpahdy61yu8w4" path="res://Assets/Textures/Sasha/sasha sit right cushion look left-Sheet.png" id="15_5hhtw"]
+[ext_resource type="Texture2D" uid="uid://40ojxkh8j23h" path="res://Assets/Textures/Sasha/sit right look left-Sheet.png" id="16_scqc3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_egfdo"]
 size = Vector2(6, 18)
@@ -98,12 +100,12 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("10_nsba6")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xysml"]
-atlas = ExtResource("9_65m4p")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwlhr"]
+atlas = ExtResource("11_hhbdy")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_deovs"]
-atlas = ExtResource("9_65m4p")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gddg"]
+atlas = ExtResource("11_hhbdy")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ra4wy"]
@@ -126,12 +128,32 @@ region = Rect2(32, 0, 32, 32)
 atlas = ExtResource("10_0gwd3")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hjnq0"]
-atlas = ExtResource("12_iqxab")
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqwst"]
+atlas = ExtResource("13_5w4cq")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mx3k2"]
-atlas = ExtResource("12_iqxab")
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1e8l"]
+atlas = ExtResource("13_5w4cq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ls0l"]
+atlas = ExtResource("15_5hhtw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0g6p"]
+atlas = ExtResource("15_5hhtw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tx12"]
+atlas = ExtResource("11_hhbdy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5d50"]
+atlas = ExtResource("16_scqc3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfisy"]
+atlas = ExtResource("16_scqc3")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k6vy6"]
@@ -272,10 +294,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 16.0,
-"texture": SubResource("AtlasTexture_xysml")
+"texture": SubResource("AtlasTexture_wwlhr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_deovs")
+"texture": SubResource("AtlasTexture_6gddg")
 }],
 "loop": true,
 "name": &"sit right",
@@ -308,14 +330,44 @@ animations = [{
 }, {
 "frames": [{
 "duration": 16.0,
-"texture": SubResource("AtlasTexture_hjnq0")
+"texture": SubResource("AtlasTexture_eqwst")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mx3k2")
+"texture": SubResource("AtlasTexture_k1e8l")
+}],
+"loop": true,
+"name": &"sit right cushion",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 16.0,
+"texture": SubResource("AtlasTexture_8ls0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0g6p")
+}],
+"loop": true,
+"name": &"sit right cushion look left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tx12")
+}],
+"loop": true,
+"name": &"sit right eyes closed",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 16.0,
+"texture": SubResource("AtlasTexture_a5d50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfisy")
 }],
 "loop": true,
 "name": &"sit right look left",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -364,7 +416,7 @@ one_way_collision = true
 [node name="MainSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_5lq05")
-animation = &"sit right"
+animation = &"sit right cushion"
 
 [node name="SpeakSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_d3grx")

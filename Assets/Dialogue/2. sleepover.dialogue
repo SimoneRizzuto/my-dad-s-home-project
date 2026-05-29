@@ -5,7 +5,7 @@
 do Sasha.SetDirection(1)
 do Sasha.PlayAnimation("sit right controller")
 do Oliver.PlayAnimation("sit right controller")
-do Director.Wait(5)
+do Director.Wait(4)
 
 
 Oliver: NO WAY!
@@ -16,7 +16,7 @@ do Sasha.PlayAnimation("sit right arm pump")
 Sasha: Woo!
 
 
-do Sasha.PlayAnimation("sit right")
+do Sasha.PlayAnimation("sit right cushion")
 Oliver: That was SO UNLUCKY!
 
 Sasha: Hey, what I can I say? They call me the drift queen!
@@ -68,7 +68,7 @@ do Oliver.LookRight()
 # oliver stands to the side
 
 Oliver: By the way, you never got to show me your drawings.
-do Sasha.PlayAnimation("sit right look left")
+do Sasha.PlayAnimation("sit right cushion look left")
 Sasha: Oh yeah!
 Sasha: Let me show you.
 
@@ -117,7 +117,7 @@ Oliver: Hell yeah!
 
 do ShowTextureUI.HideTexture()
 do Sasha.MoveToXPosition(149)
-do Sasha.PlayAnimation("sit right")
+do Sasha.PlayAnimation("sit right cushion")
 
 do Director.Wait(1)
 => END
@@ -125,7 +125,7 @@ do Director.Wait(1)
 ~ pizza_carton_interaction
 do Oliver.LookRight()
 Oliver: Hey, you got Gigi's again!
-do Sasha.PlayAnimation("sit right look left")
+do Sasha.PlayAnimation("sit right cushion look left")
 
 Sasha: I wasn't lying when I said I liked it.
 Oliver: So what you're telling me is...
@@ -137,20 +137,20 @@ Sasha: Ok, Olive Boy.
 Oliver: Hey!
 Oliver: That fits too well...
 Sasha: Hehe~
-do Sasha.PlayAnimation("sit right")
+do Sasha.PlayAnimation("sit right cushion")
 => END
 
 ~ jump_on_bed_1
-do Sasha.PlayAnimation("sit right look left")
+do Sasha.PlayAnimation("sit right cushion look left")
 Sasha: Stop bouncing on my bed!
 Oliver: Sorry.
-do Sasha.PlayAnimation("sit right")
+do Sasha.PlayAnimation("sit right cushion")
 => END
 ~ jump_on_bed_2
-do Sasha.PlayAnimation("sit right look left")
+do Sasha.PlayAnimation("sit right cushion look left")
 Sasha: Oliver!
 Oliver: Your bed is bouncier than mine, ok?
-do Sasha.PlayAnimation("sit right")
+do Sasha.PlayAnimation("sit right cushion")
 => END
 ~ jump_on_bed_3
 do Sasha.PlayAnimation("idle left")
@@ -162,7 +162,7 @@ Oliver: I'm a teen with a problem.
 
 do Oliver.StartJumpLoop()
 Oliver: With a crippling addiction for bouncing on beds.
-do Sasha.PlayAnimation("sit right")
+do Sasha.PlayAnimation("sit right cushion")
 Sasha: If you break it, I'm stealing your bed.
 do Oliver.StopJumpLoop()
 => END
@@ -197,26 +197,52 @@ do Director.Wait(2)
 => END
 
 ~ going_to_bedroom
-#When rejoining his friend, this time, it is a campfire. No door separates the outside.
+
+do Sasha.SetDirection(1)
 
 Oliver: ...
 Sasha: You didn't fall in, did you?
 Oliver: Pff.
 Oliver: Not this time.
 
-#Oliver sits next to the fireplace.
+do Director.Wait(1)
 
-do Director.Wait(3)
-
-#Oliver looks around himself.
-#Oliver closes his eyes.
+do Oliver.MoveToXPosition(116)
+do Sasha.PlayAnimation("sit right cushion look left")
+do Director.Wait(1)
+do Oliver.PlayAnimation("sit left")
+do Director.Wait(1)
+do Oliver.PlayAnimation("sit left look right")
+do Director.Wait(1)
+do Oliver.PlayAnimation("sit left")
+do Director.Wait(2)
+do Oliver.PlayAnimation("sit left eyes closed")
+do Director.Wait(0.75)
 
 Oliver: Ahhhh...
-Oliver: ...
+Sasha: ...
+
+do Director.Wait(2)
+
+do Sasha.MoveToXPosition(130)
+do Director.Wait(1.25)
+do Sasha.PlayAnimation("idle right")
+do Director.Wait(0.75)
+do Sasha.PlayAnimation("sit right")
+
+do Director.Wait(2)
+
 Oliver: Do you feel this warmth?
+
+do Sasha.PlayAnimation("sit right look left")
 Sasha: Mhh?
 
 do Director.Wait(2)
+
+do Sasha.PlayAnimation("sit right")
+do Director.Wait(0.75)
+do Sasha.PlayAnimation("sit right eyes closed")
+do Director.Wait(1)
 
 Sasha: Yeah, I do.
 
