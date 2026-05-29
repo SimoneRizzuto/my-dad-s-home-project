@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ba8ajsihdkrwt"]
 
 [ext_resource type="Script" path="res://Scenes/Rooms/TransitionSets/TransitionScreen.cs" id="1_7wetk"]
-[ext_resource type="FontFile" uid="uid://cb0xauna5q601" path="res://Assets/Fonts/Reaper Font.ttf" id="2_mol6r"]
+[ext_resource type="FontFile" uid="uid://ckgc6svy8g521" path="res://Assets/Fonts/Quando-Regular.ttf" id="2_muss4"]
 [ext_resource type="AudioStream" uid="uid://ckkjxqvfedhp2" path="res://Assets/Audio/Sound/Menu/menu navigate sound.ogg" id="3_d7mi4"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lwwqo"]
@@ -18,7 +18,7 @@ offset_bottom = 37.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_mol6r")
+theme_override_fonts/font = ExtResource("2_muss4")
 theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 vertical_alignment = 1

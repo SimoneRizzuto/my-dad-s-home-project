@@ -18,7 +18,7 @@ public partial class MenuModule : CanvasLayer
 
 	// label
 	private Label PauseLabel => GetNode<Label>("./ColorRect/PauseLabel");
-	private Label MainLabel => GetNode<Label>("./ColorRect/MainLabel");
+	private TextureRect GameTitle => GetNode<TextureRect>("./ColorRect/GameTitle");
 
 	// pause menu
 	private Control Menu => GetNode<Control>("./ColorRect/Menu");
@@ -71,7 +71,7 @@ public partial class MenuModule : CanvasLayer
 
 		ColorRect.Visible = false;
 		PauseLabel.Visible = false;
-		MainLabel.Visible = false;
+		GameTitle.Visible = false;
 		Menu.Visible = false;
 		LoadGameMenu.Visible = false;
 		DebugMenu.Visible = false;
@@ -119,13 +119,13 @@ public partial class MenuModule : CanvasLayer
 		SetChildButtonsDisabled(DebugMenu, true);
 		SetChildButtonsDisabled(QuitMenu, true);
 
-		MainLabel.Visible = true;
+		GameTitle.Visible = true;
 		Menu.Visible = true;
 		ExitButton.Visible = true;
 		LetsContinueButton.Visible = true;
 		MenuFocus();
 		Menu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
-		MainLabel.FadeIn(NodeExtensions.MenuFadeDefaultTime);
+		GameTitle.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 	}
 
 
@@ -269,7 +269,7 @@ public partial class MenuModule : CanvasLayer
 		MenuMode = MenuMode.PauseMenu;
 		ColorRect.Visible = false;
 		PauseLabel.Visible = false;
-		MainLabel.Visible = false;
+		GameTitle.Visible = false;
 		Menu.Visible = false;
 		LoadGameMenu.Visible = false;
 		DebugMenu.Visible = false;
@@ -284,7 +284,7 @@ public partial class MenuModule : CanvasLayer
 
 		MenuMode = MenuMode.MainMenu;
 		ColorRect.Visible = true;
-		MainLabel.Visible = true;
+		GameTitle.Visible = true;
 		PauseLabel.Visible = false;
 		Menu.Visible = true;
 		LoadGameMenu.Visible = false;

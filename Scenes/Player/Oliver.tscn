@@ -359,6 +359,11 @@ animations = [{
 "name": &"sit left look right",
 "speed": 8.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"sit left look up",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 16.0,
 "texture": SubResource("AtlasTexture_4gy3a")
