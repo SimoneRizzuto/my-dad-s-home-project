@@ -31,6 +31,13 @@ public partial class BasicCharacter : CharacterBody2D, ICharacter
         Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * (float)delta);
         
         MoveAndSlide();
+        
+        if (Velocity == Vector2.Zero)
+        {
+            var positionX = (float)Math.Round(Position.X, MidpointRounding.ToEven);
+            var positionY = (float)Math.Round(Position.Y, MidpointRounding.ToEven);
+            Position = new(positionX, positionY);
+        }
     }
     
     #region interface implementations
