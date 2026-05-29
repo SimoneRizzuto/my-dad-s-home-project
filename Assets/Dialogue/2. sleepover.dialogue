@@ -246,24 +246,36 @@ do Director.Wait(1)
 
 Sasha: Yeah, I do.
 
-#Oliver opens his eyes. He lies down.
+do Oliver.PlayAnimation("sit left")
+do Director.Wait(0.75)
+do Oliver.PlayAnimation("sit left look right")
+do Director.Wait(0.5)
 
 Oliver: I wish we had marshmallows.
 Oliver: We could warm them up in a firepit, and just...
 Oliver: Ooooh yeah. That would be awesome.
+do Sasha.PlayAnimation("sit right")
 Sasha: I've never done that before.
 Oliver: Me neither.
-Sasha: What? I thought you were speaking from experience.
+do Sasha.PlayAnimation("sit right look left")
+Sasha: I thought you were speaking from experience.
 Oliver: I don't know. I haven't done many things.
 Oliver: They make it look really fun in movies.
 Oliver: Surely, it's just as fun in real life.
+do Sasha.PlayAnimation("sit right")
 Sasha: I'm sure it is.
+do Oliver.PlayAnimation("sit left")
+
+do Director.Wait(2)
+
 Oliver: When we're older, we should definitely go camping with everyone else.
 Oliver: It would be really fun to be out there, gathering wood for a fire, cooking dinner in it.
 Sasha: As long as I can bring my sketchbook, I'm happy.
+do Oliver.PlayAnimation("sit left look right")
 Oliver: True! And then you could draw your point of view, and capture the moment.
 Oliver: That'd be cool.
 Sasha: Eh. I'd rather draw something else.
+do Oliver.PlayAnimation("sit left")
 Oliver: Well, I would do that... even if its a bad doodle.
 
 do Director.Wait(3)
