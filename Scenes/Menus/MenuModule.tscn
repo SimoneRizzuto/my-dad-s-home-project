@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dya8epkgbbq1i" path="res://Scenes/Menus/MainMenu/Buttons/OptionsButton.tscn" id="4_hq8qe"]
 [ext_resource type="PackedScene" uid="uid://c2jftd2den0d6" path="res://Scenes/Menus/MainMenu/Buttons/DebugButton.tscn" id="5_r0faw"]
 [ext_resource type="PackedScene" uid="uid://dy5kyi42jp6jl" path="res://Scenes/Menus/MainMenu/Buttons/QuitButton.tscn" id="6_kq6vb"]
-[ext_resource type="PackedScene" uid="uid://bd6swl2c7kvux" path="res://Scenes/Menus/MainMenu/Buttons/ExitButton.tscn" id="7_0q4kn"]
-[ext_resource type="PackedScene" uid="uid://deympix12togv" path="res://Scenes/Menus/MainMenu/Buttons/BackButton.tscn" id="8_7a0mv"]
+[ext_resource type="PackedScene" path="res://Scenes/Menus/MainMenu/Buttons/ExitButton.tscn" id="7_0q4kn"]
+[ext_resource type="PackedScene" path="res://Scenes/Menus/MainMenu/Buttons/BackButton.tscn" id="8_7a0mv"]
 [ext_resource type="Script" path="res://Scenes/Menus/NewGameButton.cs" id="9_kjkfx"]
 [ext_resource type="Script" path="res://Scenes/Menus/LoadGameButton.cs" id="9_u6s1e"]
 [ext_resource type="Script" path="res://Scripts/Menus/GoToSceneButton.cs" id="10_kf0rm"]
@@ -34,6 +34,7 @@ offset_bottom = 240.0
 color = Color(0, 0, 0, 0.65098)
 
 [node name="GameTitle" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
 offset_left = 25.0
 offset_top = 15.0
 offset_right = 512.0
