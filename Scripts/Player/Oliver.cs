@@ -30,6 +30,7 @@ public partial class Oliver : CharacterBody2D, ICharacter
             if (value == CharacterState.Cutscene)
             {
                 Move(0);
+                PlayAnimation($"idle {LastDirectionString}");
             }
         }
     }
@@ -140,7 +141,7 @@ public partial class Oliver : CharacterBody2D, ICharacter
     public void Jump()
     {
         if (!IsOnFloor()) return;
-        
+         
         Velocity = new Vector2(Velocity.X, JumpVelocity);
         
         MainSprite.SetFrameAndProgress(0, 0);
