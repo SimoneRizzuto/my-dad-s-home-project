@@ -63,7 +63,7 @@ do Director.Wait(5)
 
 Papa: Here we are.
 Papa: I'm not crazy, that IS her car.
-Oliver: It. Is.
+Oliver: It is...
 
 do Director.Wait(4)
 
@@ -114,7 +114,7 @@ do Director.Wait(3)
 
 # starts driving again
 
-Papa: You... ok?
+Papa: Are you... okay?
 Oliver: ...
 
 do Director.Wait(3)
@@ -165,7 +165,7 @@ Papa: She simply betrayed you and me.
 Papa: There is nothing else to it.
 Oliver: God, Papa!
 Oliver: Why is it always someone else's fault?
-Papa: Sorry, is it MY fault?
+Papa: Sorry, is this MY fault?
 Oliver: I don't know.
 Oliver: N-Not exactly, but like, come on!
 Oliver: You're always...
