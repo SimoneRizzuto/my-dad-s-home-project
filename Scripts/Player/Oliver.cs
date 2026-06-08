@@ -22,7 +22,7 @@ public partial class Oliver : CharacterBody2D, ICharacter
     private AnimatedSprite2D MainSprite => GetNode<AnimatedSprite2D>($"{nameof(MainSprite)}");
     private string LastDirectionString => Enum.GetName(LastDirection)!.ToLower();
 
-    private bool resolveCutsceneOnLanding;
+    private bool pendingCutsceneIdleAnimation;
 
     public CharacterState CharacterState
     {
@@ -40,7 +40,7 @@ public partial class Oliver : CharacterBody2D, ICharacter
                 }
                 else
                 {
-                    resolveCutsceneOnLanding = true;
+                    pendingCutsceneIdleAnimation = true;
                 }
             }
         }
@@ -68,9 +68,9 @@ public partial class Oliver : CharacterBody2D, ICharacter
         ProcessGravity(delta);
         MoveAndSlide();
         
-        if (resolveCutsceneOnLanding && IsOnFloor())
+        if (pendingCutsceneIdleAnimation && IsOnFloor())
         {
-            resolveCutsceneOnLanding = false;
+            pendingCutsceneIdleAnimation = false;
             var bagSuffix = IsHoldingBag ? " bag" : "";
             PlayAnimation($"idle {LastDirectionString}{bagSuffix}");
         }
