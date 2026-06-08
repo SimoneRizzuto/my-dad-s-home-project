@@ -12,6 +12,9 @@ namespace MyFathersHomeProject.Scripts.Menus;
 public partial class MenuModule : CanvasLayer
 {
 	[Export] private float pauseMenuOpacity = 0.65f;
+	
+	// animation
+	private AnimatedSprite2D BubbleSprite => GetNode<AnimatedSprite2D>("./ColorRect/BubbleSprite");
 
 	// color rect
 	private ColorRect ColorRect => GetNode<ColorRect>("ColorRect");
@@ -79,6 +82,7 @@ public partial class MenuModule : CanvasLayer
 		QuitMenu.Visible = false;
 
 		SubscribeAllButtons();
+
 	}
 
 	public override void _Process(double delta)
@@ -322,6 +326,9 @@ public partial class MenuModule : CanvasLayer
 			if (child is Button button)
 			{
 				button.Disabled = toggle;
+				
+				button.FocusMode = toggle ? Control.FocusModeEnum.None : Control.FocusModeEnum.All;
+
 			}
 		}
 	}
@@ -333,6 +340,7 @@ public partial class MenuModule : CanvasLayer
 			if (node is Button button)
 			{
 				button.FocusEntered += OnButtonFocusEntered;
+				button.FocusEntered += () => MoveSelector(button);
 				subscribedButtons.Add(button);
 			}
 		}
@@ -366,7 +374,7 @@ public partial class MenuModule : CanvasLayer
 	private void GrabFocusSilently(Control control)
 	{
 		suppressNextFocusSound = true;
-		control.GrabFocus();
+		control.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
 	private IEnumerable<Node> GetAllChildrenRecursive(Node root)
@@ -379,4 +387,17 @@ public partial class MenuModule : CanvasLayer
 				yield return grandChild;
 		}
 	}
+	
+	#region Animation
+	private void MoveSelector(Button button)
+	{
+		BubbleSprite.Visible = true;
+		BubbleSprite.Play();
+
+		BubbleSprite.GlobalPosition = new Vector2(
+			button.GlobalPosition.X - 7,
+			button.GlobalPosition.Y + button.Size.Y / 2
+		);
+	}
+	#endregion
 }
