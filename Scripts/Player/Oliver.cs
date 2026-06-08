@@ -17,11 +17,12 @@ public partial class Oliver : CharacterBody2D, ICharacter
     private int JumpVelocity => -125;
     private bool JumpInputted => Input.IsActionJustPressed(InputMapAction.Jump);
     public bool IsJumping => !IsOnFloor();
+    
+    // private getters
     private AnimatedSprite2D MainSprite => GetNode<AnimatedSprite2D>($"{nameof(MainSprite)}");
-    private string LastDirectionString => Enum.GetName(LastDirection)?.ToLower();
+    private string LastDirectionString => Enum.GetName(LastDirection)!.ToLower();
 
-    // Replace _resolveToIdleOnFinish with this
-    private bool ResolveCutsceneOnLanding = false;
+    private bool resolveCutsceneOnLanding;
 
     public CharacterState CharacterState
     {
@@ -39,7 +40,7 @@ public partial class Oliver : CharacterBody2D, ICharacter
                 }
                 else
                 {
-                    ResolveCutsceneOnLanding = true;
+                    resolveCutsceneOnLanding = true;
                 }
             }
         }
@@ -67,9 +68,9 @@ public partial class Oliver : CharacterBody2D, ICharacter
         ProcessGravity(delta);
         MoveAndSlide();
         
-        if (ResolveCutsceneOnLanding && IsOnFloor())
+        if (resolveCutsceneOnLanding && IsOnFloor())
         {
-            ResolveCutsceneOnLanding = false;
+            resolveCutsceneOnLanding = false;
             var bagSuffix = IsHoldingBag ? " bag" : "";
             PlayAnimation($"idle {LastDirectionString}{bagSuffix}");
         }
