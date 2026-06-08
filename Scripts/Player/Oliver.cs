@@ -10,17 +10,20 @@ public partial class Oliver : CharacterBody2D, ICharacter
 {
     [Export] public Direction LastDirection { get; set; } = Direction.Left;
     [Export] public bool IsHoldingBag { get; set; }
-    
+
     public static Oliver? Instance { get; private set; }
-    
-    // getters
+
     private int Gravity => ProjectSettings.GetSetting("physics/2d/default_gravity").ToString().ToInt();
     private int JumpVelocity => -125;
     private bool JumpInputted => Input.IsActionJustPressed(InputMapAction.Jump);
     public bool IsJumping => !IsOnFloor();
-    private AnimatedSprite2D MainSprite => GetNode<AnimatedSprite2D>($"{nameof(MainSprite)}");
-    private string LastDirectionString => Enum.GetName(LastDirection)?.ToLower();
     
+    // private getters
+    private AnimatedSprite2D MainSprite => GetNode<AnimatedSprite2D>($"{nameof(MainSprite)}");
+    private string LastDirectionString => Enum.GetName(LastDirection)!.ToLower();
+
+    private bool pendingCutsceneIdleAnimation;
+
     public CharacterState CharacterState
     {
         get => characterState;
@@ -30,6 +33,15 @@ public partial class Oliver : CharacterBody2D, ICharacter
             if (value == CharacterState.Cutscene)
             {
                 Move(0);
+
+                if (!IsJumping)
+                {
+                    PlayAnimation($"idle {LastDirectionString}");
+                }
+                else
+                {
+                    pendingCutsceneIdleAnimation = true;
+                }
             }
         }
     }
@@ -40,7 +52,7 @@ public partial class Oliver : CharacterBody2D, ICharacter
         MainSprite.AnimationFinished += OnAnimationFinished;
         Instance = this;
     }
-    
+
     public override void _PhysicsProcess(double delta)
     {
         switch (CharacterState)
@@ -52,11 +64,18 @@ public partial class Oliver : CharacterBody2D, ICharacter
             case CharacterState.Disabled:
                 break;
         }
-        
+
         ProcessGravity(delta);
-        
         MoveAndSlide();
         
+        if (pendingCutsceneIdleAnimation && IsOnFloor())
+        {
+            pendingCutsceneIdleAnimation = false;
+            var bagSuffix = IsHoldingBag ? " bag" : "";
+            PlayAnimation($"idle {LastDirectionString}{bagSuffix}");
+        }
+
+
         if (Velocity == Vector2.Zero)
         {
             var positionX = (float)Math.Round(Position.X, MidpointRounding.ToEven);
@@ -64,17 +83,17 @@ public partial class Oliver : CharacterBody2D, ICharacter
             Position = new(positionX, positionY);
         }
     }
-    
+
     private void ProcessGameplay(double delta)
     {
         Move();
-        
+
         if (JumpInputted)
         {
             Jump();
         }
     }
-    
+
     private void ProcessGravity(double delta)
     {
         if (!IsOnFloor())
@@ -93,18 +112,18 @@ public partial class Oliver : CharacterBody2D, ICharacter
     {
         IsHoldingBag = !IsHoldingBag;
     }
-    
+
     #region interface implementations
-    
+
     public void Move(float direction)
     {
         var movementVector = new Vector2(direction * Movement.MoveSpeed, Velocity.Y);
-        
+
         if (movementVector.X < 0) SetDirection(Direction.Left);
         else if (movementVector.X > 0) SetDirection(Direction.Right);
-        
+
         Velocity = movementVector;
-        
+
         if (IsOnFloor())
         {
             string animationToPlay;
@@ -126,25 +145,24 @@ public partial class Oliver : CharacterBody2D, ICharacter
             PlayAnimation(animationToPlay);
         }
     }
-    
+
     public void PlayAnimation(string animationName)
     {
         MainSprite.Play(animationName);
     }
-    
+
     public void SetDirection(Direction direction)
     {
         LastDirection = direction;
     }
-    
+
     public void Jump()
     {
         if (!IsOnFloor()) return;
-        
+
         Velocity = new Vector2(Velocity.X, JumpVelocity);
-        
         MainSprite.SetFrameAndProgress(0, 0);
-        
+
         var animationToPlay = $"jump {LastDirectionString}";
         if (IsHoldingBag)
         {
@@ -152,28 +170,29 @@ public partial class Oliver : CharacterBody2D, ICharacter
         }
         PlayAnimation(animationToPlay);
     }
-    
+
     public void SetVisibility(bool visible)
     {
         Visible = visible;
     }
-    
+
     public void SetHoldingPlate(bool isHolding)
     {
         throw new NotImplementedException();
     }
 
     #endregion
-    
+
     #region signals
+
     private void OnAnimationFinished()
     {
-        if (CharacterState is CharacterState.Cutscene) return;
-        
-        if (MainSprite.Animation.ToString().Contains("jump"))
+        if (characterState == CharacterState.Gameplay && 
+            MainSprite.Animation.ToString().Contains("jump"))
         {
             PlayAnimation($"idle {LastDirectionString}");
         }
     }
+
     #endregion
 }

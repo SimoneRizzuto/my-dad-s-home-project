@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c87n6fv18rsoi" path="res://Assets/Textures/Environments/OnlineWorld1/grass-Sheet.png" id="8_psjh8"]
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="9_kkpjs"]
 [ext_resource type="Texture2D" uid="uid://b0o231ewbsslm" path="res://Assets/Textures/Environments/OnlineWorld1/grass front-Sheet.png" id="9_ttnai"]
-[ext_resource type="PackedScene" path="res://Scenes/Camera/TripodDismounter.tscn" id="10_2gnje"]
+[ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="10_2gnje"]
 [ext_resource type="PackedScene" uid="uid://cfrhcgnum5ctx" path="res://Scenes/Actors/Sasha.tscn" id="13_3vkiu"]
 [ext_resource type="AudioStream" uid="uid://cn4ka0xrmfrtc" path="res://Assets/Audio/Sound/wind blows.ogg" id="14_76urx"]
 
