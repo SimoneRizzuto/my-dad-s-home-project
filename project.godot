@@ -36,6 +36,7 @@ SaveManager="*res://SaveFiles/SaveManager.cs"
 MenuModule="*res://Scenes/Menus/MenuModule.tscn"
 FadeAutoload="*res://addons/UniversalFade/Fade.gd"
 CreditsManager="*res://Scenes/Dialogue/CreditsManager.tscn"
+SteamManager="*res://Scripts/Singletons/SteamManager/SteamManager.cs"
 
 [dialogue_manager]
 
