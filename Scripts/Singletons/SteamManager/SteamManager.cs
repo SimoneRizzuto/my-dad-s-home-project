@@ -1,10 +1,14 @@
 using Godot;
 using Steamworks;
 
+namespace MyFathersHomeProject.Scripts.Singletons.SteamManager;
+
 public partial class SteamManager : Node
 {
 	// private getters
 	private static bool initialized;
+	private static bool achievementStatus;
+
 	// public getters
 	public static bool IsInitialized => initialized;
 
@@ -46,10 +50,18 @@ public partial class SteamManager : Node
 	{
 		if (!SteamManager.IsInitialized) return;
 
-		SteamUserStats.SetAchievement(achievementId); // e.g. "FIRST_WIN"
-		SteamUserStats.StoreStats(); // Must call this to persist it
+		SteamUserStats.GetAchievement(achievementId, out achievementStatus);
+
+		if (achievementStatus)
+		{
+			GD.Print("Already Unlocked achievement: " + achievementId);
+			return;
+		}
+
+		SteamUserStats.SetAchievement(achievementId);
+		SteamUserStats.StoreStats();
 	}
-	
+
+
 	// Implement with SteamManager.UnlockAchievement("COMPLETED_SET_1");
-	
 }
