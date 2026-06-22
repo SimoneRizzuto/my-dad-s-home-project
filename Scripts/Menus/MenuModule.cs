@@ -60,8 +60,15 @@ public partial class MenuModule : CanvasLayer
 	private bool mainObservedOnce = false;
 	public static bool previousSaveData = false;
 	private SaveData? saveData;
+	private InputDevice _activeInputDevice = InputDevice.MouseKeyboard;
 
 	public MenuMode MenuMode;
+	
+	public enum InputDevice
+	{
+		MouseKeyboard,
+		Controller
+	}
 
 	public override void _Ready()
 	{
@@ -90,6 +97,30 @@ public partial class MenuModule : CanvasLayer
 		if (Input.IsActionJustPressed(InputMapAction.Pause) & (MenuMode == MenuMode.PauseMenu))
 		{
 			TogglePause();
+		}
+	}
+	
+	public override void _Input(InputEvent @event)
+	{
+		// Switching TO controller
+		if (@event is InputEventJoypadButton or InputEventJoypadMotion)
+		{
+			if (_activeInputDevice != InputDevice.Controller)
+			{
+				_activeInputDevice = InputDevice.Controller;
+				Input.MouseMode = Input.MouseModeEnum.Hidden;
+			}
+			return;
+		}
+
+		// Switching TO mouse/keyboard
+		if (@event is InputEventMouseMotion or InputEventMouseButton or InputEventKey)
+		{
+			if (_activeInputDevice != InputDevice.MouseKeyboard)
+			{
+				_activeInputDevice = InputDevice.MouseKeyboard;
+				Input.MouseMode = Input.MouseModeEnum.Visible;
+			}
 		}
 	}
 
@@ -332,6 +363,15 @@ public partial class MenuModule : CanvasLayer
 			}
 		}
 	}
+	
+	private void OnButtonMouseEntered(Button button)
+	{
+		// Only redirect focus if the player is actively using the mouse
+		if (_activeInputDevice != InputDevice.MouseKeyboard) return;
+		if (button.Disabled) return;
+
+		GrabFocusSilently(button);
+	}
 
 	private void SubscribeAllButtons()
 	{
@@ -341,6 +381,7 @@ public partial class MenuModule : CanvasLayer
 			{
 				button.FocusEntered += OnButtonFocusEntered;
 				button.FocusEntered += () => MoveSelector(button);
+				button.MouseEntered += () => OnButtonMouseEntered(button);
 				subscribedButtons.Add(button);
 			}
 		}
@@ -351,6 +392,7 @@ public partial class MenuModule : CanvasLayer
 		foreach (var button in subscribedButtons.Where(IsInstanceValid))
 		{
 			button.FocusEntered -= OnButtonFocusEntered;
+			button.MouseEntered -= () => OnButtonMouseEntered(button);
 		}
 
 		subscribedButtons.Clear();
