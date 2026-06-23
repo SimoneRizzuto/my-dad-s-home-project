@@ -17,7 +17,7 @@ public enum InputDevice
 
 public partial class MenuModule : CanvasLayer
 {
-	[Export] private float pauseMenuOpacity = 0.65f;
+	[Export] private float _pauseMenuOpacity = 0.65f;
 
 	// animation
 	private AnimatedSprite2D BubbleSprite => GetNode<AnimatedSprite2D>("./ColorRect/BubbleSprite");
@@ -55,25 +55,25 @@ public partial class MenuModule : CanvasLayer
 	private Button QuitButton => GetNode<Button>("%QuitButton");
 
 	// audio
-	private AudioStreamPlayer MenuNavigate_Neutral => GetNode<AudioStreamPlayer>("%MenuNavigate_Neutral");
+	private AudioStreamPlayer MenuNavigateNeutral => GetNode<AudioStreamPlayer>("%MenuNavigate_Neutral");
 
 	// variables
-	private readonly List<Button> subscribedButtons = new();
-	private Control lastFocusedControl;
-	private int mainMenuButtonLastFocusIndex = 0;
-	private bool suppressNextFocusSound;
-	private int menuButtonLastFocusIndex = 0;
-	private bool mainObservedOnce = false;
+	private readonly List<Button> _subscribedButtons = new();
+	private Control? _lastFocusedControl;
+	private int _mainMenuButtonLastFocusIndex = 0;
+	private bool _suppressNextFocusSound;
+	private int _menuButtonLastFocusIndex = 0;
+	private bool _mainObservedOnce = false;
 	public static bool previousSaveData = false;
-	private SaveData? saveData;
+	private SaveData? _saveData;
 	private InputDevice _activeInputDevice = InputDevice.MouseKeyboard;
 
 	public MenuMode MenuMode;
 
 	public override void _Ready()
 	{
-		saveData = SaveManager.LoadGameData();
-		previousSaveData = saveData != null;
+		_saveData = SaveManager.LoadGameData();
+		previousSaveData = _saveData != null;
 
 		ProcessMode = ProcessModeEnum.Always;
 		MenuMode = MenuMode.MainMenu;
@@ -200,10 +200,10 @@ public partial class MenuModule : CanvasLayer
 
 	public void GoInsideTrigger()
 	{
-		saveData = SaveManager.LoadGameData();
-		if (saveData != null)
+		_saveData = SaveManager.LoadGameData();
+		if (_saveData != null)
 		{
-			LoadGameButton.Text = $"Load Game - {saveData.SaveTime}";
+			LoadGameButton.Text = $"Load Game - {_saveData.SaveTime}";
 		}
 		else
 		{
@@ -223,7 +223,7 @@ public partial class MenuModule : CanvasLayer
 		GrabFocusSilently(NewGameButton);
 		LoadGameMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 
-		menuButtonLastFocusIndex = 0;
+		_menuButtonLastFocusIndex = 0;
 	}
 
 	public void GoToSettingsMenu()
@@ -239,7 +239,7 @@ public partial class MenuModule : CanvasLayer
 		GrabFocusSilently(TestButton);
 		OptionsMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 
-		menuButtonLastFocusIndex = 1;
+		_menuButtonLastFocusIndex = 1;
 	}
 
 	public void GoToDebugMenu()
@@ -255,7 +255,7 @@ public partial class MenuModule : CanvasLayer
 		GrabFocusSilently(Set1Button);
 		DebugMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 
-		menuButtonLastFocusIndex = 2;
+		_menuButtonLastFocusIndex = 2;
 	}
 
 	public void GoToQuitMenu()
@@ -271,7 +271,7 @@ public partial class MenuModule : CanvasLayer
 		GrabFocusSilently(QuitBackButton);
 		QuitMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 
-		menuButtonLastFocusIndex = 3;
+		_menuButtonLastFocusIndex = 3;
 	}
 
 	private void SetBackgroundTransparency()
@@ -282,7 +282,7 @@ public partial class MenuModule : CanvasLayer
 		}
 		else
 		{
-			ColorRect.Color = new Color(0, 0, 0, a: pauseMenuOpacity);
+			ColorRect.Color = new Color(0, 0, 0, a: _pauseMenuOpacity);
 		}
 	}
 
@@ -295,7 +295,7 @@ public partial class MenuModule : CanvasLayer
 		DebugButton.Disabled = true;
 		ExitButton.Disabled = true;
 
-		menuButtonLastFocusIndex = 0;
+		_menuButtonLastFocusIndex = 0;
 
 		GetTree().Paused = false;
 	}
@@ -311,7 +311,7 @@ public partial class MenuModule : CanvasLayer
 		DebugMenu.Visible = false;
 		OptionsMenu.Visible = false;
 		QuitMenu.Visible = false;
-		menuButtonLastFocusIndex = 0;
+		_menuButtonLastFocusIndex = 0;
 	}
 
 	public void ResetMainMenu()
@@ -329,12 +329,14 @@ public partial class MenuModule : CanvasLayer
 		QuitMenu.Visible = false;
 		Visible = true;
 
-		menuButtonLastFocusIndex = 0;
+		_menuButtonLastFocusIndex = 0;
 	}
+	
+	#region Button
 
 	private void MenuFocus()
 	{
-		switch (menuButtonLastFocusIndex)
+		switch (_menuButtonLastFocusIndex)
 		{
 			case 0:
 				GrabFocusSilently(LetsContinueButton);
@@ -372,34 +374,34 @@ public partial class MenuModule : CanvasLayer
 				button.FocusEntered += OnButtonFocusEntered;
 				button.FocusEntered += () => MoveSelector(button);
 				button.MouseEntered += () => OnButtonMouseEntered(button);
-				subscribedButtons.Add(button);
+				_subscribedButtons.Add(button);
 			}
 		}
 	}
 
 	private void UnsubscribeAllButtons()
 	{
-		foreach (var button in subscribedButtons.Where(IsInstanceValid))
+		foreach (var button in _subscribedButtons.Where(IsInstanceValid))
 		{
 			button.FocusEntered -= OnButtonFocusEntered;
 		}
 
-		subscribedButtons.Clear();
+		_subscribedButtons.Clear();
 	}
 
 	private void OnButtonFocusEntered()
 	{
-		if (suppressNextFocusSound)
+		if (_suppressNextFocusSound)
 		{
-			suppressNextFocusSound = false;
+			_suppressNextFocusSound = false;
 			return;
 		}
 
 		var focus = GetViewport().GuiGetFocusOwner();
-		if (focus == null || focus == lastFocusedControl) return;
+		if (focus == null || focus == _lastFocusedControl) return;
 
-		lastFocusedControl = focus;
-		MenuNavigate_Neutral.Play();
+		_lastFocusedControl = focus;
+		MenuNavigateNeutral.Play();
 
 		if (_activeInputDevice == InputDevice.Controller)
 		{
@@ -411,7 +413,7 @@ public partial class MenuModule : CanvasLayer
 	{
 		var focusedButton = GetViewport().GuiGetFocusOwner();
 
-		foreach (var button in subscribedButtons.Where(IsInstanceValid))
+		foreach (var button in _subscribedButtons.Where(IsInstanceValid))
 		{
 			if (button == focusedButton)
 			{
@@ -440,13 +442,13 @@ public partial class MenuModule : CanvasLayer
 
 	private void GrabFocusSilently(Control control)
 	{
-		suppressNextFocusSound = true;
+		_suppressNextFocusSound = true;
 		control.CallDeferred(Control.MethodName.GrabFocus);
 	}
 
 	private void SuppressMouseOnButtons()
 	{
-		foreach (var button in subscribedButtons.Where(IsInstanceValid))
+		foreach (var button in _subscribedButtons.Where(IsInstanceValid))
 		{
 			button.MouseFilter = Control.MouseFilterEnum.Ignore;
 			var normalColor = button.GetThemeColor("font_color");
@@ -459,7 +461,7 @@ public partial class MenuModule : CanvasLayer
 
 	private void RestoreMouseOnButtons()
 	{
-		foreach (var button in subscribedButtons.Where(IsInstanceValid))
+		foreach (var button in _subscribedButtons.Where(IsInstanceValid))
 		{
 			button.MouseFilter = Control.MouseFilterEnum.Stop;
 			button.RemoveThemeColorOverride("font_hover_color");
@@ -477,6 +479,7 @@ public partial class MenuModule : CanvasLayer
 				yield return grandChild;
 		}
 	}
+	#endregion
 
 	#region Animation
 
