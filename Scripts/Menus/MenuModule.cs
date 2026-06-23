@@ -9,10 +9,16 @@ using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
 namespace MyFathersHomeProject.Scripts.Menus;
 
+public enum InputDevice
+{
+	MouseKeyboard,
+	Controller
+}
+
 public partial class MenuModule : CanvasLayer
 {
 	[Export] private float pauseMenuOpacity = 0.65f;
-	
+
 	// animation
 	private AnimatedSprite2D BubbleSprite => GetNode<AnimatedSprite2D>("./ColorRect/BubbleSprite");
 
@@ -63,16 +69,9 @@ public partial class MenuModule : CanvasLayer
 	private InputDevice _activeInputDevice = InputDevice.MouseKeyboard;
 
 	public MenuMode MenuMode;
-	
-	public enum InputDevice
-	{
-		MouseKeyboard,
-		Controller
-	}
 
 	public override void _Ready()
 	{
-		// Check if save file 
 		saveData = SaveManager.LoadGameData();
 		previousSaveData = saveData != null;
 
@@ -89,7 +88,6 @@ public partial class MenuModule : CanvasLayer
 		QuitMenu.Visible = false;
 
 		SubscribeAllButtons();
-
 	}
 
 	public override void _Process(double delta)
@@ -98,28 +96,34 @@ public partial class MenuModule : CanvasLayer
 		{
 			TogglePause();
 		}
+
+		if (_activeInputDevice == InputDevice.Controller)
+		{
+			EnforceControllerColours();
+		}
 	}
-	
+
 	public override void _Input(InputEvent @event)
 	{
-		// Switching TO controller
-		if (@event is InputEventJoypadButton or InputEventJoypadMotion)
-		{
-			if (_activeInputDevice != InputDevice.Controller)
-			{
-				_activeInputDevice = InputDevice.Controller;
-				Input.MouseMode = Input.MouseModeEnum.Hidden;
-			}
-			return;
-		}
-
-		// Switching TO mouse/keyboard
-		if (@event is InputEventMouseMotion or InputEventMouseButton or InputEventKey)
+		if (@event is InputEventMouseMotion)
 		{
 			if (_activeInputDevice != InputDevice.MouseKeyboard)
 			{
 				_activeInputDevice = InputDevice.MouseKeyboard;
 				Input.MouseMode = Input.MouseModeEnum.Visible;
+				RestoreMouseOnButtons();
+			}
+
+			return;
+		}
+		
+		if (@event is InputEventKey or InputEventJoypadButton or InputEventJoypadMotion)
+		{
+			if (_activeInputDevice != InputDevice.Controller)
+			{
+				_activeInputDevice = InputDevice.Controller;
+				Input.MouseMode = Input.MouseModeEnum.Hidden;
+				SuppressMouseOnButtons();
 			}
 		}
 	}
@@ -163,7 +167,6 @@ public partial class MenuModule : CanvasLayer
 		MainLabel.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 	}
 
-
 	public void GoToPauseMenu()
 	{
 		SetBackgroundTransparency();
@@ -192,13 +195,11 @@ public partial class MenuModule : CanvasLayer
 		LetsContinueButton.Visible = true;
 		MenuFocus();
 		Menu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
-
 		PauseLabel.FadeIn(NodeExtensions.MenuFadeDefaultTime);
 	}
 
 	public void GoInsideTrigger()
 	{
-		// Reload for latest change
 		saveData = SaveManager.LoadGameData();
 		if (saveData != null)
 		{
@@ -210,14 +211,14 @@ public partial class MenuModule : CanvasLayer
 			GetTree().Paused = false;
 			ResetPauseMenu();
 		}
-		
+
 		SetChildButtonsDisabled(LoadGameMenu, false);
 		SetBackgroundTransparency();
 		Menu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => Menu.Visible = false);
 		OptionsMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => OptionsMenu.Visible = false);
 		DebugMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => DebugMenu.Visible = false);
 		QuitMenu.FadeOut(NodeExtensions.MenuFadeDefaultTime, () => QuitMenu.Visible = false);
-		
+
 		LoadGameMenu.Visible = true;
 		GrabFocusSilently(NewGameButton);
 		LoadGameMenu.FadeIn(NodeExtensions.MenuFadeDefaultTime);
@@ -357,20 +358,9 @@ public partial class MenuModule : CanvasLayer
 			if (child is Button button)
 			{
 				button.Disabled = toggle;
-				
 				button.FocusMode = toggle ? Control.FocusModeEnum.None : Control.FocusModeEnum.All;
-
 			}
 		}
-	}
-	
-	private void OnButtonMouseEntered(Button button)
-	{
-		// Only redirect focus if the player is actively using the mouse
-		if (_activeInputDevice != InputDevice.MouseKeyboard) return;
-		if (button.Disabled) return;
-
-		GrabFocusSilently(button);
 	}
 
 	private void SubscribeAllButtons()
@@ -392,7 +382,6 @@ public partial class MenuModule : CanvasLayer
 		foreach (var button in subscribedButtons.Where(IsInstanceValid))
 		{
 			button.FocusEntered -= OnButtonFocusEntered;
-			button.MouseEntered -= () => OnButtonMouseEntered(button);
 		}
 
 		subscribedButtons.Clear();
@@ -411,12 +400,71 @@ public partial class MenuModule : CanvasLayer
 
 		lastFocusedControl = focus;
 		MenuNavigate_Neutral.Play();
+
+		if (_activeInputDevice == InputDevice.Controller)
+		{
+			EnforceControllerColours();
+		}
+	}
+
+	private void EnforceControllerColours()
+	{
+		var focusedButton = GetViewport().GuiGetFocusOwner();
+
+		foreach (var button in subscribedButtons.Where(IsInstanceValid))
+		{
+			if (button == focusedButton)
+			{
+				button.RemoveThemeColorOverride("font_hover_color");
+				button.RemoveThemeColorOverride("font_focus_color");
+				button.RemoveThemeColorOverride("font_pressed_color");
+				button.RemoveThemeColorOverride("font_color");
+			}
+			else
+			{
+				button.AddThemeColorOverride("font_hover_color", Colors.White);
+				button.AddThemeColorOverride("font_focus_color", Colors.White);
+				button.AddThemeColorOverride("font_pressed_color", Colors.White);
+				button.AddThemeColorOverride("font_color", Colors.White);
+			}
+		}
+	}
+
+	private void OnButtonMouseEntered(Button button)
+	{
+		if (_activeInputDevice != InputDevice.MouseKeyboard) return;
+		if (button.Disabled) return;
+
+		GrabFocusSilently(button);
 	}
 
 	private void GrabFocusSilently(Control control)
 	{
 		suppressNextFocusSound = true;
 		control.CallDeferred(Control.MethodName.GrabFocus);
+	}
+
+	private void SuppressMouseOnButtons()
+	{
+		foreach (var button in subscribedButtons.Where(IsInstanceValid))
+		{
+			button.MouseFilter = Control.MouseFilterEnum.Ignore;
+			var normalColor = button.GetThemeColor("font_color");
+			button.AddThemeColorOverride("font_hover_color", normalColor);
+			button.AddThemeColorOverride("font_focus_color", normalColor);
+		}
+
+		EnforceControllerColours();
+	}
+
+	private void RestoreMouseOnButtons()
+	{
+		foreach (var button in subscribedButtons.Where(IsInstanceValid))
+		{
+			button.MouseFilter = Control.MouseFilterEnum.Stop;
+			button.RemoveThemeColorOverride("font_hover_color");
+			button.RemoveThemeColorOverride("font_focus_color");
+		}
 	}
 
 	private IEnumerable<Node> GetAllChildrenRecursive(Node root)
@@ -429,8 +477,9 @@ public partial class MenuModule : CanvasLayer
 				yield return grandChild;
 		}
 	}
-	
+
 	#region Animation
+
 	private void MoveSelector(Button button)
 	{
 		BubbleSprite.Visible = true;
@@ -441,5 +490,6 @@ public partial class MenuModule : CanvasLayer
 			button.GlobalPosition.Y + button.Size.Y / 2
 		);
 	}
+
 	#endregion
 }
