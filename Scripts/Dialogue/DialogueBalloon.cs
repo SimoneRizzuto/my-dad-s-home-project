@@ -357,8 +357,6 @@ public partial class DialogueBalloon : CanvasLayer
 					break;
 			}
 		}
-		
-		
 	}
 
 	private static int GetActorDirectionOffset(Node2D actorSpeaking)

@@ -6,7 +6,7 @@ public partial class Stars : AnimatedSprite2D
     [Signal] public delegate void FinishedFadingInStarsEventHandler();
     
     // const
-    private const double IncrementingValue = 0.3d;
+    private const double IncrementingValue = 0.15d;
     
     // variables
     private bool isFadingIn;

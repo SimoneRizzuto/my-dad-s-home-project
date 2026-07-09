@@ -1,5 +1,4 @@
 using Godot;
-using System;
 using MyFathersHomeProject.Scripts.Shared.Modules.Door;
 using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
@@ -8,9 +7,12 @@ namespace MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
 public partial class DoorNavigationAction : Node, IAction
 {
     [Export] public string NavigateToUid = SceneSwitcher.Set1_LivingRoom;
+    [Export] public bool DisableNavigation;
     
     public void Action()
     {
+        if (DisableNavigation) return;
+        
         var uid = NavigateToUid;
         
         var doorNode = GetParent().GetParent();

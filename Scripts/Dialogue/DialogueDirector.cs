@@ -13,6 +13,7 @@ using MyFathersHomeProject.Scripts.Dialogue.Actor;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Modules.Door;
+using MyFathersHomeProject.Scripts.Shared.Modules.Interactables.Custom;
 
 namespace MyFathersHomeProject.Scripts.Dialogue;
 public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDisposable
@@ -113,6 +114,16 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
     {
         millisecondsToPass = seconds * 1000;
         await SetupActionTask(DirectorDirection.Wait);
+    }
+
+    public void FadeIn(float time = 5f)
+    {
+        FadeUtil.Instance?.FadeIn(time: time, pattern: FadePatternConstants.GradientHorizontal, smooth: true);
+    }
+
+    public void FadeOut(float time = 5f)
+    {
+        FadeUtil.Instance?.FadeIn(time: time, pattern: FadePatternConstants.GradientHorizontal, smooth: true);
     }
 
     public void OpenAllDoors()
