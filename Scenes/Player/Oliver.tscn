@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://bggt6ckifdcow"]
+[gd_scene load_steps=77 format=3 uid="uid://bggt6ckifdcow"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Oliver.cs" id="1_vpp82"]
 [ext_resource type="Texture2D" uid="uid://c1ua5poece8o6" path="res://Assets/Textures/Oliver/oliver eating food.png" id="2_aidie"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cemnuys6w3rjr" path="res://Scenes/Dialogue/Actor/ActorModule.tscn" id="8_knplv"]
 [ext_resource type="Texture2D" uid="uid://b1lyl2vhckydp" path="res://Assets/Textures/Oliver/oliver walk left animation-Sheet.png" id="12_b1hxr"]
 [ext_resource type="Texture2D" uid="uid://k5dwussq5w24" path="res://Assets/Textures/Oliver/oliver sit right controller-Sheet.png" id="14_27jme"]
+[ext_resource type="Texture2D" uid="uid://bqo6cinkmjxa7" path="res://Assets/Textures/Oliver/oliver sit left look up-Sheet.png" id="14_qa814"]
 [ext_resource type="Texture2D" uid="uid://ds2lnd0uudfwk" path="res://Assets/Textures/Oliver/oliver sit right-Sheet.png" id="14_sgii4"]
 [ext_resource type="Texture2D" uid="uid://gcir4qhd67go" path="res://Assets/Textures/Oliver/oliver walk right animation-Sheet.png" id="14_wa1k2"]
 [ext_resource type="Texture2D" uid="uid://bsp86xtq5vdyx" path="res://Assets/Textures/Oliver/oliver sit right controller fling-Sheet.png" id="15_urnai"]
@@ -118,6 +119,10 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcq78"]
 atlas = ExtResource("7_w0q4s")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egu2f"]
+atlas = ExtResource("14_qa814")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4gy3a"]
 atlas = ExtResource("14_sgii4")
@@ -359,10 +364,13 @@ animations = [{
 "name": &"sit left look right",
 "speed": 8.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 16.0,
+"texture": SubResource("AtlasTexture_egu2f")
+}],
 "loop": true,
 "name": &"sit left look up",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 16.0,
@@ -495,7 +503,7 @@ one_way_collision = true
 [node name="MainSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_aqi8e")
-animation = &"sit right look left"
+animation = &"idle left"
 
 [node name="SpeakSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_offib")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://cfrhcgnum5ctx"]
+[gd_scene load_steps=66 format=3 uid="uid://cfrhcgnum5ctx"]
 
 [ext_resource type="Script" path="res://Scripts/Character/Actors/Sasha.cs" id="1_euxa3"]
 [ext_resource type="Texture2D" uid="uid://dwbu4vfd35r47" path="res://Assets/Textures/Sasha/sasha idle left-Sheet.png" id="2_2p2j2"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bn1uditefe3ea" path="res://Assets/Textures/Sasha/sasha walk right-Sheet.png" id="14_qmymp"]
 [ext_resource type="Texture2D" uid="uid://cpahdy61yu8w4" path="res://Assets/Textures/Sasha/sasha sit right cushion look left-Sheet.png" id="15_5hhtw"]
 [ext_resource type="Texture2D" uid="uid://40ojxkh8j23h" path="res://Assets/Textures/Sasha/sit right look left-Sheet.png" id="16_scqc3"]
+[ext_resource type="Texture2D" uid="uid://6ybjbc0jxf6s" path="res://Assets/Textures/Sasha/sasha sit right look up-Sheet.png" id="17_58s53"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_egfdo"]
 size = Vector2(6, 18)
@@ -155,6 +156,10 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_cfisy"]
 atlas = ExtResource("16_scqc3")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gh25e"]
+atlas = ExtResource("17_58s53")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k6vy6"]
 atlas = ExtResource("13_hi53m")
@@ -367,6 +372,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"sit right look left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gh25e")
+}],
+"loop": true,
+"name": &"sit right look up",
 "speed": 8.0
 }, {
 "frames": [{
