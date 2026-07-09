@@ -76,6 +76,7 @@ theme_override_font_sizes/normal_font_size = 13
 text = "Hello, there!"
 autowrap_mode = 2
 threaded = true
+seconds_per_step = 0.04
 
 [node name="DialoguePointerMargin" type="MarginContainer" parent="Balloon/VBoxContainer"]
 layout_mode = 2

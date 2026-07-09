@@ -226,13 +226,13 @@ do Director.Wait(2)
 
 do Sasha.MoveToXPosition(130)
 do Director.Wait(1.25)
-do Sasha.PlayAnimation("idle right")
+do Sasha.LookRight()
 do Director.Wait(0.75)
 do Sasha.PlayAnimation("sit right")
 
 do Director.Wait(2)
 
-Oliver: Do you feel this warmth?
+Oliver: [speed=0.5]Do you feel this warmth?
 
 do Sasha.PlayAnimation("sit right look left")
 Sasha: Mhh?
@@ -242,37 +242,43 @@ do Director.Wait(2)
 do Sasha.PlayAnimation("sit right")
 do Director.Wait(0.75)
 do Sasha.PlayAnimation("sit right eyes closed")
-do Director.Wait(1)
+do Director.Wait(1.5)
 
-Sasha: Yeah, I do.
+Sasha: [speed=0.5]Yeah, I do.
 
+do Director.Wait(6)
 do Oliver.PlayAnimation("sit left")
-do Director.Wait(0.75)
+do Director.Wait(1.25)
 do Oliver.PlayAnimation("sit left look right")
-do Director.Wait(0.5)
+do Director.Wait(1.5)
 
-Oliver: I wish we had marshmallows.
-Oliver: We could warm them up in a firepit, and just...
-Oliver: Ooooh yeah. That would be awesome.
+Oliver: [speed=0.75]I wish we had marshmallows.
+Oliver: [speed=0.75]We could warm them up in a firepit, and just...
+do Oliver.PlayAnimation("sit left")
+Oliver: [speed=0.75]Ooooh yeah. That would be awesome.
 do Sasha.PlayAnimation("sit right")
 Sasha: I've never done that before.
 Oliver: Me neither.
 do Sasha.PlayAnimation("sit right look left")
+do Director.Wait(1)
 Sasha: I thought you were speaking from experience.
 Oliver: I don't know. I haven't done many things.
 Oliver: They make it look really fun in movies.
 Oliver: Surely, it's just as fun in real life.
 do Sasha.PlayAnimation("sit right")
 Sasha: I'm sure it is.
-do Oliver.PlayAnimation("sit left")
 
-do Director.Wait(2)
+do Director.Wait(4)
 
-Oliver: When we're older, we should definitely go camping with everyone else.
-Oliver: It would be really fun to be out there, gathering wood for a fire, cooking dinner in it.
-Sasha: As long as I can bring my sketchbook, I'm happy.
+Oliver: When we're older...
+Oliver: ...we should totally go camping with the others.
+Oliver: It would be really fun to be out there. 
+Oliver: Gathering wood for a fire.
+Oliver: Cooking dinner in it.
+Sasha: If I can bring my sketchbook, I'm happy.
 do Oliver.PlayAnimation("sit left look right")
-Oliver: True! And then you could draw your point of view, and capture the moment.
+Oliver: True!
+Oliver: And you could draw your point of view or something.
 Oliver: That'd be cool.
 Sasha: Eh. I'd rather draw something else.
 do Oliver.PlayAnimation("sit left")
@@ -280,21 +286,30 @@ Oliver: Well, I would do that... even if its a bad doodle.
 
 do Director.Wait(3)
 
-Oliver: What WOULD you draw?
+Oliver: What *would* you draw?
 Sasha: ...
 
 # she looks up to the sky
 
 do Director.Wait(3)
 
-Sasha: I've heard the stars are clearer when away from the city.
+do Sasha.PlayAnimation("sit right look up")
+do Director.Wait(1.75)
+Sasha: I've heard the stars are clearer out there.
+Sasha: Away from the city...
 Sasha: I think that'd be nice.
 
-do Director.ShowStars()
+do Director.Wait(1)
+do Oliver.PlayAnimation("sit left look right")
+do Director.Wait(1.5)
+do Oliver.PlayAnimation("sit left")
+do Director.Wait(0.5)
+do Oliver.PlayAnimation("sit left look up")
 
-do Oliver.PlayAnimation("look up")
-# the stars appear more shiny once that's said
-# do Director.Wait(2)
+do Director.Wait(1.25)
+
+do Director.ShowStars()
+do Director.Wait(5)
 
 Sasha: I hope it's as pretty as I imagine it to be.
 Sasha: You really think we'll do that one day?
@@ -310,43 +325,37 @@ do Director.Wait(2)
 
 Oliver: Ok, I promise.
 Sasha: To?
-Oliver: I promise to.
-Sasha: Oliver...
-
-do Oliver.PlayAnimation("look up")
-
-Oliver: *small text* I promise to try and visit sometime.
+do Director.Wait(2)
+Oliver: [speed=0.25]I promise to try and visit sometime.
+do Director.Wait(2)
 Sasha: Good.
 
 do Director.Wait(6)
 
+do Director.FadeOut(5)
 
-# rewrite this last bit
-
-Oliver: I could fall asleep any time now...
-Oliver: I don't... want to though...
-Sasha: I'm sleepy.
-Oliver: No... do not... succumb.
+Oliver: [speed=0.5]I'm getting sleepy.
+Oliver: [speed=0.5]I don't... want to sleep, though.
+Sasha: I may sleep.
+Oliver: [speed=0.5]No, don't.
 Sasha: Why?
-Oliver: I'm having too much fun.
-Oliver: I don't want tonight to end...
-Sasha: Me too.
+Oliver: [speed=0.5]I don't want tonight to end...
+Sasha: He he.
 
 do Director.Wait(1)
 
-Sasha: But we should sleep, right?
-Oliver: I know...
+Sasha: I should though.
+Sasha: And you too.
+Oliver: [speed=0.5]I know.
+
+
 
 do Director.Wait(3)
 
-Oliver: Still wish we had marshmallows.
-Sasha: Heh. Maybe next time.
-
-do Director.Wait(2)
-
-Oliver: I guess it really is...
-Oliver: ... sleepy time.
 Sasha: Good night, Oli.
+
+do Director.Wait()
+
 Oliver: Good night, Sasha.
 
 => END

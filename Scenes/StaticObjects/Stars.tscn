@@ -92,7 +92,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 2.0
+"speed": 5.0
 }]
 
 [node name="Stars" type="AnimatedSprite2D" groups=["stars"]]
