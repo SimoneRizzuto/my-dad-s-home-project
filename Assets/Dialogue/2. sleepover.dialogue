@@ -297,7 +297,7 @@ do Sasha.PlayAnimation("sit right look up")
 do Director.Wait(1.75)
 Sasha: I've heard the stars are clearer out there.
 Sasha: Away from the city...
-Sasha: I think that'd be nice.
+Sasha: I think that'd be nice to draw.
 
 do Director.Wait(1)
 do Oliver.PlayAnimation("sit left look right")
