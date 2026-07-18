@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ba8ajsihdkrwt" path="res://Scenes/Rooms/TransitionSets/TransitionScreen.tscn" id="1_gtctg"]
 
-[node name="TransitionSet1Screen" type="Node2D"]
+[node name="TransitionSet5Screen" type="Node2D"]
 
 [node name="TransitionScreen" parent="." instance=ExtResource("1_gtctg")]
 RichText = "13 days remain..."

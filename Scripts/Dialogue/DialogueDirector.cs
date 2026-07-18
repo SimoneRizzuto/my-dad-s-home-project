@@ -13,7 +13,7 @@ using MyFathersHomeProject.Scripts.Dialogue.Actor;
 using MyFathersHomeProject.Scripts.Shared.Helpers;
 using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Shared.Modules.Door;
-using MyFathersHomeProject.Scripts.Shared.Modules.Interactables.Custom;
+using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 
 namespace MyFathersHomeProject.Scripts.Dialogue;
 public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDisposable
@@ -107,6 +107,41 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
             actor.SetCharacterState(state);
         }
     }
+    
+    #region transition to scene
+    
+    public void TransitionToScene_Set1Transition()
+    {
+        SetActorsCharacterState(CharacterState.Gameplay);
+        SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set1TransitionScene);
+    }
+    public void TransitionToScene_Set2Transition()
+    {
+        SetActorsCharacterState(CharacterState.Gameplay);
+        SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set2TransitionScene);
+    }
+    public void TransitionToScene_Set3Transition()
+    {
+        SetActorsCharacterState(CharacterState.Gameplay);
+        SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set3TransitionScene);
+    }
+    public void TransitionToScene_Set4Transition()
+    {
+        SetActorsCharacterState(CharacterState.Gameplay);
+        SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set4TransitionScene);
+    }
+    public void TransitionToScene_Set5Transition()
+    {
+        SetActorsCharacterState(CharacterState.Gameplay);
+        SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set5TransitionScene);
+    }
+    public void TransitionToScene_Set6Transition()
+    {
+        SetActorsCharacterState(CharacterState.Gameplay);
+        SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set6TransitionScene);
+    }
+    
+    #endregion
     
     #region cutscene directions
     

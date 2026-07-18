@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddgf2nnj6r3bv"]
+[gd_scene load_steps=3 format=3 uid="uid://ddgf2nnj6r3bv"]
 
 [ext_resource type="PackedScene" uid="uid://ba8ajsihdkrwt" path="res://Scenes/Rooms/TransitionSets/TransitionScreen.tscn" id="1_b3ndt"]
+[ext_resource type="PackedScene" uid="uid://qbnee1uusofg" path="res://Scenes/Sets/#3/Set3_OliverBedroom.tscn" id="2_66wb0"]
 
-[node name="TransitionSet1Screen" type="Node2D"]
+[node name="TransitionSet3Screen" type="Node2D"]
 
 [node name="TransitionScreen" parent="." instance=ExtResource("1_b3ndt")]
+NextScene = ExtResource("2_66wb0")
 RichText = "84 days remain..."
 Buffer = 0.5
 FadeSpeed = 1.0
