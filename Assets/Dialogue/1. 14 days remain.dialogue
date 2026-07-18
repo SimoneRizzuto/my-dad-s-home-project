@@ -108,7 +108,6 @@ do SceneSwitcher.Spawn_DadKnocksScene()
 
 ~ dad_knocks
 
-#don't have a reference to Oliver
 do Oliver.SetCharacterState(1)
 do Oliver.PlayAnimation("sit left")
 

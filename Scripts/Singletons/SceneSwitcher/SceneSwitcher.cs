@@ -1,11 +1,6 @@
-using System;
-using System.Linq;
-using DialogueManagerRuntime;
 using Godot;
 using MyFathersHomeProject.Scripts.Camera;
 using MyFathersHomeProject.Scripts.Dialogue;
-using MyFathersHomeProject.Scripts.Player;
-using MyFathersHomeProject.Scripts.Shared.Helpers;
 
 namespace MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 public partial class SceneSwitcher : Node, ISceneSwitcher
@@ -15,6 +10,7 @@ public partial class SceneSwitcher : Node, ISceneSwitcher
     public const string MainMenuTrigger = "uid://yu3ix06eh24e";
     // dialogue resources
     public const string FourteenDaysRemain = "uid://c4t0mo45346ew";
+    public const string EightyFourDaysRemain = "uid://cpfuod5aedqo3";
     
     // sets
     public const string Teaser1BlackScreen = "uid://bkuhvhpu1l473";

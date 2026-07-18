@@ -122,7 +122,12 @@ public partial class DialogueDirector : Node2D, IAsyncDialogueVariables, IDispos
     }
     public void TransitionToScene_Set3Transition()
     {
-        SetActorsCharacterState(CharacterState.Gameplay);
+        var uidLong = ResourceUid.TextToId(SceneSwitcher.EightyFourDaysRemain);
+        var path = ResourceUid.GetIdPath(uidLong);
+        var resource = ResourceLoader.Load(path);
+        
+        FinishCutscene(resource);
+        
         SceneSwitcher.Instance?.TransitionToScene(SceneSwitcher.Set3TransitionScene);
     }
     public void TransitionToScene_Set4Transition()

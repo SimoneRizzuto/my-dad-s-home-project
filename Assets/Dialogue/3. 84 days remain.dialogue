@@ -1,4 +1,9 @@
 ~ dad_is_alone
+
+do Oliver.PlayAnimation("sleep face away")
+
+do Papa.LookLeft()
+
 #oliver is sleeping in his room
 
 #gentle knock

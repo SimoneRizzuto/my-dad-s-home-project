@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://bggt6ckifdcow"]
+[gd_scene load_steps=82 format=3 uid="uid://bggt6ckifdcow"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Oliver.cs" id="1_vpp82"]
 [ext_resource type="Texture2D" uid="uid://c1ua5poece8o6" path="res://Assets/Textures/Oliver/oliver eating food.png" id="2_aidie"]
@@ -24,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://gcir4qhd67go" path="res://Assets/Textures/Oliver/oliver walk right animation-Sheet.png" id="14_wa1k2"]
 [ext_resource type="Texture2D" uid="uid://bsp86xtq5vdyx" path="res://Assets/Textures/Oliver/oliver sit right controller fling-Sheet.png" id="15_urnai"]
 [ext_resource type="Texture2D" uid="uid://dguix8lv473ue" path="res://Assets/Textures/Oliver/oliver sit right look left-Sheet.png" id="16_ten6k"]
+[ext_resource type="Texture2D" uid="uid://cobbkvjo72q14" path="res://Assets/Textures/Oliver/oliver sleeping face away-Sheet.png" id="19_ea7eo"]
+[ext_resource type="Texture2D" uid="uid://biuoh43tcxpwh" path="res://Assets/Textures/Oliver/oliver sleeping face up-Sheet.png" id="20_7c6f0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3paqx"]
 size = Vector2(8, 18)
@@ -162,6 +164,18 @@ region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kim2t"]
 atlas = ExtResource("16_ten6k")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqsd6"]
+atlas = ExtResource("19_ea7eo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f3dg"]
+atlas = ExtResource("20_7c6f0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ye25"]
+atlas = ExtResource("20_7c6f0")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f03mq"]
@@ -424,6 +438,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_eqsd6")
+}],
+"loop": true,
+"name": &"sleep face away",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 24.0,
+"texture": SubResource("AtlasTexture_4f3dg")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_3ye25")
+}],
+"loop": true,
+"name": &"sleep face up",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_f03mq")
 }, {
 "duration": 1.0,
@@ -504,6 +537,7 @@ one_way_collision = true
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_aqi8e")
 animation = &"idle left"
+frame_progress = 0.833201
 
 [node name="SpeakSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_offib")
