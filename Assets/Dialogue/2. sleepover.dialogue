@@ -358,5 +358,8 @@ do Director.Wait()
 
 Oliver: Good night, Sasha.
 
+do Director.Wait(5)
+do Director.TransitionToScene_Set3Transition()
+
 => END
  
