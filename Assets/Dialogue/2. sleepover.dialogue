@@ -198,7 +198,11 @@ do Director.Wait(2)
 
 ~ going_to_bedroom
 
+do Director.TransitionToScene_Set3Transition()
+
 do Sasha.SetDirection(1)
+
+do Director.FadeOut(5)
 
 Oliver: ...
 Sasha: You didn't fall in, did you?

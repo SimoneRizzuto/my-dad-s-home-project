@@ -1,14 +1,13 @@
 ~ dad_is_alone
 
 do Oliver.PlayAnimation("sleep face away")
-
 do Papa.LookLeft()
 
-#oliver is sleeping in his room
+do Director.Wait(4)
 
 #gentle knock
 
-# the player doesn't know it's the dad until he opens the door
+
 Papa: Oliver...
 
 do Director.Wait(3)
@@ -18,10 +17,17 @@ Papa: I'm...
 
 do Director.Wait(2)
 
+do Oliver.PlayAnimation("sleep face up")
+
+do Director.Wait(3)
+
 #Oliver gets up from the bed
 #He rubs his eyes
 
 Oliver: Give me a sec.
+
+#play animation of Oliver getting up
+
 => END
 
 # the player will walk around the room
