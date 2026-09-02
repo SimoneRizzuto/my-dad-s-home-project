@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://wmi7oxbdvhci" path="res://Assets/Textures/Environments/SashaHallway/hallway wall start.png" id="1_txoun"]
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="2_2dttg"]
 [ext_resource type="PackedScene" uid="uid://cxvfgokd3m2ay" path="res://Scenes/StaticObjects/Wall.tscn" id="2_br87p"]
-[ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="3_83xkt"]
+[ext_resource type="PackedScene" path="res://Scenes/Camera/TripodDismounter.tscn" id="3_83xkt"]
 [ext_resource type="PackedScene" uid="uid://bipnn0lp8ls3u" path="res://Scenes/StaticObjects/HallwayWallLoop.tscn" id="4_lqpx0"]
 [ext_resource type="Texture2D" uid="uid://dsj263cckjwgu" path="res://Assets/Textures/Environments/SashaHallway/hallway wall fade out.png" id="4_w38nn"]
 [ext_resource type="PackedScene" uid="uid://cvyko5jswa0cn" path="res://Scenes/Modules/Door/DoorModule.tscn" id="5_v4rpc"]
@@ -159,6 +159,7 @@ position = Vector2(1, 75)
 position = Vector2(19, 63)
 Type = 4
 NavigateToUid = "uid://cioaaxpie1rog"
+DoorName = "sasha bedroom"
 
 [node name="Plant-big" type="Sprite2D" parent="Room/Walls+Floor/HallwayBedroom"]
 position = Vector2(4, 41)
@@ -189,9 +190,6 @@ DisableOnInteract = true
 
 [node name="SitOnToiletAction" type="Node" parent="Room/ToiletDoor/DoorNavigationTrigger" index="1"]
 script = ExtResource("8_ekgoh")
-
-[node name="DoorNavigationAction" parent="Room/ToiletDoor/DoorNavigationTrigger" index="2"]
-DisableNavigation = true
 
 [node name="DialogueTriggerAction" parent="Room/ToiletDoor/DoorNavigationTrigger" index="3" instance=ExtResource("8_cuy8l")]
 DialogueResource = ExtResource("9_xglgq")

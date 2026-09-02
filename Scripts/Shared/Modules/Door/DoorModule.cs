@@ -12,6 +12,11 @@ public partial class DoorModule : Node
 	[Export] public bool Closed = true;
 	[Export] public bool Locked;
 	[Export] public string NavigateToUid = SceneSwitcher.Set1_LivingRoom;
+	/// <summary>
+	/// Adds a distinct name to the door, used to navigate between two doors found in two different scenes.
+	/// If both doors on both scenes have the same name, the player will be spawned next to it.
+	/// </summary>
+	[Export] public string DoorName = "";
 
 	// getters
 	private AnimatedSprite2D DoorSprite => GetNode<AnimatedSprite2D>("DoorSprite");
