@@ -60,7 +60,7 @@ do Sasha.PlayAnimation("draw look left")
 do Director.Wait(2)
 
 Sasha: ...
-Sasha: What are you having for dinner? *slow text*
+Sasha: [speed=0.5]What are you having for dinner?
 Oliver: Um, I don't know.
 Oliver: I didn't really ask my dad.
 Sasha: Yeah...

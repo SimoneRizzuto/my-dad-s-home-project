@@ -92,23 +92,24 @@ do Director.Wait(2)
 
 Oliver: Woah!
 Sasha: Yeah!
-Oliver: Are they different from the ones you drew the other day?
+Oliver: Are these ones different from the other day?
 do Sasha.PlayAnimation("idle right")
 Sasha: Yes.
 Sasha: Well, some are.
-Sasha: The one on the right is the same reoccurring one. She's called Potato.
+Sasha: The one in the middle, Potato, she's a reoccurring one.
 Sasha: The other ones are just little guys I doodled.
-Sasha: It's been difficult to think of different kinds of merps, so I keep on resorting to the same plants.
+Sasha: It's been difficult to think of different kinds of merps.
+Sasha: I end up resorting to the same plants.
 Oliver: A potato with a flower?
 Sasha: Yeah! Potatoes can grow flowers.
 Sasha: You didn't know that?
-Oliver: I didn't. That's really cool!
-Sasha: Yeah!
+Oliver: Nah.
 Oliver: Wait!
 Oliver: I just thought of one.
 Oliver: You should make a chocolate one.
-Sasha: Uh? But it doesn't fit the theme. 
-Sasha: They're meant to be plant based.
+Sasha: Uh?
+Sasha: That doesn't fit the theme. 
+Sasha: They're meant to be based on plants.
 Oliver: Cacao is technically a seed from a plant.
 Sasha: Yes, cacao seeds are, but not chocolate. That's different.
 Oliver: Then do a cacao one. That would still be cool.
@@ -132,10 +133,10 @@ Oliver: So what you're telling me is...
 Oliver: ...good pizza exists after all!
 Sasha: I never said I didn't like pizza.
 Sasha: It just isn't my first option.
-Oliver: ... And yet, you got Gigi's one time over something else.
+Oliver: And yet, you got Gigi's one time over something else.
 Sasha: Ok, Olive Boy.
 Oliver: Hey!
-Oliver: That fits too well...
+Oliver: That's mean...
 Sasha: Hehe~
 do Sasha.PlayAnimation("sit right cushion")
 => END
@@ -189,7 +190,7 @@ Oliver: ...
 
 do Director.Wait(2)
 
-Oliver: Two weeks left, uh? *slow text*
+Oliver: [speed=0.5]Two weeks left until we move, uh?
 
 do Director.Wait(2)
 #flush toilet
