@@ -6,7 +6,7 @@ using MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Door;
 
 [Icon("res://Assets/Textures/StaticObjects/OliverBedroom/oliver-room-door-2.png")]
-public partial class DoorModule : Node
+public partial class DoorModule : Node2D
 {
 	[Export] public DoorType Type = DoorType.Orange;
 	[Export] public bool Closed = true;

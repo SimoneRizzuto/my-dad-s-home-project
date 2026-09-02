@@ -55,15 +55,15 @@ public partial class DoorNavigationAction : Node, IAction
             return;
         }
 
-        var doorArea2D = GetParent();
-        if (doorArea2D is Area2D area2D)
-        {
-            oliver.Position = area2D.Position;
-            //oliver.SetDirection(dto.ExitDirection); TODO
+        var name = doorToMoveTo.Name;
+        
+        // we're getting the wrong door. We need to grab the door from an already transitioned scene.
+        
+        oliver.GlobalPosition = doorToMoveTo.GlobalPosition;
+        //oliver.SetDirection(dto.ExitDirection); TODO
 
-            //playerCamera2D = GetNodeHelper.GetPlayerCamera(tree);
-            //playerCamera2D.PlayerOnScreenExited();
-            //mainCamera2D.ToNode(playerCamera2D);
-        }
+        //playerCamera2D = GetNodeHelper.GetPlayerCamera(tree);
+        //playerCamera2D.PlayerOnScreenExited();
+        //mainCamera2D.ToNode(playerCamera2D);
     }
 }
