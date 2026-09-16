@@ -1,9 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://bh7otdjt77r8m"]
+[gd_scene load_steps=34 format=3 uid="uid://bh7otdjt77r8m"]
 
 [ext_resource type="Texture2D" uid="uid://c04vcdhv4omev" path="res://Assets/Textures/StaticObjects/LivingRoom/orange-door.png" id="1_60vnj"]
 [ext_resource type="Texture2D" uid="uid://i10d657iytts" path="res://Assets/Textures/Environments/living-room-foreground-wall.png" id="1_a5bcu"]
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="1_njjkm"]
-[ext_resource type="PackedScene" uid="uid://d181rcj6afj4s" path="res://Scenes/Camera/TripodDismounter.tscn" id="2_7l723"]
+[ext_resource type="PackedScene" path="res://Scenes/Camera/TripodDismounter.tscn" id="2_7l723"]
 [ext_resource type="PackedScene" uid="uid://1q3qlo8wd64c" path="res://Scenes/Tools/ZIndexModifier/ZIndexModifier.tscn" id="3_c7aby"]
 [ext_resource type="Texture2D" uid="uid://bosivm32etxdc" path="res://Assets/Textures/StaticObjects/LivingRoom/cofano-portrait.png" id="5_20dyk"]
 [ext_resource type="Texture2D" uid="uid://dlquv7ogqic57" path="res://Assets/Textures/StaticObjects/LivingRoom/mother-snow-portrait.png" id="6_d66rx"]
@@ -19,7 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://clmu60lrf5142" path="res://Assets/Textures/StaticObjects/LivingRoom/stove.png" id="13_knjys"]
 [ext_resource type="Texture2D" uid="uid://c1p1a0p2udlyd" path="res://Assets/Textures/StaticObjects/LivingRoom/kitchen-wall-tiles.png" id="13_rpf6e"]
 [ext_resource type="Texture2D" uid="uid://cqbi0hxg3pfcg" path="res://Assets/Textures/StaticObjects/LivingRoom/cabinet-high.png" id="13_v07l2"]
-[ext_resource type="Texture2D" uid="uid://bsuh7xp6sxfde" path="res://Assets/Textures/StaticObjects/LivingRoom/oliver-room-door-1.png" id="15_c3lpc"]
 [ext_resource type="Texture2D" uid="uid://euqpwcvt5hus" path="res://Assets/Textures/StaticObjects/LivingRoom/kitchen-sink.png" id="16_0cc4e"]
 [ext_resource type="Texture2D" uid="uid://b7dgjt5ygh5rx" path="res://Assets/Textures/StaticObjects/LivingRoom/kitchen-bin.png" id="17_uocss"]
 [ext_resource type="Texture2D" uid="uid://bct7whlcf7min" path="res://Assets/Textures/StaticObjects/LivingRoom/dining-table.png" id="18_ovga7"]
@@ -181,11 +180,6 @@ texture = ExtResource("12_6qxn2")
 centered = false
 
 [node name="Kitchen" type="Node2D" parent="ForegroundWall"]
-
-[node name="OliverRoomDoor" type="Sprite2D" parent="ForegroundWall/Kitchen"]
-position = Vector2(114, 32)
-texture = ExtResource("15_c3lpc")
-centered = false
 
 [node name="Fridge" type="Sprite2D" parent="ForegroundWall/Kitchen"]
 position = Vector2(219, 40)

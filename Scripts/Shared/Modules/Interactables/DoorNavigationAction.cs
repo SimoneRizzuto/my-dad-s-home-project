@@ -35,7 +35,9 @@ public partial class DoorNavigationAction : Node, IAction
         }
         
         SceneSwitcher.Instance?.TransitionToScene(uid);
-
+        
+        if (string.IsNullOrWhiteSpace(doorName)) return;
+        
         var tree = GetTree();
         
         // Find door by group name "door" and the "doorName".
