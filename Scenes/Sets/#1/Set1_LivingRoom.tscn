@@ -68,3 +68,4 @@ DoorName = "oliver bedroom"
 [node name="DoorModule" parent="." instance=ExtResource("7_j5k16")]
 z_index = 10
 position = Vector2(471, 75)
+NavigateToUid = "uid://cw2qkt3pdk0hs"
