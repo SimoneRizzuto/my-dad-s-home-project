@@ -159,6 +159,7 @@ position = Vector2(1, 75)
 position = Vector2(19, 63)
 Type = 4
 NavigateToUid = "uid://cioaaxpie1rog"
+ExitDirection = 1
 DoorName = "sasha bedroom"
 
 [node name="Plant-big" type="Sprite2D" parent="Room/Walls+Floor/HallwayBedroom"]
@@ -190,6 +191,9 @@ DisableOnInteract = true
 
 [node name="SitOnToiletAction" type="Node" parent="Room/ToiletDoor/DoorNavigationTrigger" index="1"]
 script = ExtResource("8_ekgoh")
+
+[node name="DoorNavigationAction" parent="Room/ToiletDoor/DoorNavigationTrigger" index="2"]
+DisableNavigation = true
 
 [node name="DialogueTriggerAction" parent="Room/ToiletDoor/DoorNavigationTrigger" index="3" instance=ExtResource("8_cuy8l")]
 DialogueResource = ExtResource("9_xglgq")

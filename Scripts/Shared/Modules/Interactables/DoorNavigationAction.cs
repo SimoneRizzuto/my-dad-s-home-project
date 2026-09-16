@@ -40,7 +40,9 @@ public partial class DoorNavigationAction : Node, IAction
         
         // Find door by group name "door" and the "doorName".
         var doorNodes = tree.GetNodesInGroup(NodeGroup.Door);
-        var doorToMoveTo = doorNodes.Cast<DoorModule>().FirstOrDefault(x => x.DoorName == doorName);
+        
+        // last or default is such a bad idea, but it works, so long as both scenes are spawned at the same time
+        var doorToMoveTo = doorNodes.Cast<DoorModule>().LastOrDefault(x => x.DoorName == doorName);
         if (doorToMoveTo == null)
         {
             GD.PrintErr($"{nameof(doorToMoveTo)} was null. DoorName: {doorName}");
@@ -55,12 +57,8 @@ public partial class DoorNavigationAction : Node, IAction
             return;
         }
 
-        var name = doorToMoveTo.Name;
-        
-        // we're getting the wrong door. We need to grab the door from an already transitioned scene.
-        
-        oliver.GlobalPosition = doorToMoveTo.GlobalPosition;
-        //oliver.SetDirection(dto.ExitDirection); TODO
+        oliver.GlobalPosition = new Vector2(doorToMoveTo.GlobalPosition.X + 14, doorToMoveTo.GlobalPosition.Y);
+        oliver.SetDirection(doorToMoveTo.ExitDirection);
 
         //playerCamera2D = GetNodeHelper.GetPlayerCamera(tree);
         //playerCamera2D.PlayerOnScreenExited();

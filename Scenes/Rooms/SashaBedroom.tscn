@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d0a6mystt74m5"]
+[gd_scene load_steps=19 format=3 uid="uid://d0a6mystt74m5"]
 
 [ext_resource type="PackedScene" uid="uid://bux6ns4gk6jdr" path="res://Scenes/Camera/TripodMount.tscn" id="1_5m3ee"]
 [ext_resource type="Texture2D" uid="uid://cih7s2rohugoh" path="res://Assets/Textures/Environments/SashaBedroom/sasha-bedroom-wall.png" id="1_f6sw5"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://3j3aonll5qm3" path="res://Scenes/Modules/DialogueTriggerAction.tscn" id="9_42c4i"]
 [ext_resource type="Resource" uid="uid://hqbevxyupoa2" path="res://Assets/Dialogue/2. sleepover.dialogue" id="10_bia8r"]
 [ext_resource type="PackedScene" uid="uid://vdqs0lk5wye3" path="res://Scenes/Modules/Bed/BedModule.tscn" id="14_utv8w"]
+[ext_resource type="PackedScene" uid="uid://cvyko5jswa0cn" path="res://Scenes/Modules/Door/DoorModule.tscn" id="15_5ggy4"]
 [ext_resource type="Texture2D" uid="uid://b4nxqd8r8ere6" path="res://Assets/Textures/StaticObjects/SashaBedroom/desk.png" id="16_e0dqk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rlomt"]
@@ -139,6 +140,12 @@ centered = false
 position = Vector2(94, 36)
 texture = ExtResource("2_lgr8v")
 centered = false
+
+[node name="DoorModule" parent="Wall" instance=ExtResource("15_5ggy4")]
+position = Vector2(91, 75)
+Type = 3
+NavigateToUid = "uid://bqcbyp88igw8a"
+DoorName = "sasha bedroom"
 
 [node name="Wall+Floor" type="Node2D" parent="."]
 

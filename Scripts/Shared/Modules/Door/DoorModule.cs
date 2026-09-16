@@ -1,5 +1,6 @@
 using System;
 using Godot;
+using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 using MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
 
@@ -12,6 +13,7 @@ public partial class DoorModule : Node2D
 	[Export] public bool Closed = true;
 	[Export] public bool Locked;
 	[Export] public string NavigateToUid = SceneSwitcher.Set1_LivingRoom;
+	[Export] public Direction ExitDirection = Direction.Right;
 	/// <summary>
 	/// Adds a distinct name to the door, used to navigate between two doors found in two different scenes.
 	/// If both doors on both scenes have the same name, the player will be spawned next to it.
