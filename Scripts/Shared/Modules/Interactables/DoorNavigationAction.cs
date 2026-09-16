@@ -59,9 +59,5 @@ public partial class DoorNavigationAction : Node, IAction
 
         oliver.GlobalPosition = new Vector2(doorToMoveTo.GlobalPosition.X + 14, doorToMoveTo.GlobalPosition.Y);
         oliver.SetDirection(doorToMoveTo.ExitDirection);
-
-        //playerCamera2D = GetNodeHelper.GetPlayerCamera(tree);
-        //playerCamera2D.PlayerOnScreenExited();
-        //mainCamera2D.ToNode(playerCamera2D);
     }
 }
