@@ -1,17 +1,39 @@
 using System;
 using Godot;
+using MyFathersHomeProject.Scripts.Shared.Constants;
 using MyFathersHomeProject.Scripts.Singletons.SceneSwitcher;
 using MyFathersHomeProject.Scripts.Shared.Modules.Interactables;
 
 namespace MyFathersHomeProject.Scripts.Shared.Modules.Door;
 
 [Icon("res://Assets/Textures/StaticObjects/OliverBedroom/oliver-room-door-2.png")]
-public partial class DoorModule : Node
+public partial class DoorModule : Node2D
 {
+	/// <summary>
+	/// Determines the sprite it will render as.
+	/// </summary>
 	[Export] public DoorType Type = DoorType.Orange;
+	/// <summary>
+	/// Determines if the door sprite is open or closed.
+	/// </summary>
 	[Export] public bool Closed = true;
+	/// <summary>
+	/// Determines whether someone can interact with the door or not.
+	/// </summary>
 	[Export] public bool Locked;
+	/// <summary>
+	/// UID for which scene the door will transition you to.
+	/// </summary>
 	[Export] public string NavigateToUid = SceneSwitcher.Set1_LivingRoom;
+	/// <summary>
+	/// Adds a distinct name to the door, used to navigate between two doors found in two different scenes.
+	/// If both doors on both scenes have the same name, the player will be spawned next to it.
+	/// </summary>
+	[Export] public string DoorName = "";
+	/// <summary>
+	/// Determines which direction the player faces when coming out of a transition between scenes, via a door.
+	/// </summary>
+	[Export] public Direction ExitDirection = Direction.Right;
 
 	// getters
 	private AnimatedSprite2D DoorSprite => GetNode<AnimatedSprite2D>("DoorSprite");
