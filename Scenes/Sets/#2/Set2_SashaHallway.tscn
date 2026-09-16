@@ -159,7 +159,6 @@ position = Vector2(1, 75)
 position = Vector2(19, 63)
 Type = 4
 NavigateToUid = "uid://cioaaxpie1rog"
-ExitDirection = 1
 DoorName = "sasha bedroom"
 
 [node name="Plant-big" type="Sprite2D" parent="Room/Walls+Floor/HallwayBedroom"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cyoekyq6ui657"]
+[gd_scene load_steps=31 format=3 uid="uid://cyoekyq6ui657"]
 
 [ext_resource type="Texture2D" uid="uid://bi14ih4bw0ew2" path="res://Assets/Textures/Environments/oliver-room-background-wall.png" id="1_bcs8k"]
 [ext_resource type="Script" path="res://Scenes/Rooms/CameraOverride.cs" id="1_pd1oj"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://by0g7kqmolbmo" path="res://Assets/Textures/StaticObjects/OliverBedroom/computer-setup-oliver.png" id="4_mgifm"]
 [ext_resource type="Texture2D" uid="uid://cu4vgtlot0af6" path="res://Assets/Textures/StaticObjects/OliverBedroom/spider-boy-poster.png" id="5_6wfvo"]
 [ext_resource type="Texture2D" uid="uid://ds7aj5pn0ud40" path="res://Assets/Textures/StaticObjects/LivingRoom/window-1.png" id="5_45bm8"]
-[ext_resource type="PackedScene" uid="uid://cvyko5jswa0cn" path="res://Scenes/Modules/Door/DoorModule.tscn" id="5_852kd"]
 [ext_resource type="Texture2D" uid="uid://dxdlfso230vqe" path="res://Assets/Textures/StaticObjects/OliverBedroom/lamp-2.png" id="6_k5h05"]
 [ext_resource type="Texture2D" uid="uid://04nacisj1c5p" path="res://Assets/Textures/StaticObjects/OliverBedroom/clothes.png" id="7_ru0kb"]
 [ext_resource type="Texture2D" uid="uid://dvxi1fkoqhfuc" path="res://Assets/Textures/StaticObjects/OliverBedroom/bedside-drawer-2-oliver.png" id="7_vxv3r"]
@@ -23,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://b5b5t5lllkio2" path="res://Assets/Textures/StaticObjects/OliverBedroom/clothes-ball.png" id="11_s4via"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/ClothesMoveToHeadAction.cs" id="12_2pib8"]
 [ext_resource type="Texture2D" uid="uid://o0psnnkmfi2r" path="res://Assets/Textures/Rendering/2d_lights_and_shadows_neutral_down_point_light.webp" id="12_qvimp"]
-[ext_resource type="PackedScene" uid="uid://c4sfh3btwj0ej" path="res://Scenes/StaticObjects/FoodPlate.tscn" id="18_cruoa"]
+[ext_resource type="PackedScene" path="res://Scenes/StaticObjects/FoodPlate.tscn" id="18_cruoa"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/DialogueTriggerAction.cs" id="19_x8p4j"]
 [ext_resource type="Resource" uid="uid://c4t0mo45346ew" path="res://Assets/Dialogue/1. 14 days remain.dialogue" id="20_w067e"]
 [ext_resource type="Script" path="res://Scripts/Shared/Modules/Interactables/Custom/TurnOffLightAction.cs" id="24_60wok"]
@@ -71,10 +70,6 @@ texture = ExtResource("1_bcs8k")
 centered = false
 
 [node name="Objects" type="Node2D" parent="."]
-
-[node name="DoorModule" parent="Objects" instance=ExtResource("5_852kd")]
-position = Vector2(224, 75)
-Type = 1
 
 [node name="HeroPoster" type="Sprite2D" parent="Objects"]
 position = Vector2(125, 55)
