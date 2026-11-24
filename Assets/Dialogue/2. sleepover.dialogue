@@ -177,8 +177,8 @@ do Oliver.StopJumpLoop()
 
 do Director.Wait(3)
 
+Oliver: I haven't stayed at Sasha's in a little bit.
 Oliver: This is nice.
-Oliver: Haven't done this for a little bit.
 
 do Director.Wait(3)
 
@@ -199,7 +199,7 @@ do Director.Wait(2)
 
 ~ going_to_bedroom
 
-do Director.TransitionToScene_Set3Transition()
+#do Director.TransitionToScene_Set3Transition()
 
 do Sasha.SetDirection(1)
 
@@ -310,6 +310,8 @@ do Director.Wait(1.5)
 do Oliver.PlayAnimation("sit left")
 do Director.Wait(0.5)
 do Oliver.PlayAnimation("sit left look up")
+
+# TODO: play music here!!!
 
 do Director.Wait(1.25)
 

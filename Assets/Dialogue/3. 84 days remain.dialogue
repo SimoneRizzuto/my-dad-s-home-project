@@ -12,7 +12,7 @@ Papa: Oliver...
 
 do Director.Wait(3)
 
-Papa: A-Are you... awake?
+Papa: Are you... awake?
 Papa: I'm...
 
 do Director.Wait(2)
